@@ -150,7 +150,7 @@ $content = get_post();
                 <?php
                         }
                     } ?>
-            </div>
+                </div>
         </section>
         
         <section class="festival-sidebar"> <!-- Sidebar start -->
