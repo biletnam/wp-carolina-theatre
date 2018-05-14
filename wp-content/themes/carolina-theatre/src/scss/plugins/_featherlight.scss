@@ -14,11 +14,11 @@
 		text-align: center;
 		white-space: nowrap;
 		cursor: pointer;
-		background: $gray-dk;
-		background: rgba($gray-dk, 0);	/* IE8 "hack" for nested featherlights */
+		background: $black;
+		background: rgba($black, 0);	/* IE8 "hack" for nested featherlights */
 
 		&:last-of-type { /* nested featherlgiht support */
-			background: rgba($gray-dk, 0.98);
+			background: rgba($black, 0.98);
 		}
 
 		&:before {

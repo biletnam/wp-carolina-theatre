@@ -1,1 +1,0 @@
-jQuery(function($){$(document).ready(function(){$(".carousel, .hero-slider").slick({dots:!0,arrows:!0}),$(".hero-block__slider, .hp-upcoming__slider").slick({dots:!0,arrows:!0})})});
