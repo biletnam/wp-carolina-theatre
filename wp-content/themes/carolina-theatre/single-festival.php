@@ -55,9 +55,14 @@ $content = get_post();
             <!-- Generate all tabs, show only highlighted tab content -->
             <div class="festival-content__wrapper">
                 <div class='tab-content hide-tab-content overview'>
-                    <?php 
-                    // Overview tab - content
-                    print_r($content->post_content); ?>
+                    <?php
+                    if (have_rows("overview")) {
+                        while (have_rows("overview")) {
+                            the_row();
+                                get_template_part( 'blocks/content-blocks' );
+                        }
+                    }
+                    ?>
                 </div>
                 <div class='films tab-content hide-tab-content'>
                 <?php 
@@ -145,17 +150,6 @@ $content = get_post();
                 <?php
                         }
                     } ?>
-            </div>
-
-            <div class="single-film__videos">
-                <div class="single-film__videos--one">
-                    <?php the_field('video_link_1');?>
-                    <p><?php the_field('video_caption_1')?></p>
-                </div>
-                <div class="single-film__videos--two">
-                    <?php the_field('video_link_2');?>
-                    <p><?php the_field('video_caption_2')?></p>
-                </div>
             </div>
         </section>
         
