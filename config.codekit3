@@ -9,6 +9,20 @@
 	],
 "creatorBuild": "26261",
 "files": {
+	"\/.gitignore\/.gitignore": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/.gitignore\/.gitignore",
+		"oF": 0
+		},
+	"\/.htaccess": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/.htaccess",
+		"oF": 0
+		},
 	"\/index.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -4902,13 +4916,6 @@
 		"oAP": "\/wp-config.php",
 		"oF": 0
 		},
-	"\/wp-content\/db\/index.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/wp-content\/db\/index.php",
-		"oF": 0
-		},
 	"\/wp-content\/index.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -6932,6 +6939,126 @@
 		"oAP": "\/wp-content\/themes\/carolina-theatre\/404.php",
 		"oF": 0
 		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ab90bc7911a3.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ab90bc7911a3-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ab90bc79a251.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ab90bc79a251-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ab9233d9fcff.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ab9233d9fcff-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5acb83f7d2dca.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5acb83f7d2dca-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ad4c77854fb5.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ad4c77854fb5-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ad4dced3f094.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ad4dced3f094-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae088b797cff.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae088b797cff-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae090661bb47.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae090661bb47-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae090e11a2e9.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae090e11a2e9-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09121be3c9.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09121be3c9-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae091d3db1a4.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae091d3db1a4-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09296d82c0.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09296d82c0-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09300ed352.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09300ed352-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09890aebfb.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09890aebfb-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09b5f476a2.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09b5f476a2-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
 	"\/wp-content\/themes\/carolina-theatre\/acf-json\/index.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -7009,6 +7136,23 @@
 		"oAP": "\/wp-content\/themes\/carolina-theatre\/comments.php",
 		"oF": 0
 		},
+	"\/wp-content\/themes\/carolina-theatre\/db\/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/db\/index.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/dist\/scripts-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/dist\/scripts-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
 	"\/wp-content\/themes\/carolina-theatre\/dist\/styles.css": {
 		"aP": 1,
 		"bl": 0,
@@ -7026,6 +7170,13 @@
 		"oAP": "\/wp-content\/themes\/carolina-theatre\/footer.php",
 		"oF": 0
 		},
+	"\/wp-content\/themes\/carolina-theatre\/front-page.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/front-page.php",
+		"oF": 0
+		},
 	"\/wp-content\/themes\/carolina-theatre\/functions.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -7040,11 +7191,11 @@
 		"oAP": "\/wp-content\/themes\/carolina-theatre\/header.php",
 		"oF": 0
 		},
-	"\/wp-content\/themes\/carolina-theatre\/includes\/custom-posts.php": {
+	"\/wp-content\/themes\/carolina-theatre\/inc\/custom-post-types.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/includes\/custom-posts.php",
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/inc\/custom-post-types.php",
 		"oF": 0
 		},
 	"\/wp-content\/themes\/carolina-theatre\/index.php": {
@@ -7198,52 +7349,12 @@
 		"opt": 0,
 		"q": 100
 		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/js\/event-filter-min.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/js\/event-filter-min-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
 	"\/wp-content\/themes\/carolina-theatre\/src\/js\/event-filter.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/js\/event-filter-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/js\/featherlight.gallery.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/js\/featherlight.gallery-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/js\/featherlight.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/js\/featherlight-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/js\/filmFestivalTabs-min.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/js\/filmFestivalTabs-min-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -7252,38 +7363,78 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/js\/filmFestivalTabs-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
 		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/js\/singleFilmReadMore-min.js": {
+	"\/wp-content\/themes\/carolina-theatre\/src\/js\/plugins\/featherlight.gallery.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/js\/plugins\/featherlight.gallery-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/src\/js\/plugins\/featherlight.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/js\/plugins\/featherlight-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/src\/js\/plugins\/slick.min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/js\/singleFilmReadMore-min-min.js",
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/js\/plugins\/slick.min-min.js",
 		"oF": 0,
 		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/src\/js\/plugins\/sticky-kit-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/js\/plugins\/sticky-kit-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/src\/js\/plugins\/waypoints.min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/js\/plugins\/waypoints.min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/src\/js\/scripts.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/dist\/scripts-min.js",
+		"oF": 2,
+		"sC": 0,
 		"tS": 0
 		},
 	"\/wp-content\/themes\/carolina-theatre\/src\/js\/singleFilmReadMore.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/js\/singleFilmReadMore-min.js",
-		"oF": 0,
-		"sC": 3,
-		"tS": 0
-		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/js\/slick-init-min.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/js\/slick-init-min-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -7292,13 +7443,26 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/js\/slick-init-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
 		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/_accordion.scss": {
+	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/dashboard\/editor-style.scss": {
+		"aP": 1,
+		"bl": 1,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/dist\/editor-style.css",
+		"oF": 2,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/helpers\/_functions.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -7306,12 +7470,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/_accordion.css",
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/helpers\/_functions.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/_featherlight-gallery.scss": {
+	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/helpers\/_important.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -7319,12 +7483,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/_featherlight-gallery.css",
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/helpers\/_important.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/_featherlight.scss": {
+	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/plugins\/_featherlight-gallery.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -7332,12 +7496,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/_featherlight.css",
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/plugins\/_featherlight-gallery.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/_hero-slider.scss": {
+	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/plugins\/_featherlight.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -7345,12 +7509,12 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/_hero-slider.css",
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/plugins\/_featherlight.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/_single-event.scss": {
+	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/plugins\/_slick.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -7358,20 +7522,7 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/_single-event.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/_single-film.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/_single-film.css",
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/plugins\/_slick.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -7384,10 +7535,98 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/styles.css",
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/dist\/styles.css",
+		"oF": 2,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/styles\/_accordion.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/styles\/_accordion.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/styles\/_colors.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/styles\/_colors.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/styles\/_hero-slider.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/styles\/_hero-slider.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/styles\/_single-event.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/styles\/_single-event.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/styles\/_single-film.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/styles\/_single-film.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/styles\/_type.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/styles\/_type.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/style-min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/style-min-min.css",
+		"oF": 0,
+		"oS": 3
 		},
 	"\/wp-content\/themes\/carolina-theatre\/style.css": {
 		"aP": 1,
@@ -14765,6 +15004,44 @@
 "hooks": [
 	],
 "manualImportLinks": {
+	"\/wp-content\/themes\/carolina-theatre\/src\/js\/scripts.js": [
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/wp-content\/themes\/carolina-theatre\/src\/js\/plugins\/featherlight.js",
+			"position": 0,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/wp-content\/themes\/carolina-theatre\/src\/js\/plugins\/featherlight.gallery.js",
+			"position": 1,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/wp-content\/themes\/carolina-theatre\/src\/js\/event-filter.js",
+			"position": 2,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/wp-content\/themes\/carolina-theatre\/src\/js\/slick-init.js",
+			"position": 3,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/wp-content\/themes\/carolina-theatre\/src\/js\/singleFilmReadMore.js",
+			"position": 4,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/wp-content\/themes\/carolina-theatre\/src\/js\/filmFestivalTabs.js",
+			"position": 5,
+			"type": 1
+			}
+		]
 	},
 "projectAttributes": {
 	"creationDate": 543171924,
