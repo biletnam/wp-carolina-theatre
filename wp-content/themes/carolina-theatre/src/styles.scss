@@ -1,0 +1,240 @@
+@import "single-film";
+@import "single-event";
+@import "hero-slider";
+@import "accordion";
+// @import "featherlight";
+// @import "featherlight-gallery";
+
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Lato", sans-serif;
+}
+
+// featherlight example
+div[class^="inline-"] {
+	display: none;
+}
+
+.container {
+	width: 80%;
+	margin: 50px auto;
+}
+
+.featured {
+	&__container {
+		background-color: orange;
+
+		&--event {
+			display: flex;
+			background-color: green;
+		}
+
+		.carousel {
+			margin: auto;
+			width: 90%;
+		}
+	}
+
+	&__image {
+		width: 50%;
+
+		background-color: black;
+		display: flex;
+		justify-content: center;
+
+		img {
+			max-height: 300px;
+			max-width: 300px;
+			width: 100%;
+			overflow: hidden;
+		}
+	}
+
+	&__event-info {
+		width: 40%;
+
+		ul {
+			margin: 30px 0;
+			list-style-type: none;
+		}
+
+		&--content {
+			width: 80%;
+			margin: auto;
+		}
+
+		&--content p {
+			// temp hard code, figure out description layout
+			max-height: 200px;
+			overflow: hidden;
+		}
+	}
+}
+
+.upcoming-events {
+	margin-top: 50px;
+
+	&__event-cards {
+		// display: inline-block;
+		width: 70%;
+		float: left;
+		border-right: 1px solid rgba(100, 100, 100, 0.3);
+	}
+
+	&__type li,
+	&__filters li {
+		display: inline-block;
+		padding-right: 10px;
+	}
+
+	&__filters li {
+		font-size: 12px;
+	}
+	.filmFilter {
+		display: none;
+	}
+
+	&__sidebar {
+		display: inline-block;
+		width: 30%;
+
+		&--search {
+			width: 80%;
+			margin: auto;
+
+			input,
+			button {
+				border: 1px solid rgba(50, 50, 50, 0.3);
+			}
+		}
+	}
+
+	&__list {
+		display: inline-block;
+		width: 80%;
+		margin-left: 10%;
+		font-weight: 300;
+		padding: 20px;
+
+		p {
+			font-size: 24px;
+		}
+
+		ul {
+			list-style: none;
+		}
+	}
+
+	&__cta-card {
+		display: inline-block;
+		width: 80%;
+		margin: 20px 0;
+		margin-left: 10%;
+		padding: 20px;
+		border: 1px solid rgba(50, 50, 50, 0.3);
+		font-weight: 300;
+
+		h2 {
+			font-weight: 300;
+		}
+	}
+}
+
+// highlights filter on-click
+.active-filter {
+	background-color: black;
+	color: white;
+}
+
+///////// ROTATING CARDS ////////////
+.events__event-card {
+	height: 30rem;
+	position: relative;
+	perspective: 150rem;
+	-moz-perspective: 150rem;
+	display: inline-block;
+	width: 30%;
+	min-width: 100px;
+
+	.card {
+		height: 30rem;
+		transition: all 0.8s ease;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		backface-visibility: hidden;
+		overflow: hidden;
+		border: 1px solid rgba(50, 50, 50, 0.3);
+		vertical-align: top;
+		margin-top: 30px;
+	}
+
+	.event-card__back {
+		transform: rotateY(180deg);
+		img {
+			height: 100%;
+		}
+	}
+
+	&:hover .event-card__front {
+		transform: rotateY(-180deg);
+	}
+
+	&:hover .event-card__back {
+		transform: rotateY(0);
+	}
+}
+
+.event-content-container {
+	margin: 20px;
+}
+
+.event-image-container {
+	height: 200px;
+	width: 100%;
+	overflow: hidden;
+
+	img {
+		max-width: 100%;
+	}
+}
+
+.event-date {
+	display: inline-block;
+	position: absolute;
+	top: 4%;
+	left: 7%;
+	color: white;
+	font-size: 1.5rem;
+}
+
+.image-only__content-container {
+	position: absolute;
+	top: 10%;
+	left: 15%;
+	width: 70%;
+	margin: auto;
+	color: white;
+	text-align: center;
+
+	ul {
+		list-style: none;
+		line-height: 4rem;
+	}
+
+	button {
+		background-color: white;
+		color: black;
+	}
+}
+
+.clearfix::after {
+	content: "";
+	display: table;
+	clear: both;
+}
