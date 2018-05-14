@@ -7,8 +7,22 @@
 		"uuidString": "31306FE9-84EA-4B14-891D-1CBE39F6F5CA"
 		}
 	],
-"creatorBuild": "26261",
+"creatorBuild": "26680",
 "files": {
+	"\/.gitignore\/.gitignore": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/.gitignore\/.gitignore",
+		"oF": 0
+		},
+	"\/.htaccess": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/.htaccess",
+		"oF": 0
+		},
 	"\/index.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -4902,13 +4916,6 @@
 		"oAP": "\/wp-config.php",
 		"oF": 0
 		},
-	"\/wp-content\/db\/index.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/wp-content\/db\/index.php",
-		"oF": 0
-		},
 	"\/wp-content\/index.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -6932,6 +6939,126 @@
 		"oAP": "\/wp-content\/themes\/carolina-theatre\/404.php",
 		"oF": 0
 		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ab90bc7911a3.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ab90bc7911a3-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ab90bc79a251.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ab90bc79a251-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ab9233d9fcff.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ab9233d9fcff-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5acb83f7d2dca.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5acb83f7d2dca-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ad4c77854fb5.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ad4c77854fb5-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ad4dced3f094.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ad4dced3f094-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae088b797cff.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae088b797cff-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae090661bb47.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae090661bb47-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae090e11a2e9.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae090e11a2e9-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09121be3c9.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09121be3c9-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae091d3db1a4.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae091d3db1a4-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09296d82c0.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09296d82c0-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09300ed352.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09300ed352-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09890aebfb.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09890aebfb-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09b5f476a2.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/acf-json\/group_5ae09b5f476a2-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
 	"\/wp-content\/themes\/carolina-theatre\/acf-json\/index.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -6945,6 +7072,171 @@
 		"oA": 0,
 		"oAP": "\/wp-content\/themes\/carolina-theatre\/archive.php",
 		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/assets\/css\/colors-dark.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/assets\/css\/colors-dark-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/wp-content\/themes\/carolina-theatre\/assets\/css\/editor-style.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/assets\/css\/editor-style-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/wp-content\/themes\/carolina-theatre\/assets\/css\/ie8.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/assets\/css\/ie8-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/wp-content\/themes\/carolina-theatre\/assets\/css\/ie9.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/assets\/css\/ie9-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/wp-content\/themes\/carolina-theatre\/assets\/images\/background-background-image-creek-707915.jpg": {
+		"ft": 16384,
+		"iS": 6579815,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/assets\/images\/background-background-image-creek-707915.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/themes\/carolina-theatre\/assets\/images\/comedy.jpg": {
+		"ft": 16384,
+		"iS": 55151,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/assets\/images\/comedy.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/themes\/carolina-theatre\/assets\/images\/death_proof.jpg": {
+		"ft": 16384,
+		"iS": 99630,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/assets\/images\/death_proof.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/themes\/carolina-theatre\/assets\/images\/les_miserables.jpg": {
+		"ft": 16384,
+		"iS": 46662,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/assets\/images\/les_miserables.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/themes\/carolina-theatre\/assets\/images\/the-last-jedi-theatrical-blog.jpg": {
+		"ft": 16384,
+		"iS": 721767,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/assets\/images\/the-last-jedi-theatrical-blog.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/themes\/carolina-theatre\/assets\/js\/customize-controls.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/assets\/js\/customize-controls-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/assets\/js\/customize-preview.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/assets\/js\/customize-preview-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/assets\/js\/global.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/assets\/js\/global-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/assets\/js\/html5.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/assets\/js\/html5-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/assets\/js\/jquery.scrollTo.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/assets\/js\/jquery.scrollTo-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/assets\/js\/navigation.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/assets\/js\/navigation-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/assets\/js\/skip-link-focus-fix.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/assets\/js\/skip-link-focus-fix-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
 		},
 	"\/wp-content\/themes\/carolina-theatre\/blocks\/content-blocks-accordion.php": {
 		"cB": 0,
@@ -7009,6 +7301,20 @@
 		"oAP": "\/wp-content\/themes\/carolina-theatre\/comments.php",
 		"oF": 0
 		},
+	"\/wp-content\/themes\/carolina-theatre\/custom-posts.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/custom-posts.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/db\/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/db\/index.php",
+		"oF": 0
+		},
 	"\/wp-content\/themes\/carolina-theatre\/dist\/styles.css": {
 		"aP": 1,
 		"bl": 0,
@@ -7026,6 +7332,13 @@
 		"oAP": "\/wp-content\/themes\/carolina-theatre\/footer.php",
 		"oF": 0
 		},
+	"\/wp-content\/themes\/carolina-theatre\/front-page.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/front-page.php",
+		"oF": 0
+		},
 	"\/wp-content\/themes\/carolina-theatre\/functions.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -7040,11 +7353,53 @@
 		"oAP": "\/wp-content\/themes\/carolina-theatre\/header.php",
 		"oF": 0
 		},
-	"\/wp-content\/themes\/carolina-theatre\/includes\/custom-posts.php": {
+	"\/wp-content\/themes\/carolina-theatre\/inc\/back-compat.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/includes\/custom-posts.php",
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/inc\/back-compat.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/inc\/color-patterns.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/inc\/color-patterns.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/inc\/custom-header.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/inc\/custom-header.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/inc\/customizer.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/inc\/customizer.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/inc\/icon-functions.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/inc\/icon-functions.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/inc\/template-functions.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/inc\/template-functions.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/inc\/template-tags.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/inc\/template-tags.php",
 		"oF": 0
 		},
 	"\/wp-content\/themes\/carolina-theatre\/index.php": {
@@ -7067,6 +7422,16 @@
 		"oA": 0,
 		"oAP": "\/wp-content\/themes\/carolina-theatre\/README.txt",
 		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theatre\/rtl.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/rtl-min.css",
+		"oF": 0,
+		"oS": 3
 		},
 	"\/wp-content\/themes\/carolina-theatre\/screenshot.png": {
 		"ft": 32768,
@@ -7128,61 +7493,90 @@
 		"oAP": "\/wp-content\/themes\/carolina-theatre\/single.php",
 		"oF": 0
 		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/img\/background-background-image-creek-707915.jpg": {
-		"ft": 16384,
-		"iS": 6579815,
-		"oA": 0,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/img\/background-background-image-creek-707915.jpg",
+	"\/wp-content\/themes\/carolina-theatre\/src\/_accordion.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/_accordion.css",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"q": 100
+		"oS": 0,
+		"uL": 1
 		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/img\/comedy.jpg": {
-		"ft": 16384,
-		"iS": 55151,
-		"oA": 0,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/img\/comedy.jpg",
+	"\/wp-content\/themes\/carolina-theatre\/src\/_featherlight-gallery.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/_featherlight-gallery.css",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"q": 100
+		"oS": 0,
+		"uL": 1
 		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/img\/death_proof.jpg": {
-		"ft": 16384,
-		"iS": 99630,
-		"oA": 0,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/img\/death_proof.jpg",
+	"\/wp-content\/themes\/carolina-theatre\/src\/_featherlight.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/_featherlight.css",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"q": 100
+		"oS": 0,
+		"uL": 1
 		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/img\/les_miserables.jpg": {
-		"ft": 16384,
-		"iS": 46662,
-		"oA": 0,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/img\/les_miserables.jpg",
+	"\/wp-content\/themes\/carolina-theatre\/src\/_hero-slider.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/_hero-slider.css",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"q": 100
+		"oS": 0,
+		"uL": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/src\/_single-event.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/_single-event.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/wp-content\/themes\/carolina-theatre\/src\/_single-film.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/_single-film.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
 		},
 	"\/wp-content\/themes\/carolina-theatre\/src\/img\/oliver.jpg": {
 		"ft": 16384,
 		"iS": 143021,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/img\/oliver.jpg",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"q": 100
-		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/img\/the-last-jedi-theatrical-blog.jpg": {
-		"ft": 16384,
-		"iS": 721767,
-		"oA": 0,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/img\/the-last-jedi-theatrical-blog.jpg",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
@@ -7191,6 +7585,7 @@
 	"\/wp-content\/themes\/carolina-theatre\/src\/img\/wizard-of-oz.jpg": {
 		"ft": 16384,
 		"iS": 533604,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/img\/wizard-of-oz.jpg",
 		"oF": 0,
@@ -7298,85 +7693,7 @@
 		"sC": 3,
 		"tS": 0
 		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/_accordion.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/_accordion.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/_featherlight-gallery.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/_featherlight-gallery.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/_featherlight.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/_featherlight.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/_hero-slider.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/_hero-slider.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/_single-event.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/_single-event.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/_single-film.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/_single-film.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/wp-content\/themes\/carolina-theatre\/src\/scss\/styles.scss": {
+	"\/wp-content\/themes\/carolina-theatre\/src\/styles.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 10,
@@ -7384,7 +7701,7 @@
 		"ft": 4,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/scss\/styles.css",
+		"oAP": "\/wp-content\/themes\/carolina-theatre\/src\/styles.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -7416,6 +7733,7 @@
 	"\/wp-content\/uploads\/2018\/03\/comedy-100x100.jpg": {
 		"ft": 16384,
 		"iS": 5142,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/comedy-100x100.jpg",
 		"oF": 0,
@@ -7426,6 +7744,7 @@
 	"\/wp-content\/uploads\/2018\/03\/comedy-150x150.jpg": {
 		"ft": 16384,
 		"iS": 10081,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/comedy-150x150.jpg",
 		"oF": 0,
@@ -7436,6 +7755,7 @@
 	"\/wp-content\/uploads\/2018\/03\/comedy-212x300.jpg": {
 		"ft": 16384,
 		"iS": 23066,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/comedy-212x300.jpg",
 		"oF": 0,
@@ -7446,6 +7766,7 @@
 	"\/wp-content\/uploads\/2018\/03\/comedy.jpg": {
 		"ft": 16384,
 		"iS": 55151,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/comedy.jpg",
 		"oF": 0,
@@ -7456,6 +7777,7 @@
 	"\/wp-content\/uploads\/2018\/03\/death_proof-100x100.jpg": {
 		"ft": 16384,
 		"iS": 4368,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/death_proof-100x100.jpg",
 		"oF": 0,
@@ -7466,6 +7788,7 @@
 	"\/wp-content\/uploads\/2018\/03\/death_proof-150x150.jpg": {
 		"ft": 16384,
 		"iS": 8085,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/death_proof-150x150.jpg",
 		"oF": 0,
@@ -7476,6 +7799,7 @@
 	"\/wp-content\/uploads\/2018\/03\/death_proof-202x300.jpg": {
 		"ft": 16384,
 		"iS": 21050,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/death_proof-202x300.jpg",
 		"oF": 0,
@@ -7486,6 +7810,7 @@
 	"\/wp-content\/uploads\/2018\/03\/death_proof.jpg": {
 		"ft": 16384,
 		"iS": 99630,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/death_proof.jpg",
 		"oF": 0,
@@ -7496,6 +7821,7 @@
 	"\/wp-content\/uploads\/2018\/03\/les_miserables-100x100.jpg": {
 		"ft": 16384,
 		"iS": 4672,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/les_miserables-100x100.jpg",
 		"oF": 0,
@@ -7506,6 +7832,7 @@
 	"\/wp-content\/uploads\/2018\/03\/les_miserables-150x150.jpg": {
 		"ft": 16384,
 		"iS": 8889,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/les_miserables-150x150.jpg",
 		"oF": 0,
@@ -7516,6 +7843,7 @@
 	"\/wp-content\/uploads\/2018\/03\/les_miserables-212x300.jpg": {
 		"ft": 16384,
 		"iS": 20702,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/les_miserables-212x300.jpg",
 		"oF": 0,
@@ -7526,6 +7854,7 @@
 	"\/wp-content\/uploads\/2018\/03\/les_miserables.jpg": {
 		"ft": 16384,
 		"iS": 46662,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/les_miserables.jpg",
 		"oF": 0,
@@ -7536,6 +7865,7 @@
 	"\/wp-content\/uploads\/2018\/03\/the-last-jedi-theatrical-blog-100x100.jpg": {
 		"ft": 16384,
 		"iS": 4546,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/the-last-jedi-theatrical-blog-100x100.jpg",
 		"oF": 0,
@@ -7546,6 +7876,7 @@
 	"\/wp-content\/uploads\/2018\/03\/the-last-jedi-theatrical-blog-1200x1200.jpg": {
 		"ft": 16384,
 		"iS": 331424,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/the-last-jedi-theatrical-blog-1200x1200.jpg",
 		"oF": 0,
@@ -7556,6 +7887,7 @@
 	"\/wp-content\/uploads\/2018\/03\/the-last-jedi-theatrical-blog-150x150.jpg": {
 		"ft": 16384,
 		"iS": 8352,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/the-last-jedi-theatrical-blog-150x150.jpg",
 		"oF": 0,
@@ -7566,6 +7898,7 @@
 	"\/wp-content\/uploads\/2018\/03\/the-last-jedi-theatrical-blog-203x300.jpg": {
 		"ft": 16384,
 		"iS": 18670,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/the-last-jedi-theatrical-blog-203x300.jpg",
 		"oF": 0,
@@ -7576,6 +7909,7 @@
 	"\/wp-content\/uploads\/2018\/03\/the-last-jedi-theatrical-blog-692x1024.jpg": {
 		"ft": 16384,
 		"iS": 159285,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/the-last-jedi-theatrical-blog-692x1024.jpg",
 		"oF": 0,
@@ -7586,6 +7920,7 @@
 	"\/wp-content\/uploads\/2018\/03\/the-last-jedi-theatrical-blog-768x1137.jpg": {
 		"ft": 16384,
 		"iS": 191518,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/the-last-jedi-theatrical-blog-768x1137.jpg",
 		"oF": 0,
@@ -7596,6 +7931,7 @@
 	"\/wp-content\/uploads\/2018\/03\/the-last-jedi-theatrical-blog.jpg": {
 		"ft": 16384,
 		"iS": 721767,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/03\/the-last-jedi-theatrical-blog.jpg",
 		"oF": 0,
@@ -7606,6 +7942,7 @@
 	"\/wp-content\/uploads\/2018\/04\/adaptive-images-100x100.jpeg": {
 		"ft": 16384,
 		"iS": 3084,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/adaptive-images-100x100.jpg",
 		"oF": 0,
@@ -7616,6 +7953,7 @@
 	"\/wp-content\/uploads\/2018\/04\/adaptive-images-150x150.jpeg": {
 		"ft": 16384,
 		"iS": 5450,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/adaptive-images-150x150.jpg",
 		"oF": 0,
@@ -7626,6 +7964,7 @@
 	"\/wp-content\/uploads\/2018\/04\/adaptive-images-300x168.jpeg": {
 		"ft": 16384,
 		"iS": 11327,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/adaptive-images-300x168.jpg",
 		"oF": 0,
@@ -7636,6 +7975,7 @@
 	"\/wp-content\/uploads\/2018\/04\/adaptive-images-768x430.jpeg": {
 		"ft": 16384,
 		"iS": 53930,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/adaptive-images-768x430.jpg",
 		"oF": 0,
@@ -7646,6 +7986,7 @@
 	"\/wp-content\/uploads\/2018\/04\/adaptive-images.jpeg": {
 		"ft": 16384,
 		"iS": 55583,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/adaptive-images.jpg",
 		"oF": 0,
@@ -7656,6 +7997,7 @@
 	"\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-100x100.jpg": {
 		"ft": 16384,
 		"iS": 4581,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-100x100.jpg",
 		"oF": 0,
@@ -7666,6 +8008,7 @@
 	"\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-1024x683.jpg": {
 		"ft": 16384,
 		"iS": 214397,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-1024x683.jpg",
 		"oF": 0,
@@ -7676,6 +8019,7 @@
 	"\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-150x150.jpg": {
 		"ft": 16384,
 		"iS": 8859,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-150x150.jpg",
 		"oF": 0,
@@ -7686,6 +8030,7 @@
 	"\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-2000x1200.jpg": {
 		"ft": 16384,
 		"iS": 666537,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-2000x1200.jpg",
 		"oF": 0,
@@ -7696,6 +8041,7 @@
 	"\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-300x200.jpg": {
 		"ft": 16384,
 		"iS": 21364,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-300x200.jpg",
 		"oF": 0,
@@ -7706,6 +8052,7 @@
 	"\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-768x512.jpg": {
 		"ft": 16384,
 		"iS": 124146,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-768x512.jpg",
 		"oF": 0,
@@ -7716,6 +8063,7 @@
 	"\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1.jpg": {
 		"ft": 16384,
 		"iS": 6579815,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1.jpg",
 		"oF": 0,
@@ -7740,6 +8088,7 @@
 	"\/wp-content\/uploads\/2018\/04\/Meatballsposter-100x100.jpg": {
 		"ft": 16384,
 		"iS": 5043,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/Meatballsposter-100x100.jpg",
 		"oF": 0,
@@ -7750,6 +8099,7 @@
 	"\/wp-content\/uploads\/2018\/04\/Meatballsposter-150x150.jpg": {
 		"ft": 16384,
 		"iS": 9200,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/Meatballsposter-150x150.jpg",
 		"oF": 0,
@@ -7760,6 +8110,7 @@
 	"\/wp-content\/uploads\/2018\/04\/Meatballsposter-196x300.jpg": {
 		"ft": 16384,
 		"iS": 18118,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/Meatballsposter-196x300.jpg",
 		"oF": 0,
@@ -7770,6 +8121,7 @@
 	"\/wp-content\/uploads\/2018\/04\/Meatballsposter.jpg": {
 		"ft": 16384,
 		"iS": 25749,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/Meatballsposter.jpg",
 		"oF": 0,
@@ -7780,6 +8132,7 @@
 	"\/wp-content\/uploads\/2018\/04\/nyc-anime-100x100.jpg": {
 		"ft": 16384,
 		"iS": 4753,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/nyc-anime-100x100.jpg",
 		"oF": 0,
@@ -7790,6 +8143,7 @@
 	"\/wp-content\/uploads\/2018\/04\/nyc-anime-1024x538.jpg": {
 		"ft": 16384,
 		"iS": 110747,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/nyc-anime-1024x538.jpg",
 		"oF": 0,
@@ -7800,6 +8154,7 @@
 	"\/wp-content\/uploads\/2018\/04\/nyc-anime-150x150.jpg": {
 		"ft": 16384,
 		"iS": 8744,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/nyc-anime-150x150.jpg",
 		"oF": 0,
@@ -7810,6 +8165,7 @@
 	"\/wp-content\/uploads\/2018\/04\/nyc-anime-300x158.jpg": {
 		"ft": 16384,
 		"iS": 15549,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/nyc-anime-300x158.jpg",
 		"oF": 0,
@@ -7820,6 +8176,7 @@
 	"\/wp-content\/uploads\/2018\/04\/nyc-anime-768x403.jpg": {
 		"ft": 16384,
 		"iS": 71524,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/nyc-anime-768x403.jpg",
 		"oF": 0,
@@ -7830,6 +8187,7 @@
 	"\/wp-content\/uploads\/2018\/04\/nyc-anime.jpg": {
 		"ft": 16384,
 		"iS": 206624,
+		"jF": 0,
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/nyc-anime.jpg",
 		"oF": 0,
@@ -14770,7 +15128,8 @@
 	"creationDate": 543171924,
 	"displayValue": "wp-carolina-theatre",
 	"displayValueWasSetByUser": 0,
-	"iconImageName": "meme-owl"
+	"iconImageName": "meme-owl",
+	"iconImageWasSetByUser": 0
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -14778,6 +15137,7 @@
 	"animateCSSInjections": 1,
 	"autoBuildNewItems": 1,
 	"autoprefixerBrowserString": "> 1%, last 2 versions, Firefox ESR, Opera 12.1",
+	"autoprefixerEnableIEGrid": 0,
 	"babelAuxiliaryCommentAfter": "",
 	"babelAuxiliaryCommentBefore": "",
 	"babelConfigFileHandlingType": 0,
@@ -16572,6 +16932,7 @@
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 0,
+		"outputFormat": 0,
 		"quality": 100
 		},
 	"languageDefaultsJS": {
