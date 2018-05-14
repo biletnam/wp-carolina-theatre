@@ -1,0 +1,83 @@
+/**
+ * Featherlight – ultra slim jQuery lightbox
+ * Version 1.5.0 - http://noelboss.github.io/featherlight/
+ *
+ * Copyright 2016, Noël Raoul Bossart (http://www.noelboss.com)
+ * MIT Licensed.
+**/
+@media all {
+	.featherlight {
+		display: none;
+		position:fixed;
+		top: 0; right: 0; bottom: 0; left: 0;
+		z-index: 2147483647; /* z-index needs to be >= elements on the site. */
+		text-align: center;
+		white-space: nowrap;
+		cursor: pointer;
+		background: $black;
+		background: rgba($black, 0);	/* IE8 "hack" for nested featherlights */
+
+		&:last-of-type { /* nested featherlgiht support */
+			background: rgba($black, 0.98);
+		}
+
+		&:before {
+			content: '';
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+			margin-right: -0.25em;
+		}
+		
+		.featherlight-content {
+			position: relative;
+			text-align: left;
+			vertical-align: middle;
+			display: inline-block;
+			overflow: auto;
+			padding: 2rem 1rem 1.5rem;
+			width: 100%;
+			max-width: 1280px;
+			max-height: 100%;
+			cursor: auto;
+			white-space: normal;
+		}
+
+		.featherlight-inner {
+			display: block;
+		}
+
+		.featherlight-close-icon {
+			position: absolute;
+			z-index: 9999;
+			top: 2rem; // same as padding on featherlight-content
+			right: 1rem; // same as padding on featherlight-content
+			cursor: pointer;
+			text-align: center;
+			color: $white;
+			text-transform: uppercase;
+  		letter-spacing: 1px;
+  		font-weight: 200;
+  		@include rem(12);
+			@include opacity(.5);
+  		@include transition;
+
+  		&:hover {
+				@include opacity(1);
+  		}
+		}
+
+		.featherlight-image {
+			width: 100%;
+		}
+
+		iframe {
+			border: none;
+		}
+	}
+
+	.featherlight-iframe .featherlight-content {
+		/* removed the border for image croping since iframe is edge to edge */
+		padding: 0;
+	}
+}
