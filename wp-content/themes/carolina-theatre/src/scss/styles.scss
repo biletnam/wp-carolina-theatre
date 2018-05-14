@@ -1,9 +1,23 @@
-@import "single-film";
-@import "single-event";
-@import "hero-slider";
-@import "accordion";
-// @import "featherlight";
-// @import "featherlight-gallery";
+$sizeMobile: 640px;
+$sizeTablet: 900px;
+$sizeDesktop: 1200px;
+$sizeLarge: 1400px;
+
+$maxWidth: 1400px;
+$menuBreakpoint: 700px;
+
+@import "helpers/important";
+@import "helpers/functions";
+@import "styles/colors";
+@import "styles/type";
+@import "plugins/slick";
+@import "plugins/featherlight";
+@import "plugins/featherlight-gallery";
+
+@import "styles/single-film";
+@import "styles/single-event";
+@import "styles/hero-slider";
+@import "styles/accordion";
 
 
 
