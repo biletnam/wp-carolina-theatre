@@ -4,5 +4,9 @@ jQuery(function($) {
             dots: true,
             arrows: true
         });
+        $(".hero-block__slider, .hp-upcoming__slider").slick({
+            dots: true,
+            arrows: true
+        });
 	});
 });

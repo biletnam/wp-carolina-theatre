@@ -1,3 +1,4 @@
+
 $sizeMobile: 640px;
 $sizeTablet: 900px;
 $sizeDesktop: 1200px;
@@ -14,12 +15,11 @@ $menuBreakpoint: 700px;
 @import "plugins/featherlight";
 @import "plugins/featherlight-gallery";
 
+@import "styles/homepage";
 @import "styles/single-film";
 @import "styles/single-event";
 @import "styles/hero-slider";
 @import "styles/accordion";
-
-
 
 * {
 	margin: 0;
