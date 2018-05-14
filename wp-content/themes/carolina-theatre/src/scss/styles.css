@@ -496,6 +496,23 @@
   .featherlight-loading .featherlight-next {
     display: none; } }
 
+.hp-upcoming {
+  border: 1px solid darkseagreen;
+  background: yellow; }
+  .hp-upcoming__card {
+    width: 250;
+    height: 500;
+    overflow: hidden; }
+
+.hp-ctas {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid yellowgreen; }
+  .hp-ctas__card {
+    border: 1px solid #aaa;
+    height: 180px;
+    width: 400px; }
+
 .single-film__container {
   width: 65%;
   display: inline-block;
@@ -745,23 +762,6 @@ input[type="checkbox"]:checked + label::after {
 
 input[type="radio"]:checked + label::after {
   transform: rotateX(180deg); }
-
-.hp-upcoming {
-  border: 1px solid darkseagreen;
-  background: yellow; }
-  .hp-upcoming__card {
-    width: 250;
-    height: 500;
-    overflow: hidden; }
-
-.hp-ctas {
-  display: flex;
-  justify-content: space-around;
-  border: 1px solid yellowgreen; }
-  .hp-ctas__card {
-    border: 1px solid #aaa;
-    height: 180px;
-    width: 400px; }
 
 * {
   margin: 0;
