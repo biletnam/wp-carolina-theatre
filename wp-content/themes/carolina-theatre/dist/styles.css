@@ -500,20 +500,34 @@
   background-color: black; }
 
 .hero-block__slider {
-  margin: auto;
-  width: 80%; }
+  display: inline-block;
+  width: 80%;
+  float: left; }
+  .hero-block__slider--nav {
+    position: relative;
+    background-color: orange;
+    width: 20%;
+    margin: auto; }
 
 .hero-block__card img {
   width: 100%; }
+
+.hero-block__stats {
+  display: inline-block;
+  width: 15%;
+  float: left; }
 
 .hp-upcoming {
   border: 1px solid darkseagreen; }
   .hp-upcoming__slider {
     width: 80%;
     margin: auto; }
+    .hp-upcoming__slider--nav {
+      position: relative; }
     .hp-upcoming__slider--arrows {
       display: inline-block;
-      margin-left: 50%; }
+      margin-left: 50%;
+      background-color: cyan; }
   .hp-upcoming__card {
     display: inline-block;
     background: orange;

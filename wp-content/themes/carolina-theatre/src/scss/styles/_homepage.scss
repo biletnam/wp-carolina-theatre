@@ -1,88 +1,111 @@
-
 .slick-arrow {
-    background-color: black;
+	background-color: black;
 }
 
-.hero-block {
-    &__slider {
-        margin: auto;
-        width: 80%;
-    }
+// .slick-prev:before,
+// .slick-next:before {
+// 	content: "";
+// }
 
-    &__card {
-        & img {
-            width: 100%;
-        }
-    }
+.hero-block {
+	&__slider {
+		display: inline-block;
+		width: 80%;
+		float: left;
+
+		&--nav {
+			position: relative;
+			background-color: orange;
+			width: 20%;
+			margin: auto;
+		}
+	}
+
+	&__card {
+		& img {
+			width: 100%;
+		}
+	}
+
+	&__stats {
+		display: inline-block;
+		width: 15%;
+		float: left;
+	}
 }
 
 .hp-upcoming {
-    border: 1px solid darkseagreen;
+	border: 1px solid darkseagreen;
 
-    &__slider {
-        width: 80%;
+	&__slider {
+		width: 80%;
         margin: auto;
-
-        &--arrows {
-            display: inline-block;
-            margin-left: 50%;
+        
+        &--nav {
+            position: relative;
         }
-    }
 
-    &__card {
-        display: inline-block;
-        background: orange;
-        width: 150px;
-        height: 250px;
-        padding: 15px;
-        border: 1px solid #888;
+		&--arrows {
+			display: inline-block;
+			margin-left: 50%;
+			background-color: cyan;
+		}
+	}
 
-        & img {
-            width: 100%;
-        }
-        // background-size: cover;
-        // background: url(https://static.boredpanda.com/blog/wp-content/uploads/2015/11/reflection-landscape-photography-jaewoon-u-36.jpg);
+	&__card {
+		display: inline-block;
+		background: orange;
+		width: 150px;
+		height: 250px;
+		padding: 15px;
+		border: 1px solid #888;
+
+		& img {
+			width: 100%;
+		}
+		// background-size: cover;
+		// background: url(https://static.boredpanda.com/blog/wp-content/uploads/2015/11/reflection-landscape-photography-jaewoon-u-36.jpg);
     }
 }
 
 .hp-ctas {
-    display: flex;
-    justify-content: space-around;
-    border: 1px solid yellowgreen;
-    // flex-wrap: wrap; add for mobile media query
-    &__card {
-        border: 1px solid #aaa;
-        height: 180px;
-        width: 400px;
-    }
+	display: flex;
+	justify-content: space-around;
+	border: 1px solid yellowgreen;
+	// flex-wrap: wrap; add for mobile media query
+	&__card {
+		border: 1px solid #aaa;
+		height: 180px;
+		width: 400px;
+	}
 }
 
 .hp-news {
-    &__slider {
-        width: 80%;
-        margin: auto;
-    }
+	&__slider {
+		width: 80%;
+		margin: auto;
+	}
 
-    &__card {
-        & img {
-            width: 100%;
-        }
-    }
+	&__card {
+		& img {
+			width: 100%;
+		}
+	}
 }
 
 .hp-stay-connected {
-    &__hr {
-        display: inline-block;
-        width: 39%;
-    }
+	&__hr {
+		display: inline-block;
+		width: 39%;
+	}
 
-    &__header {
-        display: inline-block;
-        width: 20%;
-        text-align: center;
-    }
+	&__header {
+		display: inline-block;
+		width: 20%;
+		text-align: center;
+	}
 
-    div {
-        text-align: center;
-    }
+	div {
+		text-align: center;
+	}
 }

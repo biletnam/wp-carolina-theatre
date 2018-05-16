@@ -5,16 +5,25 @@ jQuery(function($) {
             arrows: true
         });
 
-        $(".hero-block__slider").slick({
+        var heroBlock = $(".hero-block__slider").slick({
             dots: true,
-            arrows: true
+            // arrows: false,
+            // prevArrow: ".hero-block__slider--arrows",
+            appendArrows: $(".hero-block__slider--arrows")
+            // appendArrows: ".hero-block__slider--arrows"
         });
 
-        $(".hp-news__slider, .hp-upcoming__slider").slick({
+        $(".hp-upcoming__slider").slick({
             dots: true,
             arrows: true,
-            slidesToShow: 3//,
-            // appendArrows: ".hp-upcoming__slider--arrows"
+            slidesToShow: 3,
+            appendArrows: $(".hp-upcoming__slider--arrows")
         });
-	});
+
+        $(".hp-news__slider").slick({
+            dots: true,
+            slidesToShow: 3,
+            // appendArrows: $(".hp-upcoming__slider--arrows")
+        });
+    });
 });
