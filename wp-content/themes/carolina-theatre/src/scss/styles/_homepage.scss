@@ -48,7 +48,7 @@
 		&--arrows {
 			display: inline-block;
 			margin-left: 50%;
-			background-color: cyan;
+			// background-color: cyan;
 		}
 	}
 
@@ -84,9 +84,24 @@
 	&__slider {
 		width: 80%;
 		margin: auto;
+
+		&--nav {
+			position: relative;
+		}
+		
+		&--arrows {
+			display: inline-block;
+			width: 15%;
+		}
+	}
+
+	&__see-all-btn {
+		margin-left: 75%;
 	}
 
 	&__card {
+		border: 1px solid #888;
+		height: 300px;
 		& img {
 			width: 100%;
 		}

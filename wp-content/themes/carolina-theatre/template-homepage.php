@@ -74,7 +74,7 @@ get_header();
 
         <div class="hp-upcoming__slider--nav">
             <div class="hp-upcoming__slider--arrows">
-                Nav
+                <button>See All Events -></button>
             </div>
         </div>
     </div>
@@ -113,6 +113,12 @@ get_header();
             <div class="hp-news__card">Panel 3</div>
             <div class="hp-news__card">Panel 4</div>
             <div class="hp-news__card">Panel 5</div>
+        </div>
+        <div class="hp-news__slider--nav">
+            <button class="hp-news__see-all-btn">See All News -></button>
+            <div class="hp-news__slider--arrows">
+                Arrows
+            </div>
         </div>
     </div>
     <div class="hp-stay-connected">

@@ -28,7 +28,7 @@ jQuery(function($) {
         $(".hp-news__slider").slick({
             dots: true,
             slidesToShow: 3,
-            // appendArrows: $(".hp-upcoming__slider--arrows")
+            appendArrows: $(".hp-news__slider--arrows")
         });
     });
 });

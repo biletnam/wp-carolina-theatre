@@ -526,8 +526,7 @@
       position: relative; }
     .hp-upcoming__slider--arrows {
       display: inline-block;
-      margin-left: 50%;
-      background-color: cyan; }
+      margin-left: 50%; }
   .hp-upcoming__card {
     display: inline-block;
     background: orange;
@@ -550,9 +549,20 @@
 .hp-news__slider {
   width: 80%;
   margin: auto; }
+  .hp-news__slider--nav {
+    position: relative; }
+  .hp-news__slider--arrows {
+    display: inline-block;
+    width: 15%; }
 
-.hp-news__card img {
-  width: 100%; }
+.hp-news__see-all-btn {
+  margin-left: 75%; }
+
+.hp-news__card {
+  border: 1px solid #888;
+  height: 300px; }
+  .hp-news__card img {
+    width: 100%; }
 
 .hp-stay-connected__hr {
   display: inline-block;
