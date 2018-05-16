@@ -4,9 +4,17 @@ jQuery(function($) {
             dots: true,
             arrows: true
         });
-        $(".hero-block__slider, .hp-upcoming__slider").slick({
+
+        $(".hero-block__slider").slick({
             dots: true,
             arrows: true
+        });
+
+        $(".hp-upcoming__slider").slick({
+            dots: true,
+            arrows: true,
+            slidesToShow: 3//,
+            // appendArrows: ".hp-upcoming__slider--arrows"
         });
 	});
 });

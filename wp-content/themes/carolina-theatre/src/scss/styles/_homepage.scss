@@ -1,13 +1,44 @@
 
+.slick-arrow {
+    background-color: black;
+}
 
+.hero-block {
+    &__slider {
+        margin: auto;
+        width: 80%;
+
+        & img {
+            width: 100%;
+        }
+    }
+}
 
 .hp-upcoming {
     border: 1px solid darkseagreen;
-    background: yellow;
+
+    &__slider {
+        width: 80%;
+        margin: auto;
+
+        &--arrows {
+            display: inline-block;
+            margin-left: 50%;
+        }
+    }
+
     &__card {
-        width: 250;
-        height: 500;
+        display: inline-block;
+        background: orange;
+        width: 150px;
+        height: 250px;
+        padding: 15px;
+        border: 1px solid #888;
         overflow: hidden;
+
+        & img {
+            width: 100%;
+        }
         // background-size: cover;
         // background: url(https://static.boredpanda.com/blog/wp-content/uploads/2015/11/reflection-landscape-photography-jaewoon-u-36.jpg);
     }
