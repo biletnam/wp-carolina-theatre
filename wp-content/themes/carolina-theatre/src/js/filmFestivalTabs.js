@@ -9,8 +9,10 @@ jQuery(function($) {
         // use anchor for active-link tab
         $(anchor[0]).addClass("active-link");
         $('.tab-content').addClass('hide-tab-content');
-        className = anchor[0].replace(/#/, '.');
-        $(className).removeClass('hide-tab-content');
+        if (anchor[0] !== "#") {
+            className = anchor[0].replace(/#/, '.');
+            $(className).removeClass('hide-tab-content');
+        }
     }
     
     // change active link onclick, show content for active link only

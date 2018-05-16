@@ -496,6 +496,86 @@
   .featherlight-loading .featherlight-next {
     display: none; } }
 
+.slick-arrow {
+  background-color: black; }
+
+.hero-block__slider {
+  display: inline-block;
+  width: 80%;
+  float: left; }
+  .hero-block__slider--nav {
+    position: relative;
+    background-color: orange;
+    width: 20%;
+    margin: auto; }
+
+.hero-block__card img {
+  width: 100%; }
+
+.hero-block__stats {
+  display: inline-block;
+  width: 15%;
+  float: left; }
+
+.hp-upcoming {
+  border: 1px solid darkseagreen; }
+  .hp-upcoming__slider {
+    width: 80%;
+    margin: auto; }
+    .hp-upcoming__slider--nav {
+      position: relative; }
+    .hp-upcoming__slider--arrows {
+      display: inline-block;
+      margin-left: 50%; }
+  .hp-upcoming__card {
+    display: inline-block;
+    background: orange;
+    width: 150px;
+    height: 250px;
+    padding: 15px;
+    border: 1px solid #888; }
+    .hp-upcoming__card img {
+      width: 100%; }
+
+.hp-ctas {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid yellowgreen; }
+  .hp-ctas__card {
+    border: 1px solid #aaa;
+    height: 180px;
+    width: 400px; }
+
+.hp-news__slider {
+  width: 80%;
+  margin: auto; }
+  .hp-news__slider--nav {
+    position: relative; }
+  .hp-news__slider--arrows {
+    display: inline-block;
+    width: 15%; }
+
+.hp-news__see-all-btn {
+  margin-left: 75%; }
+
+.hp-news__card {
+  border: 1px solid #888;
+  height: 300px; }
+  .hp-news__card img {
+    width: 100%; }
+
+.hp-stay-connected__hr {
+  display: inline-block;
+  width: 39%; }
+
+.hp-stay-connected__header {
+  display: inline-block;
+  width: 20%;
+  text-align: center; }
+
+.hp-stay-connected div {
+  text-align: center; }
+
 .single-film__container {
   width: 65%;
   display: inline-block;
@@ -745,23 +825,6 @@ input[type="checkbox"]:checked + label::after {
 
 input[type="radio"]:checked + label::after {
   transform: rotateX(180deg); }
-
-.hp-upcoming {
-  border: 1px solid darkseagreen;
-  background: yellow; }
-  .hp-upcoming__card {
-    width: 250;
-    height: 500;
-    overflow: hidden; }
-
-.hp-ctas {
-  display: flex;
-  justify-content: space-around;
-  border: 1px solid yellowgreen; }
-  .hp-ctas__card {
-    border: 1px solid #aaa;
-    height: 180px;
-    width: 400px; }
 
 * {
   margin: 0;
