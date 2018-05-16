@@ -540,6 +540,18 @@
 .hp-news__card img {
   width: 100%; }
 
+.hp-stay-connected__hr {
+  display: inline-block;
+  width: 39%; }
+
+.hp-stay-connected__header {
+  display: inline-block;
+  width: 20%;
+  text-align: center; }
+
+.hp-stay-connected div {
+  text-align: center; }
+
 .single-film__container {
   width: 65%;
   display: inline-block;

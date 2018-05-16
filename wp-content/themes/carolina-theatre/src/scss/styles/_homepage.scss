@@ -69,3 +69,20 @@
         }
     }
 }
+
+.hp-stay-connected {
+    &__hr {
+        display: inline-block;
+        width: 39%;
+    }
+
+    &__header {
+        display: inline-block;
+        width: 20%;
+        text-align: center;
+    }
+
+    div {
+        text-align: center;
+    }
+}
