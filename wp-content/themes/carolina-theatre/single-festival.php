@@ -29,7 +29,7 @@ $content = get_post();
             </p>
             <h1><?php the_title(); ?></h1>
             <div class="content-tabs">
-               <ul class="festival-content__tabs ">
+               <ul>
                  	<li id="overview" class="tab-link content-tabs__tab">
                   	<a href="#overview">
                       Overview

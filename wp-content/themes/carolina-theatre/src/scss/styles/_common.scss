@@ -109,16 +109,50 @@ article {
 
 // page tabs, filters for events, etc
 .content-tabs {
-	&__tab {
+	position: relative;
+
+	// fade off as tabs overflow
+	&::after {
+		content: "";
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    background: linear-gradient(to left, $white, rgba($white,0));
+	}
+
+	// wrapper for the tabbed items
+	ul {
+		padding: 0;
+		margin: 1em 0;
+		overflow-x: auto;
+		white-space: nowrap;
+		-webkit-overflow-scrolling: touch;
+
+		&:not(:first-of-type){
+			margin-top: 0;
+
+			.content-tabs__tab {
+				@include rem(14);
+			}
+		}
+	}
+
+	// individual tabbed items
+	.content-tabs__tab {
 		display: inline-block;
-		padding-right: 10px;
+		margin-right: 10px;
 		cursor: pointer;
+		@include rem(16);
+		border-bottom: 3px solid $white;
 	}
 
 	// highlights filter on-click
 	.active-link {
-		background-color: black;
-		color: white;
+		font-weight: 600;
+		border-bottom-color: $green;
 	}
 }
 .hide-tab-content {

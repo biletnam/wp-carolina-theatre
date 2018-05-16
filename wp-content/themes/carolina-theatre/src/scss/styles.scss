@@ -251,9 +251,3 @@ div[class^="inline-"] {
 		color: black;
 	}
 }
-
-.clearfix::after {
-	content: "";
-	display: table;
-	clear: both;
-}

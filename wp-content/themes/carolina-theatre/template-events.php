@@ -149,7 +149,7 @@ get_header();
 	                            wp_reset_postdata();
 	                        ?>
 	                    </ul>
-	                    <ul class='upcoming-events__type--secondary filmFilters'>
+	                    <ul class="upcoming-events__type--secondary filmFilters">
 	                        <li class="content-tabs__tab active-link">All Films</li>
 	                        <li class="content-tabs__tab">Now Playing</li>
 	                        <li class="content-tabs__tab">Coming Soon</li>
