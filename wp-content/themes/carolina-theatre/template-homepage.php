@@ -7,25 +7,25 @@ get_header();
 <div class="hpwrapper">
     <div class="hero-block">
         <div class="hero-block__slider">
-        <div class="hp-upcoming__card">
+            <div class="hero-block__card">
                 <img 
                     src="https://static.boredpanda.com/blog/wp-content/uploads/2015/11/reflection-landscape-photography-jaewoon-u-36.jpg"
                     alt="landscape on the lake in fall"
                 />
             </div>
-            <div class="hp-upcoming__card">
+            <div class="hero-block__card">
                 <img 
                     src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                     alt="landscape on the lake in fall"
                 />
             </div>
-            <div class="hp-upcoming__card">
+            <div class="hero-block__card">
                 <img 
                     src="https://storage.googleapis.com/proudcity/deleontx/uploads/2016/12/preview-wattpad-cover-maker-thumbnail.jpg"
                     alt="landscape on the lake in fall"
                 />
             </div>
-            <div class="hp-upcoming__card">
+            <div class="hero-block__card">
                 <img 
                     src="https://images.template.net/wp-content/uploads/2014/11/Cute-Chick-Friends-Facebook-Cover.jpg"
                     alt="landscape on the lake in fall"
@@ -81,7 +81,25 @@ get_header();
             </p>
         </div>
     </div>
-    <div class="news">
+    <div class="hp-news">
+    <h1 class="hp-news__header">New &amp; Press</h1>
+        <div class="hp-news__slider">
+            <div class="hp-news__card">
+                <img 
+                    src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                    alt="landscape on the lake in fall"
+                />
+            </div>
+            <div class="hp-news__card">
+                <img 
+                    src="https://static.boredpanda.com/blog/wp-content/uploads/2015/11/reflection-landscape-photography-jaewoon-u-36.jpg"
+                    alt="landscape on the lake in fall"
+                />
+            </div>
+            <div class="hp-news__card">Panel 3</div>
+            <div class="hp-news__card">Panel 4</div>
+            <div class="hp-news__card">Panel 5</div>
+        </div>
     </div>
     <div class="stay-connected">
     </div>

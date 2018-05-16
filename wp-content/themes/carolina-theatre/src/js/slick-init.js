@@ -10,7 +10,7 @@ jQuery(function($) {
             arrows: true
         });
 
-        $(".hp-upcoming__slider").slick({
+        $(".hp-news__slider, .hp-upcoming__slider").slick({
             dots: true,
             arrows: true,
             slidesToShow: 3//,

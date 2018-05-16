@@ -502,8 +502,9 @@
 .hero-block__slider {
   margin: auto;
   width: 80%; }
-  .hero-block__slider img {
-    width: 100%; }
+
+.hero-block__card img {
+  width: 100%; }
 
 .hp-upcoming {
   border: 1px solid darkseagreen; }
@@ -519,8 +520,7 @@
     width: 150px;
     height: 250px;
     padding: 15px;
-    border: 1px solid #888;
-    overflow: hidden; }
+    border: 1px solid #888; }
     .hp-upcoming__card img {
       width: 100%; }
 
@@ -532,6 +532,13 @@
     border: 1px solid #aaa;
     height: 180px;
     width: 400px; }
+
+.hp-news__slider {
+  width: 80%;
+  margin: auto; }
+
+.hp-news__card img {
+  width: 100%; }
 
 .single-film__container {
   width: 65%;
