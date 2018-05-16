@@ -7,6 +7,8 @@ $sizeLarge: 1400px;
 $maxWidth: 1400px;
 $menuBreakpoint: 700px;
 
+$transition: all .5s ease;
+
 @import "helpers/important";
 @import "helpers/functions";
 @import "styles/colors";
@@ -15,28 +17,30 @@ $menuBreakpoint: 700px;
 @import "plugins/featherlight";
 @import "plugins/featherlight-gallery";
 
+@import "styles/common";
+@import "styles/forms";
 @import "styles/homepage";
 @import "styles/single-film";
 @import "styles/single-event";
 @import "styles/hero-slider";
 @import "styles/accordion";
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: "Lato", sans-serif;
-}
+// * {
+// 	margin: 0;
+// 	padding: 0;
+// 	box-sizing: border-box;
+// 	font-family: "Lato", sans-serif;
+// }
 
 // featherlight example
 div[class^="inline-"] {
 	display: none;
 }
 
-.container {
-	width: 80%;
-	margin: 50px auto;
-}
+// .container {
+// 	width: 80%;
+// 	margin: 50px auto;
+// }
 
 .featured {
 	&__container {
@@ -99,16 +103,17 @@ div[class^="inline-"] {
 		border-right: 1px solid rgba(100, 100, 100, 0.3);
 	}
 
-	&__type li,
-	&__filters li {
-		display: inline-block;
-		padding-right: 10px;
-	}
+	// &__type li,
+	// &__filters li {
+	// 	display: inline-block;
+	// 	padding-right: 10px;
+	// }
 
-	&__filters li {
-		font-size: 12px;
-	}
-	.filmFilter {
+	// &__filters li {
+	// 	font-size: 12px;
+	// }
+
+	.filmFilters {
 		display: none;
 	}
 
@@ -158,11 +163,11 @@ div[class^="inline-"] {
 	}
 }
 
-// highlights filter on-click
-.active-filter {
-	background-color: black;
-	color: white;
-}
+// // highlights filter on-click
+// .active-filter {
+// 	background-color: black;
+// 	color: white;
+// }
 
 ///////// ROTATING CARDS ////////////
 .events__event-card {

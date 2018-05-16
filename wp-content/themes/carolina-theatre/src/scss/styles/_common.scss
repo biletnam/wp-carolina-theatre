@@ -1,0 +1,143 @@
+body {
+  position: relative;
+  background-color: $white;
+  font-family: $body;
+  @include rem(16);
+  font-weight: 400;
+  line-height: 1.5;
+  color: $text;
+  margin: 0;
+
+  @include breakpoint($sizeMobile){
+ 		@include rem(14);
+  }
+}
+
+* { box-sizing: border-box; }
+
+::selection {
+  background: rgba($green, 1);
+  color: $white;
+}
+::-moz-selection {
+  background: rgba($green, 1);
+  color: $white;
+}
+
+.clearfix::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+hr {
+	background-color: $gray;
+	height: 1px;
+	width: 50%;
+	margin: 2em auto;
+  border: 0;
+}
+
+img {
+  width: 100%;
+  height: auto;
+
+  &.size-medium {
+  	width: 50%;
+  }
+
+	&.alignright {
+		float:right; 
+		padding: 1rem;
+		padding-right: 0;
+	}
+	&.alignleft {
+		float:left; 
+	  padding: 1rem;
+	  padding-left: 0;
+	}
+	&.aligncenter {
+		display: block; 
+		margin-left: auto; 
+		margin-right: auto;
+		text-align: center;
+	}
+}
+
+.screen-reader-text {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+section, 
+article {
+	position: relative;
+	background-color: $white;
+}
+
+.container {
+	position: relative;
+	z-index: 100;
+	padding: 40px;
+	
+	@include breakpoint($sizeTablet){
+		padding: 20px;
+	}
+
+  &::after {
+    content: " ";
+    clear: both;
+    display: table;
+  }
+}
+
+.contain {
+	max-width: $sizeDesktop;
+	margin-left: auto;
+	margin-right: auto;
+
+	&::after {
+    content: " ";
+    clear: both;
+    display: table;
+  }
+}
+
+// page tabs, filters for events, etc
+.content-tabs {
+	&__tab {
+		display: inline-block;
+		padding-right: 10px;
+		cursor: pointer;
+	}
+
+	// highlights filter on-click
+	.active-link {
+		background-color: black;
+		color: white;
+	}
+}
+.hide-tab-content {
+  display: none;
+}
+
+
+// TO-DO: Setup generic classes for content & sidebar template
+.festival-content {
+	width: 65%;
+	float: left;
+}
+
+.festival-sidebar {
+	border: 1px solid black;
+	float: left;
+	width: 35%;
+}
+
+
+
+

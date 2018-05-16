@@ -1,2 +1,106 @@
-$black: #000;
-$white: #fff;
+// Source Sans Pro light: 300
+// Source Sans Pro regular: 400
+// Source Sans Pro semibold: 600
+// Source Sans Pro bold: 700
+$body: 'source-sans-pro', sans-serif; // requires an Adobe Typekit account
+
+// Industry bold: 700
+$industry: 'industry', sans-serif; // requires an Adobe Typekit account
+
+// Font Awesome Solid: 900 fas
+// Font Awesome Reg: 400 far
+// Font Awesome Light: 300 fal
+// Font Awesome Brands: 400 fab
+$fa: FontAwesome;
+
+$header: $industry;
+
+
+////
+//// TYPE STYLES
+////
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: $body;
+  // line-height: 1.5;
+  margin-top: .25em;
+  margin-bottom: .25em;
+}
+
+h1, .h1 { 
+	@include rem(50); 
+	font-weight: 300;
+}
+h2, .h2 { 
+	@include rem(40); 
+	font-weight: 700;
+}
+h3, .h3 { 
+	@include rem(32);
+	font-weight: 300;
+}
+h4, .h4 { 
+	@include rem(24); 
+	font-weight: 600;
+}
+h5, .h5 { 
+	@include rem(12); 
+	font-weight: 700;
+	font-family: $header;
+	text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  font-size: inherit;
+  color: inherit;
+  // transition: .5s ease all;
+
+
+  // &:hover {
+  //   text-decoration: underline;
+  // }
+
+ //  &.link {
+ //  	border-bottom: 1px solid;
+	// }
+}
+
+p, .p {
+	@include rem(16);
+  // line-height: 1.5;
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+  a {
+  	&:hover {
+	    text-decoration: underline;
+	  }
+  }
+}
+
+small, .small {
+  font-size: 87.5%;
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+big, .big {
+	font-size: 125%; 
+}
+
+blockquote {
+	position: relative;
+  margin: 2em auto;
+  padding-left: 35px;
+
+	&::before {
+    content: '';
+    position: absolute;    
+    background-color: $green;
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    width: 4px;
+	}
+}

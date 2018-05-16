@@ -1,68 +1,78 @@
-/* Acordeon styles */
-.panel {
+$ac-padleft: 32px;
+
+/* Accordion Styles */
+.accordion__panel {
 	position: relative;
-	margin-bottom: 1px;
 	width: 100%;
-	color: #fff;
+	margin-bottom: 20px;
+	padding-left: $ac-padleft;
 	overflow: hidden;
-}
-input {
-	position: absolute;
-	opacity: 0;
-	z-index: -1;
-}
-label {
-	position: relative;
-	display: block;
-	padding: 0 0 0 1em;
-	background: seagreen;
-	font-weight: bold;
-	line-height: 3;
-	cursor: pointer;
-}
-.blue label {
-	background: #2980b9;
-}
-.panel-content {
-	max-height: 0;
-	overflow: hidden;
-	background: darkseagreen;
-	-webkit-transition: max-height 0.35s;
-	-o-transition: max-height 0.35s;
-	transition: max-height 0.35s;
+
+	> input {
+		position: absolute;
+		opacity: 0;
+		z-index: -1;
+
+		/* when accordion is open/checked */
+		&:checked ~ .accordion__content {
+			// changed from 10em
+			max-height: 1000em;
+		}
+
+		&:checked {
+			color: $green;
+		}
+	}
+	> label {
+		position: relative;
+		display: block;
+		cursor: pointer;
+		@include rem(18);
+    font-weight: 600;
+    transition: $transition;
+
+		&::before { /* Icon */
+			position: absolute;
+			left: -$ac-padleft;
+			top: 0;
+			display: block;
+			width: 1em;
+			text-align: center;
+			color: $gray;
+			transition: $transition;
+		}
+
+		&:hover {
+    	color: $green;
+
+    	&::before {
+    		color: $green;
+    	}
+    }
+	}
+
+	// for allowing multiple panels to be open at a time
+	> input[type="checkbox"] + label::before {
+		content: "\f078";
+		font-family: $fa;
+		font-weight: 900;
+	}
+	> input[type="checkbox"]:checked + label::before {
+		transform: rotate(180deg);
+	}
+
+	// for only allowing one panel to be open at a time
+	> input[type="radio"] + label::before {
+		content: "\25BC";
+	}
+	> input[type="radio"]:checked + label::before {
+		transform: rotateX(180deg);
+	}
 }
 
-.panel-content p {
-	margin: 1em;
-}
-/* :checked */
-input:checked ~ .panel-content {
-	// changed from 10em
-	max-height: 1000em;
-}
-/* Icon */
-label::after {
-	position: absolute;
-	right: 0;
-	top: 0;
-	display: block;
-	width: 3em;
-	height: 3em;
-	line-height: 3;
-	text-align: center;
-	-webkit-transition: all 0.35s;
-	-o-transition: all 0.35s;
-	transition: all 0.35s;
-}
-input[type="checkbox"] + label::after {
-	content: "+";
-}
-input[type="radio"] + label::after {
-	content: "\25BC";
-}
-input[type="checkbox"]:checked + label::after {
-	transform: rotate(315deg);
-}
-input[type="radio"]:checked + label::after {
-	transform: rotateX(180deg);
+.accordion__content {
+	max-height: 0;
+	overflow: hidden;
+	background: $white;
+	transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
 }

@@ -1,0 +1,185 @@
+.button,
+input[type="submit"] {
+	display: inline-block;
+	outline: 0;
+	border: 0;
+	cursor: pointer;
+	font-family: $header;
+	font-weight: 700;
+	text-transform: uppercase;
+	@include rem(14);
+	line-height: 1;
+	color: $white;
+	background-color: $red;
+	border-radius: 3px;
+	padding: 14px 20px 13px; // specific to vertically center font
+	transition: $transition;
+	
+	&:hover {
+		background-color: $red-med;
+	}
+	// &:hover {
+	// 	background-color: $green;
+	// }
+
+	&.secondary {
+		background-color: $white;
+		color: $red;
+		box-shadow: inset 0 0 0 2px $red;
+
+		&:hover {
+			box-shadow: inset 0 0 0 2px $red-med;
+			color: $red-med;
+		}
+		// &:hover {
+		// 	box-shadow: inset 0 0 0 2px $green;
+		// 	color: $green;
+		// }
+
+		&.disabled {
+			box-shadow: inset 0 0 0 2px $gray;
+			color: $text;
+			background-color: $white;
+
+			&:hover {
+				background-color: $white;
+				color: $text;
+			}
+		}
+	}
+
+	&.disabled {
+		opacity: .6;
+		cursor: default;
+		background-color: $gray;
+		color: $text;
+		
+		&:hover {
+			color: $text;
+			background-color: $gray;
+		}
+	}
+}
+
+form {
+	margin-top: 3em;
+	margin-bottom: 3em;
+
+	input[type="submit"] {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    -webkit-appearance: none;
+	}
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 10px auto;
+  max-width: 400px;
+}
+
+textarea { 
+	resize: vertical; // only allows vertical resizing of textbox
+	max-height: 275px; 
+	min-height: 50px;
+}
+
+select {
+	-webkit-appearance: listbox; // removes defualt styles in Safari
+	@include rem(14);
+	height: 40px;
+}
+
+label {  
+	display: inline-block;
+	@include rem(14);
+
+	&:focus {
+  	outline: none;
+  }
+}
+
+// All inputs except submit button
+input:not([type="submit"]),
+textarea,
+select {
+  display: block;
+	@include rem(16);
+  box-shadow: inset 0 0 0 2px $gray-lt;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 3px;
+  margin-left: auto;
+  margin-right: auto;
+	outline: none;
+
+  &:focus {
+  	outline: none;
+  }
+}
+
+// specific input styles
+input:not([type="radio"], [type="checkbox"], [type="submit"]),
+textarea,
+select {
+	font-family: $body;
+  border: 1px solid $gray;
+  padding: 12px 20px 8px;
+  background-color: $white;
+  border-radius: 3px;
+	color: $text;
+}
+
+input:not([type="radio"], [type="checkbox"], [type="submit"]),
+textarea, fieldset {
+	margin: 13px auto;
+	-webkit-appearance: none;
+}
+
+input[type="radio"],
+input[type="checkbox"]{
+	display: inline-block;
+	width: auto;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+// CF7 Specific Styles
+span {
+  &.wpcf7-not-valid-tip {
+	  color: $red;
+	  @include rem(11);
+	  display: block;
+	  top: -10px;
+	  position: relative;
+	  text-align: right;
+  }
+
+  &.wpcf7-list-item {
+    display: block;
+    margin: 0;
+  }
+}
+
+// CF7 Alert Messaging Styles
+div {
+  &.wpcf7-response-output {
+  	text-align: center;
+    color: $text;
+    @include rem(12);
+    padding-left: 0;
+    margin-left: 0;
+    border: 0 !important;
+  }
+
+  &.wpcf7-mail-sent-ok {
+  	border: 0;
+  	color: $green;
+  }
+  &.wpcf7-validation-errors {
+    border: 0;
+    color: $red;
+  }
+}
