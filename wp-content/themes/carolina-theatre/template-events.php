@@ -99,65 +99,67 @@ get_header();
                         
                         
                     ?>
-                    <ul class='upcoming-events__type'>
-                        <li class='active-filter'>All</li>
-                        <li>Film</li>
-                        <li>Music</li>
-                        <li>Comedy</li>
-                        <li>Theater</li>
-                        <li>Discussion</li>
-                        <li>Dance</li>
-                        <li>Family Saturday</li>
-                        <?php 
-                            $standard_events = array("Music", "Comedy", "Theater", "Discussion", "Dance", "Family Saturday");
-                            $custom_events = array();
+                    <div class="content-tabs">
+	                    <ul class="upcoming-events__type">
+	                        <li class="content-tabs__tab active-link">All</li>
+	                        <li class="content-tabs__tab">Film</li>
+	                        <li class="content-tabs__tab">Music</li>
+	                        <li class="content-tabs__tab">Comedy</li>
+	                        <li class="content-tabs__tab">Theater</li>
+	                        <li class="content-tabs__tab">Discussion</li>
+	                        <li class="content-tabs__tab">Dance</li>
+	                        <li class="content-tabs__tab">Family Saturday</li>
+	                        <?php 
+	                            $standard_events = array("Music", "Comedy", "Theater", "Discussion", "Dance", "Family Saturday");
+	                            $custom_events = array();
 
-                            // filter events only to check for custom event types
-                            $filter_query_args = array(
-                                'post_type' => 'event');
-                            
-                            $filter_query = new WP_Query($filter_query_args);
-                            
-                            if ($filter_query->have_posts()) {
-                                while ($filter_query->have_posts()) {
-                                    $filter_query->the_post();
-                                    // assumes 'End Date' and last 'Showtime' are the same in the dashboard
-                                    $last_date = get_field('end_date');
+	                            // filter events only to check for custom event types
+	                            $filter_query_args = array(
+	                                'post_type' => 'event');
+	                            
+	                            $filter_query = new WP_Query($filter_query_args);
+	                            
+	                            if ($filter_query->have_posts()) {
+	                                while ($filter_query->have_posts()) {
+	                                    $filter_query->the_post();
+	                                    // assumes 'End Date' and last 'Showtime' are the same in the dashboard
+	                                    $last_date = get_field('end_date');
 
-                                    // if event is playing or will be in the future, append custom
-                                    // event type to array
-                                    if (strtotime($last_date) >= strtotime('today')) {
-                                        $event_types = get_field("single_event_type");
-                                        // loop thru all event types associated with post,
-                                        // check if they are in $standard_events and $custom_events, if not
-                                        // in either add to $custom_events
-                                        foreach($event_types as $et) {
-                                            if (!in_array($et, $standard_events) && !in_array($et, $custom_events)) {
-                                                array_push($custom_events, $et);
-                                            }
-                                        }
-                                    }  
-                                }
-                            }
-                            // append $custom_events to filter list of standard events
-                            if (count($custom_events) > 0) {
-                                foreach($custom_events as $ce) { ?>
-                                    <li><?php echo $ce ?></li>
-                          <?php }
-                            }
-                            wp_reset_postdata();
-                        ?>
-                    </ul>
-                    <ul class='upcoming-events__filters'>
-                        <li class="active-filter">Any</li>
-                        <li>Now Playing</li>
-                        <li>Coming Soon</li>
-                        <li class="filmFilter">Retro Epics</li>
-                        <li class="filmFilter">Anime-Magic</li>
-                        <li class="filmFilter">SplatterFlix</li>
-                        <li class="filmFilter">Realistic Realm</li>
-                        <li class="filmFilter">Retro Art House</li>
-                    </ul>
+	                                    // if event is playing or will be in the future, append custom
+	                                    // event type to array
+	                                    if (strtotime($last_date) >= strtotime('today')) {
+	                                        $event_types = get_field("single_event_type");
+	                                        // loop thru all event types associated with post,
+	                                        // check if they are in $standard_events and $custom_events, if not
+	                                        // in either add to $custom_events
+	                                        foreach($event_types as $et) {
+	                                            if (!in_array($et, $standard_events) && !in_array($et, $custom_events)) {
+	                                                array_push($custom_events, $et);
+	                                            }
+	                                        }
+	                                    }  
+	                                }
+	                            }
+	                            // append $custom_events to filter list of standard events
+	                            if (count($custom_events) > 0) {
+	                                foreach($custom_events as $ce) { ?>
+	                                    <li class="content-tabs__tab"><?php echo $ce ?></li>
+	                          <?php }
+	                            }
+	                            wp_reset_postdata();
+	                        ?>
+	                    </ul>
+	                    <ul class='upcoming-events__type--secondary filmFilters'>
+	                        <li class="content-tabs__tab active-link">All Films</li>
+	                        <li class="content-tabs__tab">Now Playing</li>
+	                        <li class="content-tabs__tab">Coming Soon</li>
+	                        <li class="content-tabs__tab">Retro Epics</li>
+	                        <li class="content-tabs__tab">Anime-Magic</li>
+	                        <li class="content-tabs__tab">SplatterFlix</li>
+	                        <li class="content-tabs__tab">Realistic Realm</li>
+	                        <li class="content-tabs__tab">Retro Art House</li>
+	                    </ul>
+	                  </div>
                 </div>
                 <div class="events">
                 <?php

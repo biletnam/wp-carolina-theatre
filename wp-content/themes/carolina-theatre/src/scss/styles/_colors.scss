@@ -1,2 +1,55 @@
-$black: #000;
-$white: #fff;
+////
+//// COLORS
+////
+$black:					#000;
+$white: 				#fff;
+
+$off-white: 		#f9f7f0;
+$off-black: 		#333;
+
+$gray-lt:				#f3f3f3;
+$gray:					#ccc;
+
+$green-lt:			#e3f0ec;
+$green: 				#72bcae;
+$green-med: 		#1b7f6b;
+$green-dk: 			#0c4b3e;
+
+$red-lt:				#ffc7c0;
+$red: 					#f6583e;
+$red-med: 			#8d2c1b;
+$red-dk: 				#4e1208;
+
+$gold-lt:				#ffeece;
+$gold: 					#ffbc42;
+$gold-med: 			#c4933b;
+$gold-dk: 			#8c6c33;
+
+$text: $off-black;
+
+
+.bg-gold {
+	background-color: $gold;
+	background-image: url('../src/img/patterns/pattern-gold.png');
+	background-size: 100px 100px;
+	background-repeat: repeat;
+}
+.bg-green {
+	background-color: $green;
+	background-image: url('../src/img/patterns/pattern-green.png');
+	background-size: 103px 23px;
+	background-repeat: repeat;
+}
+.bg-black {
+	background-color: $off-black;
+	background-image: url('../src/img/patterns/pattern-black.png');
+	background-size: 147px 147px;
+	background-repeat: repeat;
+	color: $white;
+}
+.bg-white {
+	background-color: $off-white;
+	background-image: url('../src/img/patterns/pattern-white.png');
+	background-size: 147px 147px;
+	background-repeat: repeat;
+}

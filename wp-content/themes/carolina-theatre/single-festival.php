@@ -1,7 +1,6 @@
 <?php
 get_header();
 $content = get_post();
-
 ?>
 <div class="hero-container">
     <div style='background-color: darkseagreen;'>
@@ -29,32 +28,40 @@ $content = get_post();
                 <?php echo get_field('start_date') . ' - ' . get_field('end_date'); ?>
             </p>
             <h1><?php the_title(); ?></h1>
-            <div class='festival-content__tabs'>
-                    <a id="overview" class='tab-link' href="#overview">
-                        Overview
-                    </a>
-                    <a id='films' class='tab-link' href="#films">
-                        Films
-                    </a>
-                    <?php
-                        if( have_rows('tabs') ) {
-                            while ( have_rows('tabs') ) { 
-                                the_row();
-                                $tab_name = get_sub_field('tab_name');
-                                $id_name = str_replace(' ', '-', $tab_name);
-                                $id_name = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '', $id_name));
-                    ?>          
-                                <a id="<?php echo $id_name; ?>" class='tab-link' href="#<?php echo $id_name;?>">
-                                    <?php echo $tab_name; ?>
-                                </a>
-                    <?php
-                            }
-                        }
-                    ?>
+            <div class="content-tabs">
+               <ul class="festival-content__tabs ">
+                 	<li id="overview" class="tab-link content-tabs__tab">
+                  	<a href="#overview">
+                      Overview
+                  	</a>
+                	</li>
+                  <li id='films' class="tab-link content-tabs__tab">
+                  	<a href="#films">
+                      Films
+                  	</a>
+                	</li>
+                  <?php
+                      if( have_rows('tabs') ) {
+                          while ( have_rows('tabs') ) { 
+                              the_row();
+                              $tab_name = get_sub_field('tab_name');
+                              $id_name = str_replace(' ', '-', $tab_name);
+                              $id_name = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '', $id_name));
+                  				?>          
+                              <li id="<?php echo $id_name; ?>" class="tab-link content-tabs__tab">
+                              	<a href="#<?php echo $id_name;?>">
+                                  <?php echo $tab_name; ?>
+                              	</a>
+                            	</li>
+                  				<?php
+                          }
+                      }
+                  ?>
+               </ul> 
             </div>
             <!-- Generate all tabs, show only highlighted tab content -->
             <div class="festival-content__wrapper">
-                <div class='tab-content hide-tab-content overview'>
+                <div class="tab-content hide-tab-content overview">
                     <?php
                     if (have_rows("overview")) {
                         while (have_rows("overview")) {
@@ -64,7 +71,7 @@ $content = get_post();
                     }
                     ?>
                 </div>
-                <div class='films tab-content hide-tab-content'>
+                <div class="films tab-content hide-tab-content">
                 <?php 
                 // film tab contents
                 $meta_query_args = array(
