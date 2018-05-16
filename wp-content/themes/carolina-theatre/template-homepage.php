@@ -44,12 +44,12 @@ get_header();
             </div>
         </div>
         <div class="hero-block__slider--nav clearfix">
-            <!-- <div class="hero-block__slider- -arrows">
-                <a href="#" data-slide="1">Slide 1</a>
-                <a href="#" data-slide="2">Slide 2</a>
-                <a href="#" data-slide="3">Slide 3</a>
-                <a href="#" data-slide="4">Slide 4</a>
-            </div> -->
+            <div class="hero-block__slider--arrows">
+                <button class="go-to-btn" data-slide="1">Slide 1</button>
+                <button class="go-to-btn" data-slide="2">Slide 2</button>
+                <button class="go-to-btn" data-slide="3">Slide 3</button>
+                <button class="go-to-btn" data-slide="4">Slide 4</button>
+            </div>
         </div>
     </div>
     <div class="hp-upcoming">

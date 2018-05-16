@@ -5,12 +5,17 @@ jQuery(function($) {
             arrows: true
         });
 
-        var heroBlock = $(".hero-block__slider").slick({
-            dots: true,
+        $(".hero-block__slider").slick({
+            // dots: true,
             // arrows: false,
-            // prevArrow: ".hero-block__slider--arrows",
             appendArrows: $(".hero-block__slider--arrows")
-            // appendArrows: ".hero-block__slider--arrows"
+        });
+
+        $(".go-to-btn[data-slide]").on("click", function(e) {
+            e.preventDefault();
+            var slidePosition = $(this).data('slide');
+            $(".hero-block__slider").slick("slickGoTo", slidePosition - 1);
+            // alert($(this).data('slide'));
         });
 
         $(".hp-upcoming__slider").slick({
