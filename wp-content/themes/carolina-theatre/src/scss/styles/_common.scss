@@ -79,6 +79,14 @@ article {
 	background-color: $white;
 }
 
+main {
+	&::after {
+    content: " ";
+    clear: both;
+    display: table;
+  }
+}
+
 .container {
 	position: relative;
 	z-index: 100;

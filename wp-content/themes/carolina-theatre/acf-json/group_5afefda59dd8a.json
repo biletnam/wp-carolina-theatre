@@ -1,0 +1,121 @@
+{
+    "key": "group_5afefda59dd8a",
+    "title": "Theme - Social Media",
+    "fields": [
+        {
+            "key": "field_5afefdabea27a",
+            "label": "Social Media Accounts",
+            "name": "social_media_accounts",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5afefdbdea27b",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Social Media Account",
+            "sub_fields": [
+                {
+                    "key": "field_5afefdbdea27b",
+                    "label": "Platform",
+                    "name": "platform",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Facebook",
+                    "placeholder": "Facebook",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5afefde7ea27c",
+                    "label": "Handle",
+                    "name": "handle",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "@carolinatheatreofdurham",
+                    "placeholder": "@carolinatheatreofdurham",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5afefdfdea27d",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "http:\/\/facebook.com\/carolinatheatreofdurham",
+                    "placeholder": "http:\/\/facebook.com\/carolinatheatreofdurham",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5afefe19ea27e",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "text",
+                    "instructions": "Paste the <a href=\"https:\/\/fontawesome.com\/cheatsheet\/pro#brands\" target=\"_blank\">Font Awesome Pro Brand<\/a> icon's class for platform here.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "facebook-f",
+                    "placeholder": "facebook-f",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-theme-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1526661004
+}

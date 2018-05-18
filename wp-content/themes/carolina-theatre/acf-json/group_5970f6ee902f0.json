@@ -1,0 +1,119 @@
+{
+    "key": "group_5970f6ee902f0",
+    "title": "Theme - Scripts & Styles",
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-scripts-styles"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "fields": [
+        {
+            "key": "field_5970f701016f8",
+            "label": "Custom Styles",
+            "name": "custom_styles",
+            "type": "textarea",
+            "instructions": "Add any custom CSS here.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ".your-class-here {\r\n  display: none;\r\n}",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 5,
+            "new_lines": ""
+        },
+        {
+            "key": "field_5970f72e016f9",
+            "label": "Custom Scripts",
+            "name": "custom_scripts",
+            "type": "textarea",
+            "instructions": "Add any custom Javascript here.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "<script type=\"text\/javascript\">\r\n \/* Your Javascript Here *\/\r\n<\/script>",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 5,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_5970f79fe44b8",
+            "label": "Google Analytics",
+            "name": "google_analytics",
+            "type": "textarea",
+            "instructions": "Paste your Google Analytics code here. This will be included just after the opening <code>body<\/code> tag.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
+            "key": "field_59babc2eab07e",
+            "label": "Font Scripts",
+            "name": "font_scripts",
+            "type": "textarea",
+            "instructions": "Paste your Adobe Typekit or Google Font code here. This will be included in the <head> tag.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
+            "key": "field_59babce8076a6",
+            "label": "Favicon HTML",
+            "name": "favicon_code",
+            "type": "textarea",
+            "instructions": "Use <a href=\"https:\/\/realfavicongenerator.net\/\" target=\"_blank\">Real Favicon Generator<\/a> to create favicon. Upload files into Media library. Paste code here. And adjust links in code as necessary.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "<link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"\/wp-content\/uploads\/2017\/09\/apple-touch-icon.png\">\r\n<link rel=\"icon\" type=\"image\/png\" sizes=\"32x32\" href=\"\/wp-content\/uploads\/2017\/09\/favicon-32x32.png\">\r\n<link rel=\"icon\" type=\"image\/png\" sizes=\"16x16\" href=\"\/wp-content\/uploads\/2017\/09\/favicon-16x16.png\">\r\n<link rel=\"mask-icon\" href=\"\/wp-content\/uploads\/2017\/09\/safari-pinned-tab.svg\" color=\"#6a5477\">\r\n<meta name=\"theme-color\" content=\"#ffffff\">",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": ""
+        }
+    ],
+    "modified": 1526657220
+}
