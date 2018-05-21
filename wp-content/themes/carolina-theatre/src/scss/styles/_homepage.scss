@@ -7,6 +7,17 @@
 // 	content: "";
 // }
 
+// .show-stat {
+// 	background-color: #444;
+// 	color: white;
+// }
+
+// .hide-stat {
+// 	display: none;
+// 	background-color: cornflowerblue;
+// 	color: white;
+// }
+
 .hero-block {
 	&__slider {
 		display: inline-block;
@@ -38,6 +49,17 @@
 		display: inline-block;
 		width: 15%;
 		float: left;
+
+		&--normal {
+			background-color: #444;
+			color: white;
+		}
+
+		&--hover {
+			display: none;
+			background-color: cornflowerblue;
+			color: white;
+		}
 	}
 }
 

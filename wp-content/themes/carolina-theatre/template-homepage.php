@@ -54,10 +54,48 @@ get_header();
         
             <div class="hero-block__stats">
                 <ul>
-                    <li>92 years</li>
-                    <li>View Films -></li>
-                    <li>100k attendees</li>
-                    <li>114 volunteers</li>
+                    <!-- <li>
+                        <div class="stats-block">
+                            <p class="show-stat">Showing text</p>
+                            <p class="hide-stat">Hiding text</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="stats-block">
+                            <p class="show-stat">Showing text</p>
+                            <p class="hide-stat">Hiding text</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="stats-block">
+                            <p class="show-stat">Showing text</p>
+                            <p class="hide-stat">Hiding text</p>
+                        </div>
+                    </li> -->
+                <?php
+                    if (have_rows("statistics")) {
+                        while (have_rows("statistics")) {
+                            the_row();
+                        ?>
+                            <li class="hero-block__stats-item">
+                                <div class="hero-block__stats--normal">
+                                    <p><?php echo get_sub_field("stat_value"); ?></p>
+                                    <p><?php echo get_sub_field("stat_description") ?></p>
+                                </div>
+                                <div class="hero-block__stats--hover">
+                                    <p><?php echo get_sub_field("hover_description"); ?></p>
+                                    <p>
+                                        <a href="<?php echo get_sub_field("link")["url"]; ?>">
+                                          <?php echo get_sub_field("link")["title"]; ?>  
+                                          Link
+                                        </a>
+                                    </p>
+                                </div>
+                            </li>
+                        <?php
+                        }
+                    }
+                ?>
                 </ul>
             </div>
         </div>
@@ -84,22 +122,6 @@ get_header();
                         }
                     }
                 ?>
-                <!-- <div class="hero-block__btn-block">
-                    <button class="hero-block__go-to-btn" data-slide="1">Slide 1</button>
-                    <img class="hero-block__thumbnail" src="http://www.undiscovered-yosemite.com/images/allposters-350--bear-sign.jpg" alt="g"/>
-                </div>
-                <div class="hero-block__btn-block">
-                    <button class="hero-block__go-to-btn" data-slide="2">Slide 2</button>
-                    <img class="hero-block__thumbnail" src="http://www.undiscovered-yosemite.com/images/allposters-350--bear-sign.jpg" alt="g"/>
-                </div>
-                <div class="hero-block__btn-block">
-                    <button class="hero-block__go-to-btn" data-slide="3">Slide 3</button>
-                    <img class="hero-block__thumbnail" src="http://www.undiscovered-yosemite.com/images/allposters-350--bear-sign.jpg" alt="g"/>
-                </div>
-                <div class="hero-block__btn-block">
-                    <button class="hero-block__go-to-btn" data-slide="4">Slide 4</button>
-                    <img class="hero-block__thumbnail" src="http://www.undiscovered-yosemite.com/images/allposters-350--bear-sign.jpg" alt="g"/>
-                </div> -->
             </div>
         </div>
     </div>

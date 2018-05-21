@@ -967,6 +967,13 @@ div.wpcf7-validation-errors {
   display: inline-block;
   width: 15%;
   float: left; }
+  .hero-block__stats--normal {
+    background-color: #444;
+    color: white; }
+  .hero-block__stats--hover {
+    display: none;
+    background-color: cornflowerblue;
+    color: white; }
 
 .hp-upcoming {
   border: 1px solid darkseagreen; }
