@@ -1,3 +1,70 @@
+.socialmedia__feed {
+	@include breakpoint($sizeMobile){
+  	display: none;
+  }
+
+	&--title {
+		position: relative;
+		text-align: center;
+
+		&::before {
+			content: " ";
+			position: absolute;
+			z-index: 1;
+			top: 50%;
+			left: 0;
+			height: 1px;
+			width: 100%;
+			background-color: $gray;
+		}
+
+		h3 {
+			position: relative;
+			z-index: 2;
+			background-color: $white;
+			padding: 0 20px;
+			display: inline-block;
+			margin: 0 auto;
+		}
+	}
+
+	&--posts {
+		max-height: 250px;
+		overflow-y: auto;
+
+		&.contain {
+			max-width: 800px;
+		}
+
+		.ctf-item { // styles for Twitter Feed plugin
+			// .ctf-retweet-icon {
+			// 	background-color: transparent;
+			// }
+		}
+	}
+}
+
+.socialmedia__bar {
+	@extend .bg-green;
+	text-align: center;
+	padding: 15px;
+	
+	&--icon {
+		@include rem(18);
+		padding-left: 25px;
+		padding-right: 25px;
+		display: inline-block;
+
+		a {
+			color: $white;
+			
+			&:hover {
+				color: $green-med;
+			}
+		}
+	}
+}
+
 .footer--main {
 	background-color: $off-black;
 	background-size: cover;

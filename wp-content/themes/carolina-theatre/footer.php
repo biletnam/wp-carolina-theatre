@@ -13,6 +13,8 @@
  */
 
 ?>
+</main> <?php // end <main role="main"> from header.php ?>
+
 <?php // get all ACF for Footer fields and custom JavaScript
 	$custom_scripts = get_field('custom_scripts', 'option');
 	$footer_bg = get_field('footer_bg', 'option');
@@ -22,27 +24,22 @@
 	$show_email_signup = get_field('show_email_signup', 'option');
 	$email_signup_headline = get_field('email_signup_headline', 'option');
 	$email_signup_shortcode = get_field('email_signup_shortcode', 'option', false);
+
+	$show_social_feed = get_field('show_social_feed', 'options');
+	$social_title = get_field('social_feed_title', 'options');
+	$social_shortcode = get_field('social_feed_shortcode', 'option', false);
 ?>
 
+<?php if($show_social_feed && $social_shortcode){ ?>
 <section class="socialmedia__feed">
 	<div class="socialmedia__feed--title">
-		<h3>Stay Connected</h3>		
+		<?php if($social_title){ ?><h3><?php echo $social_title; ?></h3><?php } ?>
 	</div>
-	<div class="socialmedia__feed--posts">
-		<div class="socialmedia__feed--post">
-			Twitter Post Here
-		</div>
-		<div class="socialmedia__feed--post">
-			Twitter Post Here
-		</div>
-		<div class="socialmedia__feed--post">
-			Twitter Post Here
-		</div>
-		<div class="socialmedia__feed--post">
-			Twitter Post Here
-		</div>
+	<div class="socialmedia__feed--posts contain container">
+		<?php echo do_shortcode($social_shortcode); ?>
 	</div>
 </section>
+<?php } //end if $show_social_feed ?>
 
 <?php if(have_rows('social_media_accounts', 'options')){ ?>
 <section class="socialmedia__bar">
@@ -54,14 +51,13 @@
 			$url = get_sub_field('url');
 			$icon = get_sub_field('icon');
 		?>
-		<a href="<?php echo $url; ?>" title="Visit our <?php $platform; ?> account." target="_blank">
+		<a href="<?php echo $url; ?>" title="Follow the Carolina Theatre on <?php echo $platform; ?>." target="_blank">
 			<i class="fab fa-<?php echo $icon; ?>"></i>
 		</a>
 	</div>
 	<?php } // endwhile footer sitemap ?>
 </section>
 <?php } // endif footer sitemap ?>
-
 
 <footer class="footer--main"<?php if($footer_bg) { echo ' style="background-image:url('.$footer_bg.');"'; } ?>>
 	<?php if($slogan){ ?>
@@ -141,6 +137,8 @@
 		<p>&copy;<?php echo date('Y');?> <?php echo $copyright_after; ?></p>
 	</div>
 </footer>
+
+</div> <?php // <div class="mainWrapper"> from header.php ?>
 
 <?php wp_footer(); ?>
 

@@ -66,16 +66,143 @@ $GLOBALS["location_address"] = get_field('address', 'option');
 $GLOBALS["location_directionlink"] = get_field('google_map_link', 'option');
 ?>
 
-<div class="header__logo">
-	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="Back to Homepage">
-	<?php
-		$header_logo = get_field('header_logo', 'options');
+<nav class="header header__mobileNav">
+  <div id="mobileNav__closeBtn" class="btn__closeOpen--wrapper">
+  	<div class="btn__closeOpen close"></div>
+  </div>
 
-		if($header_logo){
-			echo file_get_contents($header_logo);
-		} else {
-			include 'src/img/logos/ctd-logo-new.svg';
-		}
- 	?>
- </a>
-</div>
+  <?php // primary mobile menu
+	if(has_nav_menu('header-main')){ ?>
+    <nav class="header__mobileNav--menu" id="header__mobileNav--menu" role="navigation">
+			<?php wp_nav_menu( array( 
+	    	'theme_location' 	=> 'header-main', 
+	    	'container'				=> false,
+	    	'menu_class'			=> '',
+	    	'menu_id'					=> '',
+	    	) 
+	  	); ?>
+  	</nav>
+	<?php } ?>
+</nav>
+
+<div class="mainWrapper">
+
+
+
+<?php // Alert Banner Markup 
+	$alertbanner_query_args = array(
+		'post_type' => 'alertbanner',
+		'post_status' => 'publish',
+		'posts_per_page' => 1
+	);
+	$alertbanner_query = new WP_Query($alertbanner_query_args);
+?>
+
+<?php if ($alertbanner_query->have_posts()) { ?>
+	<?php while ($alertbanner_query->have_posts()) { $alertbanner_query->the_post(); ?>
+		<?php 
+			$banner_alert = get_field('banner_alert');
+			$banner_link = get_field('link');
+			$closeable = get_field('allow_visitor_to_close_banner'); 
+		?>
+		<section id="alertBanner" class="alertBanner bg-gold" style="display: none;">
+			<?php if($closeable){ ?>
+	  	<a id="alertBanner__closeBtn" class="alertBanner__closeBtn" onClick="alertBanner('hide');"><i class="fas fa-times"></i></a>
+		  <?php } //end if closeable ?>
+  		<?php if($banner_link){ ?>
+				<a href="<?php echo $banner_link; ?>">
+					<p class="alertBanner__text"><?php echo $banner_alert; ?></p>
+				</a>
+		  <?php } else { ?>
+				<p class="alertBanner__text"><?php echo $banner_alert; ?></p>
+		  <?php } //end if closeable ?>
+		</section>
+
+	<?php } // end while ?>
+<?php } // end if ?>
+
+
+<header id="header" class="header">
+  <div class="header__top">
+		<div class="contain container">
+			<div class="left">
+				<?php // top left secondary navigation (member tickets)
+				if(has_nav_menu('header-topleft')){ ?>
+				<nav role="navigation">
+					<?php wp_nav_menu( array( 
+			    	'theme_location' 	=> 'header-topleft', 
+			    	'container'				=> false,
+			    	'menu_class'			=> '',
+			    	'menu_id'					=> '',
+			    	) 
+			  	); ?>
+		  	</nav>
+		  	<?php } ?>
+			</div>
+			<div class="right">
+				<?php // top right secondary navigation (history, donate, contact, etc)
+				if(has_nav_menu('header-topright')){ ?>
+				<nav role="navigation">
+					<?php wp_nav_menu( array( 
+			    	'theme_location' 	=> 'header-topright', 
+			    	'container'				=> false,
+			    	'menu_class'			=> '',
+			    	'menu_id'					=> '',
+			    	) 
+			  	); ?>
+			  	<a href="#" id="header__searchBtn" class="header__searchBtn"><i class="fas fa-search"></i></a>
+		  	</nav>
+		  	<?php } ?>
+			</div>
+		</div>			
+	</div>
+	<div id="header__main" class="header__main">
+		<div class="contain container">
+		  <div class="header__logo">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="Back to Homepage">
+				<?php
+					$header_logo = get_field('header_logo', 'options');
+
+					if($header_logo){
+						echo file_get_contents($header_logo);
+					} else {
+						include 'src/img/logos/ctd-logo-new.svg';
+					}
+			 	?>
+			 </a>
+			</div>
+			<div class="mobileNav__trigger">
+	      <a id="mobileNav__openBtn" class="mobileNav__openBtn">
+				  <p class="h5">menu</p>
+				  <span></span>
+				  <span></span>
+				  <span></span>
+				  <span></span>
+	      </a>
+	    </div>
+	    <nav id="header__nav" class="header__nav" role="navigation">		  
+		  <?php // header main menu
+			if(has_nav_menu('header-main')){ ?>
+				<?php wp_nav_menu( array( 
+		    	'theme_location' 	=> 'header-main', 
+		    	'container'				=> false,
+		    	'menu_class'			=> 'header__mainMenu',
+		    	'menu_id'					=> '',
+		    	) 
+		  	); ?>
+			<?php } ?>
+	    <?php // call to action button
+			if(has_nav_menu('header-cta')){ ?>
+				<?php wp_nav_menu( array( 
+		    	'theme_location' 	=> 'header-cta', 
+		    	'container'				=> false,
+		    	'menu_class'			=> 'header__cta',
+		    	'menu_id'					=> '',
+		    	) 
+		  	); ?>
+			<?php } ?>
+			</nav>
+		</div>
+  </div><!-- .header-main  -->
+</header>
+<main role="main">
