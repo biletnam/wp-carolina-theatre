@@ -98,6 +98,79 @@
                     "maxlength": ""
                 }
             ]
+        },
+        {
+            "key": "field_5b02fd69ce08b",
+            "label": "Show Social Feed",
+            "name": "show_social_feed",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5b02fd55ce08a",
+            "label": "Social Feed - Title",
+            "name": "social_feed_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b02fd69ce08b",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5b02fd8fce08c",
+            "label": "Social Feed - Shortcode",
+            "name": "social_feed_shortcode",
+            "type": "text",
+            "instructions": "Paste plugin shortcode for the social feed.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b02fd69ce08b",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -117,5 +190,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1526661004
+    "modified": 1526922936
 }

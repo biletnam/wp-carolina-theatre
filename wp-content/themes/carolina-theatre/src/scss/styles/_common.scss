@@ -80,11 +80,22 @@ article {
 }
 
 main {
+	padding-bottom: 40px;
+
 	&::after {
     content: " ";
     clear: both;
     display: table;
   }
+}
+
+// .mainWrapper wraps everything but mobile menu. allows content 
+// to shift when menu opens (more styles in _part-header.scss)
+.mainWrapper {
+	position: relative;
+	right: 0;
+	transition: $transition;
+	overflow: hidden;
 }
 
 .container {
@@ -113,15 +124,6 @@ main {
     clear: both;
     display: table;
   }
-}
-
-// .mainWrapper wraps everything but mobile menu. allows content 
-// to shift when menu opens (more styles in _part-header.scss)
-.mainWrapper {
-	position: relative;
-	right: 0;
-	transition: $transition;
-	overflow: hidden;
 }
 
 // corner button to open and close content

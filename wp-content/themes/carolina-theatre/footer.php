@@ -24,27 +24,22 @@
 	$show_email_signup = get_field('show_email_signup', 'option');
 	$email_signup_headline = get_field('email_signup_headline', 'option');
 	$email_signup_shortcode = get_field('email_signup_shortcode', 'option', false);
+
+	$show_social_feed = get_field('show_social_feed', 'options');
+	$social_title = get_field('social_feed_title', 'options');
+	$social_shortcode = get_field('social_feed_shortcode', 'option', false);
 ?>
 
+<?php if($show_social_feed && $social_shortcode){ ?>
 <section class="socialmedia__feed">
 	<div class="socialmedia__feed--title">
-		<h3>Stay Connected</h3>		
+		<?php if($social_title){ ?><h3><?php echo $social_title; ?></h3><?php } ?>
 	</div>
 	<div class="socialmedia__feed--posts contain container">
-		<div class="socialmedia__feed--post">
-			Did you attend this year’s @FullFrame Documentary Film Festival? Want to win passes for #FullFrame 2019? Take our survey for a chance to win: http://bit.ly/FF18Survey  @DurhamNC @DukeArts @NCArtsCouncil @artstigators @DukeAlumni
-		</div>
-		<div class="socialmedia__feed--post">
-			Did you attend this year’s @FullFrame Documentary Film Festival? Want to win passes for #FullFrame 2019? Take our survey for a chance to win: http://bit.ly/FF18Survey  @DurhamNC @DukeArts @NCArtsCouncil @artstigators @DukeAlumni
-		</div>
-		<div class="socialmedia__feed--post">
-			Did you attend this year’s @FullFrame Documentary Film Festival? Want to win passes for #FullFrame 2019? Take our survey for a chance to win: http://bit.ly/FF18Survey  @DurhamNC @DukeArts @NCArtsCouncil @artstigators @DukeAlumni
-		</div>
-		<div class="socialmedia__feed--post">
-			Did you attend this year’s @FullFrame Documentary Film Festival? Want to win passes for #FullFrame 2019? Take our survey for a chance to win: http://bit.ly/FF18Survey  @DurhamNC @DukeArts @NCArtsCouncil @artstigators @DukeAlumni
-		</div>
+		<?php echo do_shortcode($social_shortcode); ?>
 	</div>
 </section>
+<?php } //end if $show_social_feed ?>
 
 <?php if(have_rows('social_media_accounts', 'options')){ ?>
 <section class="socialmedia__bar">

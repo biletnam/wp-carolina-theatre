@@ -1,4 +1,8 @@
 .socialmedia__feed {
+	@include breakpoint($sizeMobile){
+  	display: none;
+  }
+
 	&--title {
 		position: relative;
 		text-align: center;
@@ -25,11 +29,17 @@
 	}
 
 	&--posts {
-		max-height: 200px;
+		max-height: 250px;
 		overflow-y: auto;
 
 		&.contain {
 			max-width: 800px;
+		}
+
+		.ctf-item { // styles for Twitter Feed plugin
+			// .ctf-retweet-icon {
+			// 	background-color: transparent;
+			// }
 		}
 	}
 }

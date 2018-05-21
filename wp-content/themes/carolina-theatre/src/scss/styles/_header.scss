@@ -5,19 +5,11 @@
 
 // logged into wordpress styles
 .admin-bar {
-	.header-main.sticky {
+	.header__main.sticky {
     top: 32px !important;
 
     @include breakpoint(782px){
 			top: 46px !important;
-		}
-	}
-
-	.nutrition-overview.sticky {
-    top: 86px !important;
-
-    @include breakpoint(782px){
-			top: 96px !important;
 		}
 	}
 }
@@ -335,7 +327,7 @@
 		right: $mobileMenuWidth;
 
 		&::after {
-			z-index: 2000;
+			z-index: 10000;
 			opacity: 1;
 		}
 	}

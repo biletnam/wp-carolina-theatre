@@ -59,7 +59,7 @@
 		});
 
 		// close the mobile menu by clicking outside of the menu
-		$('.main-wrapper').click(function() {
+		$('.mainWrapper').click(function() {
 		  if($('body').hasClass('shift')){
 				closeMobileMenu();	
 			}

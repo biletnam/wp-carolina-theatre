@@ -475,17 +475,11 @@ blockquote {
   .featherlight-loading .featherlight-next {
     display: none; } }
 
-.admin-bar .header-main.sticky {
+.admin-bar .header__main.sticky {
   top: 32px !important; }
   @media screen and (max-width: 782px) {
-    .admin-bar .header-main.sticky {
+    .admin-bar .header__main.sticky {
       top: 46px !important; } }
-
-.admin-bar .nutrition-overview.sticky {
-  top: 86px !important; }
-  @media screen and (max-width: 782px) {
-    .admin-bar .nutrition-overview.sticky {
-      top: 96px !important; } }
 
 @media screen and (max-width: 600px) {
   #wpadminbar {
@@ -687,11 +681,15 @@ blockquote {
   .shift .mainWrapper {
     right: 230px; }
     .shift .mainWrapper::after {
-      z-index: 2000;
+      z-index: 10000;
       opacity: 1; }
   .shift .header__mobileNav {
     right: 0;
     border-left: 1px solid #ccc; }
+
+@media screen and (max-width: 640px) {
+  .socialmedia__feed {
+    display: none; } }
 
 .socialmedia__feed--title {
   position: relative;
@@ -714,7 +712,7 @@ blockquote {
     margin: 0 auto; }
 
 .socialmedia__feed--posts {
-  max-height: 200px;
+  max-height: 250px;
   overflow-y: auto; }
   .socialmedia__feed--posts.contain {
     max-width: 800px; }
@@ -869,10 +867,19 @@ article {
   position: relative;
   background-color: #fff; }
 
-main::after {
-  content: " ";
-  clear: both;
-  display: table; }
+main {
+  padding-bottom: 40px; }
+  main::after {
+    content: " ";
+    clear: both;
+    display: table; }
+
+.mainWrapper {
+  position: relative;
+  right: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  overflow: hidden; }
 
 .container {
   position: relative;
@@ -894,13 +901,6 @@ main::after {
     content: " ";
     clear: both;
     display: table; }
-
-.mainWrapper {
-  position: relative;
-  right: 0;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  overflow: hidden; }
 
 .btn__closeOpen--wrapper {
   overflow: hidden;
