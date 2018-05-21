@@ -24,17 +24,17 @@
 			left: 0;
 			color: white;
 		}
-    }
+  }	
     
-    &__event-info {
-        ul {
-            list-style-type: none;
-        }
+  &__event-info {
+      ul {
+          list-style-type: none;
+      }
 
-        li {
-            display: inline-block;
-        }
-    }
+      li {
+          display: inline-block;
+      }
+  }
 
 	&__description {
 		max-height: 150px;

@@ -1,0 +1,105 @@
+{
+    "key": "group_5976448e54cc6",
+    "title": "Theme - Footer Copy",
+    "fields": [
+        {
+            "key": "field_59edf87e1a388",
+            "label": "Large Slogan",
+            "name": "slogan",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "A Durham\r\nOriginal",
+            "placeholder": "",
+            "maxlength": 50,
+            "rows": 2,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_5afef85510fcf",
+            "label": "Logomark Text",
+            "name": "logomark_text",
+            "type": "text",
+            "instructions": "Appears after the logomark in the footer.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Established 1926",
+            "placeholder": "Established 1926",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_597649ecc8b74",
+            "label": "Copyright Text",
+            "name": "copyright",
+            "type": "textarea",
+            "instructions": "Appears after the copyright & year in the footer of every page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 1,
+            "new_lines": ""
+        },
+        {
+            "key": "field_5aff0e3f8518d",
+            "label": "Background Image",
+            "name": "footer_bg",
+            "type": "image",
+            "instructions": "For best results, upload an image that is at least 1600px wide.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-theme-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1526664813
+}

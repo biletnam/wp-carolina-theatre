@@ -17,6 +17,8 @@ $transition: all .5s ease;
 @import "plugins/featherlight";
 @import "plugins/featherlight-gallery";
 
+@import "styles/header";
+@import "styles/footer";
 @import "styles/common";
 @import "styles/forms";
 @import "styles/homepage";
@@ -97,21 +99,10 @@ div[class^="inline-"] {
 	margin-top: 50px;
 
 	&__event-cards {
-		// display: inline-block;
 		width: 70%;
 		float: left;
 		border-right: 1px solid rgba(100, 100, 100, 0.3);
 	}
-
-	// &__type li,
-	// &__filters li {
-	// 	display: inline-block;
-	// 	padding-right: 10px;
-	// }
-
-	// &__filters li {
-	// 	font-size: 12px;
-	// }
 
 	.filmFilters {
 		display: none;
@@ -163,11 +154,6 @@ div[class^="inline-"] {
 	}
 }
 
-// // highlights filter on-click
-// .active-filter {
-// 	background-color: black;
-// 	color: white;
-// }
 
 ///////// ROTATING CARDS ////////////
 .events__event-card {
@@ -250,10 +236,4 @@ div[class^="inline-"] {
 		background-color: white;
 		color: black;
 	}
-}
-
-.clearfix::after {
-	content: "";
-	display: table;
-	clear: both;
 }

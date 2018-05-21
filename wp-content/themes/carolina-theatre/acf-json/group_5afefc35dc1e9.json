@@ -1,0 +1,81 @@
+{
+    "key": "group_5afefc35dc1e9",
+    "title": "Theme - Footer Sitemap",
+    "fields": [
+        {
+            "key": "field_5afefc3ac1043",
+            "label": "Footer Sitemap",
+            "name": "footer_sitemap",
+            "type": "repeater",
+            "instructions": "Add additional menu columns to the footer's sitemap here. Edit the menus themselve via the <a href=\"\/wp-admin\/nav-menus.php\" target=\"_blank\">Appearance > Menus<\/a> tab.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5afefc83c1044",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Sitemap Column",
+            "sub_fields": [
+                {
+                    "key": "field_5afefc83c1044",
+                    "label": "Title",
+                    "name": "column_title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5afefc93c1045",
+                    "label": "Menu",
+                    "name": "column_menu",
+                    "type": "nav_menu",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "save_format": "menu",
+                    "container": 0,
+                    "allow_null": 0
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-theme-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1526660338
+}

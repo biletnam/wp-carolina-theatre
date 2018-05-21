@@ -13,35 +13,142 @@
  */
 
 ?>
+<?php // get all ACF for Footer fields and custom JavaScript
+	$custom_scripts = get_field('custom_scripts', 'option');
+	$footer_bg = get_field('footer_bg', 'option');
+	$slogan = get_field('slogan', 'options');
+	$copyright_after = get_field('copyright', 'option');
+	$logomark_text = get_field('logomark_text', 'option');
+	$show_email_signup = get_field('show_email_signup', 'option');
+	$email_signup_headline = get_field('email_signup_headline', 'option');
+	$email_signup_shortcode = get_field('email_signup_shortcode', 'option', false);
+?>
 
-		</div><!-- #content -->
+<section class="socialmedia__feed">
+	<div class="socialmedia__feed--title">
+		<h3>Stay Connected</h3>		
+	</div>
+	<div class="socialmedia__feed--posts">
+		<div class="socialmedia__feed--post">
+			Twitter Post Here
+		</div>
+		<div class="socialmedia__feed--post">
+			Twitter Post Here
+		</div>
+		<div class="socialmedia__feed--post">
+			Twitter Post Here
+		</div>
+		<div class="socialmedia__feed--post">
+			Twitter Post Here
+		</div>
+	</div>
+</section>
 
-		<footer id="colophon" class="site-footer" role="contentinfo">
-			<div class="wrap">
-				<?php
-				get_template_part( 'template-parts/footer/footer', 'widgets' );
+<?php if(have_rows('social_media_accounts', 'options')){ ?>
+<section class="socialmedia__bar">
+	<?php while(have_rows('social_media_accounts', 'options')){ the_row(); ?>
+	<div class="socialmedia__bar--icon">
+		<?php 
+			$platform = get_sub_field('platform');
+			$handle = get_sub_field('handle');
+			$url = get_sub_field('url');
+			$icon = get_sub_field('icon');
+		?>
+		<a href="<?php echo $url; ?>" title="Visit our <?php $platform; ?> account." target="_blank">
+			<i class="fab fa-<?php echo $icon; ?>"></i>
+		</a>
+	</div>
+	<?php } // endwhile footer sitemap ?>
+</section>
+<?php } // endif footer sitemap ?>
 
-				if ( has_nav_menu( 'social' ) ) : ?>
-					<nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Social Links Menu', 'carolinatheatre' ); ?>">
-						<?php
-							wp_nav_menu( array(
-								'theme_location' => 'social',
-								'menu_class'     => 'social-links-menu',
-								'depth'          => 1,
-								'link_before'    => '<span class="screen-reader-text">',
-								'link_after'     => '</span>' . carolinatheatre_get_svg( array( 'icon' => 'chain' ) ),
-							) );
-						?>
-					</nav><!-- .social-navigation -->
-				<?php endif;
 
-				get_template_part( 'template-parts/footer/site', 'info' );
+<footer class="footer--main"<?php if($footer_bg) { echo ' style="background-image:url('.$footer_bg.');"'; } ?>>
+	<?php if($slogan){ ?>
+		<div class="footer__slogan">
+			<p class="h1"><?php echo $slogan; ?></h1>
+		</div>
+	<?php } // endif slogan ?>
+
+	<?php if($show_email_signup){ ?>
+		<div class="footer__newsletter">
+			<p class="h5"><?php echo $email_signup_headline; ?></p>
+	    <?php // TO-DO: setup email client with shortcode, using html below for styles ?>
+	    <?php // echo do_shortcode($email_signup_shortcode); ?>
+	    <form action="">
+		    <span class="transition-label">
+		  		<input type="email" name="email">
+		      <div class="newsletter-submit fa fa-chevron-right">
+		        <input class="newsletter-submit-button" type="submit" value="">
+		      </div>
+		      <label for="email">email address</label>
+		    </span>
+	    </form>
+	  </div>
+	<?php } //endif newsletter ?>
+
+	<?php if(have_rows('footer_sitemap', 'options')){ ?>
+	<div class="footer__sitemap">
+		<div class="container contain">
+			<?php while(have_rows('footer_sitemap', 'options')){ the_row(); ?>
+			<div class="footer__sitemap-column">
+				<?php 
+					$title = get_sub_field('column_title');
+					$menu_html = get_sub_field('column_menu');
 				?>
-			</div><!-- .wrap -->
-		</footer><!-- #colophon -->
-	</div><!-- .site-content-contain -->
-</div><!-- #page -->
+				<?php if($title){ ?>
+					<h5><?php echo $title; ?></h5>
+				<?php } ?>
+				<?php if($menu_html){ ?>
+					<nav class="footer-menu">
+						<?php echo $menu_html; ?>
+					</nav>
+				<?php } ?>
+			</div>
+			<?php } // endwhile footer sitemap ?>
+		</div>
+	</div>
+	<?php } // endif footer sitemap ?>
+
+	<div class="footer__logo">
+		<?php
+			$footer_logo = get_field('footer_logo', 'options');
+			if($footer_logo){
+				echo file_get_contents($footer_logo);
+			} else {
+				include 'src/img/logos/ctd-logomark-new.svg';
+			}
+	 	?>
+		<?php if($logomark_text){ ?><p class="h5"><?php echo $logomark_text; ?></p><?php } ?>
+	</div>
+
+	<div class="footer__contact">
+		<?php if($GLOBALS["location_address"]){ ?>
+		<p>
+			The Carolina Theatre of Durham<br>
+			<a href="<?php echo $GLOBALS["location_directionlink"]; ?>" title="Get Directions" target="_blank"><?php echo $GLOBALS["location_address"]; ?></a>
+		</p>
+		<?php } // endif location address ?>
+		<?php if($GLOBALS["phone"]){ ?>
+		<p>
+			<?php echo $GLOBALS["phone"]; ?>
+		</p>
+		<?php } // endif phone number ?>
+
+	</div>
+
+	<div class="footer__copyright">
+		<p>&copy;<?php echo date('Y');?> <?php echo $copyright_after; ?></p>
+	</div>
+</footer>
+
 <?php wp_footer(); ?>
+
+<?php // Any custom JavaScript scripts (thru Theme Settings)
+	if ($custom_scripts){
+		echo $custom_scripts;
+	}
+?>
 </body>
 </html>
 

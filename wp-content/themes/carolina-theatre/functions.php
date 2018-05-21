@@ -10,53 +10,21 @@
  */
 
 /**
- * Twenty Seventeen only works in WordPress 4.7 or later.
- */
-if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
-	require get_template_directory() . '/inc/back-compat.php';
-	return;
-}
-
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
+ * Set up theme defaults and register support for various WordPress features.
  */
 function carolinatheatre_setup() {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed at WordPress.org. See: https://translate.wordpress.org/projects/wp-themes/carolinatheatre
-	 * If you're building a theme based on Twenty Seventeen, use a find and replace
-	 * to change 'carolinatheatre' to the name of your theme in all the template files.
-	 */
 	load_theme_textdomain( 'carolinatheatre' );
+	add_theme_support( 'automatic-feed-links' );	// Add default posts and comments RSS feed links to head.
+	add_theme_support( 'title-tag' ); // WP manages the document title, so there is no hard-coded <title>
+	add_theme_support( 'post-thumbnails' ); // Enable support for Post Thumbnails on posts and pages.
+	// add_image_size( 'carolinatheatre-featured-image', 2000, 1200, true ); // custom image size
+	// add_image_size( 'carolinatheatre-thumbnail-avatar', 100, 100, true ); // custom image size
 
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
-
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
-	add_theme_support( 'title-tag' );
-
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-	 */
-	add_theme_support( 'post-thumbnails' );
-	add_image_size( 'carolinatheatre-featured-image', 2000, 1200, true );
-	add_image_size( 'carolinatheatre-thumbnail-avatar', 100, 100, true );
-
-	// This theme uses wp_nav_menu() in two locations.
+	// Registering menu locations for the theme
 	register_nav_menus( array(
-		'top'    => __( 'Top Menu', 'carolinatheatre' ),
-		'social' => __( 'Social Links Menu', 'carolinatheatre' ),
+		'header-topleft'    => __( 'Header - Top Left', 'carolinatheatre' ),
+		'header-topright'    => __( 'Header - Top Right', 'carolinatheatre' ),
+		'header-main'    => __( 'Header - Main', 'carolinatheatre' ),
 	) );
 
 	/*
@@ -72,7 +40,6 @@ function carolinatheatre_setup() {
 
 	/*
 	 * Enable support for Post Formats.
-	 *
 	 * See: https://codex.wordpress.org/Post_Formats
 	 */
 	add_theme_support( 'post-formats', array(
@@ -88,6 +55,19 @@ function carolinatheatre_setup() {
 add_action( 'after_setup_theme', 'carolinatheatre_setup' );
 
 /**
+ * Allow SVG file uploads to Media Library
+ */
+function add_file_types_to_uploads($file_types){
+
+    $new_filetypes = array();
+    $new_filetypes['svg'] = 'image/svg+xml';
+    $file_types = array_merge($file_types, $new_filetypes );
+
+    return $file_types;
+}
+add_action('upload_mimes', 'add_file_types_to_uploads');
+
+/**
  * Registers an editor stylesheet for the theme.
  * Add styles to TinyMCE WYSIWIG
  */
@@ -96,36 +76,39 @@ function mrc_custom_editor_styles() {
 }
 add_action( 'admin_init', 'mrc_custom_editor_styles' );
 
+/*
+ * Adding an ACF Theme Options page in the Dashboard
+ */
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page(array(
+		'page_title' 	=> 'Theme Settings',
+		'menu_title'	=> 'Theme Settings',
+		'menu_slug' 	=> 'general-settings',
+		'capability'	=> 'edit_posts',
+		// 'redirect'		=> false
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Settings',
+		'menu_title'	=> 'Theme Settings',
+		'parent_slug'	=> 'general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Scripts & Styles',
+		'menu_title'	=> 'Scripts & Styles',
+		'parent_slug'	=> 'general-settings',
+	));
+}
+
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ * Register widget areas.
  */
 function carolinatheatre_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Blog Sidebar', 'carolinatheatre' ),
 		'id'            => 'sidebar-1',
 		'description'   => __( 'Add widgets here to appear in your sidebar on blog posts and archive pages.', 'carolinatheatre' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-
-	register_sidebar( array(
-		'name'          => __( 'Footer 1', 'carolinatheatre' ),
-		'id'            => 'sidebar-2',
-		'description'   => __( 'Add widgets here to appear in your footer.', 'carolinatheatre' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-
-	register_sidebar( array(
-		'name'          => __( 'Footer 2', 'carolinatheatre' ),
-		'id'            => 'sidebar-3',
-		'description'   => __( 'Add widgets here to appear in your footer.', 'carolinatheatre' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -172,9 +155,7 @@ function carolinatheatre_scripts() {
 
 	wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/dist/scripts-min.js', array('jquery'
 	), null, true );
-
 	wp_enqueue_script('jquery');
-
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
