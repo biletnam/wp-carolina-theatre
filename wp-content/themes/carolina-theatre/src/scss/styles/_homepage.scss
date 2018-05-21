@@ -15,10 +15,17 @@
 
 		&--nav {
 			position: relative;
-			background-color: orange;
 			width: 20%;
 			margin: auto;
 		}
+	}
+
+	&__go-to-btn:hover {
+		background-color: purple;
+	}
+
+	&__thumbnail {
+		display: none;
 	}
 
 	&__card {
@@ -33,6 +40,8 @@
 		float: left;
 	}
 }
+
+
 
 .hp-upcoming {
 	border: 1px solid darkseagreen;
@@ -54,7 +63,6 @@
 
 	&__card {
 		display: inline-block;
-		background: orange;
 		width: 150px;
 		height: 250px;
 		padding: 15px;

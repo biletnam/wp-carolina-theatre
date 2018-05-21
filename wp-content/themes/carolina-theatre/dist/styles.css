@@ -951,9 +951,14 @@ div.wpcf7-validation-errors {
   float: left; }
   .hero-block__slider--nav {
     position: relative;
-    background-color: orange;
     width: 20%;
     margin: auto; }
+
+.hero-block__go-to-btn:hover {
+  background-color: purple; }
+
+.hero-block__thumbnail {
+  display: none; }
 
 .hero-block__card img {
   width: 100%; }
@@ -975,7 +980,6 @@ div.wpcf7-validation-errors {
       margin-left: 50%; }
   .hp-upcoming__card {
     display: inline-block;
-    background: orange;
     width: 150px;
     height: 250px;
     padding: 15px;
