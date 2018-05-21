@@ -232,6 +232,37 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "5b02f41ea3c7e": {
+                    "key": "5b02f41ea3c7e",
+                    "name": "call_to_action_card",
+                    "label": "Call To Action Card",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b02f43ca3c7f",
+                            "label": "Card",
+                            "name": "card",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5b02f33698161"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Content Block",
@@ -270,5 +301,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1526312720
+    "modified": 1526920290
 }
