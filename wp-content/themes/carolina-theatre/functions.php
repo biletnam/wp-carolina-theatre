@@ -182,10 +182,11 @@ function custom_menu_order($menu_ord) {
         'upload.php', // Media
         'separator1', // First separator
         'edit.php?post_type=page', // Pages
-        'edit.php?post_type=event', // Pages
-        'edit.php?post_type=film', // Pages
-        'edit.php?post_type=festival', // Pages
+        'edit.php?post_type=event', // // Custom Post: Live Events
+        'edit.php?post_type=film', // // Custom Post: Films
+        'edit.php?post_type=festival', // Custom Post: Festivals
         'edit.php', // Posts
+        'edit.php?post_type=alertbanner', // Custom Post: Alert Banners
         'separator2', // Second separator
         'themes.php', // Appearance
         'plugins.php', // Plugins

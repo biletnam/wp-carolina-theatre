@@ -97,8 +97,6 @@ function event_create_post_type() {
 	register_post_type( 'event', $args );
 } add_action( 'init', 'event_create_post_type', 0 );
 
-
-
 /*
  * Register Film Post Types
  */
@@ -148,6 +146,54 @@ function film_create_post_type() {
 	register_post_type( 'film', $args );
 } add_action( 'init', 'film_create_post_type', 0 );
 
+/*
+ * Register Alert Banner Posts
+ */
+function alertbanner_create_post_type() {
+	$labels = array(
+		'name' => 'Alert Banners',
+		'singular_name' => 'Alert Banner',
+		'add_new' => 'Add Banner',
+		'all_items' => 'All Banner',
+		'add_new_item' => 'Add Banner',
+		'edit_item' => 'Edit Banner',
+		'new_item' => 'New Banner',
+		'view_item' => 'View Banner',
+		'search_items' => 'Search Banners',
+		'not_found' => 'No Films found',
+		'not_found_in_trash' => 'No Banners found in trash',
+		'parent_item_colon' => 'Parent Banner',
+		'menu_name' => 'Alert Banners'
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => false,
+		'publicly_queryable' => false,
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'supports' => array(
+			'title',
+			// 'editor',
+			// 'excerpt',
+			// 'thumbnail',
+			//'author',
+			//'trackbacks',
+			//'custom-fields',
+			//'comments',
+			'revisions',
+			//'page-attributes', // (menu order, hierarchical must be true to show Parent option)
+			//'post-formats',
+		),
+		'taxonomies' => array(), // add default post categories and tags
+		'menu_position' => 20,
+		'exclude_from_search' => true,
+		'menu_icon' => 'dashicons-info',
+	);
+	register_post_type( 'alertbanner', $args );
+} add_action( 'init', 'alertbanner_create_post_type', 0 );
 
 
 /*

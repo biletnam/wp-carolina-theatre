@@ -87,13 +87,40 @@ $GLOBALS["location_directionlink"] = get_field('google_map_link', 'option');
 
 <div class="mainWrapper">
 
-<?php if($alertBanner){ ?>
-<section class="alertBanner">
-	<div id="alertBanner__closeBtn" class="btn__closeOpen--wrapper">
-  	<div class="btn__closeOpen close"></div>
-  </div>
-</section>
-<?php } //end alert banner ?>
+
+
+<?php // Alert Banner Markup 
+	$alertbanner_query_args = array(
+		'post_type' => 'alertbanner',
+		'post_status' => 'publish',
+		'posts_per_page' => 1
+	);
+	$alertbanner_query = new WP_Query($alertbanner_query_args);
+?>
+
+<?php if ($alertbanner_query->have_posts()) { ?>
+	<?php while ($alertbanner_query->have_posts()) { $alertbanner_query->the_post(); ?>
+		<?php 
+			$banner_alert = get_field('banner_alert');
+			$banner_link = get_field('link');
+			$closeable = get_field('allow_visitor_to_close_banner'); 
+		?>
+		<section id="alertBanner" class="alertBanner bg-gold" style="display: none;">
+			<?php if($closeable){ ?>
+	  	<a id="alertBanner__closeBtn" class="alertBanner__closeBtn" onClick="alertBanner('hide');"><i class="fas fa-times"></i></a>
+		  <?php } //end if closeable ?>
+  		<?php if($banner_link){ ?>
+				<a href="<?php echo $banner_link; ?>">
+					<p class="alertBanner__text"><?php echo $banner_alert; ?></p>
+				</a>
+		  <?php } else { ?>
+				<p class="alertBanner__text"><?php echo $banner_alert; ?></p>
+		  <?php } //end if closeable ?>
+		</section>
+
+	<?php } // end while ?>
+<?php } // end if ?>
+
 
 <header id="header" class="header">
   <div class="header__top">
@@ -146,38 +173,35 @@ $GLOBALS["location_directionlink"] = get_field('google_map_link', 'option');
 			</div>
 			<div class="mobileNav__trigger">
 	      <a id="mobileNav__openBtn" class="mobileNav__openBtn">
+				  <p class="h5">menu</p>
 				  <span></span>
 				  <span></span>
 				  <span></span>
 				  <span></span>
 	      </a>
 	    </div>
-		  
-		  <?php // header menu
+	    <nav id="header__nav" class="header__nav" role="navigation">		  
+		  <?php // header main menu
 			if(has_nav_menu('header-main')){ ?>
-		    <nav id="header__nav" class="header__nav" role="navigation">
-					<?php wp_nav_menu( array( 
-			    	'theme_location' 	=> 'header-main', 
-			    	'container'				=> false,
-			    	'menu_class'			=> '',
-			    	'menu_id'					=> '',
-			    	) 
-			  	); ?>
-		  	</nav>
+				<?php wp_nav_menu( array( 
+		    	'theme_location' 	=> 'header-main', 
+		    	'container'				=> false,
+		    	'menu_class'			=> 'header__mainMenu',
+		    	'menu_id'					=> '',
+		    	) 
+		  	); ?>
 			<?php } ?>
-      
 	    <?php // call to action button
 			if(has_nav_menu('header-cta')){ ?>
-		    <div class="header__cta" role="navigation">
-					<?php wp_nav_menu( array( 
-			    	'theme_location' 	=> 'header-cta', 
-			    	'container'				=> false,
-			    	'menu_class'			=> '',
-			    	'menu_id'					=> '',
-			    	) 
-			  	); ?>
-		  	</div>
+				<?php wp_nav_menu( array( 
+		    	'theme_location' 	=> 'header-cta', 
+		    	'container'				=> false,
+		    	'menu_class'			=> 'header__cta',
+		    	'menu_id'					=> '',
+		    	) 
+		  	); ?>
 			<?php } ?>
+			</nav>
 		</div>
   </div><!-- .header-main  -->
 </header>

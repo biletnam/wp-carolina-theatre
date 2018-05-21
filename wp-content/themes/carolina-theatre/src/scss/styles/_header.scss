@@ -80,14 +80,8 @@
 	.container {
     padding-top: 20px;
     padding-bottom: 20px;
-	}
 
-	.header__cta {
-    text-align: right;
-
-    @include breakpoint($menuBreakpoint){
-    	display: none;
-    }
+    // display: flex;
 	}
 
 	&.sticky {
@@ -103,18 +97,24 @@
 }
 
 .header__cta {
-	ul {	
-		a {
-			@extend .button;
-		}
+	text-align: right;
+
+  @include breakpoint($menuBreakpoint){
+  	display: none;
+  }
+
+  a {
+		@extend .button;
 	}
 }
 
 .header__logo {
+ 	float: left;
+
 	a {
 		img, svg {
-			width: 94px;
-			height: 36px;
+			// width: 190px;
+			height: 88px;
 		}
 
 		&:hover {
@@ -127,83 +127,28 @@
 	}
 }
 
-.mobileNav__trigger {
-	display: none;
-  
-	@include breakpoint($menuBreakpoint) {
-		display: block;
-	}
-}
-
-.mobileNav__openBtn {
-	display: block;
-  position: relative;
-  width: 28px;
-  height: 20px;
-  transition: .5s ease-in-out;
-  cursor: pointer;
-	
-	&:hover {
-		span {
-			background-color: $green;
-		}
-	}
-
-	span { // hamburger menu styling and positioning
-	  display: block;
-	  position: absolute;
-	  height: 3px;
-	  width: 100%;
-	  background-color: $off-black;
-	  left: 0;
-	  transition: .25s ease-in-out;
-	
-		&:nth-child(1) {
-		  top: 0px;
-		}
-
-		&:nth-child(2),
-		&:nth-child(3) {
-		  top: 7px;
-		}
-
-		&:nth-child(4) {
-			top: 14px;
-		}
-	}
-
-	&.open {
-		span {
-			&:nth-child(1){
-				top: 5px;
-			  width: 0%;
-			  left: 50%;
-			}
-			&:nth-child(2){
-		 		transform: rotate(45deg);	
-			}
-			&:nth-child(3){
-		 		transform: rotate(-45deg);	
-			}
-			&:nth-child(4){
-				top: 5px;
-			  width: 0%;
-			  left: 50%;
-			}
-		}
-	}
-}
-
 .header__nav {
+	float: right;
+
   @include breakpoint($menuBreakpoint){
 		display: none;
 	}
 
 	> ul { // top level wrapper
-		list-style: none;
-		padding: 0;
-		margin: 0;
+		display: inline-block;
+		vertical-align: middle;
 		
+		&.header__mainMenu {
+			> li > a {
+				@include rem(16);
+				font-weight: 600;
+
+				&:hover {
+					border-bottom: 3px solid $green;
+				}
+			}
+		}
+
 		> li { // top level menu items
 			display: inline-block;
 			position: relative;
@@ -270,12 +215,17 @@
 						position: relative;
 						outline: none;
 						display: block;
+
+						&:hover {
+							text-decoration: underline;
+						}
 					}
 					
 					&.current-menu-item,
 					&.current-menu-ancestor {
 						> a {
 							font-weight: 700;	
+							text-decoration: underline;
 						}	
 					}
 				}
@@ -337,18 +287,114 @@
 	}
 }
 
-// .primary-menu-items {
-// 	@include rem(32);
-// 	line-height: 1.55;
-// 	margin-bottom: 30px;
-// }
+.mobileNav__trigger {
+	display: none;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  
+	@include breakpoint($menuBreakpoint) {
+		display: block;
+	}
+}
 
-// .secondary-menu-items {
-// 	@include rem(16);
-// 	line-height: 1.65;
-// 	margin-bottom: 20px;
-// }
+.mobileNav__openBtn {
+	display: block;
+  position: relative;
+  height: 20px;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+	
+	&:hover {
+		span {
+			background-color: $green-med;
+		}
+	}
+
+	span { // hamburger menu styling and positioning
+	  display: block;
+	  position: absolute;
+	  height: 3px;
+	  width: 28px;
+	  background-color: $green;
+	  left: 0;
+	  transition: .25s ease-in-out;
+	
+		&:nth-child(1) {
+		  top: 0px;
+		}
+
+		&:nth-child(2),
+		&:nth-child(3) {
+		  top: 7px;
+		}
+
+		&:nth-child(4) {
+			top: 14px;
+		}
+	}
+
+	&.open {
+		span {
+			&:nth-child(1){
+				top: 5px;
+			  width: 0%;
+			  left: 50%;
+			}
+			&:nth-child(2){
+		 		transform: rotate(45deg);	
+			}
+			&:nth-child(3){
+		 		transform: rotate(-45deg);	
+			}
+			&:nth-child(4){
+				top: 5px;
+			  width: 0%;
+			  left: 50%;
+			}
+		}
+	}
+}
 // End Mobile Menu Styling
+
+
+.alertBanner {
+	position: relative;
+	text-align: center;
+
+	&__closeBtn {
+		position: absolute;
+		top: 50%;
+		right: 20px;
+		color: $gold-dk;
+		cursor: pointer;
+		transform: translateY(-50%);
+		transition: $transition;
+
+		&:hover {
+			color: $off-black;
+		}
+	}
+
+	&__text {
+		max-width: calc(100% - 80px);
+		margin: 0 auto;
+		padding-top: 13px;
+		padding-bottom: 13px;
+		font-weight: 600;
+		@include rem(14);
+		color: $gold-dk;
+		transition: $transition;
+	}
+
+	a:hover {
+		p {
+			color: $off-black;
+		}
+	}
+}
+
 
 //
 // END OF HEADER STYLES
