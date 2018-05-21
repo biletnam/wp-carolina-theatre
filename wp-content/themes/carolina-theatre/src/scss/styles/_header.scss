@@ -1,0 +1,363 @@
+//
+// HEADER STYLES
+//
+
+
+// logged into wordpress styles
+.admin-bar {
+	.header-main.sticky {
+    top: 32px !important;
+
+    @include breakpoint(782px){
+			top: 46px !important;
+		}
+	}
+
+	.nutrition-overview.sticky {
+    top: 86px !important;
+
+    @include breakpoint(782px){
+			top: 96px !important;
+		}
+	}
+}
+@include breakpoint(600px){
+	#wpadminbar {
+    position: fixed;
+	}
+}
+// END logged into wordpress styles
+
+
+.header {
+	ul {
+		padding: 0;
+    margin: 0;
+    list-style: none;
+	}
+}
+
+.header__top {
+	background-color: $gray-lt;
+	border-bottom: 1px solid $gray;
+	padding-top: 7px;
+	padding-bottom: 2px;
+	@include rem(12);
+
+	@include breakpoint($sizeMobile){
+		display: none;
+	}
+
+	.container {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	ul {
+		display: inline-block;
+	}
+
+	li {
+		display: inline-block;
+		padding-right: 15px;
+	}
+	
+	.left { 
+		float: left;
+
+		a {
+			text-decoration: underline; 
+		}
+	}
+	.right { 
+		float: right; 
+	}
+}
+
+.header__searchBtn {
+	display: inline-block;
+	vertical-align: middle;
+	@include rem(16);
+}
+
+.header__main {
+	background-color: $white;
+	border-bottom: 1px solid $gray;
+	z-index: 1000;
+
+	.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+	}
+
+	.header__cta {
+    text-align: right;
+
+    @include breakpoint($menuBreakpoint){
+    	display: none;
+    }
+	}
+
+	&.sticky {
+	  width: 100% !important; // overrides inline width from ScrollMagic
+		top: 0 !important; // when page loads in middle, ScrollMagic was funky
+    left: auto !important;
+
+		> .container {
+			padding-top: 5px;
+			padding-bottom: 5px;
+		}
+	}
+}
+
+.header__cta {
+	ul {	
+		a {
+			@extend .button;
+		}
+	}
+}
+
+.header__logo {
+	a {
+		img, svg {
+			width: 94px;
+			height: 36px;
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	@include breakpoint($menuBreakpoint){
+		margin: 0 auto;
+	}
+}
+
+.mobileNav__trigger {
+	display: none;
+  
+	@include breakpoint($menuBreakpoint) {
+		display: block;
+	}
+}
+
+.mobileNav__openBtn {
+	display: block;
+  position: relative;
+  width: 28px;
+  height: 20px;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+	
+	&:hover {
+		span {
+			background-color: $green;
+		}
+	}
+
+	span { // hamburger menu styling and positioning
+	  display: block;
+	  position: absolute;
+	  height: 3px;
+	  width: 100%;
+	  background-color: $off-black;
+	  left: 0;
+	  transition: .25s ease-in-out;
+	
+		&:nth-child(1) {
+		  top: 0px;
+		}
+
+		&:nth-child(2),
+		&:nth-child(3) {
+		  top: 7px;
+		}
+
+		&:nth-child(4) {
+			top: 14px;
+		}
+	}
+
+	&.open {
+		span {
+			&:nth-child(1){
+				top: 5px;
+			  width: 0%;
+			  left: 50%;
+			}
+			&:nth-child(2){
+		 		transform: rotate(45deg);	
+			}
+			&:nth-child(3){
+		 		transform: rotate(-45deg);	
+			}
+			&:nth-child(4){
+				top: 5px;
+			  width: 0%;
+			  left: 50%;
+			}
+		}
+	}
+}
+
+.header__nav {
+  @include breakpoint($menuBreakpoint){
+		display: none;
+	}
+
+	> ul { // top level wrapper
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		
+		> li { // top level menu items
+			display: inline-block;
+			position: relative;
+			padding: 6px 10px 40px;
+	
+			> a { // top level menu item link
+				display: block;
+				position: relative;
+			}
+
+			&.menu-item-has-children { // top level menu item with dropdown
+				> a {
+					&::before { // dropdown arrow styling
+						content: '';
+						// position: absolute;
+						// // top: 32px;
+						// right: -7px;
+						// border: 4px solid transparent;
+						// border-top: 4px solid $text;
+					}
+				}
+			}
+
+			&.current-menu-item,
+			&.current-menu-ancestor {
+				> a {
+					border-bottom: 3px solid $green;	
+				}	
+			}
+		}
+	}
+
+	ul {
+		li {
+			&.menu-item-has-children {
+				&:hover { // show dropdown on hover
+					> ul {
+						display: block;
+					}
+				}
+			}
+
+			> ul { // dropdown wrapper styling
+				display: none;
+				position: absolute;
+				z-index: 999;
+				width: auto;
+				top: 70px;
+				padding: 10px 0 15px;
+				min-width: 200px;
+				background-color: $white;
+				border: 1px solid $gray;
+				border-top: 0;
+				
+				li { // dropdown menu item 
+					display: block;
+					list-style: inside none;
+					padding: 0;
+					margin: 0;
+					position: relative;
+					padding: 8px 28px;
+
+					a { // dropdown menu item link
+						position: relative;
+						outline: none;
+						display: block;
+					}
+					
+					&.current-menu-item,
+					&.current-menu-ancestor {
+						> a {
+							font-weight: 700;	
+						}	
+					}
+				}
+			}
+		}
+	}
+} // end .header-nav
+
+
+// Mobile Menu Styling
+.header__mobileNav {
+	position: fixed;
+  z-index: 999;
+  top: 0;
+	bottom: 0;
+	right: -$mobileMenuWidth;
+	width: $mobileMenuWidth;
+	padding: 80px 10% 20px;
+	background-color: $white;
+	border-right: 1px solid $gray;
+	overflow-y: auto;
+	transition: $transition;
+	
+	@include breakpoint-min($menuBreakpoint + 1px){
+		display: none;
+	}
+} // end .mainNav__mobile
+
+
+.mainWrapper {
+	&::after { // setting up body's overlay for opened mobile menu
+		position: absolute;
+		content: " ";
+		background-color: rgba($black, .85);
+		z-index: -1;
+		opacity: 0;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		transition: .5s ease all;
+	}
+}
+
+.shift { // class added to <html> when mobile menu is open
+	overflow-x: hidden; // so you can't scroll when mobile menu is open
+
+	.mainWrapper {
+		right: $mobileMenuWidth;
+
+		&::after {
+			z-index: 2000;
+			opacity: 1;
+		}
+	}
+	.header__mobileNav {
+		right: 0;
+		border-left: 1px solid $gray;
+	}
+}
+
+// .primary-menu-items {
+// 	@include rem(32);
+// 	line-height: 1.55;
+// 	margin-bottom: 30px;
+// }
+
+// .secondary-menu-items {
+// 	@include rem(16);
+// 	line-height: 1.65;
+// 	margin-bottom: 20px;
+// }
+// End Mobile Menu Styling
+
+//
+// END OF HEADER STYLES
+//

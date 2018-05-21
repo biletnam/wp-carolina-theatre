@@ -115,6 +115,76 @@ main {
   }
 }
 
+// .mainWrapper wraps everything but mobile menu. allows content 
+// to shift when menu opens (more styles in _part-header.scss)
+.mainWrapper {
+	position: relative;
+	right: 0;
+	transition: $transition;
+	overflow: hidden;
+}
+
+// corner button to open and close content
+.btn__closeOpen--wrapper {
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 80px;
+	height: 80px;
+	font-size: 42px;
+
+	&:hover {
+		div::before {
+			background-color: $off-black;
+		}
+	}
+
+	@include breakpoint($sizeTablet) {
+		width: 50px;
+		height: 50px;
+		font-size: 32px;
+	}
+}
+.btn__closeOpen {
+	position: absolute;
+	z-index: 20;
+	width: 80px;
+	height: 80px;
+	transition: $transition;
+	cursor: pointer;
+
+	&::before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+	}
+
+	&::after {
+		position: absolute;
+		z-index: 5;
+    left: 15px;
+    top: -3px;
+		content: '+';
+		color: $off-black;
+    transform-origin: 50% 55%;
+		transition: $transition;
+
+		@include breakpoint($sizeTablet) {
+			left: 8px;
+			top: -6px;
+		}
+	}
+	
+	// if button is only to be used as a close button
+	&.close {
+		&::after {
+			transform: rotate(45deg);
+		}
+	}
+}
+
+
 // page tabs, filters for events, etc
 .content-tabs {
 	position: relative;

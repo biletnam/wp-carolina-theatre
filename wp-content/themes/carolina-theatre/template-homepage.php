@@ -121,14 +121,6 @@ get_header();
             </div>
         </div>
     </div>
-    <div class="hp-stay-connected">
-        <hr class="hp-stay-connected__hr"/>
-        <h3 class="hp-stay-connected__header">Stay Connected</h3>
-        <hr class="hp-stay-connected__hr"/>
-        <div>
-            Tweet, Tweet, Tweet
-        </div>
-    </div>
 </div> <!-- hpwrapper -->
 
 <?php

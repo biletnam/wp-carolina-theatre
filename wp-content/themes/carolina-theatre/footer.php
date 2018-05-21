@@ -13,6 +13,8 @@
  */
 
 ?>
+</main> <?php // end <main role="main"> from header.php ?>
+
 <?php // get all ACF for Footer fields and custom JavaScript
 	$custom_scripts = get_field('custom_scripts', 'option');
 	$footer_bg = get_field('footer_bg', 'option');
@@ -28,18 +30,18 @@
 	<div class="socialmedia__feed--title">
 		<h3>Stay Connected</h3>		
 	</div>
-	<div class="socialmedia__feed--posts">
+	<div class="socialmedia__feed--posts contain container">
 		<div class="socialmedia__feed--post">
-			Twitter Post Here
+			Did you attend this year’s @FullFrame Documentary Film Festival? Want to win passes for #FullFrame 2019? Take our survey for a chance to win: http://bit.ly/FF18Survey  @DurhamNC @DukeArts @NCArtsCouncil @artstigators @DukeAlumni
 		</div>
 		<div class="socialmedia__feed--post">
-			Twitter Post Here
+			Did you attend this year’s @FullFrame Documentary Film Festival? Want to win passes for #FullFrame 2019? Take our survey for a chance to win: http://bit.ly/FF18Survey  @DurhamNC @DukeArts @NCArtsCouncil @artstigators @DukeAlumni
 		</div>
 		<div class="socialmedia__feed--post">
-			Twitter Post Here
+			Did you attend this year’s @FullFrame Documentary Film Festival? Want to win passes for #FullFrame 2019? Take our survey for a chance to win: http://bit.ly/FF18Survey  @DurhamNC @DukeArts @NCArtsCouncil @artstigators @DukeAlumni
 		</div>
 		<div class="socialmedia__feed--post">
-			Twitter Post Here
+			Did you attend this year’s @FullFrame Documentary Film Festival? Want to win passes for #FullFrame 2019? Take our survey for a chance to win: http://bit.ly/FF18Survey  @DurhamNC @DukeArts @NCArtsCouncil @artstigators @DukeAlumni
 		</div>
 	</div>
 </section>
@@ -54,14 +56,13 @@
 			$url = get_sub_field('url');
 			$icon = get_sub_field('icon');
 		?>
-		<a href="<?php echo $url; ?>" title="Visit our <?php $platform; ?> account." target="_blank">
+		<a href="<?php echo $url; ?>" title="Follow the Carolina Theatre on <?php echo $platform; ?>." target="_blank">
 			<i class="fab fa-<?php echo $icon; ?>"></i>
 		</a>
 	</div>
 	<?php } // endwhile footer sitemap ?>
 </section>
 <?php } // endif footer sitemap ?>
-
 
 <footer class="footer--main"<?php if($footer_bg) { echo ' style="background-image:url('.$footer_bg.');"'; } ?>>
 	<?php if($slogan){ ?>
@@ -141,6 +142,8 @@
 		<p>&copy;<?php echo date('Y');?> <?php echo $copyright_after; ?></p>
 	</div>
 </footer>
+
+</div> <?php // <div class="mainWrapper"> from header.php ?>
 
 <?php wp_footer(); ?>
 

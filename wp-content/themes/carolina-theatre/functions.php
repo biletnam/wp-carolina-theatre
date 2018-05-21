@@ -22,9 +22,10 @@ function carolinatheatre_setup() {
 
 	// Registering menu locations for the theme
 	register_nav_menus( array(
-		'header-topleft'    => __( 'Header - Top Left', 'carolinatheatre' ),
-		'header-topright'    => __( 'Header - Top Right', 'carolinatheatre' ),
-		'header-main'    => __( 'Header - Main', 'carolinatheatre' ),
+		'header-topleft'  => __( 'Header - Top Left', 'carolinatheatre' ),
+		'header-topright' => __( 'Header - Top Right', 'carolinatheatre' ),
+		'header-main'   	=> __( 'Header - Main', 'carolinatheatre' ),
+		'header-cta' 			=> __( 'Header - Call to Action Button' ),
 	) );
 
 	/*

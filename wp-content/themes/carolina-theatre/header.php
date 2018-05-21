@@ -66,16 +66,119 @@ $GLOBALS["location_address"] = get_field('address', 'option');
 $GLOBALS["location_directionlink"] = get_field('google_map_link', 'option');
 ?>
 
-<div class="header__logo">
-	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="Back to Homepage">
-	<?php
-		$header_logo = get_field('header_logo', 'options');
+<nav class="header header__mobileNav">
+  <div id="mobileNav__closeBtn" class="btn__closeOpen--wrapper">
+  	<div class="btn__closeOpen close"></div>
+  </div>
 
-		if($header_logo){
-			echo file_get_contents($header_logo);
-		} else {
-			include 'src/img/logos/ctd-logo-new.svg';
-		}
- 	?>
- </a>
-</div>
+  <?php // primary mobile menu
+	if(has_nav_menu('header-main')){ ?>
+    <nav class="header__mobileNav--menu" id="header__mobileNav--menu" role="navigation">
+			<?php wp_nav_menu( array( 
+	    	'theme_location' 	=> 'header-main', 
+	    	'container'				=> false,
+	    	'menu_class'			=> '',
+	    	'menu_id'					=> '',
+	    	) 
+	  	); ?>
+  	</nav>
+	<?php } ?>
+</nav>
+
+<div class="mainWrapper">
+
+<?php if($alertBanner){ ?>
+<section class="alertBanner">
+	<div id="alertBanner__closeBtn" class="btn__closeOpen--wrapper">
+  	<div class="btn__closeOpen close"></div>
+  </div>
+</section>
+<?php } //end alert banner ?>
+
+<header id="header" class="header">
+  <div class="header__top">
+		<div class="contain container">
+			<div class="left">
+				<?php // top left secondary navigation (member tickets)
+				if(has_nav_menu('header-topleft')){ ?>
+				<nav role="navigation">
+					<?php wp_nav_menu( array( 
+			    	'theme_location' 	=> 'header-topleft', 
+			    	'container'				=> false,
+			    	'menu_class'			=> '',
+			    	'menu_id'					=> '',
+			    	) 
+			  	); ?>
+		  	</nav>
+		  	<?php } ?>
+			</div>
+			<div class="right">
+				<?php // top right secondary navigation (history, donate, contact, etc)
+				if(has_nav_menu('header-topright')){ ?>
+				<nav role="navigation">
+					<?php wp_nav_menu( array( 
+			    	'theme_location' 	=> 'header-topright', 
+			    	'container'				=> false,
+			    	'menu_class'			=> '',
+			    	'menu_id'					=> '',
+			    	) 
+			  	); ?>
+			  	<a href="#" id="header__searchBtn" class="header__searchBtn"><i class="fas fa-search"></i></a>
+		  	</nav>
+		  	<?php } ?>
+			</div>
+		</div>			
+	</div>
+	<div id="header__main" class="header__main">
+		<div class="contain container">
+		  <div class="header__logo">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="Back to Homepage">
+				<?php
+					$header_logo = get_field('header_logo', 'options');
+
+					if($header_logo){
+						echo file_get_contents($header_logo);
+					} else {
+						include 'src/img/logos/ctd-logo-new.svg';
+					}
+			 	?>
+			 </a>
+			</div>
+			<div class="mobileNav__trigger">
+	      <a id="mobileNav__openBtn" class="mobileNav__openBtn">
+				  <span></span>
+				  <span></span>
+				  <span></span>
+				  <span></span>
+	      </a>
+	    </div>
+		  
+		  <?php // header menu
+			if(has_nav_menu('header-main')){ ?>
+		    <nav id="header__nav" class="header__nav" role="navigation">
+					<?php wp_nav_menu( array( 
+			    	'theme_location' 	=> 'header-main', 
+			    	'container'				=> false,
+			    	'menu_class'			=> '',
+			    	'menu_id'					=> '',
+			    	) 
+			  	); ?>
+		  	</nav>
+			<?php } ?>
+      
+	    <?php // call to action button
+			if(has_nav_menu('header-cta')){ ?>
+		    <div class="header__cta" role="navigation">
+					<?php wp_nav_menu( array( 
+			    	'theme_location' 	=> 'header-cta', 
+			    	'container'				=> false,
+			    	'menu_class'			=> '',
+			    	'menu_id'					=> '',
+			    	) 
+			  	); ?>
+		  	</div>
+			<?php } ?>
+		</div>
+  </div><!-- .header-main  -->
+</header>
+<main role="main">
