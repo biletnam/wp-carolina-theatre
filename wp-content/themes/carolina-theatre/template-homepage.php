@@ -8,7 +8,25 @@ get_header();
     <div class="hero-block">
         <div class="hero-block__slider-wrapper clearfix">
             <div class="hero-block__slider">
-                <div class="hero-block__card">
+                <?php
+                    if (have_rows("slider")) {
+                        while (have_rows("slider")) {
+                            the_row();
+                        ?>
+                            <div class="hero-block__card">
+                                <img 
+                                    src="<?php echo get_sub_field("image")[url]; ?>" 
+                                    alt="live show"
+                                />
+                                <div class="hero-block__card--content">
+                                    <?php echo get_sub_field("content"); ?>
+                                </div>
+                            </div>
+                        <?php
+                        }
+                    }
+                ?>
+                <!-- <div class="hero-block__card">
                     <img 
                         src="https://static.boredpanda.com/blog/wp-content/uploads/2015/11/reflection-landscape-photography-jaewoon-u-36.jpg"
                         alt="landscape on the lake in fall"
@@ -31,24 +49,79 @@ get_header();
                         src="https://images.template.net/wp-content/uploads/2014/11/Cute-Chick-Friends-Facebook-Cover.jpg"
                         alt="landscape on the lake in fall"
                     />
-                </div>
+                </div> -->
             </div>
         
             <div class="hero-block__stats">
                 <ul>
-                    <li>92 years</li>
-                    <li>View Films -></li>
-                    <li>100k attendees</li>
-                    <li>114 volunteers</li>
+                    <!-- <li>
+                        <div class="stats-block">
+                            <p class="show-stat">Showing text</p>
+                            <p class="hide-stat">Hiding text</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="stats-block">
+                            <p class="show-stat">Showing text</p>
+                            <p class="hide-stat">Hiding text</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="stats-block">
+                            <p class="show-stat">Showing text</p>
+                            <p class="hide-stat">Hiding text</p>
+                        </div>
+                    </li> -->
+                <?php
+                    if (have_rows("statistics")) {
+                        while (have_rows("statistics")) {
+                            the_row();
+                        ?>
+                            <li class="hero-block__stats-item">
+                                <div class="hero-block__stats--normal">
+                                    <p><?php echo get_sub_field("stat_value"); ?></p>
+                                    <p><?php echo get_sub_field("stat_description") ?></p>
+                                </div>
+                                <div class="hero-block__stats--hover">
+                                    <p><?php echo get_sub_field("hover_description"); ?></p>
+                                    <p>
+                                        <a href="<?php echo get_sub_field("link")["url"]; ?>">
+                                          <?php echo get_sub_field("link")["title"]; ?>  
+                                          Link
+                                        </a>
+                                    </p>
+                                </div>
+                            </li>
+                        <?php
+                        }
+                    }
+                ?>
                 </ul>
             </div>
         </div>
         <div class="hero-block__slider--nav clearfix">
             <div class="hero-block__slider--arrows">
-                <button class="go-to-btn" data-slide="1">Slide 1</button>
-                <button class="go-to-btn" data-slide="2">Slide 2</button>
-                <button class="go-to-btn" data-slide="3">Slide 3</button>
-                <button class="go-to-btn" data-slide="4">Slide 4</button>
+                <?php
+                    $slide_number = 1;
+                    if (have_rows("slider")) {
+                        while (have_rows("slider")) {
+                            the_row();
+                            // print_r(get_sub_field("image")["sizes"]["thumbnail"]);
+                        ?>
+                            <div class="hero-block__btn-block">
+                                <button class="hero-block__go-to-btn" data-slide="<?php echo $slide_number; ?>">
+                                    Slide <?php echo $slide_number; ?>
+                                </button>
+                                <img 
+                                    class="hero-block__thumbnail" 
+                                    src="<?php echo get_sub_field("image")["sizes"]["thumbnail"]; ?>" 
+                                    alt="small poster of event"/>
+                            </div>
+                        <?php
+                            $slide_number++;
+                        }
+                    }
+                ?>
             </div>
         </div>
     </div>
@@ -74,7 +147,7 @@ get_header();
 
         <div class="hp-upcoming__slider--nav">
             <div class="hp-upcoming__slider--arrows">
-                <button>See All Events -></button>
+                <a href="/events" ><button>See All Events -></button></a>
             </div>
         </div>
     </div>

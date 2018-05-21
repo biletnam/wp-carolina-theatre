@@ -7,6 +7,17 @@
 // 	content: "";
 // }
 
+// .show-stat {
+// 	background-color: #444;
+// 	color: white;
+// }
+
+// .hide-stat {
+// 	display: none;
+// 	background-color: cornflowerblue;
+// 	color: white;
+// }
+
 .hero-block {
 	&__slider {
 		display: inline-block;
@@ -15,10 +26,17 @@
 
 		&--nav {
 			position: relative;
-			background-color: orange;
 			width: 20%;
 			margin: auto;
 		}
+	}
+
+	&__go-to-btn:hover {
+		background-color: purple;
+	}
+
+	&__thumbnail {
+		display: none;
 	}
 
 	&__card {
@@ -31,8 +49,21 @@
 		display: inline-block;
 		width: 15%;
 		float: left;
+
+		&--normal {
+			background-color: #444;
+			color: white;
+		}
+
+		&--hover {
+			display: none;
+			background-color: cornflowerblue;
+			color: white;
+		}
 	}
 }
+
+
 
 .hp-upcoming {
 	border: 1px solid darkseagreen;
@@ -54,7 +85,6 @@
 
 	&__card {
 		display: inline-block;
-		background: orange;
 		width: 150px;
 		height: 250px;
 		padding: 15px;

@@ -1,6 +1,6 @@
 jQuery(function($) {
 	$(document).ready(function() {
-		$(".carousel, .hero-slider").slick({
+		$(".carousel").slick({
             dots: true,
             arrows: true
         });
@@ -8,10 +8,10 @@ jQuery(function($) {
         $(".hero-block__slider").slick({
             // dots: true,
             // arrows: false,
-            appendArrows: $(".hero-block__slider--arrows")
+            // appendArrows: $(".hero-block__slider--arrows")
         });
 
-        $(".go-to-btn[data-slide]").on("click", function(e) {
+        $(".hero-block__go-to-btn[data-slide]").on("click", function(e) {
             e.preventDefault();
             var slidePosition = $(this).data('slide');
             $(".hero-block__slider").slick("slickGoTo", slidePosition - 1);
