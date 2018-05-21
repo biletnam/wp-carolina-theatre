@@ -157,6 +157,7 @@
 			> a { // top level menu item link
 				display: block;
 				position: relative;
+				border-bottom: 3px solid transparent;	
 			}
 
 			&.menu-item-has-children { // top level menu item with dropdown
@@ -175,7 +176,7 @@
 			&.current-menu-item,
 			&.current-menu-ancestor {
 				> a {
-					border-bottom: 3px solid $green;	
+					border-color: $green;	
 				}	
 			}
 		}
@@ -311,7 +312,11 @@
 			background-color: $green-med;
 		}
 	}
-
+	p.h5 {
+		position: absolute;
+		left: 0;
+		text-align: right;
+	}
 	span { // hamburger menu styling and positioning
 	  display: block;
 	  position: absolute;

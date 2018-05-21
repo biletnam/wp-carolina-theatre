@@ -572,11 +572,12 @@ blockquote {
       padding: 6px 10px 40px; }
       .header__nav > ul > li > a {
         display: block;
-        position: relative; }
+        position: relative;
+        border-bottom: 3px solid transparent; }
       .header__nav > ul > li.menu-item-has-children > a::before {
         content: ''; }
       .header__nav > ul > li.current-menu-item > a, .header__nav > ul > li.current-menu-ancestor > a {
-        border-bottom: 3px solid #72bcae; }
+        border-color: #72bcae; }
   .header__nav ul li.menu-item-has-children:hover > ul {
     display: block; }
   .header__nav ul li > ul {
@@ -668,6 +669,10 @@ blockquote {
   cursor: pointer; }
   .mobileNav__openBtn:hover span {
     background-color: #1b7f6b; }
+  .mobileNav__openBtn p.h5 {
+    position: absolute;
+    left: 0;
+    text-align: right; }
   .mobileNav__openBtn span {
     display: block;
     position: absolute;
