@@ -2,6 +2,8 @@
 	// Template name: Events Template
 	get_header();
 ?>
+<?php while ( have_posts() ) { the_post(); ?>
+
 <section class="featured">
   <h2>Featured Events</h2>
   <div class="featured__container">
@@ -324,4 +326,6 @@
       </div>
     </div>
 </section>
+<?php } // endwhile; ?>
+
 <?php get_footer(); ?>

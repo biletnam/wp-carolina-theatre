@@ -1,4 +1,6 @@
 <?php
-$content = get_sub_field('wysiwyg_editor');
+	$content = get_sub_field('wysiwyg_editor');
 ?>
-<div><?php echo $content; ?></div>
+<section class="block__default">
+	<?php echo $content; ?>
+</section>

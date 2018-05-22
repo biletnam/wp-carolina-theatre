@@ -1,6 +1,7 @@
 <?php get_header(); ?>
+<?php while ( have_posts() ) { the_post(); ?>
 <div class="hero-container">
-  <div class="hero-slider">
+  <div class="carousel">
       <?php
 
       if (have_rows('hero_images')) {
@@ -207,5 +208,5 @@
       </div>
   </section>  <!-- Sidebar end -->
 </main>
-
+<?php } // endwhile; ?>
 <?php get_footer(); ?>

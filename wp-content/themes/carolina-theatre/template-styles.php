@@ -16,6 +16,7 @@
  */
 
 get_header(); ?>
+<?php while ( have_posts() ) { the_post(); ?>
 
 <div class="wrap">
 	<div id="primary" class="content-area">
@@ -174,5 +175,6 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 </div><!-- .wrap -->
+<?php } // endwhile; ?>
 
 <?php get_footer();
