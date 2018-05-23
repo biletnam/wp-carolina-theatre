@@ -26,52 +26,10 @@ get_header();
                         }
                     }
                 ?>
-                <!-- <div class="hero-block__card">
-                    <img 
-                        src="https://static.boredpanda.com/blog/wp-content/uploads/2015/11/reflection-landscape-photography-jaewoon-u-36.jpg"
-                        alt="landscape on the lake in fall"
-                    />
-                </div>
-                <div class="hero-block__card">
-                    <img 
-                        src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                        alt="landscape on the lake in fall"
-                    />
-                </div>
-                <div class="hero-block__card">
-                    <img 
-                        src="https://storage.googleapis.com/proudcity/deleontx/uploads/2016/12/preview-wattpad-cover-maker-thumbnail.jpg"
-                        alt="landscape on the lake in fall"
-                    />
-                </div>
-                <div class="hero-block__card">
-                    <img 
-                        src="https://images.template.net/wp-content/uploads/2014/11/Cute-Chick-Friends-Facebook-Cover.jpg"
-                        alt="landscape on the lake in fall"
-                    />
-                </div> -->
             </div>
         
             <div class="hero-block__stats">
                 <ul>
-                    <!-- <li>
-                        <div class="stats-block">
-                            <p class="show-stat">Showing text</p>
-                            <p class="hide-stat">Hiding text</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="stats-block">
-                            <p class="show-stat">Showing text</p>
-                            <p class="hide-stat">Hiding text</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="stats-block">
-                            <p class="show-stat">Showing text</p>
-                            <p class="hide-stat">Hiding text</p>
-                        </div>
-                    </li> -->
                 <?php
                     if (have_rows("statistics")) {
                         while (have_rows("statistics")) {
@@ -106,7 +64,7 @@ get_header();
                     if (have_rows("slider")) {
                         while (have_rows("slider")) {
                             the_row();
-                            // print_r(get_sub_field("image")["sizes"]["thumbnail"]);
+                            // go-to slide on button click: https://codepen.io/vilcu/pen/ZQwdGQ
                         ?>
                             <div class="hero-block__btn-block">
                                 <button class="hero-block__go-to-btn" data-slide="<?php echo $slide_number; ?>">
@@ -128,21 +86,42 @@ get_header();
     <div class="hp-upcoming">
         <h1 class="hp-upcoming__header">Upcoming Events</h1>
         <div class="hp-upcoming__slider">
-            <div class="hp-upcoming__card">
-                <img 
-                    src="https://static.boredpanda.com/blog/wp-content/uploads/2015/11/reflection-landscape-photography-jaewoon-u-36.jpg"
-                    alt="landscape on the lake in fall"
-                />
-            </div>
-            <div class="hp-upcoming__card">
-                <img 
-                    src="https://static.boredpanda.com/blog/wp-content/uploads/2015/11/reflection-landscape-photography-jaewoon-u-36.jpg"
-                    alt="landscape on the lake in fall"
-                />
-            </div>
-            <div class="hp-upcoming__card">Panel 3</div>
-            <div class="hp-upcoming__card">Panel 4</div>
-            <div class="hp-upcoming__card">Panel 5</div>
+            
+            <?php
+            // sort all films and events by start_date and then end_date
+             $upcoming_query_args = array(
+                'post_type' => array('film', 'event'),
+                'meta_query' => array(
+                    "start" => array("key" => "start_date"),
+                    "end" => array("key" => "end_date")
+                ),
+                'orderby' => array(
+                        "start" => "ASC",
+                        "end" => "ASC"
+                    )
+                );
+            
+            $upcoming_query = new WP_Query($upcoming_query_args);
+            
+            if ($upcoming_query->have_posts()) {
+                while ($upcoming_query->have_posts()) {
+                    $upcoming_query->the_post();
+                    $today = strtotime("today");
+                    $end_date = strtotime(get_field("end_date"));
+
+                    // construct html for events with an end_date of today or in the future
+                    if ($end_date >= $today) {
+                    ?>
+                        <div class="hp-upcoming__card">
+                            <h3><?php echo get_the_title(); ?></h3>
+                            <p><?php echo get_field("start_date") . " - " . get_field("end_date"); ?></p>
+                        </div>
+                    <?php
+                    }
+                }  
+            }
+            wp_reset_postdata();
+        ?>
         </div>
 
         <div class="hp-upcoming__slider--nav">
@@ -152,21 +131,25 @@ get_header();
         </div>
     </div>
     <div class="hp-ctas">
-        <div class="hp-ctas__card">
-            <h2>Plan Your Visit >></h2>
-            <p>Shows and fills for all ages, all tastes, and all people. Give the gift that's sure to please.
-            </p>
-        </div>
-        <div class="hp-ctas__card">
-            <h2>Become a Member >></h2>
-            <p>Shows and fills for all ages, all tastes, and all people. Give the gift that's sure to please.
-            </p>
-        </div>
-        <div class="hp-ctas__card">
-            <h2>The History of CTD >></h2>
-            <p>Shows and fills for all ages, all tastes, and all people. Give the gift that's sure to please.
-            </p>
-        </div>
+        <?php
+            if (have_rows("call_to_action_card")) {
+                while (have_rows("call_to_action_card")) {
+                    the_row();    
+                ?>
+                    <div class="hp-ctas__card">
+                        <h2><?php echo get_sub_field("title"); ?></h2>
+                        <p>
+                            <?php echo get_sub_field("content") . ' '; ?>
+                            <a href="<?php echo get_sub_field("link")["url"];?>">
+                                <?php echo get_sub_field("link")["title"]; ?>
+                            </a>
+                        </p>
+                    </div>
+                <?php
+                }
+            }
+
+        ?>
     </div>
     <div class="hp-news">
     <h1 class="hp-news__header">New &amp; Press</h1>
