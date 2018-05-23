@@ -240,16 +240,70 @@ main {
 }
 
 
-// TO-DO: Setup generic classes for content & sidebar template
-.festival-content {
-	width: 65%;
-	float: left;
+// wrapper for content/sidebar on templates
+.mainContent {
+	&__content {
+		display: inline-block;
+		vertical-align: top;
+		width: 65%;
+	}
+	&__sidebar {
+		display: inline-block;
+		vertical-align: top;
+		width: 30%;
+		border-left: 1px solid $gray;
+
+		> .container {
+	    padding-left: 20px;
+	    padding-right: 20px;
+		}
+	}
 }
 
-.festival-sidebar {
-	border: 1px solid black;
-	float: left;
-	width: 35%;
+// .eventType__event {
+// 	color: $red;
+// }
+// .eventType__film {
+// 	color: $green;
+// }
+
+
+// content-blocks-link-block.php
+.cta__card {
+	position: relative;
+	z-index: 1;
+	padding: 20px;
+	margin: 10px;
+	width: 100%;
+	max-width: 300px;
+	border: 1px solid $gray;
+
+	&:first-of-type {
+		margin-left: 0;
+	}
+
+	.h3 {
+		&::after {
+			content: ' ››';
+		}
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: calc(100% - 5px);
+		transition: $transition;
+		@extend .bg-gold;	
+	}
+	&:hover {
+		&::before {
+			right: 0;
+		}
+	}
 }
 
 

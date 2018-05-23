@@ -56,7 +56,7 @@
   -webkit-animation: fade-in 2s 1;
   animation: fade-in 2s 1; }
 
-.bg-gold {
+.bg-gold, .cta__card::before {
   background-color: #ffbc42;
   background-image: url("../src/img/patterns/pattern-gold.png");
   background-size: 100px 100px;
@@ -1031,14 +1031,44 @@ main {
 .hide-tab-content {
   display: none; }
 
-.festival-content {
-  width: 65%;
-  float: left; }
+.mainContent__content {
+  display: inline-block;
+  vertical-align: top;
+  width: 65%; }
 
-.festival-sidebar {
-  border: 1px solid black;
-  float: left;
-  width: 35%; }
+.mainContent__sidebar {
+  display: inline-block;
+  vertical-align: top;
+  width: 30%;
+  border-left: 1px solid #ccc; }
+  .mainContent__sidebar > .container {
+    padding-left: 20px;
+    padding-right: 20px; }
+
+.cta__card {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  margin: 10px;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #ccc; }
+  .cta__card:first-of-type {
+    margin-left: 0; }
+  .cta__card .h3::after {
+    content: ' ››'; }
+  .cta__card::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: calc(100% - 5px);
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease; }
+  .cta__card:hover::before {
+    right: 0; }
 
 .button, .header__cta a,
 input[type="submit"] {
@@ -1291,144 +1321,42 @@ div.wpcf7-validation-errors {
 .hp-stay-connected div {
   text-align: center; }
 
-.single-film__container {
-  width: 65%;
-  display: inline-block;
-  float: left; }
-
-.single-film__left-col {
-  width: 80%;
-  margin: auto; }
-
-.single-film__image {
+.singleEvent__image {
   position: relative;
   display: inline-block;
   height: 400px;
   width: 100%;
   overflow: hidden; }
-  .single-film__image--date {
+  .singleEvent__image--date {
     position: absolute;
     top: 0;
     left: 0;
     color: white; }
 
-.single-film__description {
+.singleEvent__description {
   max-height: 150px;
   overflow: hidden; }
 
-.single-film__reveal {
+.singleEvent__reveal {
   max-height: 100%;
   overflow: auto; }
 
-.single-film__read-more {
+.singleEvent__read-more {
   text-align: center; }
 
-.single-film__videos {
+.singleEvent__videos {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around; }
-  .single-film__videos iframe {
+  .singleEvent__videos iframe {
     display: inline-block;
     max-width: 80%;
     height: auto;
     margin-left: 10%; }
-  .single-film__videos p {
+  .singleEvent__videos p {
     margin-left: 10%; }
-
-.single-film__sidebar {
-  width: 35%;
-  display: inline-block;
-  border-left: 1px solid black; }
-  .single-film__sidebar--container {
-    width: 70%;
-    margin: auto; }
-  .single-film__sidebar ul {
-    list-style: none; }
-  .single-film__sidebar--show-info {
-    border-bottom: 1px solid black; }
-
-.single-film__button {
-  text-align: center; }
-  .single-film__button button {
-    padding: 15px 30px;
-    background-color: #eee; }
-
-.single-event__container {
-  width: 65%;
-  display: inline-block;
-  float: left; }
-
-.single-event__left-col {
-  width: 80%;
-  margin: auto; }
-
-.single-event__image {
-  position: relative;
-  display: inline-block;
-  height: 400px;
-  width: 100%;
-  overflow: hidden; }
-  .single-event__image--date {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: white; }
-
-.single-event__event-info ul {
-  list-style-type: none; }
-
-.single-event__event-info li {
-  display: inline-block; }
-
-.single-event__description {
-  max-height: 150px;
-  overflow: hidden; }
-
-.single-event__reveal {
-  max-height: 100%;
-  overflow: auto; }
-
-.single-event__read-more {
-  text-align: center; }
-
-.single-event__videos {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around; }
-  .single-event__videos iframe {
-    display: inline-block;
-    max-width: 80%;
-    height: auto;
-    margin-left: 10%; }
-  .single-event__videos p {
-    margin-left: 10%; }
-
-.single-event__sidebar {
-  width: 35%;
-  display: inline-block;
-  border-left: 1px solid black; }
-  .single-event__sidebar--container {
-    width: 70%;
-    margin: auto; }
-  .single-event__sidebar ul {
-    list-style: none; }
-  .single-event__sidebar--show-info {
-    border-bottom: 1px solid black; }
-  .single-event__sidebar--social-media {
-    border-bottom: 1px solid black; }
-  .single-event__sidebar--cta-card {
-    border: 1px solid black;
-    margin-top: 10px; }
-
-.single-event__button {
-  text-align: center; }
-  .single-event__button button {
-    padding: 15px 30px;
-    background-color: #eee; }
 
 .hero-container ul {
   list-style: none; }
@@ -1504,81 +1432,28 @@ div.wpcf7-validation-errors {
 div[class^="inline-"] {
   display: none; }
 
-.featured__container {
-  background-color: orange; }
-  .featured__container--event {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    background-color: green; }
-  .featured__container .carousel {
-    margin: auto;
-    width: 90%; }
+.featuredEvent_carousel .carousel {
+  border: 1px solid #ccc;
+  max-height: 400px; }
 
-.featured__image {
-  width: 50%;
-  background-color: black;
+.featuredEvent__slideContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
-  .featured__image img {
-    max-height: 300px;
-    max-width: 300px;
+  max-height: 400px;
+  overflow: hidden; }
+
+.featuredEvent__image {
+  width: 66%; }
+  .featuredEvent__image img {
     width: 100%;
-    overflow: hidden; }
+    display: block; }
 
-.featured__event-info {
-  width: 40%; }
-  .featured__event-info ul {
-    margin: 30px 0;
-    list-style-type: none; }
-  .featured__event-info--content {
-    width: 80%;
-    margin: auto; }
-  .featured__event-info--content p {
-    max-height: 200px;
-    overflow: hidden; }
+.featuredEvent__info {
+  width: 33%; }
 
-.upcoming-events {
-  margin-top: 50px; }
-  .upcoming-events__event-cards {
-    width: 70%;
-    float: left;
-    border-right: 1px solid rgba(100, 100, 100, 0.3); }
-  .upcoming-events .filmFilters {
-    display: none; }
-  .upcoming-events__sidebar {
-    display: inline-block;
-    width: 30%; }
-    .upcoming-events__sidebar--search {
-      width: 80%;
-      margin: auto; }
-      .upcoming-events__sidebar--search input,
-      .upcoming-events__sidebar--search button {
-        border: 1px solid rgba(50, 50, 50, 0.3); }
-  .upcoming-events__list {
-    display: inline-block;
-    width: 80%;
-    margin-left: 10%;
-    font-weight: 300;
-    padding: 20px; }
-    .upcoming-events__list p {
-      font-size: 24px; }
-    .upcoming-events__list ul {
-      list-style: none; }
-  .upcoming-events__cta-card {
-    display: inline-block;
-    width: 80%;
-    margin: 20px 0;
-    margin-left: 10%;
-    padding: 20px;
-    border: 1px solid rgba(50, 50, 50, 0.3);
-    font-weight: 300; }
-    .upcoming-events__cta-card h2 {
-      font-weight: 300; }
+.upcoming-events .filmFilters {
+  display: none; }
 
 .events__event-card {
   height: 30rem;
