@@ -4,7 +4,7 @@ $sizeTablet: 900px;
 $sizeDesktop: 1200px;
 $sizeLarge: 1400px;
 
-$maxWidth: 1400px;
+$maxWidth: 1440px;
 $menuBreakpoint: 700px;
 $mobileMenuWidth: 230px;
 
@@ -81,67 +81,135 @@ div[class^="inline-"] {
 }
 
 
-///////// ROTATING CARDS ////////////
-.events__event-card {
-	height: 30rem;
+///////// NEWS, EVENT, FILM CARDS ////////////
+.card__wrapper {
+	display: flex;
+	align-content: top;
+	flex-wrap: wrap;
+	margin-top: 30px;
+}
+.card {
 	position: relative;
-	perspective: 150rem;
-	-moz-perspective: 150rem;
-	display: inline-block;
-	width: 30%;
-	min-width: 100px;
+	background-color: $white;
+	vertical-align: top;
+	max-width: 250px;
+	width: 100%;
+	margin-right: 30px;
+	margin-bottom: 30px;
+	border: 1px solid $gray;
+	overflow: hidden;
+	transition: $transition;
 
-	.card {
-		height: 30rem;
-		transition: all 0.8s ease;
+	&__button {
 		position: absolute;
-		top: 0;
-		left: 0;
+		z-index: 10;
+	  text-align: center;
+	  padding: 20px 10px;
 		width: 100%;
-		backface-visibility: hidden;
-		overflow: hidden;
-		border: 1px solid rgba(50, 50, 50, 0.3);
-		vertical-align: top;
-		margin-top: 30px;
+		height: 50px;
+		bottom: -45px;
+		border-radius: 0;
 	}
 
-	.event-card__back {
-		transform: rotateY(180deg);
-		img {
-			height: 100%;
+	&:hover {
+		// box-shadow: 0 0 0 2px $gray;
+		.card__button {
+			bottom: 0;
+		}
+
+		.card__title {
+			text-decoration: underline;
 		}
 	}
 
-	&:hover .event-card__front {
-		transform: rotateY(-180deg);
+	&__infoWrapper {
+		padding: 10px 10px 30px 10px;
 	}
 
-	&:hover .event-card__back {
-		transform: rotateY(0);
+	&__title {
+		@include rem(18);
+		font-weight: 700;
+		margin: 0.2em 0;
+	}
+
+	&__subtitle {
+		@extend .h5;
+	}
+
+	&__info {
+		p {
+	    margin: .5em 0;
+	    @include rem(14);
+		}
+		i {
+	    width: 30px;
+	    padding-right: 10px;
+			text-align: center;
+			opacity: .5;
+			@include rem(16);
+		}
 	}
 }
 
-.event-content-container {
-	margin: 20px;
-}
+.film {
+	.event__dateBox,
+	.card__button {
+		background-color: $green;
 
-.event-image-container {
-	height: 200px;
-	width: 100%;
-	overflow: hidden;
-
-	img {
-		max-width: 100%;
+		&:hover {
+			background-color: $green-med;
+		}
 	}
 }
 
-.event-date {
-	display: inline-block;
-	position: absolute;
-	top: 4%;
-	left: 7%;
-	color: white;
-	font-size: 1.5rem;
+.event {
+	.event__dateBox,
+	.card__button {
+		background-color: $red;
+
+		&:hover {
+			background-color: $red-med;
+		}
+	}
+}
+
+.event__dateBox {
+	width: 40px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	text-align: center;
+	color: $white;
+	line-height: 1;
+
+	span {
+		display: block;
+	}
+	.day {
+		@include rem(22);
+		font-family: $header;
+		// font-weight: 700;
+	}
+	.month {
+		@include rem(10);
+		text-transform: uppercase;
+	}
+}
+.eventCard {
+	.event__dateBox {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	&__image {
+		height: 141px;
+		width: 100%;
+		overflow: hidden;
+
+		img {
+			max-width: 100%;
+		}
+	}
 }
 
 .image-only__content-container {
