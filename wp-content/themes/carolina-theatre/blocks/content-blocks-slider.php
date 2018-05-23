@@ -3,8 +3,8 @@
     for single-film.php and single-series.php
 -->
 
-<div style='background-color: darkseagreen;'>
-    <div class="hero-slider" >
+<section class="block__slider">
+    <div class="carousel" >
     <?php
 
     if (have_rows('panel_content')) {
@@ -45,4 +45,4 @@
     }
     ?> 
     </div>
-</div>
+</section>

@@ -1,6 +1,7 @@
 <?php get_header(); ?>
+<?php while ( have_posts() ) { the_post(); ?>
 <div class="hero-container">
-  <div class="hero-slider">
+  <div class="carousel">
       <?php
 
       if (have_rows('hero_images')) {
@@ -16,8 +17,8 @@
       ?>
   </div>
 </div>
-<main class="festival-main">
-  <section class="festival-content">
+<div class="mainContent">
+  <section class="mainContent__content">
     <p class="festival-content__date">
         <i class="fa fa-calendar" aria-hidden="true"></i> 
         <?php echo get_field('start_date') . ' - ' . get_field('end_date'); ?>
@@ -140,9 +141,9 @@
     		<?php } // end while have_rows for tabs ?>
     	<?php } // end if have_rows for tabs ?>
   	</div>
-  </section>
+  </section> <!-- Main Content end -->
   
-  <section class="festival-sidebar"> <!-- Sidebar start -->
+  <aside class="mainContent__sidebar"> <!-- Sidebar start -->
       <div class='festival-sidebar__btn'>
           <button>Buy Tickets</button>
       </div>
@@ -205,7 +206,7 @@
               ?>
           </ul>
       </div>
-  </section>  <!-- Sidebar end -->
-</main>
-
+  </aside>  <!-- Sidebar end -->
+</div>
+<?php } // endwhile; ?>
 <?php get_footer(); ?>

@@ -80,14 +80,25 @@
 	.container {
     padding-top: 20px;
     padding-bottom: 20px;
-
-    // display: flex;
 	}
 
 	&.sticky {
 	  width: 100% !important; // overrides inline width from ScrollMagic
 		top: 0 !important; // when page loads in middle, ScrollMagic was funky
     left: auto !important;
+    
+    // height: 60px;
+
+    // .container {
+    // 	height: 60px;
+    // }
+    // .header__logo {
+    // 	height: 100%;
+    	
+    // 	svg {
+    // 		height: 100%;
+    // 	}
+    // }
 
 		> .container {
 			padding-top: 5px;
