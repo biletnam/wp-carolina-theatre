@@ -2,22 +2,6 @@
 	background-color: black;
 }
 
-// .slick-prev:before,
-// .slick-next:before {
-// 	content: "";
-// }
-
-// .show-stat {
-// 	background-color: #444;
-// 	color: white;
-// }
-
-// .hide-stat {
-// 	display: none;
-// 	background-color: cornflowerblue;
-// 	color: white;
-// }
-
 .hero-block {
 	&__slider {
 		display: inline-block;
@@ -77,8 +61,11 @@
         }
 
 		&--arrows {
-			display: inline-block;
-			margin-left: 50%;
+			// display: inline-block;
+			width: 200px;
+			background-color: orange;
+			// margin-left: 50%;
+			margin: 0 auto;
 			// background-color: cyan;
 		}
 	}

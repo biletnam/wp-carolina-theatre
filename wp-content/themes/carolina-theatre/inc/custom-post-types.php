@@ -195,7 +195,6 @@ function alertbanner_create_post_type() {
 	register_post_type( 'alertbanner', $args );
 } add_action( 'init', 'alertbanner_create_post_type', 0 );
 
-
 /*
  * Rename "Posts" to "News" in WordPress Dashboard
  */
