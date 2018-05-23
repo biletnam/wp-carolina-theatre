@@ -102,21 +102,26 @@ get_header();
                 );
             
             $upcoming_query = new WP_Query($upcoming_query_args);
-            
+            $count = 0;
             if ($upcoming_query->have_posts()) {
                 while ($upcoming_query->have_posts()) {
                     $upcoming_query->the_post();
                     $today = strtotime("today");
                     $end_date = strtotime(get_field("end_date"));
-
+                    
                     // construct html for events with an end_date of today or in the future
-                    if ($end_date >= $today) {
+                    // limit upcoming events to 10
+                    if ($end_date >= $today && $count < 10) {
                     ?>
                         <div class="hp-upcoming__card">
                             <h3><?php echo get_the_title(); ?></h3>
                             <p><?php echo get_field("start_date") . " - " . get_field("end_date"); ?></p>
                         </div>
                     <?php
+                        // only increment if end_date is today or in the future
+                        // not incrementing for events that have been returned by the query but are
+                        // in the past
+                        $count++;
                     }
                 }  
             }

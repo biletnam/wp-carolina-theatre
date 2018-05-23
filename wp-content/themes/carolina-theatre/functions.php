@@ -180,7 +180,8 @@ function custom_menu_order($menu_ord) {
     return array(
         'index.php', // Dashboard
         'upload.php', // Media
-        'separator1', // First separator
+		'separator1', // First separator
+		'edit.php?post_type=blog', // News Posts
         'edit.php?post_type=page', // Pages
         'edit.php?post_type=event', // // Custom Post: Live Events
         'edit.php?post_type=film', // // Custom Post: Films
