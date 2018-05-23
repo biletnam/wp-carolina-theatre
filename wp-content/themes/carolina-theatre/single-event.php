@@ -17,16 +17,16 @@
   <div class="mainContent__content">
     <div class="container">
         
-      <p class="single-event__category"><?php echo get_post_type(); ?></p>
-      <div class="single-event__image">
+      <p class="singleEvent__category"><?php echo get_post_type(); ?></p>
+      <div class="singleEvent__image">
           <img src="<?php echo get_field('event_image')["url"]; ?>" alt="the poster for the film">
-          <div class="single-event__image--date"><?php echo $start_date . ' - ' . $end_date; ?></div>
+          <div class="singleEvent__image--date"><?php echo $start_date . ' - ' . $end_date; ?></div>
       </div>
       <p>The Carolina Theatre Presents...
-      <h2 class="single-event__title"><?php echo the_title(); ?></h2>
-      <p class="single-event__subtitle"><?php echo get_field('event_subtitle'); ?></p>
+      <h2 class="singleEvent__title"><?php echo the_title(); ?></h2>
+      <p class="singleEvent__subtitle"><?php echo get_field('event_subtitle'); ?></p>
       <br/>
-      <div class="single-event__event-info">
+      <div class="singleEvent__event-info">
           <ul>
               <li>
                   <?php 
@@ -41,17 +41,17 @@
               </li>
           </ul>
       </div>
-      <div class="single-event__description"><?php the_content(); ?></div>
-      <div class="single-event__read-more">
+      <div class="singleEvent__description"><?php the_content(); ?></div>
+      <div class="singleEvent__read-more">
           <hr />
           <p>Read More</p>
       </div>
-      <div class="single-event__videos">
-          <div class="single-event__videos--one">
+      <div class="singleEvent__videos">
+          <div class="singleEvent__videos--one">
               <?php the_field('video_1_link'); ?>
               <p><?php the_field('video_1_caption'); ?></p>
           </div>
-          <div class="single-event__videos--two">
+          <div class="singleEvent__videos--two">
               <?php the_field('video_2_link'); ?>
               <p><?php the_field('video_2_caption'); ?></p>
           </div>

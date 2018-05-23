@@ -1334,7 +1334,7 @@ div.wpcf7-validation-errors {
     color: white; }
 
 .singleEvent__description {
-  max-height: 150px;
+  max-height: 250px;
   overflow: hidden; }
 
 .singleEvent__reveal {
