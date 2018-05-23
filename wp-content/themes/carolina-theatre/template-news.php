@@ -12,5 +12,11 @@
 			<p>I'm some content</p>
 		</div>
 	</section>
+	<section class="news-articles">
+
+	</section>
+	<section class="news-sidebar">
+		
+	</section>
 </div> <!-- end .news-wrapper -->
 <?php get_footer(); ?>

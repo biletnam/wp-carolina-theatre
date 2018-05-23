@@ -26,5 +26,4 @@ if (have_rows('panel')) {
     }
 wp_reset_postdata();
 ?>
-
 </section>

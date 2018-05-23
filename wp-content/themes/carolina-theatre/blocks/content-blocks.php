@@ -25,10 +25,6 @@ if (have_rows('content_block_type')) {
             case 'accordion':
                 get_template_part( 'blocks/content-blocks', 'accordion' );
                 break;
-            case 'layout_post_card':
-                // malfunctioning
-                get_template_part( 'blocks/content-blocks', 'post-card' ); 
-                break;
             default:
                 echo "No Content Found";
                 break;

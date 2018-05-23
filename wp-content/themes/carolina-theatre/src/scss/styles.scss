@@ -4,7 +4,7 @@ $sizeTablet: 900px;
 $sizeDesktop: 1200px;
 $sizeLarge: 1400px;
 
-$maxWidth: 1400px;
+$maxWidth: 1440px;
 $menuBreakpoint: 700px;
 $mobileMenuWidth: 230px;
 
@@ -23,9 +23,8 @@ $transition: all .5s ease;
 @import "styles/common";
 @import "styles/forms";
 @import "styles/homepage";
-@import "styles/news";
-@import "styles/single-film";
 @import "styles/single-event";
+@import "styles/news";
 @import "styles/hero-slider";
 @import "styles/accordion";
 //
@@ -46,178 +45,172 @@ div[class^="inline-"] {
 // 	margin: 50px auto;
 // }
 
-.featured {
-	&__container {
-		background-color: orange;
-
-		&--event {
-			display: flex;
-			background-color: green;
-		}
-
-		.carousel {
-			margin: auto;
-			width: 90%;
-		}
+.featuredEvent_carousel {
+	.carousel {
+		border: 1px solid $gray;		
+		max-height: 400px;
 	}
+}
 
+.featuredEvent__slideContainer {
+	display: flex;
+	// align-content: center;
+	// flex-wrap: wrap;
+	max-height: 400px;
+	overflow: hidden;
+}
+
+.featuredEvent {
 	&__image {
-		width: 50%;
-
-		background-color: black;
-		display: flex;
-		justify-content: center;
+		width: 66%;
 
 		img {
-			max-height: 300px;
-			max-width: 300px;
 			width: 100%;
-			overflow: hidden;
+			display: block;
 		}
 	}
 
-	&__event-info {
-		width: 40%;
-
-		ul {
-			margin: 30px 0;
-			list-style-type: none;
-		}
-
-		&--content {
-			width: 80%;
-			margin: auto;
-		}
-
-		&--content p {
-			// temp hard code, figure out description layout
-			max-height: 200px;
-			overflow: hidden;
-		}
+	&__info {
+		width: 33%;
 	}
 }
 
 .upcoming-events {
-	margin-top: 50px;
-
-	&__event-cards {
-		width: 70%;
-		float: left;
-		border-right: 1px solid rgba(100, 100, 100, 0.3);
-	}
-
 	.filmFilters {
 		display: none;
 	}
+}
 
-	&__sidebar {
-		display: inline-block;
-		width: 30%;
 
-		&--search {
-			width: 80%;
-			margin: auto;
+///////// NEWS, EVENT, FILM CARDS ////////////
+.card__wrapper {
+	display: flex;
+	align-content: top;
+	flex-wrap: wrap;
+	margin-top: 30px;
+}
+.card {
+	position: relative;
+	background-color: $white;
+	vertical-align: top;
+	max-width: 250px;
+	width: 100%;
+	margin-right: 30px;
+	margin-bottom: 30px;
+	border: 1px solid $gray;
+	overflow: hidden;
+	transition: $transition;
 
-			input,
-			button {
-				border: 1px solid rgba(50, 50, 50, 0.3);
-			}
+	&__button {
+		position: absolute;
+		z-index: 10;
+	  text-align: center;
+	  padding: 20px 10px;
+		width: 100%;
+		height: 50px;
+		bottom: -45px;
+		border-radius: 0;
+	}
+
+	&:hover {
+		// box-shadow: 0 0 0 2px $gray;
+		.card__button {
+			bottom: 0;
+		}
+
+		.card__title {
+			text-decoration: underline;
 		}
 	}
 
-	&__list {
-		display: inline-block;
-		width: 80%;
-		margin-left: 10%;
-		font-weight: 300;
-		padding: 20px;
+	&__infoWrapper {
+		padding: 10px 10px 30px 10px;
+	}
 
+	&__title {
+		@include rem(18);
+		font-weight: 700;
+		margin: 0.2em 0;
+	}
+
+	&__subtitle {
+		@extend .h5;
+	}
+
+	&__info {
 		p {
-			font-size: 24px;
+	    margin: .5em 0;
+	    @include rem(14);
 		}
-
-		ul {
-			list-style: none;
-		}
-	}
-
-	&__cta-card {
-		display: inline-block;
-		width: 80%;
-		margin: 20px 0;
-		margin-left: 10%;
-		padding: 20px;
-		border: 1px solid rgba(50, 50, 50, 0.3);
-		font-weight: 300;
-
-		h2 {
-			font-weight: 300;
+		i {
+	    width: 30px;
+	    padding-right: 10px;
+			text-align: center;
+			opacity: .5;
+			@include rem(16);
 		}
 	}
 }
 
+.film {
+	.event__dateBox,
+	.card__button {
+		background-color: $green;
 
-///////// ROTATING CARDS ////////////
-.events__event-card {
-	height: 30rem;
-	position: relative;
-	perspective: 150rem;
-	-moz-perspective: 150rem;
-	display: inline-block;
-	width: 30%;
-	min-width: 100px;
+		&:hover {
+			background-color: $green-med;
+		}
+	}
+}
 
-	.card {
-		height: 30rem;
-		transition: all 0.8s ease;
+.event {
+	.event__dateBox,
+	.card__button {
+		background-color: $red;
+
+		&:hover {
+			background-color: $red-med;
+		}
+	}
+}
+
+.event__dateBox {
+	width: 40px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	text-align: center;
+	color: $white;
+	line-height: 1;
+
+	span {
+		display: block;
+	}
+	.day {
+		@include rem(22);
+		font-family: $header;
+		// font-weight: 700;
+	}
+	.month {
+		@include rem(10);
+		text-transform: uppercase;
+	}
+}
+.eventCard {
+	.event__dateBox {
 		position: absolute;
 		top: 0;
-		left: 0;
-		width: 100%;
-		backface-visibility: hidden;
-		overflow: hidden;
-		border: 1px solid rgba(50, 50, 50, 0.3);
-		vertical-align: top;
-		margin-top: 30px;
+		right: 0;
 	}
 
-	.event-card__back {
-		transform: rotateY(180deg);
+	&__image {
+		height: 141px;
+		width: 100%;
+		overflow: hidden;
+
 		img {
-			height: 100%;
+			max-width: 100%;
 		}
 	}
-
-	&:hover .event-card__front {
-		transform: rotateY(-180deg);
-	}
-
-	&:hover .event-card__back {
-		transform: rotateY(0);
-	}
-}
-
-.event-content-container {
-	margin: 20px;
-}
-
-.event-image-container {
-	height: 200px;
-	width: 100%;
-	overflow: hidden;
-
-	img {
-		max-width: 100%;
-	}
-}
-
-.event-date {
-	display: inline-block;
-	position: absolute;
-	top: 4%;
-	left: 7%;
-	color: white;
-	font-size: 1.5rem;
 }
 
 .image-only__content-container {

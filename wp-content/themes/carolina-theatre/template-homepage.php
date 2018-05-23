@@ -3,11 +3,11 @@
 get_header();
 
 ?>
-
+<?php while ( have_posts() ) { the_post(); ?>
 <div class="hpwrapper">
     <div class="hero-block">
         <div class="hero-block__slider-wrapper clearfix">
-            <div class="hero-block__slider">
+           <div class="hero-block__slider">
                 <?php
                     if (have_rows("slider")) {
                         while (have_rows("slider")) {
@@ -15,8 +15,8 @@ get_header();
                         ?>
                             <div class="hero-block__card">
                                 <img 
-                                    src="<?php echo get_sub_field("image")[url]; ?>" 
-                                    alt="live show"
+                                    src="<?php echo get_sub_field("image")['url']; ?>" 
+                                    alt="<?php echo get_sub_field("image")['alt']; ?>"
                                 />
                                 <div class="hero-block__card--content">
                                     <?php echo get_sub_field("content"); ?>
@@ -183,7 +183,7 @@ get_header();
         </div>
     </div>
 </div> <!-- hpwrapper -->
-
+<?php } // endwhile; ?>
 <?php
 get_footer();
 ?>
