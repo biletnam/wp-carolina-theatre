@@ -551,7 +551,7 @@ blockquote {
 
 .header__cta {
   text-align: right; }
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 1080px) {
     .header__cta {
       display: none; } }
 
@@ -565,7 +565,7 @@ blockquote {
     width: auto; }
   .header__logo a:hover {
     opacity: 1; }
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 1080px) {
     .header__logo {
       margin: 0 auto; } }
 
@@ -574,7 +574,7 @@ blockquote {
   text-align: right;
   -ms-flex-item-align: end;
       align-self: flex-end; }
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 1080px) {
     .header__nav {
       display: none; } }
   .header__nav > ul {
@@ -651,7 +651,7 @@ blockquote {
   overflow-y: auto;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease; }
-  @media screen and (min-width: 701px) {
+  @media screen and (min-width: 1081px) {
     .header__mobileNav {
       display: none; } }
 
@@ -689,7 +689,7 @@ blockquote {
   text-align: right;
   -ms-flex-item-align: center;
       align-self: center; }
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 1080px) {
     .mobileNavTrigger {
       display: block; } }
   .mobileNavTrigger:hover span {
@@ -733,10 +733,6 @@ blockquote {
     top: 5px;
     width: 0%;
     left: 50%; }
-
-.mobileNav__openBtnIcon {
-  position: relative;
-  height: 20px; }
 
 .alertBanner {
   position: relative;
@@ -1388,9 +1384,7 @@ div.wpcf7-validation-errors {
 
 .cardSlider .slick-slide {
   width: 250px;
-  height: 315px;
-  margin-right: 15px;
-  border: 1px solid #ccc; }
+  margin-right: 15px; }
 
 .cardSlider .slick-list::after {
   content: "";
@@ -1650,6 +1644,7 @@ div[class^="inline-"] {
 
 .eventCard .event__dateBox {
   position: absolute;
+  z-index: 1;
   top: 0;
   right: 0; }
 

@@ -5,7 +5,7 @@ $sizeDesktop: 1200px;
 $sizeLarge: 1400px;
 
 $maxWidth: 1680px;
-$menuBreakpoint: 700px;
+$menuBreakpoint: 1080px;
 $mobileMenuWidth: 230px;
 
 $transition: all .5s ease;
@@ -182,6 +182,7 @@ div[class^="inline-"] {
 .eventCard {
 	.event__dateBox {
 		position: absolute;
+		z-index: 1;
 		top: 0;
 		right: 0;
 	}
