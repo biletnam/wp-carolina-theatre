@@ -158,6 +158,10 @@
 			> li {
 				padding: 20px 20px 30px 0; // controls how far menu items are from bottom of header
 
+				&:last-of-type {
+			    padding-right: 0;
+				}
+
 				> a {
 					@include rem(16);
 					font-weight: 600;
@@ -186,6 +190,12 @@
 						border-color: $green;	
 					}	
 				}
+			}
+		}
+
+		&.header__cta { // wrapper ul element for the main menu
+			> li {
+				padding-left: 20px;
 			}
 		}
 
@@ -316,39 +326,39 @@
 	}
 }
 
-.mobileNav__trigger {
+
+.mobileNavTrigger { // link "a" element
 	display: none;
-  // position: absolute;
-  // right: 20px;
-  // top: 50%;
-  // transform: translateY(-50%);
+  position: relative;
+  transition: .5s ease-in-out;
+  cursor: pointer;
 	width: 100%;
 	text-align: right; // justifies menu to the right
 	align-self: center; // vertically centers trigger in header
   
 	@include breakpoint($menuBreakpoint) {
 		display: block;
-
 	}
-}
 
-.mobileNav__openBtn {
-	display: block;
-  position: relative;
-  height: 20px;
-  transition: .5s ease-in-out;
-  cursor: pointer;
-	
 	&:hover {
 		span {
 			background-color: $green-med;
 		}
 	}
-	p.h5 {
-		position: absolute;
-		left: 0;
-		text-align: right;
+
+	&__icon {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		width: 28px; // same as the span's width
+		height: 20px;
 	}
+	&__label {
+		display: inline-block;
+		vertical-align: middle;
+		padding-right: 10px;
+	}
+
 	span { // hamburger menu styling and positioning
 	  display: block;
 	  position: absolute;
@@ -392,6 +402,11 @@
 			}
 		}
 	}
+}
+
+.mobileNav__openBtnIcon { // the hamburger icon
+  position: relative;
+  height: 20px;
 }
 // End Mobile Menu Styling
 

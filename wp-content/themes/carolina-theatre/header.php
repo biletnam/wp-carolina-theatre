@@ -171,15 +171,15 @@ $GLOBALS["location_directionlink"] = get_field('google_map_link', 'option');
 			 	?>
 			 </a>
 			</div>
-			<div class="mobileNav__trigger">
-	      <a id="mobileNav__openBtn" class="mobileNav__openBtn">
-				  <p class="h5">menu</p>
+      <a id="mobileNavTrigger" class="mobileNavTrigger">
+			  <p class="h5 mobileNavTrigger__label">menu</p>
+			  <div class="mobileNavTrigger__icon">
+			  	<span></span>
 				  <span></span>
 				  <span></span>
 				  <span></span>
-				  <span></span>
-	      </a>
-	    </div>
+			  </div>
+      </a>
 	    <nav id="header__nav" class="header__nav" role="navigation">		  
 		  <?php // header main menu
 			if(has_nav_menu('header-main')){ ?>
