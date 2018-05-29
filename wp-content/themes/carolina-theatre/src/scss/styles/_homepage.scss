@@ -1,12 +1,3 @@
-.slick-arrow {
-	background-color: black;
-}
-
-// .slick-prev:before,
-// .slick-next:before {
-// 	content: "";
-// }
-
 // .show-stat {
 // 	background-color: #444;
 // 	color: white;
@@ -63,94 +54,57 @@
 	}
 }
 
+// sliders on homepage & event dropdown with info cards
+.cardSlider {
+	.slick-slide {
+		width: 250px;
+		height: 315px; // for testing purposes
+		margin-right: 15px;
+		border: 1px solid $gray;
+	}
 
-
-.hp-upcoming {
-	border: 1px solid darkseagreen;
-
-	&__slider {
-		width: 80%;
-        margin: auto;
-        
-        &--nav {
-            position: relative;
-        }
-
-		&--arrows {
-			display: inline-block;
-			margin-left: 50%;
-			// background-color: cyan;
+	.slick-list {
+		&::after {
+			content: "";
+	    position: absolute;
+	    z-index: 100;
+	    top: 0;
+	    right: 0;
+	    width: 30px;
+	    height: 100%;
+	    background: linear-gradient(to left, $white, rgba($white,0));
 		}
 	}
 
-	&__card {
-		display: inline-block;
-		width: 150px;
-		height: 250px;
-		padding: 15px;
-		border: 1px solid #888;
+	&__nav {
+    float: right;
+    margin-top: 25px;
 
-		& img {
-			width: 100%;
+    .button {
+		  display: inline-block;
+      vertical-align: middle;
 		}
-		// background-size: cover;
-		// background: url(https://static.boredpanda.com/blog/wp-content/uploads/2015/11/reflection-landscape-photography-jaewoon-u-36.jpg);
-    }
-}
+  }
+	&__arrows {
+		margin-left: 15px;
+		width: 90px; // each button is 45px wide
+		position: relative;
+    display: inline-block;
+    vertical-align: middle;
 
-.hp-ctas {
-	display: flex;
-	justify-content: space-around;
-	border: 1px solid yellowgreen;
-	// flex-wrap: wrap; add for mobile media query
-	&__card {
-		border: 1px solid #aaa;
-		height: 180px;
-		width: 400px;
-	}
-}
+		.slick-prev,
+		.slick-next {
+			&::before { 
+				background-color: transparent;
+				font-size: 16px;
+				color: $green;
+			}
 
-.hp-news {
-	&__slider {
-		width: 80%;
-		margin: auto;
-
-		&--nav {
-			position: relative;
+			&:hover {
+				&::before {
+					color: $green-med;
+				}
+			}
 		}
-		
-		&--arrows {
-			display: inline-block;
-			width: 15%;
-		}
-	}
-
-	&__see-all-btn {
-		margin-left: 75%;
-	}
-
-	&__card {
-		border: 1px solid #888;
-		height: 300px;
-		& img {
-			width: 100%;
-		}
-	}
-}
-
-.hp-stay-connected {
-	&__hr {
-		display: inline-block;
-		width: 39%;
-	}
-
-	&__header {
-		display: inline-block;
-		width: 20%;
-		text-align: center;
-	}
-
-	div {
-		text-align: center;
 	}
 }

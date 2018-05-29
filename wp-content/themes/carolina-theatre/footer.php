@@ -68,18 +68,14 @@
 
 	<?php if($show_email_signup){ ?>
 		<div class="footer__newsletter">
-			<p class="h5"><?php echo $email_signup_headline; ?></p>
-	    <?php // TO-DO: setup email client with shortcode, using html below for styles ?>
-	    <?php // echo do_shortcode($email_signup_shortcode); ?>
-	    <form action="">
-		    <span class="transition-label">
-		  		<input type="email" name="email">
-		      <div class="newsletter-submit fa fa-chevron-right">
-		        <input class="newsletter-submit-button" type="submit" value="">
-		      </div>
-		      <label for="email">email address</label>
-		    </span>
-	    </form>
+			<p><?php echo $email_signup_headline; ?></p>
+	    <?php echo do_shortcode($email_signup_shortcode); ?>
+			<?php 
+			// <div class="newsletter__form">
+			//   <input type="email" id="bronto-newsletter_%formID%" class="bronto_signup_input newsletter__input" name="email" placeholder="email address">
+			//   <button class="newsletter__submit bronto_signup_submit" type="submit"><i class="fas fa-arrow-right"></i></button>
+			// </div>
+		 	?>
 	  </div>
 	<?php } //endif newsletter ?>
 

@@ -1,7 +1,19 @@
 .socialmedia__feed {
-	@include breakpoint($sizeMobile){
-  	display: none;
-  }
+	// @include breakpoint($sizeMobile){
+ //  	display: none;
+ //  }
+
+  &::after {
+		content: "";
+    position: absolute;
+    z-index: 100;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(to top, $white, rgba($white,0));
+	}
 
 	&--title {
 		position: relative;
@@ -18,6 +30,18 @@
 			background-color: $gray;
 		}
 
+		&::after {
+			content: "";
+	    position: absolute;
+	    z-index: 105;
+	    bottom: -30px;
+	    right: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 30px;
+	    background: linear-gradient(to bottom, $white, rgba($white,0));
+		}
+
 		h3 {
 			position: relative;
 			z-index: 2;
@@ -29,18 +53,19 @@
 	}
 
 	&--posts {
-		max-height: 250px;
+		max-height: 300px;
+		padding-bottom: 30px; // to account for the ::after fade
 		overflow-y: auto;
 
 		&.contain {
-			max-width: 800px;
+			max-width: 900px;
 		}
 
-		.ctf-item { // styles for Twitter Feed plugin
+		// .ctf-item { // styles for Twitter Feed plugin
 			// .ctf-retweet-icon {
 			// 	background-color: transparent;
 			// }
-		}
+		// }
 	}
 }
 
@@ -96,8 +121,63 @@
 	}
 }
 
+.footer__slogan {
+	p {
+    @include rem(80);
+    font-weight: 700;
+    line-height: 1;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    @include breakpoint($sizeTablet){
+    	@include rem(55);
+    }
+
+    @include breakpoint($sizeMobile){
+    	@include rem(30);
+    }
+	}
+}
+
+.newsletter {
+	&__form {
+		position: relative;
+	  max-width: 320px;
+	  width: 90%;
+	  margin: 0 auto;
+	}
+	&__input {
+	  padding-right: 50px !important;
+	}
+	&__submit {
+		@include rem(16);
+		position: absolute;
+		z-index: 105;
+		right: 0;
+		top: 50%;
+	  width: 50px;
+	  height: 100%;
+	  border: 0;
+	  padding: 0;
+		background-color: transparent;
+		color: $green;
+		transform: translateY(-50%);
+		transition: $transition;
+
+		&:hover {
+			color: $green-med;
+			cursor: pointer;
+		}
+	}	
+}
+
+
 .footer__sitemap {
 	text-align: left;
+	
+	@include breakpoint($sizeMobile){
+  	display: none;
+  }
 
 	ul {
 		list-style: none;
@@ -116,22 +196,16 @@
 
 	&-column {
 		width: 175px;
-    display: inline-block;
-    vertical-align: top;
-    margin-bottom: 20px;
-
-    &:not(:last-of-type){
-    	margin-right: 10px;	
-    }
-
-    @include breakpoint($sizeMobile){
-    	display: none;
-    	// width: 100%;
-    	// padding-right: 0;
-    	// display: block;
-    	// text-align: center;
-    }
+		margin-bottom: 20px;
+  	margin-right: 10px;	
 	}
+
+	.container {
+  	display: flex;
+		align-items: flex-start;
+  	justify-content: center;
+  	flex-wrap: wrap;
+  }
 }
 
 .footer__contact {

@@ -1,16 +1,10 @@
-.hero-container {
-	ul {
-		list-style: none;
-	}
-}
+.carousel {
+	&.carousel__images {
+  	max-height: 60vw;
 
-.hero-slider {
-	width: 60%;
-	margin: auto;
-	background-color: darkorange;
-
-	img {
-		max-width: 300px;
-		margin: auto;
+  	.slick-list {
+  		max-height: 60vw;
+  		overflow: hidden;
+  	}
 	}
 }
