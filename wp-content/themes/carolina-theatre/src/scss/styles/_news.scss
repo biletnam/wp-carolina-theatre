@@ -1,0 +1,11 @@
+.featured-story {
+    &__image {
+        width: 60%;
+        float: left;
+    }
+
+    &__content {
+        width: 40%;
+        float: left;
+    }
+}
