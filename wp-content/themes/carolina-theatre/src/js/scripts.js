@@ -23,7 +23,7 @@
 	var $ww = $(window).width();
 	var $header = $('#header');
 	var $mobileNav = $('#header__mobileNav');
-	var $mobileMenuTrigger = $('#mobileNav__openBtn');
+	var $mobileMenuTrigger = $('#mobileNavTrigger');
 	var $mobileMenuClose = $('#mobileNav__closeBtn');
 	var stickyMenuCtrl = new ScrollMagic.Controller(); 
 

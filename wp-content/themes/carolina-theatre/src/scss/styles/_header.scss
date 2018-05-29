@@ -77,32 +77,32 @@
 	border-bottom: 1px solid $gray;
 	z-index: 1000;
 
-	.container {
-    padding-top: 20px;
-    padding-bottom: 20px;
+	> .container {
+    padding-top: 0;
+    padding-bottom: 0;
+		display: flex;
 	}
 
 	&.sticky {
 	  width: 100% !important; // overrides inline width from ScrollMagic
 		top: 0 !important; // when page loads in middle, ScrollMagic was funky
     left: auto !important;
-    
-    // height: 60px;
 
-    // .container {
-    // 	height: 60px;
-    // }
-    // .header__logo {
-    // 	height: 100%;
-    	
-    // 	svg {
-    // 		height: 100%;
-    // 	}
-    // }
+    .header__logo {
+    	height: 60px;
+    	padding: 5px 0;
 
-		> .container {
-			padding-top: 5px;
-			padding-bottom: 5px;
+    	svg {
+    		height: 100%;
+	    	width: auto;
+    	}
+    }
+
+    .header__mainMenu { // wrapper ul element for the main menu
+			> li {
+		    padding-top: 10px;
+		    padding-bottom: 12px; // exact amount menu items are from bottom of header
+			}
 		}
 	}
 }
@@ -120,12 +120,15 @@
 }
 
 .header__logo {
- 	float: left;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  transition: $transition;
 
 	a {
 		img, svg {
 			// width: 190px;
-			height: 88px;
+			height: 75px;
+			width: auto;
 		}
 
 		&:hover {
@@ -138,8 +141,10 @@
 	}
 }
 
-.header__nav {
-	float: right;
+.header__nav { // wrapper nav element
+	width: 100%;
+  text-align: right; // justifies menu to the right
+  align-self: flex-end; // positions menu at bottom of header
 
   @include breakpoint($menuBreakpoint){
 		display: none;
@@ -147,49 +152,69 @@
 
 	> ul { // top level wrapper
 		display: inline-block;
-		vertical-align: middle;
-		
-		&.header__mainMenu {
-			> li > a {
-				@include rem(16);
-				font-weight: 600;
+		vertical-align: baseline;
 
-				&:hover {
-					border-bottom: 3px solid $green;
+		&.header__mainMenu { // wrapper ul element for the main menu
+			> li {
+				padding: 20px 20px 30px 0; // controls how far menu items are from bottom of header
+
+				&:last-of-type {
+			    padding-right: 0;
 				}
+
+				> a {
+					@include rem(16);
+					font-weight: 600;
+					border-bottom: 3px solid transparent;	
+
+					&:hover {
+						border-bottom: 3px solid $green;
+					}
+				}
+
+				&.large {
+					padding-right: 30px;
+
+					> a {
+						@include rem(24);
+					}
+
+					> ul {
+						top: 100%;
+					}
+				}
+
+				&.current-menu-item,
+				&.current-menu-ancestor {
+					> a {
+						border-color: $green;	
+					}	
+				}
+			}
+		}
+
+		&.header__cta { // wrapper ul element for the main menu
+			> li {
+				padding-left: 20px;
 			}
 		}
 
 		> li { // top level menu items
 			display: inline-block;
 			position: relative;
-			padding: 6px 10px 40px;
 	
 			> a { // top level menu item link
 				display: block;
 				position: relative;
-				border-bottom: 3px solid transparent;	
 			}
 
-			&.menu-item-has-children { // top level menu item with dropdown
-				> a {
-					&::before { // dropdown arrow styling
-						content: '';
-						// position: absolute;
-						// // top: 32px;
-						// right: -7px;
-						// border: 4px solid transparent;
-						// border-top: 4px solid $text;
-					}
-				}
-			}
-
-			&.current-menu-item,
-			&.current-menu-ancestor {
-				> a {
-					border-color: $green;	
-				}	
-			}
+			// &.menu-item-has-children { // top level menu item with dropdown
+			// 	> a {
+			// 		&::before { // dropdown arrow styling
+			// 			content: '';
+			// 		}
+			// 	}
+			// }
 		}
 	}
 
@@ -208,12 +233,12 @@
 				position: absolute;
 				z-index: 999;
 				width: auto;
-				top: 70px;
+				top: calc(100% + 3px); // exact positioning dropdown when there are .large menu-items
 				padding: 10px 0 15px;
 				min-width: 200px;
 				background-color: $white;
 				border: 1px solid $gray;
-				border-top: 0;
+				text-align: left;
 				
 				li { // dropdown menu item 
 					display: block;
@@ -299,35 +324,39 @@
 	}
 }
 
-.mobileNav__trigger {
+
+.mobileNavTrigger { // link "a" element
 	display: none;
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+	width: 100%;
+	text-align: right; // justifies menu to the right
+	align-self: center; // vertically centers trigger in header
   
 	@include breakpoint($menuBreakpoint) {
 		display: block;
 	}
-}
 
-.mobileNav__openBtn {
-	display: block;
-  position: relative;
-  height: 20px;
-  transition: .5s ease-in-out;
-  cursor: pointer;
-	
 	&:hover {
 		span {
 			background-color: $green-med;
 		}
 	}
-	p.h5 {
-		position: absolute;
-		left: 0;
-		text-align: right;
+
+	&__icon {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		width: 28px; // same as the span's width
+		height: 20px;
 	}
+	&__label {
+		display: inline-block;
+		vertical-align: middle;
+		padding-right: 10px;
+	}
+
 	span { // hamburger menu styling and positioning
 	  display: block;
 	  position: absolute;

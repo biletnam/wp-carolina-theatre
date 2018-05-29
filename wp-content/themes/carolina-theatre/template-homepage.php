@@ -66,46 +66,37 @@ get_header();
   <div class="container contain">
   	<h2>Upcoming Events</h2>
     <div class="cardSlider">
-        <?php
-        // sort all films and events by start_date and then end_date
-         $upcoming_query_args = array(
-            'post_type' => array('film', 'event'),
-            'meta_query' => array(
-                "start" => array("key" => "start_date"),
-                "end" => array("key" => "end_date")
-            ),
-            'orderby' => array(
-                    "start" => "ASC",
-                    "end" => "ASC"
-                )
-            );
-        
-        $upcoming_query = new WP_Query($upcoming_query_args);
-        $count = 0;
-        if ($upcoming_query->have_posts()) {
-            while ($upcoming_query->have_posts()) {
-                $upcoming_query->the_post();
-                $today = strtotime("today");
-                $end_date = strtotime(get_field("end_date"));
-                
-                // construct html for events with an end_date of today or in the future
-                // limit upcoming events to 10
-                if ($end_date >= $today && $count < 10) {
-                ?>
-                    <div class="cardSlider__card">
-                        <h3><?php echo get_the_title(); ?></h3>
-                        <p><?php echo get_field("start_date") . " - " . get_field("end_date"); ?></p>
-                    </div>
-                <?php
-                    // only increment if end_date is today or in the future
-                    // not incrementing for events that have been returned by the query but are
-                    // in the past
-                    $count++;
-                }
-            }  
-        }
-        wp_reset_postdata();
-    ?>
+      <?php // The Query
+      	// TO-DO: Filter event showtimes within ARGS
+        $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+        $limit = 5;
+				$events_query_args = array(
+					'post_type' => array('event', 'film'),
+					'post_status' => 'publish',
+					// 'posts_per_page' => $limit,
+					// 'paged' => $paged,
+					'meta_query' => array(
+					  'start_clause' => array('key' => 'start_date'),
+					  'end_clause' => array('key' => 'end_date')
+					),
+					'orderby' => array(
+					  'relation' => 'AND',
+					  'start_clause' => 'ASC',
+					  'end_clause' => 'ASC'
+					),
+				);
+
+				// The Loop
+				$events_query = new WP_Query($events_query_args);
+				if ($events_query->have_posts()) {
+					while ($events_query->have_posts()) { $events_query->the_post(); ?>
+					  <?php get_template_part('blocks/event', 'card'); ?>
+		  		<?php } // endwhile have_posts events_query ?>
+				<?php wp_reset_postdata(); // Restore original Post Data
+				} else {
+				echo 'No events at this time';
+				} // endif have_posts events_query
+			?>
     </div>
     <div class="cardSlider__nav">
       <a href="/events" class="button gray">See All Events</a>
