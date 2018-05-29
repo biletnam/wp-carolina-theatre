@@ -529,16 +529,25 @@ blockquote {
   background-color: #fff;
   border-bottom: 1px solid #ccc;
   z-index: 1000; }
-  .header__main .container {
-    padding-top: 20px;
-    padding-bottom: 20px; }
+  .header__main > .container {
+    padding-top: 0;
+    padding-bottom: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
   .header__main.sticky {
     width: 100% !important;
     top: 0 !important;
     left: auto !important; }
-    .header__main.sticky > .container {
-      padding-top: 5px;
-      padding-bottom: 5px; }
+    .header__main.sticky .header__logo {
+      height: 60px;
+      padding: 5px 0; }
+      .header__main.sticky .header__logo svg {
+        height: 100%;
+        width: auto; }
+    .header__main.sticky .header__mainMenu > li {
+      padding-top: 10px;
+      padding-bottom: 12px; }
 
 .header__cta {
   text-align: right; }
@@ -547,9 +556,13 @@ blockquote {
       display: none; } }
 
 .header__logo {
-  float: left; }
+  padding-top: 20px;
+  padding-bottom: 20px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
   .header__logo a img, .header__logo a svg {
-    height: 88px; }
+    height: 75px;
+    width: auto; }
   .header__logo a:hover {
     opacity: 1; }
   @media screen and (max-width: 700px) {
@@ -557,31 +570,40 @@ blockquote {
       margin: 0 auto; } }
 
 .header__nav {
-  float: right; }
+  width: 100%;
+  text-align: right;
+  -ms-flex-item-align: end;
+      align-self: flex-end; }
   @media screen and (max-width: 700px) {
     .header__nav {
       display: none; } }
   .header__nav > ul {
     display: inline-block;
-    vertical-align: middle; }
-    .header__nav > ul.header__mainMenu > li > a {
-      font-size: 16px;
-      font-size: 1rem;
-      font-weight: 600; }
-      .header__nav > ul.header__mainMenu > li > a:hover {
-        border-bottom: 3px solid #72bcae; }
+    vertical-align: baseline; }
+    .header__nav > ul.header__mainMenu > li {
+      padding: 20px 20px 30px 0; }
+      .header__nav > ul.header__mainMenu > li > a {
+        font-size: 16px;
+        font-size: 1rem;
+        font-weight: 600;
+        border-bottom: 3px solid transparent; }
+        .header__nav > ul.header__mainMenu > li > a:hover {
+          border-bottom: 3px solid #72bcae; }
+      .header__nav > ul.header__mainMenu > li.large {
+        padding-right: 30px; }
+        .header__nav > ul.header__mainMenu > li.large > a {
+          font-size: 24px;
+          font-size: 1.5rem; }
+        .header__nav > ul.header__mainMenu > li.large > ul {
+          top: 100%; }
+      .header__nav > ul.header__mainMenu > li.current-menu-item > a, .header__nav > ul.header__mainMenu > li.current-menu-ancestor > a {
+        border-color: #72bcae; }
     .header__nav > ul > li {
       display: inline-block;
-      position: relative;
-      padding: 6px 10px 40px; }
+      position: relative; }
       .header__nav > ul > li > a {
         display: block;
-        position: relative;
-        border-bottom: 3px solid transparent; }
-      .header__nav > ul > li.menu-item-has-children > a::before {
-        content: ''; }
-      .header__nav > ul > li.current-menu-item > a, .header__nav > ul > li.current-menu-ancestor > a {
-        border-color: #72bcae; }
+        position: relative; }
   .header__nav ul li.menu-item-has-children:hover > ul {
     display: block; }
   .header__nav ul li > ul {
@@ -589,12 +611,12 @@ blockquote {
     position: absolute;
     z-index: 999;
     width: auto;
-    top: 70px;
+    top: calc(100% + 3px);
     padding: 10px 0 15px;
     min-width: 200px;
     background-color: #fff;
     border: 1px solid #ccc;
-    border-top: 0; }
+    text-align: left; }
     .header__nav ul li > ul li {
       display: block;
       list-style: inside none;
@@ -655,11 +677,10 @@ blockquote {
 
 .mobileNav__trigger {
   display: none;
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%); }
+  width: 100%;
+  text-align: right;
+  -ms-flex-item-align: center;
+      align-self: center; }
   @media screen and (max-width: 700px) {
     .mobileNav__trigger {
       display: block; } }
