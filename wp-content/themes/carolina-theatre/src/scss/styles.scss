@@ -27,23 +27,11 @@ $transition: all .5s ease;
 @import "styles/news";
 @import "styles/hero-slider";
 @import "styles/accordion";
-//
-// * {
-// 	margin: 0;
-// 	padding: 0;
-// 	box-sizing: border-box;
-// 	font-family: "Lato", sans-serif;
-// }
 
 // featherlight example
 div[class^="inline-"] {
 	display: none;
 }
-
-// .container {
-// 	width: 80%;
-// 	margin: 50px auto;
-// }
 
 .featuredEvent_carousel {
 	.carousel {
@@ -54,8 +42,6 @@ div[class^="inline-"] {
 
 .featuredEvent__slideContainer {
 	display: flex;
-	// align-content: center;
-	// flex-wrap: wrap;
 	max-height: 400px;
 	overflow: hidden;
 }
@@ -112,7 +98,6 @@ div[class^="inline-"] {
 	}
 
 	&:hover {
-		// box-shadow: 0 0 0 2px $gray;
 		.card__button {
 			bottom: 0;
 		}

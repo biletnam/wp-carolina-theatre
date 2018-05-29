@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-// .show-stat {
-// 	background-color: #444;
-// 	color: white;
-// }
-
-// .hide-stat {
-// 	display: none;
-// 	background-color: cornflowerblue;
-// 	color: white;
-// }
-=======
-.slick-arrow {
-	background-color: black;
-}
->>>>>>> origin/master
-
 .hero-block {
 	&__slider {
 		display: inline-block;
@@ -60,7 +43,6 @@
 	}
 }
 
-<<<<<<< HEAD
 // sliders on homepage & event dropdown with info cards
 .cardSlider {
 	.slick-slide {
@@ -68,29 +50,6 @@
 		height: 315px; // for testing purposes
 		margin-right: 15px;
 		border: 1px solid $gray;
-=======
-
-
-.hp-upcoming {
-	border: 1px solid darkseagreen;
-
-	&__slider {
-		width: 80%;
-        margin: auto;
-        
-        &--nav {
-            position: relative;
-        }
-
-		&--arrows {
-			// display: inline-block;
-			width: 200px;
-			background-color: orange;
-			// margin-left: 50%;
-			margin: 0 auto;
-			// background-color: cyan;
-		}
->>>>>>> origin/master
 	}
 
 	.slick-list {

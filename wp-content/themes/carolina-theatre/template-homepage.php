@@ -107,7 +107,6 @@ get_header();
         wp_reset_postdata();
     ?>
     </div>
-
     <div class="cardSlider__nav">
       <a href="/events" class="button gray">See All Events</a>
       <div class="cardSlider__arrows"></div>

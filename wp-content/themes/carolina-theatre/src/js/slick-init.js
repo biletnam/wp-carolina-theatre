@@ -73,9 +73,10 @@ jQuery(function($) {
 					      }
 					    },
 					    {
-					      breakpoint: 320,
+					      breakpoint: 500,
 					      settings: {
-					        slidesToShow: 1
+					        slidesToShow: 1,
+					        slidesToScroll: 1
 					      }
 					    },
 					  ]
