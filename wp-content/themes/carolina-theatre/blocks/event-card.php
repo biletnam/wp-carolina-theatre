@@ -29,12 +29,12 @@
       $dateToShowInCard = $event_dates[0]; // the next date to show in the card
 		
       // test for event type
-      $class_names = "";
+      $class_names = [];
       if (get_post_type() == "film") {
-        $class_names = get_field('film_type');
+        if(get_field('film_type')){ $class_names = get_field('film_type'); }
         array_push($class_names, "film"); // add 'film' to list of classes for html template below
       } else if (get_post_type() == "event") {
-        $class_names = get_field('single_event_type');
+        if(get_field('single_event_type')){ $class_names = get_field('single_event_type'); }
         array_push($class_names, "event"); // add 'film' to list of classes for html template below
       }
 
