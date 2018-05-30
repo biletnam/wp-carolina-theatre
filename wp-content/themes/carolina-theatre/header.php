@@ -66,11 +66,24 @@ $GLOBALS["location_address"] = get_field('address', 'option');
 $GLOBALS["location_directionlink"] = get_field('google_map_link', 'option');
 ?>
 
-<nav class="header header__mobileNav">
-  <div id="mobileNav__closeBtn" class="btn__closeOpen--wrapper">
-  	<div class="btn__closeOpen close"></div>
-  </div>
+<div class="header header__mobileNav">
+	<div class="header__mobileNavTop"> 
+		<?php // top left secondary navigation (member tickets)
+		if(has_nav_menu('header-topleft')){ ?>
+		<nav role="navigation">
+	  	<a href="#" id="header__searchBtn" class="header__searchBtn"><i class="fas fa-search"></i></a>
+			<?php wp_nav_menu( array( 
+	    	'theme_location' 	=> 'header-topleft', 
+	    	'container'				=> false,
+	    	'menu_class'			=> 'menu-header-top-left',
+	    	'menu_id'					=> '',
+	    	) 
+	  	); ?>
+		</nav>
 
+  	<div id="mobileNav__closeBtn" class="btn__close fas fa-times"></div>
+	</div>
+	<?php } ?>
   <?php // primary mobile menu
 	if(has_nav_menu('header-main')){ ?>
     <nav class="header__mobileNav--menu" id="header__mobileNav--menu" role="navigation">
@@ -79,15 +92,14 @@ $GLOBALS["location_directionlink"] = get_field('google_map_link', 'option');
 	    	'container'				=> false,
 	    	'menu_class'			=> '',
 	    	'menu_id'					=> '',
+	    	'walker' 					=> new Arrow_Walker_Nav_Menu,
 	    	) 
 	  	); ?>
   	</nav>
 	<?php } ?>
-</nav>
+</div>
 
 <div class="mainWrapper">
-
-
 
 <?php // Alert Banner Markup 
 	$alertbanner_query_args = array(
@@ -132,7 +144,7 @@ $GLOBALS["location_directionlink"] = get_field('google_map_link', 'option');
 					<?php wp_nav_menu( array( 
 			    	'theme_location' 	=> 'header-topleft', 
 			    	'container'				=> false,
-			    	'menu_class'			=> '',
+			    	'menu_class'			=> 'menu-header-top-left',
 			    	'menu_id'					=> '',
 			    	) 
 			  	); ?>
@@ -146,7 +158,7 @@ $GLOBALS["location_directionlink"] = get_field('google_map_link', 'option');
 					<?php wp_nav_menu( array( 
 			    	'theme_location' 	=> 'header-topright', 
 			    	'container'				=> false,
-			    	'menu_class'			=> '',
+			    	'menu_class'			=> 'menu-header-top-right',
 			    	'menu_id'					=> '',
 			    	) 
 			  	); ?>
