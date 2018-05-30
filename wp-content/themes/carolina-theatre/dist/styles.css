@@ -593,10 +593,12 @@ blockquote {
   .featherlight-loading .featherlight-next {
     display: none; } }
 
-.admin-bar .header__main.sticky {
+.admin-bar .header__main.sticky,
+.admin-bar .header__mobileNav {
   top: 32px !important; }
   @media screen and (max-width: 782px) {
-    .admin-bar .header__main.sticky {
+    .admin-bar .header__main.sticky,
+    .admin-bar .header__mobileNav {
       top: 46px !important; } }
 
 @media screen and (max-width: 600px) {
@@ -633,11 +635,16 @@ blockquote {
   .header__top .right {
     float: right; }
 
+.menu-header-top-right a:hover {
+  text-decoration: underline; }
+
 .header__searchBtn {
   display: inline-block;
   vertical-align: middle;
   font-size: 16px;
   font-size: 1rem; }
+  .header__searchBtn:hover {
+    opacity: .5; }
 
 .header__main {
   background-color: #fff;
@@ -650,7 +657,9 @@ blockquote {
   .header__main.sticky {
     width: 100% !important;
     top: 0 !important;
-    left: auto !important; }
+    left: 0 !important;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease; }
     .header__main.sticky .header__logo {
       height: 60px;
       padding: 5px 0; }
@@ -690,22 +699,23 @@ blockquote {
   .header__nav > ul {
     display: inline-block;
     vertical-align: baseline; }
+    .header__nav > ul > li > a {
+      font-size: 16px;
+      font-size: 1rem;
+      font-weight: 600; }
+    .header__nav > ul > li.large > a {
+      font-size: 24px;
+      font-size: 1.5rem; }
     .header__nav > ul.header__mainMenu > li {
       padding: 20px 20px 30px 0; }
       .header__nav > ul.header__mainMenu > li:last-of-type {
         padding-right: 0; }
       .header__nav > ul.header__mainMenu > li > a {
-        font-size: 16px;
-        font-size: 1rem;
-        font-weight: 600;
         border-bottom: 3px solid transparent; }
         .header__nav > ul.header__mainMenu > li > a:hover {
           border-bottom: 3px solid #72bcae; }
       .header__nav > ul.header__mainMenu > li.large {
         padding-right: 30px; }
-        .header__nav > ul.header__mainMenu > li.large > a {
-          font-size: 24px;
-          font-size: 1.5rem; }
         .header__nav > ul.header__mainMenu > li.large > ul {
           top: 100%; }
       .header__nav > ul.header__mainMenu > li.current-menu-item > a, .header__nav > ul.header__mainMenu > li.current-menu-ancestor > a {
@@ -753,9 +763,8 @@ blockquote {
   z-index: 999;
   top: 0;
   bottom: 0;
-  right: -230px;
-  width: 230px;
-  padding: 80px 10% 20px;
+  right: -280px;
+  width: 280px;
   background-color: #fff;
   border-right: 1px solid #ccc;
   overflow-y: auto;
@@ -763,6 +772,81 @@ blockquote {
   @media screen and (min-width: 1081px) {
     .header__mobileNav {
       display: none; } }
+  .header__mobileNavTop {
+    background-color: #f3f3f3;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 50px 5px 15px;
+    font-size: 12px;
+    font-size: 0.75rem; }
+  .header__mobileNav .header__searchBtn {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 10px; }
+  .header__mobileNav .menu-header-top-left {
+    display: inline-block;
+    vertical-align: middle; }
+    .header__mobileNav .menu-header-top-left li {
+      display: inline-block;
+      padding-right: 10px; }
+    .header__mobileNav .menu-header-top-left a {
+      text-decoration: underline; }
+  .header__mobileNav .btn__close {
+    top: 12px; }
+
+.header__mobileNav--menu > ul > li {
+  position: relative;
+  border-bottom: 1px solid #ccc; }
+  .header__mobileNav--menu > ul > li > a {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-size: 1rem;
+    font-weight: 600; }
+    .header__mobileNav--menu > ul > li > a:hover {
+      color: #72bcae; }
+  .header__mobileNav--menu > ul > li.large > a {
+    font-size: 24px;
+    font-size: 1.5rem; }
+  .header__mobileNav--menu > ul > li.menu-item-has-children > a {
+    padding-right: 50px; }
+  .header__mobileNav--menu > ul > li > .sub-menu {
+    display: none;
+    border-top: 1px solid #ccc;
+    background-color: #f3f3f3;
+    padding: 20px 0 20px 25px; }
+    .header__mobileNav--menu > ul > li > .sub-menu li:not(:last-of-type) {
+      padding-bottom: 8px; }
+    .header__mobileNav--menu > ul > li > .sub-menu a:hover {
+      text-decoration: underline; }
+
+.header__mobileNav--menu a {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+
+.header__mobileNav--menu .dropdown_icon {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 14px;
+  width: 50px;
+  font-size: 16px;
+  font-size: 1rem;
+  color: #ccc;
+  text-align: center;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+  .header__mobileNav--menu .dropdown_icon:hover {
+    color: #72bcae; }
+
+.header__mobileNav--menu .large .dropdown_icon {
+  top: 20px; }
+
+.header__mobileNav--menu .open .sub-menu {
+  display: block; }
+
+.header__mobileNav--menu .open .dropdown_icon {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg); }
 
 .mainWrapper::after {
   position: absolute;
@@ -778,8 +862,10 @@ blockquote {
 
 .shift {
   overflow-x: hidden; }
+  .shift .header__main.sticky {
+    left: -280px !important; }
   .shift .mainWrapper {
-    right: 230px; }
+    right: 280px; }
     .shift .mainWrapper::after {
       z-index: 10000;
       opacity: 1; }
@@ -1136,48 +1222,22 @@ main {
     clear: both;
     display: table; }
 
-.btn__closeOpen--wrapper {
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 80px;
-  height: 80px;
-  font-size: 42px; }
-  .btn__closeOpen--wrapper:hover div::before {
-    background-color: #333; }
-  @media screen and (max-width: 900px) {
-    .btn__closeOpen--wrapper {
-      width: 50px;
-      height: 50px;
-      font-size: 32px; } }
-
-.btn__closeOpen {
+.btn__close {
   position: absolute;
   z-index: 20;
-  width: 80px;
-  height: 80px;
+
+  top: 0;
+  right: 0;
+  width: 50px;
+  text-align: center;
+  -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
-  cursor: pointer; }
-  .btn__closeOpen::before {
-    content: '';
-    position: absolute;
-    z-index: -1; }
-  .btn__closeOpen::after {
-    position: absolute;
-    z-index: 5;
-    left: 15px;
-    top: -3px;
-    content: '+';
-    color: #333;
-    transform-origin: 50% 55%;
-    transition: all 0.5s ease; }
-    @media screen and (max-width: 900px) {
-      .btn__closeOpen::after {
-        left: 8px;
-        top: -6px; } }
-  .btn__closeOpen.close::after {
-    transform: rotate(45deg); }
+  cursor: pointer;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 700; }
+  .btn__close:hover {
+    opacity: .5; }
 
 .content-tabs {
   position: relative; }

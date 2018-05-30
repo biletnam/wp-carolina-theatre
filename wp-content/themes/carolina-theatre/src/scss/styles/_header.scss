@@ -5,7 +5,8 @@
 
 // logged into wordpress styles
 .admin-bar {
-	.header__main.sticky {
+	.header__main.sticky,
+	.header__mobileNav {
     top: 32px !important;
 
     @include breakpoint(782px){
@@ -66,10 +67,22 @@
 	}
 }
 
+.menu-header-top-right {
+	a {
+		&:hover {
+			text-decoration: underline; 
+		}
+	}
+}
+
 .header__searchBtn {
 	display: inline-block;
 	vertical-align: middle;
 	@include rem(16);
+
+	&:hover {
+		opacity: .5;
+	}
 }
 
 .header__main {
@@ -86,7 +99,8 @@
 	&.sticky {
 	  width: 100% !important; // overrides inline width from ScrollMagic
 		top: 0 !important; // when page loads in middle, ScrollMagic was funky
-    left: auto !important;
+		left: 0 !important;
+		transition: $transition;
 
     .header__logo {
     	height: 60px;
@@ -153,6 +167,19 @@
 	> ul { // top level wrapper
 		display: inline-block;
 		vertical-align: baseline;
+		
+		> li {
+			> a {
+				@include rem(16);
+				font-weight: 600;
+			}
+
+			&.large {
+				> a {
+					@include rem(24);
+				}
+			}
+		}
 
 		&.header__mainMenu { // wrapper ul element for the main menu
 			> li {
@@ -163,8 +190,6 @@
 				}
 
 				> a {
-					@include rem(16);
-					font-weight: 600;
 					border-bottom: 3px solid transparent;	
 
 					&:hover {
@@ -174,10 +199,6 @@
 
 				&.large {
 					padding-right: 30px;
-
-					> a {
-						@include rem(24);
-					}
 
 					> ul {
 						top: 100%;
@@ -207,14 +228,6 @@
 				display: block;
 				position: relative;
 			}
-
-			// &.menu-item-has-children { // top level menu item with dropdown
-			// 	> a {
-			// 		&::before { // dropdown arrow styling
-			// 			content: '';
-			// 		}
-			// 	}
-			// }
 		}
 	}
 
@@ -280,7 +293,6 @@
 	bottom: 0;
 	right: -$mobileMenuWidth;
 	width: $mobileMenuWidth;
-	padding: 80px 10% 20px;
 	background-color: $white;
 	border-right: 1px solid $gray;
 	overflow-y: auto;
@@ -289,6 +301,129 @@
 	@include breakpoint-min($menuBreakpoint + 1px){
 		display: none;
 	}
+
+	&Top {
+		background-color: $gray-lt;
+		border-bottom: 1px solid $gray;
+		padding: 10px 50px 5px 15px;
+		@include rem(12);
+	}
+
+	.header__searchBtn {
+		display: inline-block;
+		vertical-align: middle;
+		padding-right: 10px;
+	}
+	.menu-header-top-left {
+		display: inline-block;
+		vertical-align: middle;
+
+		li {
+			display: inline-block;
+			padding-right: 10px;
+		}
+		a {
+			text-decoration: underline;
+		}
+	}
+	.btn__close {
+		top: 12px;
+	}
+}
+.header__mobileNav--menu {
+	> ul {
+		> li {
+			position: relative;
+			border-bottom: 1px solid $gray;
+
+			> a {
+				display: inline-block;
+				padding: 10px 15px;
+				@include rem(16);
+				font-weight: 600;
+
+				&:hover {
+					color: $green;
+				}
+			}
+
+			&.large {
+				> a {
+					@include rem(24);
+				}
+			}
+
+			&.menu-item-has-children {
+				> a {
+					padding-right: 50px; // to account for the width of the accordion dropdown
+				}
+			}
+
+			> .sub-menu {
+				display: none;
+				border-top: 1px solid $gray;
+				background-color: $gray-lt;
+				padding: 20px 0 20px 25px;
+
+				li:not(:last-of-type) {
+					padding-bottom: 8px;
+				}
+				a {
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+
+	a {
+		transition: $transition;
+	}
+
+	.dropdown_icon {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 14px;  // absolute positioning
+    width: 50px;
+    @include rem(16);
+    color: $gray;
+    text-align: center;
+    transition: $transition;
+
+    &:hover {
+    	color: $green;
+    }
+	}
+
+	.large {
+		.dropdown_icon {
+			top: 20px; // absolute positioning
+		}
+	}
+
+	.open { // when dropdown accordion is opened
+		.sub-menu {
+			display: block;
+		}
+
+		.dropdown_icon {
+			transform: rotate(180deg);
+		}
+	}
+
+	// .menu-item-has-children {
+	// 	&::after {
+	//     content: "\f078";
+	//     font-family: 'FontAwesome';
+	//     font-weight: 400;
+	//     position: absolute;
+	//     right: 0;
+	//     width: 30px;
+	//     text-align: center;
+	// 	}
+	// }
 } // end .mainNav__mobile
 
 
@@ -310,6 +445,9 @@
 .shift { // class added to <html> when mobile menu is open
 	overflow-x: hidden; // so you can't scroll when mobile menu is open
 
+	.header__main.sticky {
+		left: -$mobileMenuWidth !important;
+	}
 	.mainWrapper {
 		right: $mobileMenuWidth;
 

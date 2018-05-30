@@ -148,14 +148,14 @@
       </div>
       <div class="events card__wrapper">
         <?php // The Query
-        	// TO-DO: Filter event showtimes within ARGS
-	        $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+        	// TO-DO: Filter event showtimes within args, before querying
+	        $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
 	        $limit = 5;
 					$events_query_args = array(
 						'post_type' => array('event', 'film'),
 						'post_status' => 'publish',
-						// 'posts_per_page' => $limit,
-						// 'paged' => $paged,
+						'posts_per_page' => $limit,
+						'paged' => $paged,
 						'meta_query' => array(
 						  'start_clause' => array('key' => 'start_date'),
 						  'end_clause' => array('key' => 'end_date')
@@ -173,6 +173,27 @@
 						while ($events_query->have_posts()) { $events_query->the_post(); ?>
 						  <?php get_template_part('blocks/event', 'card'); ?>
 			  		<?php } // endwhile have_posts events_query ?>
+
+						<div class="pagination">
+						    <?php // TO-DO: Get pagination working
+					        // echo paginate_links( array(
+					        //     'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+					        //     'total'        => $events_query_args->max_num_pages,
+					        //     'current'      => max( 1, get_query_var( 'paged' ) ),
+					        //     'format'       => '?paged=%#%',
+					        //     'show_all'     => false,
+					        //     'type'         => 'plain',
+					        //     'end_size'     => 2,
+					        //     'mid_size'     => 1,
+					        //     'prev_next'    => true,
+					        //     'prev_text'    => sprintf( '<i></i> %1$s', __( 'Newer Posts', 'text-domain' ) ),
+					        //     'next_text'    => sprintf( '%1$s <i></i>', __( 'Older Posts', 'text-domain' ) ),
+					        //     'add_args'     => false,
+					        //     'add_fragment' => '',
+					        // ) );
+						    ?>
+						</div>
+
 					<?php wp_reset_postdata(); // Restore original Post Data
 					} else {
 					echo 'No events at this time';
@@ -183,10 +204,12 @@
   </div><!-- .mainContent__content -->
   <aside class="mainContent__sidebar">
   	<div class="container">
+      <?php // TO-DO: Get search setup ?>
       <div class="upcoming-events__sidebar--search">
-      <input type="text" placeholder="Search..." />
-      <button>Search Events</button>
+	      <input type="text" placeholder="Search..." />
+	      <button>Search Events</button>
       </div>
+      <?php // TO-DO: Get sidebars setup ?>
       <div class="sidebar__menus">
       	<div class="sidebar__menu">
 	        <p class="h3">Upcoming Film Series</p>

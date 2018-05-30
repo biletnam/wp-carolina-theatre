@@ -129,6 +129,7 @@ get_header();
 <section class="hp-news">
 	<div class="container contain">
 		<h2>New &amp; Press</h2>
+		<?php // TO-DO: get Posts pulled in here ?>
 	  <div class="cardSlider">
 	      <div class="cardSlider__card">
 	          <img 

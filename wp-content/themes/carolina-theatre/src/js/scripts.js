@@ -22,7 +22,7 @@
 (function($){
 	var $ww = $(window).width();
 	var $header = $('#header');
-	var $mobileNav = $('#header__mobileNav');
+	var $mobileNav = $('#header__mobileNav--menu');
 	var $mobileMenuTrigger = $('#mobileNavTrigger');
 	var $mobileMenuClose = $('#mobileNav__closeBtn');
 	var stickyMenuCtrl = new ScrollMagic.Controller(); 
@@ -68,6 +68,11 @@
 		// prevent the mobile menu trigger from closing the menu
 		$mobileMenuTrigger.click(function(event){
 	    event.stopPropagation();
+		});
+
+		// toggle the mobile dropdown menus as accordions
+		$('.header__mobileNav--menu .dropdown_icon').click(function(){
+			$(this).closest('.menu-item').toggleClass('open');
 		});
 	});
 

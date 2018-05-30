@@ -59,7 +59,7 @@
 </section>
 <?php } // endif footer sitemap ?>
 
-<footer class="footer--main"<?php if($footer_bg) { echo ' style="background-image:url('.$footer_bg.');"'; } ?>>
+<footer class="footer--main"<?php if($footer_bg){ echo ' style="background-image:url('.$footer_bg.');"'; } ?>>
 	<?php if($slogan){ ?>
 		<div class="footer__slogan">
 			<p class="h1"><?php echo $slogan; ?></h1>
@@ -68,8 +68,8 @@
 
 	<?php if($show_email_signup){ ?>
 		<div class="footer__newsletter">
-			<p><?php echo $email_signup_headline; ?></p>
-	    <?php echo do_shortcode($email_signup_shortcode); ?>
+			<p class="small"><?php echo $email_signup_headline; ?></p>
+	    <?php //echo do_shortcode($email_signup_shortcode); ?>
 			<?php 
 			// <div class="newsletter__form">
 			//   <input type="email" id="bronto-newsletter_%formID%" class="bronto_signup_input newsletter__input" name="email" placeholder="email address">
