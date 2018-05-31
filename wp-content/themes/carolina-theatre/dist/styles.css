@@ -1407,29 +1407,124 @@ div.wpcf7-validation-errors {
   border: 0;
   color: #f6583e; }
 
-.heroSlider {
-  display: inline-block;
-  width: 80%; }
-  .heroSlider__nav {
-    position: relative;
-    width: 20%;
-    margin: auto; }
-  .heroSlider__go-to-btn:hover {
-    background-color: purple; }
-  .heroSlider__navThumbnail {
-    display: none; }
+.hero--homepage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row; }
+  .hero--homepage .heroSlider {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+    width: calc(100% - 200px); }
+  .hero--homepage .statistics {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 200px;
+            flex: 0 0 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch; }
+    @media screen and (max-width: 900px) {
+      .hero--homepage .statistics {
+        display: none; } }
+  .hero--homepage .statistic {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1; }
+    .hero--homepage .statistic__front {
+      height: 100%; }
 
-.statistics {
-  display: inline-block;
-  width: 19%; }
-  .statistics--1 .statistic {
+.heroSlider {
+  position: relative;
+  min-height: 56vw; }
+  .heroSlider .slick-list,
+  .heroSlider .slick-track {
     height: 100%; }
-  .statistics--2 .statistic {
-    height: 50%; }
-  .statistics--3 .statistic {
-    height: 33.333%; }
-  .statistics--4 .statistic {
-    height: 25%; }
+  .heroSlider__slide {
+    min-height: 56vw;
+    height: 100%;
+    overflow: hidden;
+    background-color: #333;
+    background-size: cover;
+    background-position: center center; }
+  .heroSlider__slideContent {
+    position: absolute;
+    z-index: 150;
+    bottom: 0;
+    left: 0;
+    max-width: 75%;
+    color: #fff; }
+  .heroSlider .slick-dots {
+    height: auto;
+    bottom: 20px;
+    right: 20px; }
+    @media screen and (max-width: 640px) {
+      .heroSlider .slick-dots {
+        bottom: 10px;
+        right: 10px; } }
+    .heroSlider .slick-dots li {
+      display: block;
+      margin: 0 0 10px 0; }
+      .heroSlider .slick-dots li button.thumbnail {
+        width: 75px;
+        height: 50px;
+        overflow: hidden; }
+        @media screen and (max-width: 640px) {
+          .heroSlider .slick-dots li button.thumbnail {
+            width: 15px;
+            height: 26px; } }
+        .heroSlider .slick-dots li button.thumbnail::before {
+          z-index: 100;
+          width: 3px;
+          height: 50px;
+          background-color: rgba(255, 255, 255, 0.3);
+          left: auto;
+          right: 0; }
+          @media screen and (max-width: 640px) {
+            .heroSlider .slick-dots li button.thumbnail::before {
+              height: 26px; } }
+        .heroSlider .slick-dots li button.thumbnail:hover {
+          -webkit-box-shadow: 3px 6px 20px rgba(0, 0, 0, 0.2);
+                  box-shadow: 3px 6px 20px rgba(0, 0, 0, 0.2); }
+          .heroSlider .slick-dots li button.thumbnail:hover::before {
+            background-color: #72bcae; }
+          .heroSlider .slick-dots li button.thumbnail:hover img {
+            opacity: 1;
+            left: 0; }
+        .heroSlider .slick-dots li button.thumbnail img {
+          opacity: 0;
+          left: 100%;
+          -webkit-transition: all 0.5s ease;
+          transition: all 0.5s ease; }
+          @media screen and (max-width: 640px) {
+            .heroSlider .slick-dots li button.thumbnail img {
+              display: none; } }
+      .heroSlider .slick-dots li.slick-active button::before {
+        background-color: #fff; }
+  .heroSlider.slick-slider.slick-dotted {
+    margin-bottom: 0; }
+
+.statistics--1 .statistic {
+  height: 100%; }
+
+.statistics--2 .statistic {
+  height: 50%; }
+
+.statistics--3 .statistic {
+  height: 33.333%; }
+
+.statistics--4 .statistic {
+  height: 25%; }
 
 .statistic {
   position: relative;

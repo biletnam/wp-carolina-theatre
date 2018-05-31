@@ -4,45 +4,27 @@ get_header();
 
 ?>
 <?php while ( have_posts() ) { the_post(); ?>
-<div class="hero-block">
-	<div class="heroSlider">
+<div class="hero--homepage">
+	<section class="heroSlider heroSlider--homepage">
     <?php if (have_rows("slider")) { ?>
       <?php while (have_rows("slider")) { the_row(); ?>
-        <div class="heroSlider__slide">
-          <div class="heroSlider__slideImage">
-         		<img src="<?php echo get_sub_field("image")['url']; ?>" alt="<?php echo get_sub_field("image")['alt']; ?>" />
-          </div>
+      	<?php $image = get_sub_field("image"); ?>
+        <div class="heroSlider__slide" data-thumb="<?php echo $image['sizes']['thumbnail']; ?>" style="background-image:url(<?php echo $image['url']; ?>);">
           <div class="heroSlider__slideContent">
-            <?php echo get_sub_field("content"); ?>
+          	<div class="contain container">
+          		<?php echo get_sub_field("content"); ?>
+          	</div>
           </div>
         </div>
       <?php } // endwhile ?>
     <?php } // end if ?>
-    <div class="heroSlider__nav">
-      <?php $slide_number = 1; ?>
-      <?php if (have_rows("slider")) { ?>
-        <?php while (have_rows("slider")) { the_row(); ?>
-        <?php // go-to slide on button click: https://codepen.io/vilcu/pen/ZQwdGQ ?>
-          <div class="hero-block__btn-block">
-            <button class="hero-block__go-to-btn" data-slide="<?php echo $slide_number; ?>">
-                Slide <?php echo $slide_number; ?>
-            </button>
-            <img 
-                class="heroSlider__navThumbnail" 
-                src="<?php echo get_sub_field("image")["sizes"]["thumbnail"]; ?>" 
-                alt="small poster of event"/>
-          </div>
-          <?php $slide_number++; ?>
-        <?php } // endwhile ?>
-      <?php } // end if ?>
-		</div>
-  </div>  
+  </section>  
   <?php if (have_rows("statistics")) { ?>
-		<?php 
+		<?php // get how many stats there are for styling
     	$statistics = get_field_object("statistics");
 			$statistics_count = (count($statistics["value"]));
 		?>
-    <div class="statistics statistics--<?php echo $statistics_count; ?>">
+    <aside class="statistics statistics--<?php echo $statistics_count; ?>">
       <?php while (have_rows("statistics")) { the_row(); ?>
         <a href="<?php echo get_sub_field("link")["url"]; ?>" class="statistic">
       		<div class="statistic__back">
@@ -54,10 +36,10 @@ get_header();
           </div>
         </a>
       <?php } // endwhile ?>
-    </div>
+    </aside>
 	<?php } // end if ?>
 </div>
-<div class="hp-upcoming">
+<section class="hp-upcoming">
   <div class="container contain">
   	<h2>Upcoming Events</h2>
     <div class="cardSlider">
@@ -97,8 +79,8 @@ get_header();
       <a href="/events" class="button gray">See All Events</a>
       <div class="cardSlider__arrows"></div>
   	</div>
-</div>
-<div class="hp-ctaCards">
+</section>
+<section class="hp-ctaCards">
     <?php
         if (have_rows("call_to_action_card")) {
             while (have_rows("call_to_action_card")) {
@@ -119,8 +101,7 @@ get_header();
         }
 
     ?>
-</div>
-
+</section>
 <section class="hp-news">
 	<div class="container contain">
 		<h2>New &amp; Press</h2>

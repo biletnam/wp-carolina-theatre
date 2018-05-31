@@ -28,26 +28,18 @@ jQuery(function($) {
 				// 	}
 				// ]
     });
-		var $homepageHero = $(".heroSlider").slick({
-			// dots: true,
-      // arrows: false,
-      // appendArrows: $(".hero-block__slider--arrows")
+
+		$(".heroSlider").slick({
+			dots: true,
+      arrows: false,
+      rows: 0, // removes extra 'div'
+      customPaging : function(slider, i) {
+      	var $slide = $(slider.$slides[i]);
+	      console.log($slide);
+	      var thumb = $slide.data('thumb');
+	      return '<button class="thumbnail"><img src="'+thumb+'"></button>';
+    	}
 		});
-		$homepageHero.slick('slickFilter', '.heroSlider__slide');
-
-    // $(".heroSlider").slick({
-    // 		// slide: $('.heroSlider__slide')
-    //     // dots: true,
-    //     // arrows: false,
-    //     // appendArrows: $(".hero-block__slider--arrows")
-    // });
-
-    $(".hero-block__go-to-btn[data-slide]").on("click", function(e) {
-        e.preventDefault();
-        var slidePosition = $(this).data('slide');
-        $(".heroSlider").slick("slickGoTo", slidePosition - 1);
-        // alert($(this).data('slide'));
-    });
 
     $('.cardSlider').each(function (idx, item) {
 		    var carouselId = "carousel-" + idx;
