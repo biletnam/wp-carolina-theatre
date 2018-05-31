@@ -143,7 +143,7 @@
                 "5ae09cd43d061": {
                     "key": "5ae09cd43d061",
                     "name": "link_block",
-                    "label": "Link Block",
+                    "label": "Link Blocks",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -287,5 +287,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1527006570
+    "modified": 1527782979
 }

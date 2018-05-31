@@ -85,26 +85,7 @@ get_header();
   	</div>
 </section>
 <section class="hp-ctaCards">
-    <?php
-        if (have_rows("call_to_action_card")) {
-            while (have_rows("call_to_action_card")) {
-                the_row();    
-            ?>
-	            	<?php //get_template_part( 'blocks/content-blocks', 'link-block' ); ?>
-                <div class="cta__card">
-                    <h2><?php echo get_sub_field("title"); ?></h2>
-                    <p>
-                        <?php echo get_sub_field("content") . ' '; ?>
-                        <a href="<?php echo get_sub_field("link")["url"];?>">
-                            <?php echo get_sub_field("link")["title"]; ?>
-                        </a>
-                    </p>
-                </div>
-            <?php
-            }
-        }
-
-    ?>
+	<?php get_template_part( 'blocks/content-blocks', 'link-block' ); ?>
 </section>
 <section class="hp-news">
 	<div class="container contain">
