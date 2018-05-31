@@ -1,13 +1,13 @@
 {
     "key": "group_5b0304243e565",
-    "title": "Home Page Statistics Block",
+    "title": "Homepage - Statistics",
     "fields": [
         {
             "key": "field_5b0304325809d",
             "label": "Statistics",
             "name": "statistics",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "For best results, add 4 statistics.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -18,155 +18,82 @@
             "collapsed": "",
             "min": 0,
             "max": 4,
-            "layout": "table",
-            "button_label": "Add New Stat",
+            "layout": "block",
+            "button_label": "Add New Statistic",
             "sub_fields": [
                 {
                     "key": "field_5b0304545809e",
-                    "label": "Stat Value",
+                    "label": "Statistic Number",
                     "name": "stat_value",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "20",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
+                    "placeholder": 92,
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
                 },
                 {
                     "key": "field_5b03046c5809f",
-                    "label": "Stat Description",
+                    "label": "Statistic Description",
                     "name": "stat_description",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "20",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
+                    "placeholder": "years",
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
                 },
                 {
                     "key": "field_5b03047f580a0",
-                    "label": "Hover Description",
+                    "label": "Link Description",
                     "name": "hover_description",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "20",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
+                    "placeholder": "View Films",
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
                 },
                 {
                     "key": "field_5b03048b580a1",
-                    "label": "Link",
+                    "label": "Page Link",
                     "name": "link",
                     "type": "link",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "40",
                         "class": "",
                         "id": ""
                     },
                     "return_format": "array"
                 }
             ]
-        },
-        {
-            "key": "field_5b02fd69ce08b",
-            "label": "Show Social Feed",
-            "name": "show_social_feed",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_5b02fd55ce08a",
-            "label": "Social Feed - Title",
-            "name": "social_feed_title",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5b02fd69ce08b",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5b02fd8fce08c",
-            "label": "Social Feed - Shortcode",
-            "name": "social_feed_shortcode",
-            "type": "text",
-            "instructions": "Paste plugin shortcode for the social feed.",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5b02fd69ce08b",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
         }
     ],
     "location": [
@@ -180,11 +107,11 @@
     ],
     "menu_order": 0,
     "position": "normal",
-    "style": "default",
+    "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1527006511
+    "modified": 1527714006
 }

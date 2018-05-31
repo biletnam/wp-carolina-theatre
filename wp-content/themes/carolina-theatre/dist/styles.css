@@ -56,7 +56,7 @@
   -webkit-animation: fade-in 2s 1;
   animation: fade-in 2s 1; }
 
-.bg-gold, .cta__card::before {
+.bg-gold, .cta__card::before, .statistic__back {
   background-color: #ffbc42;
   background-image: url("../src/img/patterns/pattern-gold.png");
   background-size: 100px 100px;
@@ -68,7 +68,7 @@
   background-size: 103px 23px;
   background-repeat: repeat; }
 
-.bg-black {
+.bg-black, .statistic__front {
   background-color: #333;
   background-image: url("../src/img/patterns/pattern-black.png");
   background-size: 147px 147px;
@@ -1407,35 +1407,48 @@ div.wpcf7-validation-errors {
   border: 0;
   color: #f6583e; }
 
-.hero-block__slider {
+.heroSlider {
   display: inline-block;
-  width: 80%;
-  float: left; }
-  .hero-block__slider--nav {
+  width: 80%; }
+  .heroSlider__nav {
     position: relative;
     width: 20%;
     margin: auto; }
+  .heroSlider__go-to-btn:hover {
+    background-color: purple; }
+  .heroSlider__navThumbnail {
+    display: none; }
 
-.hero-block__go-to-btn:hover {
-  background-color: purple; }
-
-.hero-block__thumbnail {
-  display: none; }
-
-.hero-block__card img {
-  width: 100%; }
-
-.hero-block__stats {
+.statistics {
   display: inline-block;
-  width: 15%;
-  float: left; }
-  .hero-block__stats--normal {
-    background-color: #444;
-    color: white; }
-  .hero-block__stats--hover {
-    display: none;
-    background-color: cornflowerblue;
-    color: white; }
+  width: 19%; }
+  .statistics--1 .statistic {
+    height: 100%; }
+  .statistics--2 .statistic {
+    height: 50%; }
+  .statistics--3 .statistic {
+    height: 33.333%; }
+  .statistics--4 .statistic {
+    height: 25%; }
+
+.statistic {
+  position: relative;
+  display: block;
+  overflow: hidden; }
+  .statistic__front {
+    padding: 20px; }
+  .statistic__back {
+    position: absolute;
+    z-index: 100;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    color: #fff;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease; }
+  .statistic:hover .statistic__back {
+    left: 0; }
 
 .cardSlider .slick-slide {
   width: 250px;

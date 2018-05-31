@@ -28,17 +28,24 @@ jQuery(function($) {
 				// 	}
 				// ]
     });
+		var $homepageHero = $(".heroSlider").slick({
+			// dots: true,
+      // arrows: false,
+      // appendArrows: $(".hero-block__slider--arrows")
+		});
+		$homepageHero.slick('slickFilter', '.heroSlider__slide');
 
-    $(".hero-block__slider").slick({
-        // dots: true,
-        // arrows: false,
-        // appendArrows: $(".hero-block__slider--arrows")
-    });
+    // $(".heroSlider").slick({
+    // 		// slide: $('.heroSlider__slide')
+    //     // dots: true,
+    //     // arrows: false,
+    //     // appendArrows: $(".hero-block__slider--arrows")
+    // });
 
     $(".hero-block__go-to-btn[data-slide]").on("click", function(e) {
         e.preventDefault();
         var slidePosition = $(this).data('slide');
-        $(".hero-block__slider").slick("slickGoTo", slidePosition - 1);
+        $(".heroSlider").slick("slickGoTo", slidePosition - 1);
         // alert($(this).data('slide'));
     });
 

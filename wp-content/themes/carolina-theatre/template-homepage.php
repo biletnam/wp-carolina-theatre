@@ -5,44 +5,20 @@ get_header();
 ?>
 <?php while ( have_posts() ) { the_post(); ?>
 <div class="hero-block">
-  <div class="hero-block__slider-wrapper clearfix">
-		<div class="hero-block__slider">
-      <?php if (have_rows("slider")) { ?>
-        <?php while (have_rows("slider")) { the_row(); ?>
-          <div class="hero-block__card">
-            <img 
-                src="<?php echo get_sub_field("image")['url']; ?>" 
-                alt="<?php echo get_sub_field("image")['alt']; ?>"
-            />
-            <div class="hero-block__card--content">
-              <?php echo get_sub_field("content"); ?>
-            </div>
+	<div class="heroSlider">
+    <?php if (have_rows("slider")) { ?>
+      <?php while (have_rows("slider")) { the_row(); ?>
+        <div class="heroSlider__slide">
+          <div class="heroSlider__slideImage">
+         		<img src="<?php echo get_sub_field("image")['url']; ?>" alt="<?php echo get_sub_field("image")['alt']; ?>" />
           </div>
-        <?php } // endwhile ?>
-      <?php } // end if ?>
-    </div>
-      
-    <div class="hero-block__stats">
-      <?php if (have_rows("statistics")) { ?>
-        <ul>
-          <?php while (have_rows("statistics")) { the_row(); ?>
-            <li class="hero-block__stats-item">
-              <div class="hero-block__stats--normal">
-                <p><?php echo get_sub_field("stat_value"); ?></p>
-                <p><?php echo get_sub_field("stat_description") ?></p>
-              </div>
-              <div class="hero-block__stats--hover">
-                <p><?php echo get_sub_field("hover_description"); ?></p>
-                <p><a href="<?php echo get_sub_field("link")["url"]; ?>"><?php echo get_sub_field("link")["title"]; ?> Link</a></p>
-              </div>
-            </li>
-          <?php } // endwhile ?>
-      	</ul>
-  		<?php } // end if ?>
-    </div>
-  </div>
-  <div class="hero-block__slider--nav clearfix">
-    <div class="hero-block__slider--arrows">
+          <div class="heroSlider__slideContent">
+            <?php echo get_sub_field("content"); ?>
+          </div>
+        </div>
+      <?php } // endwhile ?>
+    <?php } // end if ?>
+    <div class="heroSlider__nav">
       <?php $slide_number = 1; ?>
       <?php if (have_rows("slider")) { ?>
         <?php while (have_rows("slider")) { the_row(); ?>
@@ -52,15 +28,34 @@ get_header();
                 Slide <?php echo $slide_number; ?>
             </button>
             <img 
-                class="hero-block__thumbnail" 
+                class="heroSlider__navThumbnail" 
                 src="<?php echo get_sub_field("image")["sizes"]["thumbnail"]; ?>" 
                 alt="small poster of event"/>
           </div>
           <?php $slide_number++; ?>
         <?php } // endwhile ?>
       <?php } // end if ?>
+		</div>
+  </div>  
+  <?php if (have_rows("statistics")) { ?>
+		<?php 
+    	$statistics = get_field_object("statistics");
+			$statistics_count = (count($statistics["value"]));
+		?>
+    <div class="statistics statistics--<?php echo $statistics_count; ?>">
+      <?php while (have_rows("statistics")) { the_row(); ?>
+        <a href="<?php echo get_sub_field("link")["url"]; ?>" class="statistic">
+      		<div class="statistic__back">
+            <p class="stat_link"><?php echo get_sub_field("hover_description"); ?></p>
+          </div>
+          <div class="statistic__front">
+            <p class="stat_value"><?php echo get_sub_field("stat_value"); ?></p>
+            <p class="stat_description"><?php echo get_sub_field("stat_description") ?></p>
+          </div>
+        </a>
+      <?php } // endwhile ?>
     </div>
-	</div>
+	<?php } // end if ?>
 </div>
 <div class="hp-upcoming">
   <div class="container contain">
