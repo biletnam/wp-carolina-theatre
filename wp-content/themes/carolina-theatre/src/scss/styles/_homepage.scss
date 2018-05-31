@@ -82,7 +82,12 @@
 }
 .heroSlider {
 	position: relative;
-	min-height: 56vw;
+	min-height: 50vw;
+	max-height: 900px;
+	
+	@include breakpoint($sizeMobile){
+		min-height: 320px;
+	}
 
 	.slick-list,
 	.slick-track {
@@ -90,12 +95,17 @@
 	}
 
 	&__slide {
-		min-height: 56vw;
+		min-height: 50vw;
+		max-height: 900px;
 		height: 100%;
 		overflow: hidden;
 		background-color: $off-black;
 		background-size: cover;
 		background-position: center center;
+
+		@include breakpoint($sizeMobile){
+			min-height: 320px;
+		}
 	}
 
   &__slideContent {

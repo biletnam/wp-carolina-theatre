@@ -1491,17 +1491,25 @@ div.wpcf7-validation-errors {
 
 .heroSlider {
   position: relative;
-  min-height: 56vw; }
+  min-height: 50vw;
+  max-height: 900px; }
+  @media screen and (max-width: 640px) {
+    .heroSlider {
+      min-height: 320px; } }
   .heroSlider .slick-list,
   .heroSlider .slick-track {
     height: 100%; }
   .heroSlider__slide {
-    min-height: 56vw;
+    min-height: 50vw;
+    max-height: 900px;
     height: 100%;
     overflow: hidden;
     background-color: #333;
     background-size: cover;
     background-position: center center; }
+    @media screen and (max-width: 640px) {
+      .heroSlider__slide {
+        min-height: 320px; } }
   .heroSlider__slideContent {
     position: absolute;
     z-index: 150;
