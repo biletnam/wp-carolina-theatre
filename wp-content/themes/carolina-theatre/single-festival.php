@@ -23,36 +23,33 @@
 <div class="mainContent contain">
   <section class="mainContent__content">
   	<div class="container">
-	    <div class="content-tabs">
+	    <div class="tabbedContent__tabs">
 	       <ul>
-	         	<li id="overview" class="tab-link content-tabs__tab">
-	          	<a href="#overview">
-	              Overview
-	          	</a>
+	         	<li data-tab="overview" class="tabbedContent__tab active-link">
+	          	<a href="#overview">Overview</a>
 	        	</li>
-	          <li id='films' class="tab-link content-tabs__tab">
-	          	<a href="#films">
-	              Films
-	          	</a>
+	          <li data-tab='films' class="tabbedContent__tab">
+	          	<a href="#films">Films</a>
 	        	</li>
-	          <?php if( have_rows('tabs') ) {
-	              while ( have_rows('tabs') ) { the_row();
-	                  $tab_name = get_sub_field('tab_name');
-	                  $id_name = str_replace(' ', '-', $tab_name);
-	                  $id_name = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '', $id_name));
-	      				?>          
-	                  <li id="<?php echo $id_name; ?>" class="tab-link content-tabs__tab">
-	                  	<a href="#<?php echo $id_name;?>">
-	                      <?php echo $tab_name; ?>
-	                  	</a>
-	                	</li>
-	      				<?php } //end while tabs ?>
-	            <?php } // end if tabs ?>
+	          <?php if( have_rows('tabs') ) { ?>
+           	<?php while ( have_rows('tabs') ) { the_row(); ?>
+            <?php
+              $tab_name = get_sub_field('tab_name');
+              $id_name = str_replace(' ', '-', $tab_name);
+              $id_name = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '', $id_name));
+    				?>          
+            <li data-tab="<?php echo $id_name; ?>" class="tabbedContent__tab">
+            	<a href="#<?php echo $id_name;?>">
+                <?php echo $tab_name; ?>
+            	</a>
+          	</li>
+    				<?php } //end while tabs ?>
+            <?php } // end if tabs ?>
 	       </ul> 
 	    </div>
 	    <!-- Generate all tabs, show only highlighted tab content -->
-	    <div class="festival-content__wrapper">
-	      <div class="tab-content hide-tab-content overview">
+	    <div class="tabbedContent_contentWrapper">
+	      <div class="tabbedContent__content overview">
 	          <?php if (have_rows("overview")) {
 	            while (have_rows("overview")) {
 	              the_row();
@@ -60,7 +57,7 @@
 	            }
 	          } ?>
 	      </div>
-	      <div class="films tab-content hide-tab-content">
+	      <div class="tabbedContent__content films hide-tab-content">
 	        <?php // film tab contents
 	        $meta_query_args = array(
 	            'post_type' => 'film',
@@ -134,7 +131,7 @@
 	            $id_name = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '', $id_name));
 	            $tab_content = get_sub_field('tab_content'); ?>  
 
-	            <div class='<?php echo $id_name ?> tab-content hide-tab-content'>
+	            <div class='tabbedContent__content <?php echo $id_name ?> hide-tab-content'>
 	            	<?php get_template_part( 'blocks/content-blocks' ); ?>
 	          	</div>
 	    		<?php } // end while have_rows for tabs ?>

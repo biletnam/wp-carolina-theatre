@@ -1156,9 +1156,9 @@ main {
   .btn__close:hover {
     opacity: .5; }
 
-.content-tabs {
+.tabbedContent__tabs {
   position: relative; }
-  .content-tabs::after {
+  .tabbedContent__tabs::after {
     content: "";
     position: absolute;
     z-index: 100;
@@ -1168,25 +1168,26 @@ main {
     height: 100%;
     background: -webkit-gradient(linear, right top, left top, from(#fff), to(rgba(255, 255, 255, 0)));
     background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0)); }
-  .content-tabs ul {
+  .tabbedContent__tabs ul {
     padding: 0;
     margin: 1em 0;
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch; }
-    .content-tabs ul:not(:first-of-type) {
+    .tabbedContent__tabs ul:not(:first-of-type) {
       margin-top: 0; }
-      .content-tabs ul:not(:first-of-type) .content-tabs__tab {
+      .tabbedContent__tabs ul:not(:first-of-type) .tabbedContent__tab {
         font-size: 14px;
         font-size: 0.875rem; }
-  .content-tabs .content-tabs__tab {
-    display: inline-block;
-    margin-right: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    font-size: 1rem;
-    border-bottom: 3px solid #fff; }
-  .content-tabs .active-link {
+
+.tabbedContent__tab {
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+  border-bottom: 3px solid #fff;
+  font-size: 16px;
+  font-size: 1rem; }
+  .tabbedContent__tab.active-link {
     font-weight: 600;
     border-bottom-color: #72bcae; }
 
@@ -1811,6 +1812,16 @@ div[class^="inline-"] {
 
 .upcoming-events .filmFilters {
   display: none; }
+
+.filmFilters .default {
+  position: relative;
+  margin-right: 26px; }
+  .filmFilters .default::after {
+    position: absolute;
+    content: "|";
+    font-weight: 400;
+    right: -16px;
+    color: #ccc; }
 
 .card__wrapper {
   display: -webkit-box;

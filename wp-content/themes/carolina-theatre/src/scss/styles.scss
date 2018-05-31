@@ -67,6 +67,21 @@ div[class^="inline-"] {
 	}
 }
 
+.filmFilters {
+	.default {
+		position: relative;
+    margin-right: 26px;
+
+		&::after {
+			position: absolute;
+			content: "|";
+			font-weight: 400;
+			right: -16px;
+			color: $gray;
+		}
+	}
+}
+
 ///////// NEWS, EVENT, FILM CARDS ////////////
 .card__wrapper {
 	display: flex;
