@@ -1,6 +1,4 @@
 <?php 
-// generates content for tabs on single-film.php and single-series.php pages based on 
-// content type
 if (have_rows('content_block_type')) {
     while (have_rows('content_block_type')) {
         the_row();
