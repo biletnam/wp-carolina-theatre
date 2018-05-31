@@ -1,3 +1,8 @@
+html {
+  @include breakpoint($sizeMobile){
+ 		@include rem(14);
+  }
+}
 body {
   position: relative;
   background-color: $white;
@@ -7,10 +12,6 @@ body {
   line-height: 1.5;
   color: $text;
   margin: 0;
-
-  @include breakpoint($sizeMobile){
- 		@include rem(14);
-  }
 }
 
 * { box-sizing: border-box; }

@@ -113,8 +113,19 @@
   	z-index: 150;
   	bottom: 0;
   	left: 0;
-  	max-width: 75%;
+		max-width: 700px;
+    width: 90%;
   	color: $white;
+		text-shadow: 0 0 2px rgba($black, .65);
+
+  	h1, h2, h3, h4, h5, p {
+  		margin-top: 0;
+	    line-height: 1;
+  	}
+
+  	.button {
+  		text-shadow: 0;
+  	}
 	}
 	
 	// vertically stacked, with thumbnail images

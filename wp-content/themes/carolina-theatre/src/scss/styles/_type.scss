@@ -72,7 +72,7 @@ p, .p {
   margin-top: 1em;
   margin-bottom: 1em;
 
-  a {  	
+  a:not(.button) {  	
   	&:hover {
 	    text-decoration: underline;
 	  }

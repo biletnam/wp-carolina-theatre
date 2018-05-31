@@ -126,7 +126,7 @@ p, .p {
   font-size: 1rem;
   margin-top: 1em;
   margin-bottom: 1em; }
-  p a:hover, .p a:hover {
+  p a:not(.button):not(.header__cta a):hover, .p a:not(.button):not(.header__cta a):hover {
     text-decoration: underline; }
 
 small, .small {
@@ -1029,6 +1029,11 @@ blockquote {
   line-height: 1.15;
   margin-bottom: 0; }
 
+@media screen and (max-width: 640px) {
+  html {
+    font-size: 14px;
+    font-size: 0.875rem; } }
+
 body {
   position: relative;
   background-color: #fff;
@@ -1039,10 +1044,6 @@ body {
   line-height: 1.5;
   color: #333;
   margin: 0; }
-  @media screen and (max-width: 640px) {
-    body {
-      font-size: 14px;
-      font-size: 0.875rem; } }
 
 * {
   -webkit-box-sizing: border-box;
@@ -1247,6 +1248,8 @@ input[type="submit"] {
   color: #fff;
   background-color: #f6583e;
   border-radius: 3px;
+  margin-top: .5em;
+  margin-bottom: .5em;
   padding: 14px 20px 13px;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease; }
@@ -1255,15 +1258,14 @@ input[type="submit"] {
     background-color: #8d2c1b; }
   .button.secondary, .header__cta a.secondary,
   input[type="submit"].secondary {
-    background-color: #fff;
+    background-color: transparent;
     color: #f6583e;
     -webkit-box-shadow: inset 0 0 0 2px #f6583e;
             box-shadow: inset 0 0 0 2px #f6583e; }
     .button.secondary:hover, .header__cta a.secondary:hover,
     input[type="submit"].secondary:hover {
-      -webkit-box-shadow: inset 0 0 0 2px #8d2c1b;
-              box-shadow: inset 0 0 0 2px #8d2c1b;
-      color: #8d2c1b; }
+      background-color: #f6583e;
+      color: #fff; }
     .button.secondary.disabled, .header__cta a.secondary.disabled,
     input[type="submit"].secondary.disabled {
       -webkit-box-shadow: inset 0 0 0 2px #ccc;
@@ -1299,6 +1301,10 @@ input[type="submit"] {
     input[type="submit"].disabled:hover {
       color: #333;
       background-color: #ccc; }
+  .button ~ .button, .header__cta a ~ .button, .header__cta .button ~ a, .header__cta a ~ a,
+  input[type="submit"] ~ .button, .header__cta
+  input[type="submit"] ~ a {
+    margin-left: 8px; }
 
 button {
   outline: 0; }
@@ -1515,8 +1521,15 @@ div.wpcf7-validation-errors {
     z-index: 150;
     bottom: 0;
     left: 0;
-    max-width: 75%;
-    color: #fff; }
+    max-width: 700px;
+    width: 90%;
+    color: #fff;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.65); }
+    .heroSlider__slideContent h1, .heroSlider__slideContent h2, .heroSlider__slideContent h3, .heroSlider__slideContent h4, .heroSlider__slideContent h5, .heroSlider__slideContent p {
+      margin-top: 0;
+      line-height: 1; }
+    .heroSlider__slideContent .button, .heroSlider__slideContent .header__cta a, .header__cta .heroSlider__slideContent a {
+      text-shadow: 0; }
   .heroSlider .slick-dots {
     height: auto;
     bottom: 20px;
