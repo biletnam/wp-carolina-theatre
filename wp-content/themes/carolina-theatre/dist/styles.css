@@ -1842,7 +1842,8 @@ div[class^="inline-"] {
     width: 100%;
     height: 50px;
     bottom: -45px;
-    border-radius: 0; }
+    border-radius: 0;
+    margin: 0; }
   .card:hover .card__button {
     bottom: 0; }
   .card:hover .card__title {
@@ -1869,16 +1870,16 @@ div[class^="inline-"] {
 .film .event__dateBox,
 .film .card__button {
   background-color: #72bcae; }
-  .film .event__dateBox:hover,
-  .film .card__button:hover {
-    background-color: #1b7f6b; }
+
+.film .card__button:hover {
+  background-color: #1b7f6b; }
 
 .event .event__dateBox,
 .event .card__button {
   background-color: #f6583e; }
-  .event .event__dateBox:hover,
-  .event .card__button:hover {
-    background-color: #8d2c1b; }
+
+.event .card__button:hover {
+  background-color: #8d2c1b; }
 
 .event__dateBox {
   width: 40px;

@@ -95,6 +95,7 @@ div[class^="inline-"] {
 		height: 50px;
 		bottom: -45px;
 		border-radius: 0;
+    margin: 0;
 	}
 
 	&:hover {
@@ -140,7 +141,9 @@ div[class^="inline-"] {
 	.event__dateBox,
 	.card__button {
 		background-color: $green;
+	}
 
+	.card__button {
 		&:hover {
 			background-color: $green-med;
 		}
@@ -151,7 +154,9 @@ div[class^="inline-"] {
 	.event__dateBox,
 	.card__button {
 		background-color: $red;
+	}
 
+	.card__button {
 		&:hover {
 			background-color: $red-med;
 		}
