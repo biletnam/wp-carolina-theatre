@@ -28,11 +28,15 @@ get_header();
       <?php while (have_rows("statistics")) { the_row(); ?>
         <a href="<?php echo get_sub_field("link")["url"]; ?>" class="statistic">
       		<div class="statistic__back">
-            <p class="stat_link"><?php echo get_sub_field("hover_description"); ?></p>
+            <div class="vertical-center">
+            	<p class="stat_link"><?php echo get_sub_field("hover_description"); ?><i class="fas fa-arrow-right"></i></p>
+            </div>
           </div>
           <div class="statistic__front">
-            <p class="stat_value"><?php echo get_sub_field("stat_value"); ?></p>
-            <p class="stat_description"><?php echo get_sub_field("stat_description") ?></p>
+          	<div class="vertical-center">
+          		<p class="stat_value"><?php echo get_sub_field("stat_value"); ?></p>
+            	<p class="stat_description"><?php echo get_sub_field("stat_description") ?></p>
+          	</div>
           </div>
         </a>
       <?php } // endwhile ?>

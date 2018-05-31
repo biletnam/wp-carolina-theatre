@@ -33,6 +33,10 @@ jQuery(function($) {
 			dots: true,
       arrows: false,
       rows: 0, // removes extra 'div'
+			autoplay: true,
+			autoplaySpeed: 3000,
+			speed: 800,
+			pauseOnHover: true,
       customPaging : function(slider, i) {
       	var $slide = $(slider.$slides[i]);
 	      console.log($slide);
