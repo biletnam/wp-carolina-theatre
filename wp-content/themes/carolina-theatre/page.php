@@ -28,6 +28,17 @@ get_header(); ?>
 		<h1 class="pageTitle"><?php the_title(); ?></h1>
 		<?php // TO-DO: setup tabbed sections for child/sibling posts ?>	
 		child / sibling posts menu	
+		<?php 
+			$parentID = $post->post_parent;
+			echo $parentID;
+			if($parentID){
+				wp_list_pages(array(
+			    'child_of' => $post->post_parent,
+			    // 'exclude' => $post->ID
+				));
+			}
+			
+ 		?>
 	</div>
 </section>
 

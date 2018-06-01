@@ -26,6 +26,7 @@ function festival_create_post_type() {
 		'query_var' => true,
 		'rewrite' => true,
 		'capability_type' => 'post',
+		'show_in_nav_menus' => true,
 		'hierarchical' => false,
 		'supports' => array(
 			'title',
@@ -75,6 +76,7 @@ function event_create_post_type() {
 		'query_var' => true,
 		'rewrite' => true,
 		'capability_type' => 'post',
+		'show_in_nav_menus' => true,
 		'hierarchical' => false,
 		'supports' => array(
 			'title',
@@ -124,6 +126,7 @@ function film_create_post_type() {
 		'query_var' => true,
 		'rewrite' => true,
 		'capability_type' => 'post',
+		'show_in_nav_menus' => true,
 		'hierarchical' => false,
 		'supports' => array(
 			'title',
@@ -173,6 +176,7 @@ function alertbanner_create_post_type() {
 		'query_var' => true,
 		'rewrite' => true,
 		'capability_type' => 'post',
+		'show_in_nav_menus' => false,
 		'hierarchical' => false,
 		'supports' => array(
 			'title',

@@ -551,7 +551,9 @@ blockquote {
         width: auto; }
     .header__main.sticky .header__mainMenu > li {
       padding-top: 10px;
-      padding-bottom: 12px; }
+      padding-bottom: 18px; }
+      .header__main.sticky .header__mainMenu > li.large {
+        padding-bottom: 15px; }
 
 .header__cta {
   text-align: right; }
@@ -595,16 +597,25 @@ blockquote {
       padding: 20px 20px 30px 0; }
       .header__nav > ul.header__mainMenu > li:last-of-type {
         padding-right: 0; }
-      .header__nav > ul.header__mainMenu > li > a {
-        border-bottom: 3px solid transparent; }
-        .header__nav > ul.header__mainMenu > li > a:hover {
-          border-bottom: 3px solid #72bcae; }
+      .header__nav > ul.header__mainMenu > li > a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        height: 3px;
+        width: 100%;
+        background-color: transparent; }
+      .header__nav > ul.header__mainMenu > li:hover > a::after {
+        background-color: #72bcae; }
       .header__nav > ul.header__mainMenu > li.large {
-        padding-right: 30px; }
-        .header__nav > ul.header__mainMenu > li.large > ul {
+        padding-right: 30px;
+        padding-bottom: 27px; }
+        .header__nav > ul.header__mainMenu > li.large > .sub-menu {
           top: 100%; }
-      .header__nav > ul.header__mainMenu > li.current-menu-item > a, .header__nav > ul.header__mainMenu > li.current-menu-ancestor > a {
-        border-color: #72bcae; }
+        .header__nav > ul.header__mainMenu > li.large > a::after {
+          bottom: 0; }
+      .header__nav > ul.header__mainMenu > li.current-menu-item > a::after, .header__nav > ul.header__mainMenu > li.current-menu-ancestor > a::after {
+        background-color: #72bcae; }
     .header__nav > ul.header__cta > li {
       padding-left: 20px; }
     .header__nav > ul > li {
@@ -615,33 +626,31 @@ blockquote {
         position: relative; }
   .header__nav ul li.menu-item-has-children:hover > ul {
     display: block; }
-  .header__nav ul li > ul {
+  .header__nav ul li > .sub-menu {
     display: none;
     position: absolute;
     z-index: 999;
     width: auto;
-    top: calc(100% + 3px);
+    top: 100%;
     padding: 10px 0 15px;
     min-width: 200px;
     background-color: #fff;
     border: 1px solid #ccc;
     text-align: left; }
-    .header__nav ul li > ul li {
+    .header__nav ul li > .sub-menu li {
       display: block;
-      list-style: inside none;
+      list-style: none;
       padding: 0;
       margin: 0;
       position: relative;
-      padding: 8px 28px; }
-      .header__nav ul li > ul li a {
-        position: relative;
-        outline: none;
-        display: block; }
-        .header__nav ul li > ul li a:hover {
-          text-decoration: underline; }
-      .header__nav ul li > ul li.current-menu-item > a, .header__nav ul li > ul li.current-menu-ancestor > a {
-        font-weight: 700;
-        text-decoration: underline; }
+      padding: 6px 25px; }
+    .header__nav ul li > .sub-menu .sub-menu {
+      display: block;
+      position: relative;
+      padding: 8px 0 0;
+      border: 0; }
+      .header__nav ul li > .sub-menu .sub-menu li {
+        padding: 2px 10px; }
 
 .header__mobileNav {
   position: fixed;
@@ -702,12 +711,6 @@ blockquote {
     padding: 20px 0 20px 25px; }
     .header__mobileNav--menu > ul > li > .sub-menu li:not(:last-of-type) {
       padding-bottom: 8px; }
-    .header__mobileNav--menu > ul > li > .sub-menu a:hover {
-      text-decoration: underline; }
-
-.header__mobileNav--menu a {
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease; }
 
 .header__mobileNav--menu .dropdown_icon {
   cursor: pointer;
@@ -814,6 +817,39 @@ blockquote {
     top: 5px;
     width: 0%;
     left: 50%; }
+
+.sub-menu a {
+  position: relative;
+  outline: none;
+  display: block;
+  font-weight: 600; }
+  .sub-menu a:hover {
+    text-decoration: underline; }
+  .sub-menu a:not([href]) {
+    font-family: "industry", sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-size: 0.75rem;
+    opacity: .8;
+    letter-spacing: .02em; }
+    .sub-menu a:not([href]):hover {
+      text-decoration: none; }
+
+.sub-menu .current-menu-item > a {
+  font-weight: 700;
+  text-decoration: underline; }
+
+.sub-menu .sub-menu {
+  display: block;
+  position: relative;
+  padding: 8px 0 0;
+  border: 0;
+  font-size: 14px;
+  font-size: 0.875rem; }
+  .sub-menu .sub-menu li {
+    padding: 2px 10px; }
+  .sub-menu .sub-menu a {
+    font-weight: 400; }
 
 .alertBanner {
   position: relative;

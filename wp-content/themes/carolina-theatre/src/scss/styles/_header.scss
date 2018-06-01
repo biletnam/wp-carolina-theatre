@@ -115,7 +115,11 @@
     .header__mainMenu { // wrapper ul element for the main menu
 			> li {
 		    padding-top: 10px;
-		    padding-bottom: 12px; // exact amount menu items are from bottom of header
+		    padding-bottom: 18px; // exact amount menu items are from bottom of header
+			
+				&.large {
+					padding-bottom: 15px; // exact amount menu items are from bottom of header
+				}
 			}
 		}
 	}
@@ -150,7 +154,8 @@
 	}
 }
 
-.header__nav { // wrapper nav element
+// Desktop Menu Styling
+.header__nav {
 	width: 100%;
   text-align: right; // justifies menu to the right
   align-self: flex-end; // positions menu at bottom of header
@@ -185,25 +190,43 @@
 				}
 
 				> a {
-					border-bottom: 3px solid transparent;	
+					&::after {
+				    content: '';
+				    position: absolute;
+				    left: 0;
+				    bottom: -3px;
+				    height: 3px;
+				    width: 100%;
+				    background-color: transparent;
+					}
+				}
 
-					&:hover {
-						border-bottom: 3px solid $green;
+				&:hover {
+					> a::after {
+						background-color: $green;
 					}
 				}
 
 				&.large {
 					padding-right: 30px;
+			    padding-bottom: 27px; // absolute for dropdown menu hover to work
 
-					> ul {
+					> .sub-menu {
 						top: 100%;
+					}
+
+					> a {
+						&::after {
+					    bottom: 0;
+						}
 					}
 				}
 
 				&.current-menu-item,
 				&.current-menu-ancestor {
-					> a {
-						border-color: $green;	
+					> a::after {
+						// border-color: $green;	
+						background-color: $green;
 					}	
 				}
 			}
@@ -225,7 +248,7 @@
 			}
 		}
 	}
-
+	
 	ul {
 		li {
 			&.menu-item-has-children {
@@ -236,13 +259,12 @@
 				}
 			}
 
-			// TO-DO: Styling for 3rd level menu items
-			> ul { // dropdown wrapper styling
+			> .sub-menu { // dropdown wrapper styling
 				display: none;
 				position: absolute;
 				z-index: 999;
 				width: auto;
-				top: calc(100% + 3px); // exact positioning dropdown when there are .large menu-items
+				top: 100%;
 				padding: 10px 0 15px;
 				min-width: 200px;
 				background-color: $white;
@@ -251,29 +273,23 @@
 				
 				li { // dropdown menu item 
 					display: block;
-					list-style: inside none;
+					list-style: none;
 					padding: 0;
 					margin: 0;
 					position: relative;
-					padding: 8px 28px;
+					padding: 6px 25px;
+				}
 
-					a { // dropdown menu item link
-						position: relative;
-						outline: none;
-						display: block;
+				.sub-menu { // nested sub-menus
+					display: block;
+			    position: relative;
+			    padding: 8px 0 0;
+			    border: 0;
+			    // @include rem(14);
 
-						&:hover {
-							text-decoration: underline;
-						}
-					}
-					
-					&.current-menu-item,
-					&.current-menu-ancestor {
-						> a {
-							font-weight: 700;	
-							text-decoration: underline;
-						}	
-					}
+			    li {
+			    	padding: 2px 10px;
+			    }
 				}
 			}
 		}
@@ -364,17 +380,8 @@
 				li:not(:last-of-type) {
 					padding-bottom: 8px;
 				}
-				a {
-					&:hover {
-						text-decoration: underline;
-					}
-				}
 			}
 		}
-	}
-
-	a {
-		transition: $transition;
 	}
 
 	.dropdown_icon {
@@ -408,18 +415,6 @@
 			transform: rotate(180deg);
 		}
 	}
-
-	// .menu-item-has-children {
-	// 	&::after {
-	//     content: "\f078";
-	//     font-family: 'FontAwesome';
-	//     font-weight: 400;
-	//     position: absolute;
-	//     right: 0;
-	//     width: 30px;
-	//     text-align: center;
-	// 	}
-	// }
 } // end .mainNav__mobile
 
 
@@ -536,6 +531,56 @@
 	}
 }
 // End Mobile Menu Styling
+
+
+.sub-menu {
+	a { // dropdown menu item link
+		position: relative;
+		outline: none;
+		display: block;
+		font-weight: 600;
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+		// for titles in menu that are not linked
+		&:not([href]) {
+			font-family: $header;
+	    text-transform: uppercase;
+	    @include rem(12);
+	    opacity: .8;
+	    letter-spacing: .02em;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+
+	.current-menu-item {
+		> a {
+			font-weight: 700;	
+			text-decoration: underline;
+		}	
+	}
+
+	.sub-menu { // nested sub-menus
+		display: block;
+    position: relative;
+    padding: 8px 0 0;
+    border: 0;
+    @include rem(14);
+
+    li {
+    	padding: 2px 10px;
+    }
+
+    a {
+    	font-weight: 400;
+    }
+	}
+}
 
 
 .alertBanner {
