@@ -835,21 +835,18 @@
 		
 		var $edTrigger = $('.header__mainMenu .header__event__trigger');
 		var $ed = $('#eventsDropdown');
-		// 1 - mouseover trigger = show dropdown
+		
+		// 1 - enter trigger = show dropdown
 		$edTrigger.on('mouseover touch', function(e) {
-		  // $target = e.target; // the element the mouse went over
-		  // $source = e.relatedTarget; // the element from which the mouse came
 		  $ed.addClass('show');	
-		  console.log('trigger mouseover!');
 		});
-		// 2 - mouseout trigger, mouseover dropdown = show dropdown
+		// 2 - leave trigger, enter dropdown = show dropdown
 		$edTrigger.on('mouseleave touch', function(e) {
-			console.log(e.relatedTarget);
 			if (!$ed.is(e.relatedTarget) && $ed.has(e.relatedTarget).length === 0) {
 			  $ed.removeClass('show');
 			}
 		});
-		// 3 - mouseleave dropdown = hide dropdown
+		// 3 - leave dropdown = hide dropdown
 		$ed.on('mouseleave', function(e) {
 		  $ed.removeClass('show');	
 		});
