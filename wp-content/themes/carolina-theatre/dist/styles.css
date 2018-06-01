@@ -126,7 +126,7 @@ p, .p {
   font-size: 1rem;
   margin-top: 1em;
   margin-bottom: 1em; }
-  p a:not(.button):not(.header__cta a):hover, .p a:not(.button):not(.header__cta a):hover {
+  p a:not(.button):hover, .p a:not(.button):hover {
     text-decoration: underline; }
 
 small, .small {
@@ -374,12 +374,11 @@ blockquote {
     text-align: center;
     white-space: nowrap;
     cursor: pointer;
-    background: #000;
-    background: transparent;
+    background: rgba(0, 0, 0, 0.8);
     /* IE8 "hack" for nested featherlights */ }
     .featherlight:last-of-type {
       /* nested featherlgiht support */
-      background: rgba(0, 0, 0, 0.98); }
+      background: rgba(0, 0, 0, 0.8); }
     .featherlight:before {
       content: '';
       display: inline-block;
@@ -392,34 +391,30 @@ blockquote {
       vertical-align: middle;
       display: inline-block;
       overflow: auto;
-      padding: 2rem 1rem 1.5rem;
       width: 100%;
       max-width: 1280px;
       max-height: 100%;
       cursor: auto;
       white-space: normal; }
     .featherlight .featherlight-inner {
-      display: block; }
+      display: block;
+      padding: 20px; }
     .featherlight .featherlight-close-icon {
-      position: absolute;
+      position: fixed;
       z-index: 9999;
-      top: 2rem;
-      right: 1rem;
+      top: 10px;
+      right: 10px;
       cursor: pointer;
       text-align: center;
       color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 200;
-      font-size: 12px;
-      font-size: 0.75rem;
-      opacity: 0.5;
-      filter: alpha(opacity=50);
+      font-weight: 400;
+      font-size: 16px;
+      font-size: 1rem;
+      opacity: .5;
       -webkit-transition: all 0.5s ease;
       transition: all 0.5s ease; }
       .featherlight .featherlight-close-icon:hover {
-        opacity: 1;
-        filter: alpha(opacity=100); }
+        opacity: 1; }
     .featherlight .featherlight-image {
       width: 100%; }
     .featherlight iframe {
@@ -1140,6 +1135,14 @@ main {
     clear: both;
     display: table; }
 
+.breadcrumbs a {
+  opacity: .5; }
+  .breadcrumbs a:hover {
+    opacity: 1; }
+
+.breadcrumb_last {
+  font-weight: 600; }
+
 .btn__close {
   position: absolute;
   z-index: 20;
@@ -1234,7 +1237,8 @@ main {
   .cta__card:hover::before {
     right: 0; }
 
-.button, .header__cta a,
+.button,
+.header__cta a,
 input[type="submit"] {
   display: inline-block;
   outline: 0;
@@ -1254,57 +1258,67 @@ input[type="submit"] {
   padding: 14px 20px 13px;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease; }
-  .button:hover, .header__cta a:hover,
+  .button:hover,
+  .header__cta a:hover,
   input[type="submit"]:hover {
     background-color: #8d2c1b; }
-  .button.secondary, .header__cta a.secondary,
+  .button.secondary,
+  .header__cta a.secondary,
   input[type="submit"].secondary {
     background-color: transparent;
     color: #f6583e;
     -webkit-box-shadow: inset 0 0 0 2px #f6583e;
             box-shadow: inset 0 0 0 2px #f6583e; }
-    .button.secondary:hover, .header__cta a.secondary:hover,
+    .button.secondary:hover,
+    .header__cta a.secondary:hover,
     input[type="submit"].secondary:hover {
       background-color: #f6583e;
       color: #fff; }
-    .button.secondary.disabled, .header__cta a.secondary.disabled,
+    .button.secondary.disabled,
+    .header__cta a.secondary.disabled,
     input[type="submit"].secondary.disabled {
       -webkit-box-shadow: inset 0 0 0 2px #ccc;
               box-shadow: inset 0 0 0 2px #ccc;
       color: #333;
       background-color: #fff; }
-      .button.secondary.disabled:hover, .header__cta a.secondary.disabled:hover,
+      .button.secondary.disabled:hover,
+      .header__cta a.secondary.disabled:hover,
       input[type="submit"].secondary.disabled:hover {
         background-color: #fff;
         color: #333; }
-  .button.gray, .header__cta a.gray,
+  .button.gray,
+  .header__cta a.gray,
   input[type="submit"].gray {
     background-color: #fff;
     color: #333;
     -webkit-box-shadow: inset 0 0 0 2px #ccc;
             box-shadow: inset 0 0 0 2px #ccc; }
-    .button.gray:hover, .header__cta a.gray:hover,
+    .button.gray:hover,
+    .header__cta a.gray:hover,
     input[type="submit"].gray:hover {
       -webkit-box-shadow: inset 0 0 0 2px #333;
               box-shadow: inset 0 0 0 2px #333;
       color: #333; }
-    .button.gray.disabled:hover, .header__cta a.gray.disabled:hover,
+    .button.gray.disabled:hover,
+    .header__cta a.gray.disabled:hover,
     input[type="submit"].gray.disabled:hover {
       background-color: #fff;
       color: #333; }
-  .button.disabled, .header__cta a.disabled,
+  .button.disabled,
+  .header__cta a.disabled,
   input[type="submit"].disabled {
     opacity: .6;
     cursor: default;
     background-color: #ccc;
     color: #333; }
-    .button.disabled:hover, .header__cta a.disabled:hover,
+    .button.disabled:hover,
+    .header__cta a.disabled:hover,
     input[type="submit"].disabled:hover {
       color: #333;
       background-color: #ccc; }
-  .button ~ .button, .header__cta a ~ .button, .header__cta .button ~ a, .header__cta a ~ a,
-  input[type="submit"] ~ .button, .header__cta
-  input[type="submit"] ~ a {
+  .button ~ .button,
+  .header__cta a ~ .button,
+  input[type="submit"] ~ .button {
     margin-left: 8px; }
 
 button {
@@ -1529,7 +1543,7 @@ div.wpcf7-validation-errors {
     .heroSlider__slideContent h1, .heroSlider__slideContent h2, .heroSlider__slideContent h3, .heroSlider__slideContent h4, .heroSlider__slideContent h5, .heroSlider__slideContent p {
       margin-top: 0;
       line-height: 1; }
-    .heroSlider__slideContent .button, .heroSlider__slideContent .header__cta a, .header__cta .heroSlider__slideContent a {
+    .heroSlider__slideContent .button {
       text-shadow: 0; }
   .heroSlider .slick-dots {
     height: auto;
@@ -1657,7 +1671,7 @@ div.wpcf7-validation-errors {
 .cardSlider__nav {
   float: right;
   margin-top: 25px; }
-  .cardSlider__nav .button, .cardSlider__nav .header__cta a, .header__cta .cardSlider__nav a {
+  .cardSlider__nav .button {
     display: inline-block;
     vertical-align: middle; }
 

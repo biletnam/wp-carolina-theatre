@@ -127,10 +127,6 @@
   @include breakpoint($menuBreakpoint){
   	display: none;
   }
-
-  a {
-		@extend .button;
-	}
 }
 
 .header__logo {
@@ -140,7 +136,6 @@
 
 	a {
 		img, svg {
-			// width: 190px;
 			height: 75px;
 			width: auto;
 		}
@@ -241,6 +236,7 @@
 				}
 			}
 
+			// TO-DO: Styling for 3rd level menu items
 			> ul { // dropdown wrapper styling
 				display: none;
 				position: absolute;

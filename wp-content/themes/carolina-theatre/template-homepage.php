@@ -85,7 +85,9 @@ get_header();
   	</div>
 </section>
 <section class="hp-ctaCards">
-	<?php get_template_part( 'blocks/content-blocks', 'link-block' ); ?>
+	<div class="container contain">
+		<?php get_template_part( 'blocks/content-blocks', 'link-block' ); ?>
+	</div>
 </section>
 <section class="hp-news">
 	<div class="container contain">
