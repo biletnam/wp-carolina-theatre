@@ -168,8 +168,13 @@
 		display: inline-block;
 		vertical-align: baseline;
 		
-		> li {
+		> li { // top level list item
+			display: inline-block;
+			position: relative; // keeps dropdown sub-menus in position
+	
 			> a {
+				position: relative;
+				display: block;
 				@include rem(16);
 				font-weight: 600;
 			}
@@ -179,87 +184,8 @@
 					@include rem(24);
 				}
 			}
-		}
 
-		&.header__mainMenu { // wrapper ul element for the main menu
-			> li {
-				padding: 20px 20px 30px 0; // controls how far menu items are from bottom of header
-
-				&:last-of-type {
-			    padding-right: 0;
-				}
-
-				> a {
-					&::after {
-				    content: '';
-				    position: absolute;
-				    left: 0;
-				    bottom: -3px;
-				    height: 3px;
-				    width: 100%;
-				    background-color: transparent;
-					}
-				}
-
-				&:hover {
-					> a::after {
-						background-color: $green;
-					}
-				}
-
-				&.large {
-					padding-right: 30px;
-			    padding-bottom: 27px; // absolute for dropdown menu hover to work
-
-					> .sub-menu {
-						top: 100%;
-					}
-
-					> a {
-						&::after {
-					    bottom: 0;
-						}
-					}
-				}
-
-				&.current-menu-item,
-				&.current-menu-ancestor {
-					> a::after {
-						// border-color: $green;	
-						background-color: $green;
-					}	
-				}
-			}
-		}
-
-		&.header__cta { // wrapper ul element for the main menu
-			> li {
-				padding-left: 20px;
-			}
-		}
-
-		> li { // top level menu items
-			display: inline-block;
-			position: relative;
-	
-			> a { // top level menu item link
-				display: block;
-				position: relative;
-			}
-		}
-	}
-	
-	ul {
-		li {
-			&.menu-item-has-children {
-				&:hover { // show dropdown on hover
-					> ul {
-						display: block;
-					}
-				}
-			}
-
-			> .sub-menu { // dropdown wrapper styling
+			> .sub-menu { // first sub-menu as a dropdown
 				display: none;
 				position: absolute;
 				z-index: 999;
@@ -271,7 +197,7 @@
 				border: 1px solid $gray;
 				text-align: left;
 				
-				li { // dropdown menu item 
+				li { // dropdown menu items
 					display: block;
 					list-style: none;
 					padding: 0;
@@ -281,21 +207,75 @@
 				}
 
 				.sub-menu { // nested sub-menus
-					display: block;
-			    position: relative;
-			    padding: 8px 0 0;
-			    border: 0;
-			    // @include rem(14);
-
 			    li {
 			    	padding: 2px 10px;
 			    }
 				}
+			} // end .sub-menu
+
+			// show dropdown on hover
+			&.menu-item-has-children {
+				&:hover { 
+					> .sub-menu {
+						display: block;
+					}
+				}
+			}
+		} // end '> li'
+	}
+} // end .header-nav
+.header__mainMenu > li { // wrapper ul element for the main menu
+	padding: 20px 20px 30px 0; // controls how far menu items are from bottom of header
+
+	&:last-of-type {
+    padding-right: 0;
+	}
+
+	> a {
+		&::after {
+	    content: '';
+	    position: absolute;
+	    left: 0;
+	    bottom: -3px;
+	    height: 3px;
+	    width: 100%;
+	    background-color: transparent;
+		}
+	}
+
+	&:hover {
+		> a::after {
+			background-color: $green;
+		}
+	}
+
+	&.large { // for menu-items tagged with 'large' (ie: Events, Films)
+		padding-right: 30px;
+    padding-bottom: 27px; // absolute for dropdown menu hover to work
+
+		> .sub-menu {
+			top: 100%;
+		}
+
+		> a {
+			&::after {
+		    bottom: 0;
 			}
 		}
 	}
-} // end .header-nav
 
+	&.current-menu-item,
+	&.current-menu-ancestor {
+		> a::after {
+			background-color: $green;
+		}	
+	}
+}
+.header__cta { // wrapper ul element for the main menu
+	> li {
+		padding-left: 20px;
+	}
+}
 
 // Mobile Menu Styling
 .header__mobileNav {
@@ -341,83 +321,135 @@
 	.btn__close {
 		top: 12px;
 	}
-}
-.header__mobileNav--menu {
-	> ul {
-		> li {
-			position: relative;
-			border-bottom: 1px solid $gray;
 
-			> a {
-				display: inline-block;
-				padding: 10px 15px;
-				@include rem(16);
-				font-weight: 600;
+	&--menu {
+		> ul {
+			> li {
+				position: relative;
+				border-bottom: 1px solid $gray;
 
-				&:hover {
-					color: $green;
-				}
-			}
-
-			&.large {
 				> a {
-					@include rem(24);
+					display: inline-block;
+					padding: 10px 15px;
+					@include rem(16);
+					font-weight: 600;
+
+					&:hover {
+						color: $green;
+					}
+				}
+
+				&.large {
+					> a {
+						@include rem(24);
+					}
+				}
+
+				&.menu-item-has-children {
+					> a {
+						padding-right: 50px; // to account for the width of the accordion dropdown
+					}
+				}
+
+				> .sub-menu {
+					display: none;
+					border-top: 1px solid $gray;
+					background-color: $gray-lt;
+					padding: 20px 0 20px 25px;
+
+					li:not(:last-of-type) {
+						padding-bottom: 8px;
+					}
 				}
 			}
-
-			&.menu-item-has-children {
-				> a {
-					padding-right: 50px; // to account for the width of the accordion dropdown
-				}
-			}
-
-			> .sub-menu {
-				display: none;
-				border-top: 1px solid $gray;
-				background-color: $gray-lt;
-				padding: 20px 0 20px 25px;
-
-				li:not(:last-of-type) {
-					padding-bottom: 8px;
-				}
-			}
-		}
-	}
-
-	.dropdown_icon {
-    cursor: pointer;
-    position: absolute;
-    right: 0;
-    top: 14px;  // absolute positioning
-    width: 50px;
-    @include rem(16);
-    color: $gray;
-    text-align: center;
-    transition: $transition;
-
-    &:hover {
-    	color: $green;
-    }
-	}
-
-	.large {
-		.dropdown_icon {
-			top: 20px; // absolute positioning
-		}
-	}
-
-	.open { // when dropdown accordion is opened
-		.sub-menu {
-			display: block;
 		}
 
 		.dropdown_icon {
-			transform: rotate(180deg);
+	    cursor: pointer;
+	    position: absolute;
+	    right: 0;
+	    top: 14px;  // absolute positioning
+	    width: 50px;
+	    @include rem(16);
+	    color: $gray;
+	    text-align: center;
+	    transition: $transition;
+
+	    &:hover {
+	    	color: $green;
+	    }
 		}
-	}
+
+		.large {
+			.dropdown_icon {
+				top: 20px; // absolute positioning
+			}
+		}
+
+		.open { // when dropdown accordion is opened
+			.sub-menu {
+				display: block;
+			}
+
+			.dropdown_icon {
+				transform: rotate(180deg);
+			}
+		}
+	} 
 } // end .mainNav__mobile
 
+// Common sub-menu & nested sub-menu styles
+.sub-menu {
+	a { // dropdown menu item link
+		position: relative;
+		outline: none;
+		display: block;
+		font-weight: 600;
 
+		&:hover {
+			text-decoration: underline;
+		}
+
+		// for titles in menu that are not linked
+		&:not([href]) {
+			font-family: $header;
+	    text-transform: uppercase;
+	    @include rem(12);
+	    opacity: .8;
+	    letter-spacing: .02em;
+      padding-top: 8px;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+
+	.current-menu-item {
+		> a {
+			font-weight: 700;	
+			text-decoration: underline;
+		}	
+	}
+
+	.sub-menu { // nested sub-menus
+		display: block;
+    position: relative;
+    padding: 8px 0 0;
+    border: 0;
+    @include rem(14);
+
+    li {
+    	padding: 2px 10px;
+    }
+
+    a {
+    	font-weight: 400;
+    }
+	}
+} // end .sub-menu
+
+// Overlay for open mobile menu and how the body content behaves (shifts)
 .mainWrapper {
 	&::after { // setting up body's overlay for opened mobile menu
 		position: absolute;
@@ -432,7 +464,6 @@
 		transition: .5s ease all;
 	}
 }
-
 .shift { // class added to <html> when mobile menu is open
 	overflow-x: hidden; // so you can't scroll when mobile menu is open
 
@@ -451,9 +482,10 @@
 		right: 0;
 		border-left: 1px solid $gray;
 	}
-}
+} // end .shift
 
-
+// hamburger button styling for opening the mobile menu
+// that is way more complicated than it should be haha
 .mobileNavTrigger { // link "a" element
 	display: none;
   position: relative;
@@ -529,60 +561,10 @@
 			}
 		}
 	}
-}
-// End Mobile Menu Styling
+} // .end mobileNavTrigger
 
 
-.sub-menu {
-	a { // dropdown menu item link
-		position: relative;
-		outline: none;
-		display: block;
-		font-weight: 600;
-
-		&:hover {
-			text-decoration: underline;
-		}
-
-		// for titles in menu that are not linked
-		&:not([href]) {
-			font-family: $header;
-	    text-transform: uppercase;
-	    @include rem(12);
-	    opacity: .8;
-	    letter-spacing: .02em;
-
-			&:hover {
-				text-decoration: none;
-			}
-		}
-	}
-
-	.current-menu-item {
-		> a {
-			font-weight: 700;	
-			text-decoration: underline;
-		}	
-	}
-
-	.sub-menu { // nested sub-menus
-		display: block;
-    position: relative;
-    padding: 8px 0 0;
-    border: 0;
-    @include rem(14);
-
-    li {
-    	padding: 2px 10px;
-    }
-
-    a {
-    	font-weight: 400;
-    }
-	}
-}
-
-
+// Alert Banners at the top of the page
 .alertBanner {
 	position: relative;
 	text-align: center;
@@ -617,7 +599,7 @@
 			color: $off-black;
 		}
 	}
-}
+} // end .alertBanner
 
 
 //

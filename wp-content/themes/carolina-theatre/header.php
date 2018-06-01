@@ -217,4 +217,11 @@ $GLOBALS["location_directionlink"] = get_field('google_map_link', 'option');
 		</div>
   </div><!-- .header-main  -->
 </header>
+
+<div id="eventsDropdown" class="eventsDropdown">
+  <div class="container contain">
+  	<h2>Upcoming Events</h2>
+    <?php get_template_part( 'blocks/content', 'upcoming-events-slider' ) ?>
+  </div>
+</div>
 <main role="main">
