@@ -822,6 +822,37 @@
 		$('.header__mobileNav--menu .dropdown_icon').click(function(){
 			$(this).closest('.menu-item').toggleClass('open');
 		});
+
+
+		
+		//// For mouseover:
+		// event.target – is the element where the mouse came over.
+		// event.relatedTarget – is the element from which the mouse came.
+
+		//// For mouseout the reverse:
+		// event.target – is the element that mouse left.
+		// event.relatedTarget – is the new under-the-pointer element (that mouse left for).
+		
+		var $edTrigger = $('.header__mainMenu .header__event__trigger');
+		var $ed = $('#eventsDropdown');
+		// 1 - mouseover trigger = show dropdown
+		$edTrigger.on('mouseover touch', function(e) {
+		  // $target = e.target; // the element the mouse went over
+		  // $source = e.relatedTarget; // the element from which the mouse came
+		  $ed.addClass('show');	
+		  console.log('trigger mouseover!');
+		});
+		// 2 - mouseout trigger, mouseover dropdown = show dropdown
+		$edTrigger.on('mouseleave touch', function(e) {
+			console.log(e.relatedTarget);
+			if (!$ed.is(e.relatedTarget) && $ed.has(e.relatedTarget).length === 0) {
+			  $ed.removeClass('show');
+			}
+		});
+		// 3 - mouseleave dropdown = hide dropdown
+		$ed.on('mouseleave', function(e) {
+		  $ed.removeClass('show');	
+		});
 	});
 
 	/*

@@ -601,7 +601,28 @@
 	}
 } // end .alertBanner
 
+.header__mainMenu {
+	.header__event__trigger {
+		.sub-menu {
+			display: none !important;
+		}
+	}
+}
+.eventsDropdown {
+	display: none;
+	position: absolute;
+	z-index: 900;
+	left: 0;
+	top: 100%;
+	width: 100%;
+  background-color: $white;
+  border-bottom: 1px solid $gray;
+  border-top: 1px solid $gray;
 
+	&.show {
+		display: block;
+	}
+}
 //
 // END OF HEADER STYLES
 //
