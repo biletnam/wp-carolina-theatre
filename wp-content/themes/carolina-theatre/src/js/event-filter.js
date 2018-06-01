@@ -44,13 +44,14 @@ jQuery(function($) {
 				}
 			}
 
+			// show secondary row of filters if main level 'Film' is active
 			if (filter === "film") {
-				$(".filmFilters").css("display", "inline-block");
+				$(".filmFilters").css("display", "block");
 			} else {
 				$(".filmFilters").css("display", "none");
 			}
-
 		});
+
 
 		$(".upcoming-events__type--secondary li").on("click", function() {
 			var filter = $(this)
@@ -61,19 +62,19 @@ jQuery(function($) {
 			removeActiveFilter(".upcoming-events__type--secondary");
 			$(this).addClass("active-link");
 
-			for (var i = 0; i < $(".events").children().length; i++) {
+			var numEvents = $(".events").children().length;
+			for (var i = 0; i < numEvents; i++) {
 				var target = $(".events").children()[i];
 
 				if (upcomingEvent === "all" && filter === "any") {
+					$(target).show();
+				} else if (upcomingEvent === "film" && filter === "all-films" && $(target).hasClass('film')) {
 					$(target).show();
 				} else if (upcomingEvent === "all" && $(target).hasClass(filter)) {
 					$(target).show();
 				} else if (filter === "any" && $(target).hasClass(upcomingEvent)) {
 					$(target).show();
-				} else if (
-					$(target).hasClass(upcomingEvent) &&
-					$(target).hasClass(filter)
-				) {
+				} else if ( $(target).hasClass(upcomingEvent) && $(target).hasClass(filter) ) {
 					$(target).show();
 				} else {
 					$(target).hide();

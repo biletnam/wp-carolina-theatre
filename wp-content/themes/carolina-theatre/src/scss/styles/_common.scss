@@ -1,3 +1,8 @@
+html {
+  @include breakpoint($sizeMobile){
+ 		@include rem(14);
+  }
+}
 body {
   position: relative;
   background-color: $white;
@@ -7,10 +12,6 @@ body {
   line-height: 1.5;
   color: $text;
   margin: 0;
-
-  @include breakpoint($sizeMobile){
- 		@include rem(14);
-  }
 }
 
 * { box-sizing: border-box; }
@@ -126,6 +127,18 @@ main {
   }
 }
 
+.breadcrumbs {
+	a {
+		opacity: .5;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+}
+.breadcrumb_last {
+	font-weight: 600;
+}
 
 .btn__close {
 	position: absolute;
@@ -146,7 +159,7 @@ main {
 
 
 // page tabs, filters for events, etc
-.content-tabs {
+.tabbedContent__tabs {
 	position: relative;
 
 	// fade off as tabs overflow
@@ -172,23 +185,23 @@ main {
 		&:not(:first-of-type){
 			margin-top: 0;
 
-			.content-tabs__tab {
+			.tabbedContent__tab {
 				@include rem(14);
 			}
 		}
 	}
+}
 
-	// individual tabbed items
-	.content-tabs__tab {
-		display: inline-block;
-		margin-right: 10px;
-		cursor: pointer;
-		@include rem(16);
-		border-bottom: 3px solid $white;
-	}
+// individual tabbed items
+.tabbedContent__tab {
+	display: inline-block;
+	margin-right: 10px;
+	cursor: pointer;
+	border-bottom: 3px solid $white;
+	@include rem(16);
 
 	// highlights filter on-click
-	.active-link {
+	&.active-link {
 		font-weight: 600;
 		border-bottom-color: $green;
 	}
@@ -246,7 +259,7 @@ main {
 			content: ' ››';
 		}
 	}
-
+	
 	&::before {
 		content: '';
 		position: absolute;

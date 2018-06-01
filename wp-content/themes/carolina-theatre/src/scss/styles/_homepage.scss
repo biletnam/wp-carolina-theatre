@@ -1,46 +1,291 @@
-.hero-block {
-	&__slider {
+.hero--homepage {
+	@include breakpoint-min($sizeTablet + 1px){
+		display: flex;
+		flex-direction: row;
+	}
+
+	.heroSlider {
+		@include breakpoint-min($sizeTablet + 1px){
+			flex: 1 1 auto;
+    	width: calc(100% - 200px);
+    }
+	}
+
+	.statistics {
 		display: inline-block;
-		width: 80%;
-		float: left;
+		width: 100%;
+		@include clearfix;
+	
+		@include breakpoint($sizeTablet){
+			&--1 .statistic { width: 100%; }
+			&--2 .statistic { width: 50%; }
+			&--3 .statistic { width: 33.333%; }
+			&--4 .statistic { width: 25%; }
+		}
+		@include breakpoint($sizeMobile){
+			&--3 .statistic { 
+				width: 50%; 
+	
+				&:nth-of-type(1){
+					width: 100%
+				}
+				&:nth-of-type(1){
+					border-right: 0;
+					border-bottom: 1px solid $black;
+				}
+			}
 
-		&--nav {
-			position: relative;
-			width: 20%;
-			margin: auto;
+			&--4 .statistic { 
+				width: 50%; 
+	
+				&:nth-of-type(even){
+					border-right: 0;
+				}
+				&:nth-of-type(1),
+				&:nth-of-type(2){
+					border-bottom: 1px solid $black;
+				}
+			}
+		}
+		@include breakpoint-min($sizeTablet + 1px){
+			flex: 0 0 200px;
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+		}
+	}
+	.statistic {
+    flex: 1;
+		
+		&:not(:last-of-type){
+	    border-bottom: 1px solid $black;
+    }
+
+		@include breakpoint($sizeTablet){
+			float: left;
+	    height: 125px;
+	    
+	    &:not(:last-of-type){
+		    border-right: 1px solid $black;
+		    border-bottom: 0;	
+	    }
+		}
+
+		@include breakpoint($sizeMobile){
+			height: 100px;
+		}
+
+		&__front {
+	    height: 100%;
+		}
+	}
+}
+.heroSlider {
+	position: relative;
+	min-height: 50vw;
+	max-height: 900px;
+	
+	@include breakpoint($sizeMobile){
+		min-height: 320px;
+	}
+
+	.slick-list,
+	.slick-track {
+		height: 100%;
+	}
+
+	&__slide {
+		min-height: 50vw;
+		max-height: 900px;
+		height: 100%;
+		overflow: hidden;
+		background-color: $off-black;
+		background-size: cover;
+		background-position: center center;
+
+		@include breakpoint($sizeMobile){
+			min-height: 320px;
 		}
 	}
 
-	&__go-to-btn:hover {
-		background-color: purple;
-	}
+  &__slideContent {
+  	position: absolute;
+  	z-index: 150;
+  	bottom: 0;
+  	left: 0;
+		max-width: 700px;
+    width: 90%;
+  	color: $white;
+		text-shadow: 0 0 2px rgba($black, .65);
 
-	&__thumbnail {
-		display: none;
-	}
+  	h1, h2, h3, h4, h5, p {
+  		margin-top: 0;
+	    line-height: 1;
+  	}
 
-	&__card {
-		& img {
-			width: 100%;
+  	.button {
+  		text-shadow: 0;
+  	}
+	}
+	
+	// vertically stacked, with thumbnail images
+	.slick-dots {
+		height: auto;
+		bottom: 20px;
+		right: 20px;
+
+		@include breakpoint($sizeMobile){
+			bottom: 10px;
+			right: 10px;
+		}
+
+		li {
+			display: block;
+			margin: 0 0 10px 0;
+
+			button.thumbnail {
+				width: 75px;
+				height: 50px;
+				overflow: hidden;
+
+				@include breakpoint($sizeMobile){
+					width: 15px;
+					height: 26px;
+				}
+
+				&::before {
+					z-index: 100;
+					width: 3px;
+					height: 50px;
+					background-color: rgba($white, .3);
+					left: auto;
+					right: 0;
+
+					@include breakpoint($sizeMobile){
+						height: 26px;
+					}
+				}
+
+				&:hover {
+					@include box-shadow;
+
+					&::before {
+						background-color: $green;
+					}
+
+					img {
+						opacity: 1;
+						left: 0;
+					}
+				}
+
+				img {
+
+					opacity: 0;
+					left: 100%;
+					transition: $transition;
+
+					@include breakpoint($sizeMobile){
+						display: none;
+					}
+				}
+			}
+
+			&.slick-active {
+				button {
+					&::before {
+						background-color: $white;
+					}
+				}
+			}
 		}
 	}
 
-	&__stats {
-		display: inline-block;
-		width: 15%;
-		float: left;
+	&.slick-slider.slick-dotted {
+		margin-bottom: 0; // overrides when the dots are normally under the slides (not over)
+	}
+}
 
-		&--normal {
-			background-color: #444;
-			color: white;
-		}
+.statistics {
+	// display: inline-block;
+	// width: 19%;
 
-		&--hover {
-			display: none;
-			background-color: cornflowerblue;
-			color: white;
+	
+
+	
+}
+.statistic {
+	position: relative;
+  display: block;
+	overflow: hidden;
+	text-align: center;
+	
+	&__front {
+		@extend .bg-black;
+	}
+
+	&__back {
+		position: absolute;
+		z-index: 100;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		color: $white;
+		@extend .bg-gold;
+		transition: $transition;
+	}
+	
+	&:hover {
+		.statistic__back {
+			left: 0;
 		}
 	}
+
+	.vertical-center {
+		padding: 20px;
+
+		@include breakpoint($sizeMobile){
+			padding: 5px;
+		}
+	}
+
+	p {
+	  margin: 0;
+	}
+}
+
+.stat_value {
+	font-family: $header;
+	@include rem(40);
+  line-height: .8;
+
+  @include breakpoint($sizeMobile){
+    @include rem(24);
+	}
+}
+.stat_description {
+	@include rem(14);
+	
+	@include breakpoint($sizeMobile){
+    @include rem(12);
+	}
+}
+.stat_link {
+  width: 100%;
+  font-family: $header;
+  @include rem(14);
+  text-transform: uppercase;
+
+  i {
+  	margin-left: 10px;
+  }
+}
+
+.vertical-center {
+	position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
 }
 
 // sliders on homepage & event dropdown with info cards

@@ -29,18 +29,21 @@ jQuery(function($) {
 				// ]
     });
 
-    $(".hero-block__slider").slick({
-        // dots: true,
-        // arrows: false,
-        // appendArrows: $(".hero-block__slider--arrows")
-    });
-
-    $(".hero-block__go-to-btn[data-slide]").on("click", function(e) {
-        e.preventDefault();
-        var slidePosition = $(this).data('slide');
-        $(".hero-block__slider").slick("slickGoTo", slidePosition - 1);
-        // alert($(this).data('slide'));
-    });
+		$(".heroSlider").slick({
+			dots: true,
+      arrows: false,
+      rows: 0, // removes extra 'div'
+			autoplay: true,
+			autoplaySpeed: 3000,
+			speed: 800,
+			pauseOnHover: true,
+      customPaging : function(slider, i) {
+      	var $slide = $(slider.$slides[i]);
+	      console.log($slide);
+	      var thumb = $slide.data('thumb');
+	      return '<button class="thumbnail"><img src="'+thumb+'"></button>';
+    	}
+		});
 
     $('.cardSlider').each(function (idx, item) {
 		    var carouselId = "carousel-" + idx;

@@ -1,4 +1,5 @@
 .button,
+.header__cta a,
 input[type="submit"] {
 	display: inline-block;
 	outline: 0;
@@ -12,29 +13,24 @@ input[type="submit"] {
 	color: $white;
 	background-color: $red;
 	border-radius: 3px;
+	margin-top: .5em;
+	margin-bottom: .5em;
 	padding: 14px 20px 13px; // specific to vertically center font
 	transition: $transition;
 	
 	&:hover {
 		background-color: $red-med;
 	}
-	// &:hover {
-	// 	background-color: $green;
-	// }
 
 	&.secondary {
-		background-color: $white;
+		background-color: transparent;
 		color: $red;
 		box-shadow: inset 0 0 0 2px $red;
 
 		&:hover {
-			box-shadow: inset 0 0 0 2px $red-med;
-			color: $red-med;
+			background-color: $red;
+			color: $white;
 		}
-		// &:hover {
-		// 	box-shadow: inset 0 0 0 2px $green;
-		// 	color: $green;
-		// }
 
 		&.disabled {
 			box-shadow: inset 0 0 0 2px $gray;
@@ -76,6 +72,10 @@ input[type="submit"] {
 			color: $text;
 			background-color: $gray;
 		}
+	}
+
+	~ .button {
+		margin-left: 8px;
 	}
 }
 

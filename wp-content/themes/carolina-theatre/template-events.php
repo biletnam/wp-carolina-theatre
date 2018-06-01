@@ -85,16 +85,16 @@
     <div class="container">
       <h2>Upcoming Events</h2>
 
-      <div class="content-tabs">
+      <div class="tabbedContent__tabs">
         <ul class="upcoming-events__type">
-            <li class="content-tabs__tab active-link">All</li>
-            <li class="content-tabs__tab">Film</li>
-            <li class="content-tabs__tab">Music</li>
-            <li class="content-tabs__tab">Comedy</li>
-            <li class="content-tabs__tab">Theater</li>
-            <li class="content-tabs__tab">Discussion</li>
-            <li class="content-tabs__tab">Dance</li>
-            <li class="content-tabs__tab">Family Saturday</li>
+            <li class="tabbedContent__tab active-link">All</li>
+            <li class="tabbedContent__tab">Film</li>
+            <li class="tabbedContent__tab">Music</li>
+            <li class="tabbedContent__tab">Comedy</li>
+            <li class="tabbedContent__tab">Theater</li>
+            <li class="tabbedContent__tab">Discussion</li>
+            <li class="tabbedContent__tab">Dance</li>
+            <li class="tabbedContent__tab">Family Saturday</li>
             <?php 
                 $standard_events = array("Music", "Comedy", "Theater", "Discussion", "Dance", "Family Saturday");
                 $custom_events = array();
@@ -106,8 +106,7 @@
                 $filter_query = new WP_Query($filter_query_args);
                 
                 if ($filter_query->have_posts()) {
-                    while ($filter_query->have_posts()) {
-                        $filter_query->the_post();
+                    while ($filter_query->have_posts()) { $filter_query->the_post();
                         // assumes 'End Date' and last 'Showtime' are the same in the dashboard
                         $last_date = get_field('end_date');
 
@@ -129,28 +128,28 @@
                 // append $custom_events to filter list of standard events
                 if (count($custom_events) > 0) {
                     foreach($custom_events as $ce) { ?>
-                        <li class="content-tabs__tab"><?php echo $ce ?></li>
-              <?php }
-                }
-                wp_reset_postdata();
-            ?>
+                        <li class="tabbedContent__tab"><?php echo $ce; ?></li>
+	              <?php } // end for each ?>
+	            <?php } // end if ?>
+	          <?php wp_reset_postdata(); ?>
         </ul>
         <ul class="upcoming-events__type--secondary filmFilters">
-            <li class="content-tabs__tab active-link">All Films</li>
-            <li class="content-tabs__tab">Now Playing</li>
-            <li class="content-tabs__tab">Coming Soon</li>
-            <li class="content-tabs__tab">Retro Epics</li>
-            <li class="content-tabs__tab">Anime-Magic</li>
-            <li class="content-tabs__tab">SplatterFlix</li>
-            <li class="content-tabs__tab">Realistic Realm</li>
-            <li class="content-tabs__tab">Retro Art House</li>
+          <li class="tabbedContent__tab default active-link">All Films</li>
+          <li class="tabbedContent__tab default">Now Playing</li>
+          <li class="tabbedContent__tab default">Coming Soon</li>
+	        <?php // TO-DO: Make these dynamically pulled in based on current film series/festivals ?>
+          <li class="tabbedContent__tab">Retro Epics</li>
+          <li class="tabbedContent__tab">Anime-Magic</li>
+          <li class="tabbedContent__tab">SplatterFlix</li>
+          <li class="tabbedContent__tab">Realistic Realm</li>
+          <li class="tabbedContent__tab">Retro Art House</li>
         </ul>
       </div>
       <div class="events card__wrapper">
         <?php // The Query
         	// TO-DO: Filter event showtimes within args, before querying
 	        $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
-	        $limit = 5;
+	        $limit = 10;
 					$events_query_args = array(
 						'post_type' => array('event', 'film'),
 						'post_status' => 'publish',

@@ -14,11 +14,10 @@
 		text-align: center;
 		white-space: nowrap;
 		cursor: pointer;
-		background: $black;
-		background: rgba($black, 0);	/* IE8 "hack" for nested featherlights */
+		background: rgba($black, 0.8);	/* IE8 "hack" for nested featherlights */
 
 		&:last-of-type { /* nested featherlgiht support */
-			background: rgba($black, 0.98);
+			background: rgba($black, 0.8);
 		}
 
 		&:before {
@@ -35,7 +34,6 @@
 			vertical-align: middle;
 			display: inline-block;
 			overflow: auto;
-			padding: 2rem 1rem 1.5rem;
 			width: 100%;
 			max-width: 1280px;
 			max-height: 100%;
@@ -45,25 +43,24 @@
 
 		.featherlight-inner {
 			display: block;
+			padding: 20px;
 		}
 
 		.featherlight-close-icon {
-			position: absolute;
+			position: fixed;
 			z-index: 9999;
-			top: 2rem; // same as padding on featherlight-content
-			right: 1rem; // same as padding on featherlight-content
+			top: 10px;
+			right: 10px;
 			cursor: pointer;
 			text-align: center;
 			color: $white;
-			text-transform: uppercase;
-  		letter-spacing: 1px;
-  		font-weight: 200;
-  		@include rem(12);
-			@include opacity(.5);
+  		font-weight: 400;
+  		@include rem(16);
+			opacity: .5;
   		@include transition;
 
   		&:hover {
-				@include opacity(1);
+				opacity: 1;
   		}
 		}
 

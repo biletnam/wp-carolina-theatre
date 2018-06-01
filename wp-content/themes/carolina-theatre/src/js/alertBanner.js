@@ -1,9 +1,9 @@
 function alertBanner(hideOrshow) {
   if (hideOrshow == 'hide') {
-    localStorage.setItem("alertWasShown",1);
+    sessionStorage.setItem("alertWasShown",1);
     document.getElementById('alertBanner').style.display = "none";
   }
-  else if(localStorage.getItem("alertWasShown") == null) {
+  else if(sessionStorage.getItem("alertWasShown") == null) {
     document.getElementById('alertBanner').removeAttribute('style');
   }
 }
