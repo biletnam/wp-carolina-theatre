@@ -74,6 +74,34 @@
 		$('.header__mobileNav--menu .dropdown_icon').click(function(){
 			$(this).closest('.menu-item').toggleClass('open');
 		});
+
+
+		
+		//// For mouseover:
+		// event.target – is the element where the mouse came over.
+		// event.relatedTarget – is the element from which the mouse came.
+
+		//// For mouseout the reverse:
+		// event.target – is the element that mouse left.
+		// event.relatedTarget – is the new under-the-pointer element (that mouse left for).
+		
+		var $edTrigger = $('.header__mainMenu .header__event__trigger');
+		var $ed = $('#eventsDropdown');
+		
+		// 1 - enter trigger = show dropdown
+		$edTrigger.on('mouseover touch', function(e) {
+		  $ed.addClass('show');	
+		});
+		// 2 - leave trigger, enter dropdown = show dropdown
+		$edTrigger.on('mouseleave touch', function(e) {
+			if (!$ed.is(e.relatedTarget) && $ed.has(e.relatedTarget).length === 0) {
+			  $ed.removeClass('show');
+			}
+		});
+		// 3 - leave dropdown = hide dropdown
+		$ed.on('mouseleave', function(e) {
+		  $ed.removeClass('show');	
+		});
 	});
 
 	/*

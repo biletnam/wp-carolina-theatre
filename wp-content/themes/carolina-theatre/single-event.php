@@ -9,9 +9,16 @@
     }
 	}
 
-	// pick the min/max and covert to string 
+	// pick the min/max and convert to string 
+	$date_string = '';
 	$start_date = date("F d, Y", min($event_dates));
 	$end_date = date("F d, Y", max($event_dates));
+
+	if ($start_date == $end_date) {
+		$date_string = $start_date;
+	} else {
+		$date_string = $start_date . '-' . $end_date;
+	}
 ?>
 <section class="mainContent contain eventType__event">
   <div class="mainContent__content">
@@ -20,26 +27,21 @@
       <p class="singleEvent__category"><?php echo get_post_type(); ?></p>
       <div class="singleEvent__image">
           <img src="<?php echo get_field('event_image')["url"]; ?>" alt="the poster for the film">
-          <div class="singleEvent__image--date"><?php echo $start_date . ' - ' . $end_date; ?></div>
+          <div class="singleEvent__image--date"><?php echo $date_string; ?></div>
       </div>
       <p>The Carolina Theatre Presents...
       <h2 class="singleEvent__title"><?php echo the_title(); ?></h2>
       <p class="singleEvent__subtitle"><?php echo get_field('event_subtitle'); ?></p>
-      <br/>
       <div class="singleEvent__event-info">
-          <ul>
-              <li>
-                  <?php 
-                  echo '<i class="fa fa-calendar" aria-hidden="true"></i>' . $start_date . ' - ' . $end_date;
-                  ?>
-              </li>
-              <li>
-                  <?php
-                  $locations = get_field('location');
-                  echo '<i class="fa fa-map-marker" aria-hidden="true"></i>' . join($locations, ', ');    
-                  ?>                    
-              </li>
-          </ul>
+        <ul>
+          <li>
+            <?php echo '<i class="fa fa-calendar" aria-hidden="true"></i>' . $date_string; ?>
+          </li>
+          <li>
+            <?php $locations = get_field('location');
+            echo '<i class="fa fa-map-marker" aria-hidden="true"></i>' . join($locations, ', '); ?>                    
+          </li>
+        </ul>
       </div>
       <div class="singleEvent__description"><?php the_content(); ?></div>
       <div class="singleEvent__read-more">
@@ -56,13 +58,13 @@
               <p><?php the_field('video_2_caption'); ?></p>
           </div>
       </div>
-        
     </div>
   </div>
 
   <aside class="mainContent__sidebar">
     <div class="container">
     	<div class="sidebar__tickets">
+    		<?php // TO-DO: ticket links, Coming soon conditional, sold out, etc ?>
         <a href="#" target="_blank" title="Purchase Tickets to <?php the_title(); ?>" class="button disabled">On Sale</a>
         <a href="#" target="_blank" title="Purchase Tickets to <?php the_title(); ?>" class="button secondary">Member Tickets</a>
   		</div>
