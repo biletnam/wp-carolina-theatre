@@ -1238,7 +1238,7 @@ main {
     font-weight: 600;
     border-bottom-color: #72bcae; }
 
-.hide-tab-content {
+.tabbedContent__content.hide-tab-content {
   display: none; }
 
 .mainContent__content {
