@@ -1028,6 +1028,7 @@ jQuery(function($) {
 
 jQuery(function($) {
 	$(document).ready(function() {
+		// generic content-blocks-slider.php & other sliders
 		$(".carousel").slick({
 				infinite: true,	
 				pauseOnHover: false,
@@ -1038,6 +1039,7 @@ jQuery(function($) {
         dots: true,
 				arrows: false,
 				swipeToSlide: true,
+				adaptiveHeight: true,
 				// lazyLoad: 'progressive',
 				// variableWidth: true,
 				// centerMode: false,
@@ -1057,6 +1059,7 @@ jQuery(function($) {
 				// ]
     });
 
+		// fancy slider for homepage
 		$(".heroSlider").slick({
 			dots: true,
       arrows: false,
@@ -1073,6 +1076,7 @@ jQuery(function($) {
     	}
 		});
 
+		// slider for upcoming events and latest news (homepage & event dropdown)
     $('.cardSlider').each(function (idx, item) {
 		    var carouselId = "carousel-" + idx;
 		    this.id = carouselId;
