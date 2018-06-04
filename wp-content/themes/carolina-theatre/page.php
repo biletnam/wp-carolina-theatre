@@ -43,17 +43,28 @@ get_header(); ?>
 </section>
 
 <?php // TO-DO: setup page hero slider ?>
+<?php if(get_field('show_hero_slider')){ ?>
+<?php if(have_rows('hero_images')){ ?>
 <section class="pageHero contain">
 	<div class="container">
 		<div class="carousel">
 			<?php //get_template_part( 'blocks/content', 'slider' ); ?>
-
-			<div>slide 1</div>
-			<div>slide 2</div>
-			<div>slide 3</div>
+			<?php while(have_rows('hero_images')){ the_row(); ?>
+				<?php
+				$image_url = get_sub_field('image')['sizes']['thumbnail'];
+				$image_alt = get_sub_field('image')['alt'];
+				$image_cap = get_sub_field('image')['caption'];
+				?>
+				<div>
+					<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>" />
+					<?php if($image_cap) { ?><figcaption class="small caption"><?php echo $image_cap; ?></figcaption><?php } ?>
+				</div>
+			<?php } //endwhile have rows ?>
 		</div>
 	</div>
 </section>
+<?php } //endif have rows ?>
+<?php } //endif show hero ?>
 
 <section class="mainContent contain">
 

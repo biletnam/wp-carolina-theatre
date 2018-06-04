@@ -62,7 +62,7 @@
              <span class="month"><?php echo date("M", strtotime($dateToShowInCard)); ?></span>
           </div>
           <div class="eventCard__image">
-            <img src="<?php echo get_field('event_image')['url'];?>" alt="<?php echo get_field('event_image')['alt']; ?>" />
+            <img src="<?php echo get_field('event_image')['size']['event-thumb'];?>" alt="<?php echo get_field('event_image')['alt']; ?>" />
           </div>
           <div class="card__infoWrapper">
               <p class="card__subtitle"><?php the_field('single_event_type');?></p>
