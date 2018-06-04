@@ -1011,17 +1011,17 @@ jQuery(function($) {
 			  className = urlAnchor[0].replace(/#/, '.'); // turn hash into class name (#anchor to .anchor)
 			  $(className).removeClass('hide-tab-content'); // show content panel for active tab
 			}
-
-			// change active link onclick, show content for active link only
-			$(".tabbedContent__tab").on("click", function() {
-			    $(".tabbedContent__tab").removeClass("active-link");
-			    $(this).addClass("active-link");
-
-			    className = '.' + $(this).data('tab');
-			    $(".tabbedContent__content").addClass("hide-tab-content");
-			    $(className).removeClass("hide-tab-content");
-			});
     }
+
+    // change active link onclick, show content for active link only
+		$(".tabbedContent__tab").on("click", function() {
+	    $(".tabbedContent__tab").removeClass("active-link");
+	    $(this).addClass("active-link");
+
+	    className = '.' + $(this).data('tab');
+	    $(".tabbedContent__content").addClass("hide-tab-content");
+	    $(className).removeClass("hide-tab-content");
+		});
 	});
 });
 
