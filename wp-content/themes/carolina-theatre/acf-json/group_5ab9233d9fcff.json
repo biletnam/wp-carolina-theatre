@@ -3,6 +3,27 @@
     "title": "Event Information",
     "fields": [
         {
+            "key": "field_5b159a072b5d4",
+            "label": "Hero",
+            "name": "hero",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_5ae090661bb47"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
             "key": "field_5ab9240e7f909",
             "label": "Event Image",
             "name": "event_image",
@@ -1005,5 +1026,5 @@
     ],
     "active": 0,
     "description": "",
-    "modified": 1528121373
+    "modified": 1528142375
 }

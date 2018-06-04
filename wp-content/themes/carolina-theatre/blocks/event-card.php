@@ -57,8 +57,8 @@
 			<div class="card eventCard<?php echo ' ' . $class_string; ?>">
          <a href="<?php echo get_page_link(get_the_id()); ?>">
           <div class="event__dateBox">
-             <span class="day"><?php echo date("j", strtotime($dateToShowInCard)); ?></span>
-             <span class="month"><?php echo date("M", strtotime($dateToShowInCard)); ?></span>
+						<span class="day"><?php echo date("j", strtotime($dateToShowInCard)); ?></span>
+						<span class="month"><?php echo date("M", strtotime($dateToShowInCard)); ?></span>
           </div>
           <div class="eventCard__image">
             <img src="<?php echo get_field('event_image')['sizes']['event-thumb'];?>" alt="<?php echo get_field('event_image')['alt']; ?>" />

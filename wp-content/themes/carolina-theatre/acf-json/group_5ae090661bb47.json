@@ -55,22 +55,14 @@
                     "type": "image",
                     "instructions": "Min width: 700px",
                     "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5ae0908354e77",
-                                "operator": "==",
-                                "value": "image"
-                            }
-                        ]
-                    ],
+                    "conditional_logic": 0,
                     "wrapper": {
-                        "width": "75",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
                     "return_format": "array",
-                    "preview_size": "thumbnail",
+                    "preview_size": "gallery-thumb",
                     "library": "all",
                     "min_width": 700,
                     "min_height": "",
@@ -81,11 +73,11 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_5b158e072fb69",
-                    "label": "Video",
-                    "name": "video",
-                    "type": "group",
-                    "instructions": "",
+                    "key": "field_5ae099809aab3",
+                    "label": "Embed Code",
+                    "name": "video_embed",
+                    "type": "text",
+                    "instructions": "Paste embed code from Youtube\/Vimeo here.",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -97,56 +89,15 @@
                         ]
                     ],
                     "wrapper": {
-                        "width": "75",
+                        "width": "25",
                         "class": "",
                         "id": ""
                     },
-                    "layout": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5b158e222fb6a",
-                            "label": "Thumbnail",
-                            "name": "video_thumb",
-                            "type": "image",
-                            "instructions": "Min width: 700px",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array",
-                            "preview_size": "gallery-thumb",
-                            "library": "all",
-                            "min_width": 700,
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": ""
-                        },
-                        {
-                            "key": "field_5ae099809aab3",
-                            "label": "Embed Code",
-                            "name": "video_embed",
-                            "type": "text",
-                            "instructions": "Paste embed code from Youtube\/Vimeo here.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "<iframe>...<\/iframe>",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        }
-                    ]
+                    "default_value": "",
+                    "placeholder": "<iframe>...<\/iframe>",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         }
@@ -168,5 +119,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1528139801
+    "modified": 1528143848
 }

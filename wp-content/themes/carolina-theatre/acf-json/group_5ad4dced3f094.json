@@ -22,57 +22,25 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_5ad4dcf62269a",
-            "label": "Slide",
-            "name": "hero_images",
-            "type": "repeater",
+            "key": "field_5b159774790d2",
+            "label": "Slides",
+            "name": "slides",
+            "type": "clone",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5b157fdd28dd5",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
+            "clone": [
+                "group_5ae090661bb47"
+            ],
+            "display": "seamless",
             "layout": "block",
-            "button_label": "Add Slide",
-            "sub_fields": [
-                {
-                    "key": "field_5ad4dd0c2269b",
-                    "label": "image",
-                    "name": "image",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "preview_size": "full",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                }
-            ]
+            "prefix_label": 0,
+            "prefix_name": 0
         }
     ],
     "location": [
@@ -92,5 +60,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1528135947
+    "modified": 1528141702
 }

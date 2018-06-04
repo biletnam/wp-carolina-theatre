@@ -42,13 +42,18 @@ get_header(); ?>
 	</div>
 </section>
 
-<?php // TO-DO: setup page hero slider ?>
 <?php if(get_field('show_hero_slider')){ ?>
+<section class="pageHero contain container">
+	<?php get_template_part( 'blocks/content-blocks', 'slider' ); ?>
+</section>
+<?php } //endif show hero ?>
+
+<!-- <?php if(get_field('show_hero_slider')){ ?>
+
 <?php if(have_rows('hero_images')){ ?>
-<section class="pageHero contain">
+
 	<div class="container">
 		<div class="carousel">
-			<?php //get_template_part( 'blocks/content', 'slider' ); ?>
 			<?php while(have_rows('hero_images')){ the_row(); ?>
 				<?php
 				$image_url = get_sub_field('image')['sizes']['thumbnail'];
@@ -64,7 +69,8 @@ get_header(); ?>
 	</div>
 </section>
 <?php } //endif have rows ?>
-<?php } //endif show hero ?>
+
+<?php } //endif show hero ?> -->
 
 <section class="mainContent contain">
 

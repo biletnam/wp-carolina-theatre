@@ -32,7 +32,9 @@
 					<span class="day"><?php echo date("j", strtotime($dateToShowInCard)); ?></span>
 					<span class="month"><?php echo date("M", strtotime($dateToShowInCard)); ?></span>
 				</div>
-				<img src="<?php echo get_field('event_image')['sizes']['hero-small']; ?>" alt="<?php echo get_field('event_image')['alt']; ?>">
+				<div class="singleEvent__hero">
+					<?php get_template_part( 'blocks/content-blocks', 'slider' ); ?>
+				</div>
       </div>
       <p>The Carolina Theatre Presents...
       <h2 class="singleEvent__title"><?php echo the_title(); ?></h2>

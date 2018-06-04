@@ -35,11 +35,11 @@
                         "id": ""
                     },
                     "choices": {
-                        "image_upload": "Image",
-                        "video_link": "Video Link"
+                        "image": "Image",
+                        "video": "Video"
                     },
                     "default_value": [
-                        "image_upload"
+                        "image"
                     ],
                     "allow_null": 0,
                     "multiple": 0,
@@ -55,24 +55,16 @@
                     "type": "image",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5ae0a1bf24836",
-                                "operator": "==",
-                                "value": "image_upload"
-                            }
-                        ]
-                    ],
+                    "conditional_logic": 0,
                     "wrapper": {
-                        "width": "75",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
                     "return_format": "array",
-                    "preview_size": "thumbnail",
+                    "preview_size": "gallery-thumb",
                     "library": "all",
-                    "min_width": "",
+                    "min_width": 700,
                     "min_height": "",
                     "min_size": "",
                     "max_width": "",
@@ -81,72 +73,31 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_5ae0a20c24838",
-                    "label": "Video",
-                    "name": "video",
-                    "type": "group",
-                    "instructions": "",
+                    "key": "field_5ae0a2352483a",
+                    "label": "Embed Code",
+                    "name": "video_embed",
+                    "type": "text",
+                    "instructions": "Paste Youtube\/Vimeo embed code here.",
                     "required": 0,
                     "conditional_logic": [
                         [
                             {
                                 "field": "field_5ae0a1bf24836",
                                 "operator": "==",
-                                "value": "video_link"
+                                "value": "video"
                             }
                         ]
                     ],
                     "wrapper": {
-                        "width": "75",
+                        "width": "25",
                         "class": "",
                         "id": ""
                     },
-                    "layout": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5ae0a22924839",
-                            "label": "Preview Image",
-                            "name": "preview_image",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array",
-                            "preview_size": "thumbnail",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": ""
-                        },
-                        {
-                            "key": "field_5ae0a2352483a",
-                            "label": "Embed Code",
-                            "name": "iframe_text",
-                            "type": "text",
-                            "instructions": "Paste Youtube\/Vimeo embed code here.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "<iframe>....<\/iframe>",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        }
-                    ]
+                    "default_value": "",
+                    "placeholder": "<iframe>....<\/iframe>",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         }
@@ -182,5 +133,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1528126338
+    "modified": 1528143935
 }
