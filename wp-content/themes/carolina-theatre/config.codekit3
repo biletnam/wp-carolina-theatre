@@ -236,6 +236,13 @@
 		"oAP": "\/blocks\/content-blocks-full-width-image.php",
 		"oF": 0
 		},
+	"\/blocks\/content-blocks-gallery.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/blocks\/content-blocks-gallery.php",
+		"oF": 0
+		},
 	"\/blocks\/content-blocks-link-block.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -243,11 +250,11 @@
 		"oAP": "\/blocks\/content-blocks-link-block.php",
 		"oF": 0
 		},
-	"\/blocks\/content-blocks-popup-overlay.php": {
+	"\/blocks\/content-blocks-section-divide.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/blocks\/content-blocks-popup-overlay.php",
+		"oAP": "\/blocks\/content-blocks-section-divide.php",
 		"oF": 0
 		},
 	"\/blocks\/content-blocks-slider.php": {

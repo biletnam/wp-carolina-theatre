@@ -841,6 +841,14 @@
 			$ed.on('mouseleave', function(e) {
 			  $ed.removeClass('show');	
 			});
+
+			// gallery featherlight init
+				$('.block__gallery .gallery').featherlightGallery({
+					previousIcon: '<i class="fas fa-chevron-left"></i>',
+					nextIcon: '<i class="fas fa-chevron-right"></i>',
+					galleryFadeIn: 300,
+					openSpeed: 300
+				});
 	});
 
 	/*

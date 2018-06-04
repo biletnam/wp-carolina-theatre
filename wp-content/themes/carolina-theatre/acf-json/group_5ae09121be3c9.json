@@ -1,10 +1,10 @@
 {
     "key": "group_5ae09121be3c9",
-    "title": "Content Block Popup Overlay",
+    "title": "Content Block Gallery",
     "fields": [
         {
             "key": "field_5ae0912dbde5d",
-            "label": "Popup Overlay",
+            "label": "Gallery",
             "name": "popup_overlay",
             "type": "repeater",
             "instructions": "",
@@ -15,11 +15,11 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "collapsed": "field_5ae0a1bf24836",
             "min": 0,
             "max": 0,
-            "layout": "table",
-            "button_label": "Add Popup",
+            "layout": "block",
+            "button_label": "Add Image\/Video",
             "sub_fields": [
                 {
                     "key": "field_5ae0a1bf24836",
@@ -30,15 +30,17 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "25",
                         "class": "",
                         "id": ""
                     },
                     "choices": {
-                        "video_link": "Video Link",
-                        "image_upload": "Image"
+                        "image_upload": "Image",
+                        "video_link": "Video Link"
                     },
-                    "default_value": [],
+                    "default_value": [
+                        "image_upload"
+                    ],
                     "allow_null": 0,
                     "multiple": 0,
                     "ui": 0,
@@ -63,7 +65,7 @@
                         ]
                     ],
                     "wrapper": {
-                        "width": "",
+                        "width": "75",
                         "class": "",
                         "id": ""
                     },
@@ -95,7 +97,7 @@
                         ]
                     ],
                     "wrapper": {
-                        "width": "",
+                        "width": "75",
                         "class": "",
                         "id": ""
                     },
@@ -127,10 +129,10 @@
                         },
                         {
                             "key": "field_5ae0a2352483a",
-                            "label": "Iframe Text",
+                            "label": "Embed Code",
                             "name": "iframe_text",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Paste Youtube\/Vimeo embed code here.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -139,7 +141,7 @@
                                 "id": ""
                             },
                             "default_value": "",
-                            "placeholder": "",
+                            "placeholder": "<iframe>....<\/iframe>",
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
@@ -180,5 +182,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1526312807
+    "modified": 1528126338
 }

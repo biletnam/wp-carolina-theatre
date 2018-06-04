@@ -3,7 +3,7 @@
     for single-film.php and single-series.php
 -->
 
-<section class="block__slider">
+<div class="block__slider">
   <div class="carousel" >
     <?php if (have_rows('panel_content')) { ?>
 			<?php while (have_rows('panel_content')) { the_row(); ?>
@@ -43,4 +43,4 @@
     	<?php } // end while ?> 
   	<?php } // end if ?> 
   </div>
-</section>
+</div>

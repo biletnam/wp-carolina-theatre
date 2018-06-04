@@ -2,6 +2,6 @@
 $image_url = get_sub_field('image')['url'];
 $image_alt = get_sub_field('image')['alt'];
 ?>
-<section class="block__fullImage">
+<div class="block__fullImage">
 	<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>" />
-</section>
+</div>

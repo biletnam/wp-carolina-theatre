@@ -8,10 +8,11 @@
 @media all {
 	.featherlight-next,
 	.featherlight-previous {
-    position: relative;
-    display: inline-block;
-		bottom: 0;
+    position: fixed;
+    z-index: 1000;
+		top: 50%;
 		cursor: pointer;
+
 		/* preventing text selection */
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;
@@ -29,26 +30,23 @@
 		}
 
 		span {
-			@include rem(12);
 			color: $white;
-			text-transform: uppercase;
-  		letter-spacing: 1px;
-  		font-weight: 200;
-  		@include rem(12);
-			@include opacity(.5);
+  		@include rem(18);
+			opacity: .5;
   		@include transition;
 
   		&:hover {
-				@include opacity(1);
+				opacity: 1;
   		}
 		}
 	}
+	
+	.featherlight-next {
+		right: 10px;
+	}
 
 	.featherlight-previous {
-		&::after {
-			content: "/";
-			padding: 0 5px;
-		}
+		left: 10px;
 	}
 
 

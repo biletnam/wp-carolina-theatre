@@ -1,5 +1,5 @@
 <?php if (have_rows("link_blocks")) { ?>
-<section class="block__ctas">
+<div class="block__ctas">
 	<?php while (have_rows("link_blocks")) { the_row(); ?>
   <?php
 		$link = get_sub_field('link');
@@ -13,5 +13,5 @@
 	  </a>
 	</div>
   <?php } // endwhile ?>
-</section>  
+</div>  
 <?php } // endif ?>

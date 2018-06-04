@@ -40,12 +40,12 @@ hr {
 }
 
 img {
-  width: 100%;
+  // width: 100%;
   height: auto;
-
-  &.size-medium {
-  	width: 50%;
-  }
+  max-width: 100%;
+  // &.size-medium {
+  // 	width: 50%;
+  // }
 
 	&.alignright {
 		float:right; 
@@ -63,6 +63,26 @@ img {
 		margin-right: auto;
 		text-align: center;
 	}
+}
+
+// Responsive Embedded Video
+.video {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.gallery-content {
+	display: none;
 }
 
 .screen-reader-text {
@@ -88,6 +108,31 @@ main {
     clear: both;
     display: table;
   }
+}
+
+// Responsive Embedded Video
+.video {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.divide {
+	height: 40px;
+	width: 100%;
+
+	@include breakpoint($sizeMobile) {
+		height: 20px;
+	}
 }
 
 // .mainWrapper wraps everything but mobile menu. allows content 
@@ -129,6 +174,7 @@ main {
 
 .breadcrumbs {
 	a {
+		text-decoration: none;
 		opacity: .5;
 
 		&:hover {

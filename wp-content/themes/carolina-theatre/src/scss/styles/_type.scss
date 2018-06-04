@@ -71,9 +71,15 @@ p, .p {
   margin-top: 1em;
   margin-bottom: 1em;
 
-  a:not(.button) {  	
+  a {  	
+  	text-decoration: underline;
+  	
+  	&.button {
+  		text-decoration: none;
+  	}
+
   	&:hover {
-	    text-decoration: underline;
+	  	color: $green; 
 	  }
   }
 }
