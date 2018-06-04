@@ -31,6 +31,8 @@
 	          <li data-tab='films' class="tabbedContent__tab">
 	          	<a href="#films">Films</a>
 	        	</li>
+	        	<?php if( have_rows('tabbed_content') ) { ?>
+           	<?php while ( have_rows('tabbed_content') ) { the_row(); ?>
 	          <?php if( have_rows('tabs') ) { ?>
            	<?php while ( have_rows('tabs') ) { the_row(); ?>
             <?php
@@ -45,19 +47,26 @@
           	</li>
     				<?php } //end while tabs ?>
             <?php } // end if tabs ?>
+            <?php } //end while tabbed_content ?>
+            <?php } // end if tabbed_content ?>
 	       </ul> 
 	    </div>
 	    <!-- Generate all tabs, show only highlighted tab content -->
 	    <div class="tabbedContent_contentWrapper">
 	      <div class="tabbedContent__content overview">
-          <?php if (have_rows("overview")) {
-            while (have_rows("overview")) { the_row();
-              get_template_part( 'blocks/content-blocks' );
-            }
-          } ?>
+          <?php if( have_rows('tabbed_content') ) { ?>
+           	<?php while ( have_rows('tabbed_content') ) { the_row(); ?>
+	          <?php if( have_rows('overview') ) { ?>
+           	<?php while ( have_rows('overview') ) { the_row(); ?>
+              <?php get_template_part( 'blocks/content', 'blocks' ); ?>
+            <?php } //end while overview ?>
+            <?php } // end if overview ?>
+            <?php } //end while tabbed_content ?>
+            <?php } // end if tabbed_content ?>
 	      </div>
 	      <div class="tabbedContent__content films card__wrapper hide-tab-content">
 	        <?php // film tab contents
+	        // TO-DO: Get the associates working between film and festival
 			    $limit = -1;
 					$events_query_args = array(
 						'post_type' => array('film'),
@@ -93,18 +102,22 @@
 				?>
 	      </div>
 	      <?php // using regex to replace tab names with valid id's for html
-	        if( have_rows('tabs') ) {
-	          while ( have_rows('tabs') ) { the_row();
-	            $tab_name = get_sub_field('tab_name');
-	            $id_name = str_replace(' ', '-', $tab_name);
-	            $id_name = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '', $id_name));
-	            $tab_content = get_sub_field('tab_content'); ?>  
+				if( have_rows('tabbed_content') ) {
+				while ( have_rows('tabbed_content') ) { the_row();
+				if( have_rows('tabs') ) {
+				while ( have_rows('tabs') ) { the_row();
+          $tab_name = get_sub_field('tab_name');
+          $id_name = str_replace(' ', '-', $tab_name);
+          $id_name = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '', $id_name));
+          $tab_content = get_sub_field('tab_content'); ?>  
 
-	            <div class='tabbedContent__content <?php echo $id_name ?> hide-tab-content'>
-	            	<?php get_template_part( 'blocks/content-blocks' ); ?>
-	          	</div>
-	    		<?php } // end while have_rows for tabs ?>
+          <div class='tabbedContent__content <?php echo $id_name ?> hide-tab-content'>
+          	<?php get_template_part( 'blocks/content-blocks' ); ?>
+        	</div>
+	    	<?php } // end while have_rows for tabs ?>
 	    	<?php } // end if have_rows for tabs ?>
+	    	<?php } // end while have_rows for tabbed_content ?>
+	    	<?php } // end if have_rows for tabbed_content ?>
 	  	</div>
 	  </div>
   </section> <!-- Main Content end -->

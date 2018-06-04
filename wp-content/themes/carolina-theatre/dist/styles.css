@@ -1271,6 +1271,20 @@ main {
       .tabbedContent__tabs ul:not(:first-of-type) .tabbedContent__tab {
         font-size: 14px;
         font-size: 0.875rem; }
+    .tabbedContent__tabs ul .page_item {
+      display: inline-block;
+      margin-right: 10px;
+      cursor: pointer;
+      border-bottom: 3px solid #fff;
+      font-size: 16px;
+      font-size: 1rem;
+      -webkit-transition: all 0.5s ease;
+      transition: all 0.5s ease; }
+      .tabbedContent__tabs ul .page_item.current_page_item {
+        font-weight: 600;
+        border-bottom-color: #72bcae; }
+      .tabbedContent__tabs ul .page_item:hover {
+        border-bottom-color: #72bcae; }
 
 .tabbedContent__tab {
   display: inline-block;
@@ -1278,9 +1292,13 @@ main {
   cursor: pointer;
   border-bottom: 3px solid #fff;
   font-size: 16px;
-  font-size: 1rem; }
+  font-size: 1rem;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
   .tabbedContent__tab.active-link {
     font-weight: 600;
+    border-bottom-color: #72bcae; }
+  .tabbedContent__tab:hover {
     border-bottom-color: #72bcae; }
 
 .tabbedContent__content.hide-tab-content {

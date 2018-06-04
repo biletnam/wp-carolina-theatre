@@ -15,10 +15,10 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "collapsed": "field_5ae092b991ce9",
             "min": 0,
             "max": 0,
-            "layout": "table",
+            "layout": "block",
             "button_label": "Add Accordion Panel",
             "sub_fields": [
                 {
@@ -30,7 +30,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "100",
                         "class": "",
                         "id": ""
                     },
@@ -49,7 +49,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "100",
                         "class": "",
                         "id": ""
                     },
@@ -95,5 +95,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1526312732
+    "modified": 1528145298
 }

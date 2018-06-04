@@ -249,6 +249,26 @@ main {
 				@include rem(14);
 			}
 		}
+
+		// for pages sibling links (same style as Event filter tabs and tabbed content)
+		.page_item {
+			display: inline-block;
+			margin-right: 10px;
+			cursor: pointer;
+			border-bottom: 3px solid $white;
+			@include rem(16);
+			transition: $transition;
+
+			// highlights filter on-click
+			&.current_page_item {
+				font-weight: 600;
+				border-bottom-color: $green;
+			}
+
+			&:hover {
+				border-bottom-color: $green;
+			}
+		}
 	}
 }
 
@@ -259,10 +279,15 @@ main {
 	cursor: pointer;
 	border-bottom: 3px solid $white;
 	@include rem(16);
+	transition: $transition;
 
 	// highlights filter on-click
 	&.active-link {
 		font-weight: 600;
+		border-bottom-color: $green;
+	}
+
+	&:hover {
 		border-bottom-color: $green;
 	}
 }

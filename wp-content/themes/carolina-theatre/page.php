@@ -18,27 +18,25 @@
 get_header(); ?>
 
 <?php while ( have_posts() ) { the_post(); ?>
-	
-<?php // TO-DO: setup breadcrumbs ?>
-<?php get_template_part( 'blocks/content', 'breadcrumb' ); ?>
 
-<?php // TO-DO: setup title ?>
+<?php get_template_part( 'blocks/content', 'breadcrumb' ); ?>
 <section class="pageHeading contain">
 	<div class="container">
 		<h1 class="pageTitle"><?php the_title(); ?></h1>
-		<?php // TO-DO: setup tabbed sections for child/sibling posts ?>	
-		child / sibling posts menu	
-		<?php 
-			$parentID = $post->post_parent;
-			echo $parentID;
-			if($parentID){
-				wp_list_pages(array(
-			    'child_of' => $post->post_parent,
-			    // 'exclude' => $post->ID
-				));
-			}
-			
- 		?>
+		<?php if($post->post_parent){ ?>
+		<div class="tabbedContent__tabs">
+			<ul class="siblings">
+				<?php 
+					wp_list_pages(array(
+				    'child_of' => $post->post_parent,
+				    'post_status' => 'publish',
+				    'title_li' => null,
+				    'depth' => 1
+					));
+				?>
+			</ul>
+		</div>
+		<?php } ?>
 	</div>
 </section>
 
@@ -48,32 +46,7 @@ get_header(); ?>
 </section>
 <?php } //endif show hero ?>
 
-<!-- <?php if(get_field('show_hero_slider')){ ?>
-
-<?php if(have_rows('hero_images')){ ?>
-
-	<div class="container">
-		<div class="carousel">
-			<?php while(have_rows('hero_images')){ the_row(); ?>
-				<?php
-				$image_url = get_sub_field('image')['sizes']['thumbnail'];
-				$image_alt = get_sub_field('image')['alt'];
-				$image_cap = get_sub_field('image')['caption'];
-				?>
-				<div>
-					<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>" />
-					<?php if($image_cap) { ?><figcaption class="small caption"><?php echo $image_cap; ?></figcaption><?php } ?>
-				</div>
-			<?php } //endwhile have rows ?>
-		</div>
-	</div>
-</section>
-<?php } //endif have rows ?>
-
-<?php } //endif show hero ?> -->
-
 <section class="mainContent contain">
-
 	<?php if(get_field('show_sidebar')){ ?>
   <div class="mainContent__content">
 		<div class="container">
@@ -86,9 +59,7 @@ get_header(); ?>
 		<?php get_template_part( 'blocks/content', 'blocks' ); ?>
 	</div>
 	<?php } ?>
-	
 </section>
 <?php } // endwhile; ?>
-
 
 <?php get_footer();
