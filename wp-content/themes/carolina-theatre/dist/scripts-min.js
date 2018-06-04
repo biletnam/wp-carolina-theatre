@@ -843,12 +843,12 @@
 			});
 
 			// gallery featherlight init
-				$('.block__gallery .gallery').featherlightGallery({
-					previousIcon: '<i class="fas fa-chevron-left"></i>',
-					nextIcon: '<i class="fas fa-chevron-right"></i>',
-					galleryFadeIn: 300,
-					openSpeed: 300
-				});
+			$('.block__gallery .gallery').featherlightGallery({
+				previousIcon: '<i class="fas fa-chevron-left"></i>',
+				nextIcon: '<i class="fas fa-chevron-right"></i>',
+				galleryFadeIn: 300,
+				openSpeed: 300
+			});
 	});
 
 	/*
@@ -1030,7 +1030,7 @@ jQuery(function($) {
 	$(document).ready(function() {
 		// generic content-blocks-slider.php & other sliders
 		$(".carousel").slick({
-				infinite: true,	
+				infinite: false,	
 				pauseOnHover: false,
 				slidesToScroll: 1,
 				draggable: true,

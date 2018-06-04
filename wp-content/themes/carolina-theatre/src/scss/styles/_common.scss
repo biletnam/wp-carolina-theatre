@@ -312,6 +312,13 @@ main {
 	}
 
 	&__gallery {
+		a {
+			max-width: 350px;	
+		}		
+	}
+
+	&__gallery,
+	&__slider {
 		img {
 			display: block;
 		}
@@ -320,7 +327,6 @@ main {
 			display: inline-block;
 			margin-right: 10px;
 			width: 100%;
-			max-width: 350px;
 
 			&::after {
 				content: ' ';

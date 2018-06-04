@@ -2,7 +2,7 @@ jQuery(function($) {
 	$(document).ready(function() {
 		// generic content-blocks-slider.php & other sliders
 		$(".carousel").slick({
-				infinite: true,	
+				infinite: false,	
 				pauseOnHover: false,
 				slidesToScroll: 1,
 				draggable: true,
