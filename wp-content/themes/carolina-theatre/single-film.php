@@ -20,7 +20,7 @@
 		$date_string = $start_date . '-' . $end_date;
 	}
 ?>
-<section class="mainContent contain eventType__film">
+<section class="mainContent contain film">
   <div class="mainContent__content">
   	<div class="container">
       <p class="singleEvent__category"><?php echo get_post_type() ?></p>

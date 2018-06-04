@@ -1989,18 +1989,18 @@ div.wpcf7-validation-errors {
     font-size: 0.625rem;
     text-transform: uppercase; }
 
-.eventCard .event__dateBox {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  right: 0; }
-
 .eventCard__image {
   height: 141px;
   width: 100%;
   overflow: hidden; }
   .eventCard__image img {
     max-width: 100%; }
+
+.event__dateBox {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0; }
 
 .film .event__dateBox,
 .film .card__button {

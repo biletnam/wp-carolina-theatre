@@ -5,7 +5,6 @@
   	// dates in YYYYMMDD format for easy comparing (ie: 20180130)
     $start_date = get_field('start_date');
     $end_date = get_field('end_date');
-    $end_date_original = get_field('end_date');
     $today = date("Ymd", strtotime('today'));
 
     // if event is a single day, set end_date

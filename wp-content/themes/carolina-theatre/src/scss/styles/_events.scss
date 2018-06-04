@@ -192,13 +192,6 @@
 	}
 }
 .eventCard {
-	.event__dateBox {
-		position: absolute;
-		z-index: 1;
-		top: 0;
-		right: 0;
-	}
-
 	&__image {
 		height: 141px;
 		width: 100%;
@@ -208,6 +201,12 @@
 			max-width: 100%;
 		}
 	}
+}
+.event__dateBox {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: 0;
 }
 
 .film {
