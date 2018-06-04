@@ -1,34 +1,36 @@
 <?php 
+	// array of showdates and showtimes
 	$date_range = get_field('showtimes');
-
   if ($date_range != NULL) {
-    $start_date_string = get_field('start_date');
-    $end_date_string = get_field('end_date');
-    $start_date = strtotime($start_date_string);
-    $end_date = strtotime($end_date_string);
-    $today = strtotime('today');
+  	// dates in YYYYMMDD format for easy comparing (ie: 20180130)
+    $start_date = get_field('start_date');
+    $end_date = get_field('end_date');
+    $end_date_original = get_field('end_date');
+    $today = date("Ymd", strtotime('today'));
 
-    // only construct events if they are playing or coming soon
+    // if event is a single day, set end_date
+    if($end_date == NULL) {
+    	$end_date = $start_date;
+    }
+
+    // only construct events if they are in the future
     if ($end_date >= $today) {
-    	
-      // store all single event dates to use later YYYYMMDD
-    	$today_YYYYMMDD = date("Ymd", strtotime('today'));
-    	$start_date_YYYYMMDD = get_field('start_date', false, false);
-      $end_date_YYYYMMDD = get_field('end_date', false, false);
 		  $event_dates = array();
 		  $event_times = array();
   		if (have_rows('showtimes')) { 
         while (have_rows('showtimes')) { the_row();
-      		$showtime_YYYYMMDD = get_sub_field('dates', false, false);
-      		if ($showtime_YYYYMMDD >= $today_YYYYMMDD) { // if the showtime is today or in the future,
-        		array_push($event_dates, $showtime_YYYYMMDD);	// push future showtime dates to an array
-        		array_push($event_times, get_sub_field('times')[0]['time']);	// push future showtime dates to an array
+      		$showtime = get_sub_field('dates', false, false);
+      		if ($showtime >= $today) { // if the showtime is today or in the future,
+        		array_push($event_dates, $showtime);	// push date to array
+        		array_push($event_times, get_sub_field('times')[0]['time']);	// push times to an array
       		}
          } // endwhile showtimes
       } //endif showtimes 
-      $dateToShowInCard = $event_dates[0]; // the next date to show in the card
+      
+      // the closest upcoming date (to show in the card as the date square)
+      $dateToShowInCard = $event_dates[0]; 
 		
-      // test for event type
+      // assign correct classes to event depending if it's a film or live event
       $class_names = [];
       if (get_post_type() == "film") {
         if(get_field('film_type')){ $class_names = get_field('film_type'); }
@@ -54,7 +56,7 @@
   		?>
 
 			<div class="card eventCard<?php echo ' ' . $class_string; ?>">
-        <a href="<?php echo get_page_link(get_the_id()); ?>">
+         <a href="<?php echo get_page_link(get_the_id()); ?>">
           <div class="event__dateBox">
              <span class="day"><?php echo date("j", strtotime($dateToShowInCard)); ?></span>
              <span class="month"><?php echo date("M", strtotime($dateToShowInCard)); ?></span>

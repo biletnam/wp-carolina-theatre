@@ -59,7 +59,7 @@
                 "id": ""
             },
             "display_format": "F j, Y",
-            "return_format": "F j, Y",
+            "return_format": "Ymd",
             "first_day": 1
         },
         {
@@ -76,7 +76,7 @@
                 "id": ""
             },
             "display_format": "F j, Y",
-            "return_format": "F j, Y",
+            "return_format": "Ymd",
             "first_day": 1
         },
         {
@@ -84,7 +84,7 @@
             "label": "Ticket Prices",
             "name": "ticket_prices",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "No leading '$' needed.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -252,7 +252,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
+                    "default_value": "fa-link",
                     "save_format": "element",
                     "allow_null": 0,
                     "show_preview": 1,
@@ -996,8 +996,14 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "excerpt",
+        "discussion",
+        "comments",
+        "format",
+        "featured_image"
+    ],
     "active": 0,
     "description": "",
-    "modified": 1526312813
+    "modified": 1528121373
 }

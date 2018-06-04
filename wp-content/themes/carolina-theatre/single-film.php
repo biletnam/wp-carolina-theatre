@@ -9,9 +9,16 @@
     }
 	}
 
-	// pick the min/max and covert to string 
+	// pick the min/max and convert to string 
+	$date_string = '';
 	$start_date = date("F d, Y", min($event_dates));
 	$end_date = date("F d, Y", max($event_dates));
+
+	if ($start_date == $end_date) {
+		$date_string = $start_date;
+	} else {
+		$date_string = $start_date . '-' . $end_date;
+	}
 ?>
 <section class="mainContent contain eventType__film">
   <div class="mainContent__content">
@@ -19,7 +26,7 @@
       <p class="singleEvent__category"><?php echo get_post_type() ?></p>
       <div class="singleEvent__image">
         <img src="<?php echo get_field('event_image')["url"]; ?>" alt="the poster for the film">
-        <div class="singleEvent__image--date"><?php echo $start_date . ' - ' . $end_date ?></div>
+        <div class="singleEvent__image--date"><?php echo $date_string; ?></div>
       </div>
       <p>The Carolina Theatre Presents...</p>
       <h2 class="singleEvent__title"><?php echo the_title(); ?></h2>
