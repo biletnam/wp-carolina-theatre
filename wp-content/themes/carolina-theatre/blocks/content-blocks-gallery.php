@@ -6,15 +6,17 @@
   <?php if ($media == 'image_upload') { ?>
   	<?php $image = get_sub_field('image');?>
     <?php // TO-DO: create custom size for thumbnails and use here ?>
-    <a class="gallery" href="<?php echo $image['url']; ?>">
-      <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" />
+    <a class="gallery" href="<?php echo $image['sizes']['gallery-full']; ?>">
+      <i class="fas fa-search-plus"></i>
+      <img src="<?php echo $image['sizes']['gallery-thumb']; ?>" alt="<?php echo $image['alt']; ?>" />
     </a>
   <?php
   } else if ($media == 'video_link') {
     $video = get_sub_field('video');
   ?>
     <a class="gallery" href="<?php echo '.inline-' . $video['preview_image']['ID'] ;?>">
-      <img src="<?php echo $video['preview_image']['sizes']['medium'];?>" alt="<?php echo $video['preview_image']['alt']; ?>" />
+      <i class="fas fa-play"></i>
+      <img src="<?php echo $video['preview_image']['sizes']['gallery-thumb'];?>" alt="<?php echo $video['preview_image']['alt']; ?>" />
     </a>
     <div class="gallery-content <?php echo 'inline-' . $video['preview_image']['ID']; ?>">
       <div class="video"><?php echo $video['iframe_text']; ?></div>

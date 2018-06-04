@@ -303,11 +303,82 @@ main {
 	}
 }
 
-.block__ {
-	&fullImage {
+.block{
+	&__fullImage {
 		img {
 			width: 100%;
 	    display: block;
+		}
+	}
+
+	&__gallery {
+		img {
+			display: block;
+		}
+		a {
+			position: relative;
+			display: inline-block;
+			margin-right: 10px;
+			width: 100%;
+			max-width: 350px;
+
+			&::after {
+				content: ' ';
+				position: absolute;
+				z-index: 5;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				transition: $transition;
+			}
+
+			.fa-search-plus {
+				opacity: 0;
+			}
+
+			&:hover {
+				&::after {
+					background-color: rgba($black, .4);
+				}
+
+				.fas {
+					opacity: 1;
+				}
+
+				.fa-search-plus {
+					opacity: 1;
+				}
+			}
+		}
+
+		.fas {
+			position: absolute;
+			z-index: 10;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			@include rem(36);
+			color: $white;
+			transition: $transition;
+
+			&::before {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+
+		.fa-play {
+			width: 85px;
+			height: 85px;
+			border-radius: 100em;
+			background-color: rgba($black, .4);
+
+			&::before {
+		    padding-left: 9px;
+			}
 		}
 	}
 }
