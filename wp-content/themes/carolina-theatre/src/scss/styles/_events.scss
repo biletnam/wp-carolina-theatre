@@ -1,0 +1,237 @@
+////
+//// EVENT, FILM, FESTIVAL SHARED STYLES
+////
+
+///////// Archive - Events, Films ///////// 
+
+// slide of featured events on top of template-events.php
+.featuredEvent_carousel {
+	.carousel {
+		border: 1px solid $gray;		
+		max-height: 400px;
+	}
+}
+.featuredEvent {
+	&__image {
+		width: 66%;
+
+		img {
+			width: 100%;
+			display: block;
+		}
+	}
+
+	&__info {
+		width: 33%;
+	}
+
+	&__slideContainer {
+		display: flex;
+		max-height: 400px;
+		overflow: hidden;
+	}
+}
+
+// event type filters for template-events.php
+.upcoming-events {
+	.filmFilters {
+		display: none;
+	}
+}
+.filmFilters {
+	.default {
+		position: relative;
+    margin-right: 26px;
+
+		&::after {
+			position: absolute;
+			content: "|";
+			font-weight: 400;
+			right: -16px;
+			color: $gray;
+		}
+	}
+}
+
+///////// Single - Events, Films, Festivals ///////// 
+.singleEvent {
+	&__image {
+		position: relative;
+		display: inline-block;
+		height: 400px;
+		width: 100%;
+		overflow: hidden;
+
+		&--date {
+			position: absolute;
+			top: 0;
+			left: 0;
+			color: white;
+		}
+  }	
+
+	&__description {
+		max-height: 250px;
+		overflow: hidden;
+	}
+
+	&__reveal {
+		max-height: 100%;
+		overflow: auto;
+	}
+
+	&__read-more {
+		text-align: center;
+	}
+
+	&__videos {
+		display: flex;
+		justify-content: space-around;
+
+		iframe {
+			display: inline-block;
+			max-width: 80%;
+			height: auto;
+			margin-left: 10%;
+		}
+
+		p {
+			margin-left: 10%;
+		}
+	}
+}
+
+///////// NEWS, EVENT, FILM CARDS ////////////
+.card__wrapper {
+	display: flex;
+	align-content: top;
+	flex-wrap: wrap;
+	margin-top: 30px;
+}
+.card {
+	position: relative;
+	background-color: $white;
+	vertical-align: top;
+	max-width: 250px;
+	width: 100%;
+	margin-right: 30px;
+	margin-bottom: 30px;
+	border: 1px solid $gray;
+	overflow: hidden;
+	transition: $transition;
+
+	&__button {
+		position: absolute;
+		z-index: 10;
+	  text-align: center;
+	  padding: 20px 10px;
+		width: 100%;
+		height: 50px;
+		bottom: -45px;
+		border-radius: 0;
+    margin: 0;
+	}
+
+	&:hover {
+		.card__button {
+			bottom: 0;
+		}
+
+		.card__title {
+			text-decoration: underline;
+		}
+	}
+
+	&__infoWrapper {
+		padding: 10px 10px 30px 10px;
+	}
+
+	&__title {
+		@include rem(18);
+		font-weight: 700;
+		margin: 0.2em 0;
+	}
+
+	&__subtitle {
+		@extend .h5;
+	}
+
+	&__info {
+		p {
+	    margin: .5em 0;
+	    @include rem(14);
+		}
+		i {
+	    width: 30px;
+	    padding-right: 10px;
+			text-align: center;
+			opacity: .5;
+			@include rem(16);
+		}
+	}
+}
+
+.event__dateBox {
+	width: 40px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	text-align: center;
+	color: $white;
+	line-height: 1;
+
+	span {
+		display: block;
+	}
+	.day {
+		@include rem(22);
+		font-family: $header;
+	}
+	.month {
+		@include rem(10);
+		text-transform: uppercase;
+	}
+}
+.eventCard {
+	&__image {
+		height: 141px;
+		width: 100%;
+		overflow: hidden;
+
+		img {
+			max-width: 100%;
+		}
+	}
+}
+.event__dateBox {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: 0;
+}
+
+.film {
+	.event__dateBox,
+	.card__button {
+		background-color: $green;
+	}
+
+	.card__button {
+		&:hover {
+			background-color: $green-med;
+		}
+	}
+}
+
+.event {
+	.event__dateBox,
+	.card__button {
+		background-color: $red;
+	}
+
+	.card__button {
+		&:hover {
+			background-color: $red-med;
+		}
+	}
+}
+

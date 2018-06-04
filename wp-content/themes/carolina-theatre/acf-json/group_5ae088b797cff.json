@@ -1,10 +1,10 @@
 {
     "key": "group_5ae088b797cff",
-    "title": "Content Block Default",
+    "title": "Content Block Content Editor",
     "fields": [
         {
             "key": "field_5ae088c29f178",
-            "label": "WYSIWYG Editor",
+            "label": "Content Editor",
             "name": "wysiwyg_editor",
             "type": "wysiwyg",
             "instructions": "",
@@ -53,5 +53,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1526312764
+    "modified": 1528126015
 }

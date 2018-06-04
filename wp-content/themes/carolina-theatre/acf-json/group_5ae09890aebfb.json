@@ -19,12 +19,12 @@
                 "5ae098d2a983d": {
                     "key": "5ae098d2a983d",
                     "name": "default",
-                    "label": "Default",
+                    "label": "Content Editor",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_5ae09bd43d05e",
-                            "label": "WYSIWYG Editor",
+                            "label": "Content Editor",
                             "name": "wysiwyg_editor",
                             "type": "clone",
                             "instructions": "",
@@ -112,12 +112,12 @@
                 "5ae09cdc3d062": {
                     "key": "5ae09cdc3d062",
                     "name": "popup_overlay",
-                    "label": "Popup Overlay",
+                    "label": "Gallery",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_5ae09d0d3d063",
-                            "label": "Popup Overlay",
+                            "label": "Gallery",
                             "name": "popup_overlay",
                             "type": "clone",
                             "instructions": "",
@@ -201,6 +201,15 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "5b1557ec6c41a": {
+                    "key": "5b1557ec6c41a",
+                    "name": "section_divide",
+                    "label": "Section Divide",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Content Block",
@@ -217,13 +226,15 @@
             }
         ]
     ],
-    "menu_order": 0,
-    "position": "normal",
+    "menu_order": 20,
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content"
+    ],
     "active": 1,
     "description": "",
-    "modified": 1527788084
+    "modified": 1528135574
 }

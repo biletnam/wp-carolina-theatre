@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_5ae0906e54e76",
-            "label": "Panel Content",
+            "label": "Slides",
             "name": "panel_content",
             "type": "repeater",
             "instructions": "",
@@ -15,11 +15,11 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "collapsed": "field_5ae0908354e77",
             "min": 0,
             "max": 0,
-            "layout": "table",
-            "button_label": "",
+            "layout": "block",
+            "button_label": "Add Slide",
             "sub_fields": [
                 {
                     "key": "field_5ae0908354e77",
@@ -30,16 +30,17 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "25",
                         "class": "",
                         "id": ""
                     },
                     "choices": {
-                        "video_link": "Video Link",
-                        "image_upload": "Image Upload",
-                        "wysiwyg": "WYSIWYG Editor"
+                        "image": "Image",
+                        "video": "Video"
                     },
-                    "default_value": [],
+                    "default_value": [
+                        "image"
+                    ],
                     "allow_null": 0,
                     "multiple": 0,
                     "ui": 0,
@@ -48,57 +49,22 @@
                     "placeholder": ""
                 },
                 {
-                    "key": "field_5ae099809aab3",
-                    "label": "Iframe Text",
-                    "name": "iframe_text",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5ae0908354e77",
-                                "operator": "==",
-                                "value": "video_link"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
                     "key": "field_5ae0a0dd5288f",
                     "label": "Image",
                     "name": "image",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Min width: 700px",
                     "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5ae0908354e77",
-                                "operator": "==",
-                                "value": "image_upload"
-                            }
-                        ]
-                    ],
+                    "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
                     "return_format": "array",
-                    "preview_size": "thumbnail",
+                    "preview_size": "gallery-thumb",
                     "library": "all",
-                    "min_width": "",
+                    "min_width": 700,
                     "min_height": "",
                     "min_size": "",
                     "max_width": "",
@@ -107,31 +73,31 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_5ae0a0ef52890",
-                    "label": "WYSIWYG Editor",
-                    "name": "wysiwyg_editor",
-                    "type": "wysiwyg",
-                    "instructions": "",
+                    "key": "field_5ae099809aab3",
+                    "label": "Embed Code",
+                    "name": "video_embed",
+                    "type": "text",
+                    "instructions": "Paste embed code from Youtube\/Vimeo here.",
                     "required": 0,
                     "conditional_logic": [
                         [
                             {
                                 "field": "field_5ae0908354e77",
                                 "operator": "==",
-                                "value": "wysiwyg"
+                                "value": "video"
                             }
                         ]
                     ],
                     "wrapper": {
-                        "width": "",
+                        "width": "25",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
-                    "delay": 0
+                    "placeholder": "<iframe>...<\/iframe>",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         }
@@ -143,20 +109,6 @@
                 "operator": "==",
                 "value": "festival"
             }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "event"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "film"
-            }
         ]
     ],
     "menu_order": 0,
@@ -167,5 +119,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1526312810
+    "modified": 1528143848
 }

@@ -5,7 +5,6 @@
   	// dates in YYYYMMDD format for easy comparing (ie: 20180130)
     $start_date = get_field('start_date');
     $end_date = get_field('end_date');
-    $end_date_original = get_field('end_date');
     $today = date("Ymd", strtotime('today'));
 
     // if event is a single day, set end_date
@@ -58,11 +57,11 @@
 			<div class="card eventCard<?php echo ' ' . $class_string; ?>">
          <a href="<?php echo get_page_link(get_the_id()); ?>">
           <div class="event__dateBox">
-             <span class="day"><?php echo date("j", strtotime($dateToShowInCard)); ?></span>
-             <span class="month"><?php echo date("M", strtotime($dateToShowInCard)); ?></span>
+						<span class="day"><?php echo date("j", strtotime($dateToShowInCard)); ?></span>
+						<span class="month"><?php echo date("M", strtotime($dateToShowInCard)); ?></span>
           </div>
           <div class="eventCard__image">
-            <img src="<?php echo get_field('event_image')['url'];?>" alt="<?php echo get_field('event_image')['alt']; ?>" />
+            <img src="<?php echo get_field('event_image')['sizes']['event-thumb'];?>" alt="<?php echo get_field('event_image')['alt']; ?>" />
           </div>
           <div class="card__infoWrapper">
               <p class="card__subtitle"><?php the_field('single_event_type');?></p>

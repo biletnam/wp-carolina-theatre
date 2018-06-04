@@ -1,3 +1,7 @@
+////
+//// HOMEPAGE
+////
+
 .hero--homepage {
 	@include breakpoint-min($sizeTablet + 1px){
 		display: flex;

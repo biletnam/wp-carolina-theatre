@@ -19,15 +19,22 @@
 	} else {
 		$date_string = $start_date . '-' . $end_date;
 	}
+
+	// the closest upcoming date (to show in the card as the date square)
+  $dateToShowInCard = $event_dates[0]; 
 ?>
-<section class="mainContent contain eventType__event">
+<section class="mainContent contain event">
   <div class="mainContent__content">
     <div class="container">
-        
-      <p class="singleEvent__category"><?php echo get_post_type(); ?></p>
+      <p class="singleEvent__category h5"><?php echo get_post_type(); ?></p>
       <div class="singleEvent__image">
-          <img src="<?php echo get_field('event_image')["url"]; ?>" alt="the poster for the film">
-          <div class="singleEvent__image--date"><?php echo $date_string; ?></div>
+      	<div class="event__dateBox">
+					<span class="day"><?php echo date("j", strtotime($dateToShowInCard)); ?></span>
+					<span class="month"><?php echo date("M", strtotime($dateToShowInCard)); ?></span>
+				</div>
+				<div class="singleEvent__hero">
+					<?php get_template_part( 'blocks/content-blocks', 'slider' ); ?>
+				</div>
       </div>
       <p>The Carolina Theatre Presents...
       <h2 class="singleEvent__title"><?php echo the_title(); ?></h2>

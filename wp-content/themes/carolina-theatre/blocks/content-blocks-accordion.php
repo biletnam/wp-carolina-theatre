@@ -1,6 +1,6 @@
 <?php $panel_count = 0; ?>
 <?php if (have_rows('panel')) { ?>
-<section class="accordion">
+<div class="accordion">
 <?php while(have_rows('panel')) { the_row(); ?>
 	<div class="accordion__panel">
 		<input id="panel-<?php echo $panel_count;?>" type="checkbox" name="panels">
@@ -16,5 +16,5 @@
 	<?php $panel_count++; ?>
 <?php } // endwhile ?>
 <?php wp_reset_postdata(); ?>
-</section>
+</div>
 <?php } // endif ?>

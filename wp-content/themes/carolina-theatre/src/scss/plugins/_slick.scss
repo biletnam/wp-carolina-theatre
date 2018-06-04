@@ -1,3 +1,7 @@
+////
+//// SLICK SLIDER
+////
+
 @charset "UTF-8";
 
 /* Slider */
@@ -69,6 +73,7 @@
   }
   img {
     display: block;
+    width: 100%;
   }
   &.slick-loading img {
     display: none;

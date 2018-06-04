@@ -17,8 +17,16 @@ function carolinatheatre_setup() {
 	add_theme_support( 'automatic-feed-links' );	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'title-tag' ); // WP manages the document title, so there is no hard-coded <title>
 	add_theme_support( 'post-thumbnails' ); // Enable support for Post Thumbnails on posts and pages.
-	// add_image_size( 'carolinatheatre-featured-image', 2000, 1200, true ); // custom image size
-	// add_image_size( 'carolinatheatre-thumbnail-avatar', 100, 100, true ); // custom image size
+	
+	// Custom Images Sizes
+	add_image_size( 'gallery-thumb', 700, 400, true ); // 2x actual size
+	add_image_size( 'gallery-full', 1440, false ); // large enough for all sizes
+	
+	// same ratios, different sizes, for easy uploading and use throughout site
+	add_image_size( 'hero-default', 1440, 810, true ); // large enough for all sizes
+	add_image_size( 'hero-small', 1280, 720, true ); // large enough for all sizes
+	add_image_size( 'event-thumb', 500, 280, true ); // 2x actual size
+	// add_image_size( 'event-hero', 800, 450, true ); // actual size
 
 	// Registering menu locations for the theme
 	register_nav_menus( array(

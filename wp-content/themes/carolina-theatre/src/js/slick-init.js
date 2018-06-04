@@ -1,7 +1,8 @@
 jQuery(function($) {
 	$(document).ready(function() {
+		// generic content-blocks-slider.php & other sliders
 		$(".carousel").slick({
-				infinite: true,	
+				infinite: false,	
 				pauseOnHover: false,
 				slidesToScroll: 1,
 				draggable: true,
@@ -10,6 +11,7 @@ jQuery(function($) {
         dots: true,
 				arrows: false,
 				swipeToSlide: true,
+				adaptiveHeight: true,
 				// lazyLoad: 'progressive',
 				// variableWidth: true,
 				// centerMode: false,
@@ -28,7 +30,9 @@ jQuery(function($) {
 				// 	}
 				// ]
     });
+    
 
+		// fancy slider for homepage
 		$(".heroSlider").slick({
 			dots: true,
       arrows: false,
@@ -45,6 +49,7 @@ jQuery(function($) {
     	}
 		});
 
+		// slider for upcoming events and latest news (homepage & event dropdown)
     $('.cardSlider').each(function (idx, item) {
 		    var carouselId = "carousel-" + idx;
 		    this.id = carouselId;
@@ -84,72 +89,6 @@ jQuery(function($) {
 					    },
 					  ]
 		    });
-		});
-
-    // $(".cardSlider").slick({
-    //     appendArrows: $(" .cardSlider__arrows"),
-    //     dots: true,
-    //     slidesToShow: 5,
-    //     swipeToSlide: true,
-
-    //     responsive:[
-			 //    {
-			 //      breakpoint: 320,
-			 //      settings: {
-			 //        slidesToShow: 1
-			 //      }
-			 //    },
-			 //    {
-			 //      breakpoint: 640,
-			 //      settings: {
-			 //        slidesToShow: 3
-			 //      }
-			 //    }
-			 //  ]
-    // });
-
-    // $(".hp-upcoming__slider").slick({
-    //     appendArrows: $("#hp-upcomingEvents__arrows"),
-    //     dots: false,
-    //     slidesToShow: 5,
-    //     swipeToSlide: true,
-
-    //     responsive:[
-			 //    {
-			 //      breakpoint: 320,
-			 //      settings: {
-			 //        slidesToShow: 1
-			 //      }
-			 //    },
-			 //    {
-			 //      breakpoint: 640,
-			 //      settings: {
-			 //        slidesToShow: 3
-			 //      }
-			 //    }
-			 //  ]
-    // });
-
-    // $(".hp-news__slider").slick({
-    //     appendArrows: $("#hp-recentNews__arrows"),
-    //     dots: false,
-    //     slidesToShow: 5,
-    //     swipeToSlide: true,
-
-    //     responsive:[
-			 //    {
-			 //      breakpoint: 320,
-			 //      settings: {
-			 //        slidesToShow: 1
-			 //      }
-			 //    },
-			 //    {
-			 //      breakpoint: 640,
-			 //      settings: {
-			 //        slidesToShow: 3
-			 //      }
-			 //    }
-			 //  ]
-    // });
-  });
-});
+		}); // end .cardSlider
+  }); // end document ready
+}); // end jquery
