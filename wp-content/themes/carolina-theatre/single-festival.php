@@ -152,9 +152,11 @@
               <li>Contact &amp; Media Kit >></li>
           </ul>
         </div>
-        <div class="upcoming-events__cta-card">
-          <h2>Plan Your Visit >></h2>
-          <p>What to Bring, Where to Eat, Where to Stay, Parking and more...</p>
+        <div class="cta__card">
+          <a href="">
+          	<h3>Plan Your Visit ››</h3>
+	          <p>What to Bring, Where to Eat, Where to Stay, Parking and more...</p>
+          </a>
         </div>
     </div>
     <div class="festival-sidebar__additional-links">

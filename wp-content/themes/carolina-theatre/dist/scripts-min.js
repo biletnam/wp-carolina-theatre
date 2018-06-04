@@ -1058,7 +1058,7 @@ jQuery(function($) {
 				// 	}
 				// ]
     });
-    $('.carousel').slick('setPosition');
+    
 
 		// fancy slider for homepage
 		$(".heroSlider").slick({

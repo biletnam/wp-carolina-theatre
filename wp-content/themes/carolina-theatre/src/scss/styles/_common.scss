@@ -302,15 +302,19 @@ main {
 
 // wrapper for content/sidebar on templates
 .mainContent {
+
+	&:not(.main_content__noSidebar){
+		display: flex;
+	}
+
 	&__content {
-		display: inline-block;
-		vertical-align: top;
 		width: 65%;
 	}
 	&__sidebar {
-		display: inline-block;
-		vertical-align: top;
-		width: 30%;
+    width: 100%;
+    min-width: 300px;
+    max-width: 400px;
+    padding-left: 20px;
 		border-left: 1px solid $gray;
 
 		> .container {
@@ -328,7 +332,7 @@ main {
 	}
 }
 
-.block{
+.block {
 	&__fullImage {
 		img {
 			width: 100%;
@@ -423,19 +427,20 @@ main {
 
 
 // content-blocks-link-block.php
+.block__ctas {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
 .cta__card {
 	position: relative;
 	z-index: 1;
-	padding: 20px;
+  padding: 20px 20px 20px 30px;
 	margin: 10px;
 	width: 100%;
-	max-width: 300px;
-	display: inline-block;
+	max-width: 350px;
 	border: 1px solid $gray;
-
-	&:first-of-type {
-		margin-left: 0;
-	}
 
 	.h3 {
 		&::after {
@@ -458,6 +463,12 @@ main {
 		&::before {
 			right: 0;
 		}
+	}
+}
+.mainContent__sidebar {
+	.cta__card {
+		margin-right: 0;
+    padding: 20px 20px 20px 30px;
 	}
 }
 
