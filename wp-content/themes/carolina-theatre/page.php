@@ -65,7 +65,7 @@ get_header(); ?>
 	</div>
 	<?php get_template_part( 'blocks/content', 'sidebar' ); ?>
 	<?php } else { ?>
-	<div class="container">
+	<div class="container mainContent__noSidebar">
 		<?php get_template_part( 'blocks/content', 'blocks' ); ?>
 	</div>
 	<?php } ?>

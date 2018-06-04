@@ -874,6 +874,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/src\/scss\/styles\/_events.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/src\/scss\/styles\/_events.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/src\/scss\/styles\/_footer.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -883,19 +896,6 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/src\/scss\/styles\/_footer.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/src\/scss\/styles\/_forms.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/src\/scss\/styles\/_forms.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -939,6 +939,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/src\/scss\/styles\/_inputs.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/src\/scss\/styles\/_inputs.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/src\/scss\/styles\/_news.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -948,19 +961,6 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/src\/scss\/styles\/_news.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"\/src\/scss\/styles\/_single-event.scss": {
-		"aP": 0,
-		"bl": 0,
-		"dP": 10,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 1,
-		"oAP": "\/src\/scss\/styles\/_single-event.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1

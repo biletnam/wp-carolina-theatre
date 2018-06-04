@@ -5,6 +5,7 @@
   
   <?php if ($media == 'image_upload') { ?>
   	<?php $image = get_sub_field('image');?>
+    <?php // TO-DO: create custom size for thumbnails and use here ?>
     <a class="gallery" href="<?php echo $image['url']; ?>">
       <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" />
     </a>

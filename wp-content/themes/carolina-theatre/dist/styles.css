@@ -211,7 +211,8 @@ blockquote {
   [dir="rtl"] .slick-slide {
     float: right; }
   .slick-slide img {
-    display: block; }
+    display: block;
+    width: 100%; }
   .slick-slide.slick-loading img {
     display: none; }
   .slick-slide.dragging img {
@@ -1110,22 +1111,46 @@ hr {
   margin: 2em auto;
   border: 0; }
 
-img {
+img, figure {
   height: auto;
   max-width: 100%; }
-  img.alignright {
+  img.alignright, figure.alignright {
     float: right;
     padding: 1rem;
     padding-right: 0; }
-  img.alignleft {
+  img.alignleft, figure.alignleft {
     float: left;
     padding: 1rem;
     padding-left: 0; }
-  img.aligncenter {
+  img.aligncenter, figure.aligncenter {
     display: block;
     margin-left: auto;
     margin-right: auto;
     text-align: center; }
+
+figure.aligncenter {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%); }
+
+figure.wp-caption {
+  display: inline-block;
+  margin: 0;
+  width: auto !important; }
+  figure.wp-caption img {
+    display: block; }
+
+figcaption,
+.caption {
+  font-size: 87.5%;
+  text-align: right;
+  color: rgba(51, 51, 51, 0.75);
+  margin: 0;
+  padding: 5px 10px;
+  border-right: 3px solid #72bcae;
+  border-bottom: 1px solid #f3f3f3;
+  border-left: 1px solid #f3f3f3; }
 
 .video {
   position: relative;
@@ -1162,19 +1187,6 @@ main {
     content: " ";
     clear: both;
     display: table; }
-
-.video {
-  position: relative;
-  padding-bottom: 56.25%;
-  /* 16:9 */
-  padding-top: 25px;
-  height: 0; }
-  .video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; }
 
 .divide {
   height: 40px;
@@ -1287,6 +1299,16 @@ main {
   .mainContent__sidebar > .container {
     padding-left: 20px;
     padding-right: 20px; }
+
+.mainContent__noSidebar .block__default,
+.mainContent__noSidebar .block__gallery,
+.mainContent__noSidebar .accordion {
+  max-width: 800px;
+  margin: 0 auto; }
+
+.block__fullImage img {
+  width: 100%;
+  display: block; }
 
 .cta__card {
   position: relative;
@@ -1767,6 +1789,39 @@ div.wpcf7-validation-errors {
   .cardSlider__arrows .slick-next:hover::before {
     color: #1b7f6b; }
 
+.featuredEvent_carousel .carousel {
+  border: 1px solid #ccc;
+  max-height: 400px; }
+
+.featuredEvent__image {
+  width: 66%; }
+  .featuredEvent__image img {
+    width: 100%;
+    display: block; }
+
+.featuredEvent__info {
+  width: 33%; }
+
+.featuredEvent__slideContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-height: 400px;
+  overflow: hidden; }
+
+.upcoming-events .filmFilters {
+  display: none; }
+
+.filmFilters .default {
+  position: relative;
+  margin-right: 26px; }
+  .filmFilters .default::after {
+    position: absolute;
+    content: "|";
+    font-weight: 400;
+    right: -16px;
+    color: #ccc; }
+
 .singleEvent__image {
   position: relative;
   display: inline-block;
@@ -1803,6 +1858,106 @@ div.wpcf7-validation-errors {
     margin-left: 10%; }
   .singleEvent__videos p {
     margin-left: 10%; }
+
+.card__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: top;
+      align-content: top;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 30px; }
+
+.card {
+  position: relative;
+  background-color: #fff;
+  vertical-align: top;
+  max-width: 250px;
+  width: 100%;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+  .card__button {
+    position: absolute;
+    z-index: 10;
+    text-align: center;
+    padding: 20px 10px;
+    width: 100%;
+    height: 50px;
+    bottom: -45px;
+    border-radius: 0;
+    margin: 0; }
+  .card:hover .card__button {
+    bottom: 0; }
+  .card:hover .card__title {
+    text-decoration: underline; }
+  .card__infoWrapper {
+    padding: 10px 10px 30px 10px; }
+  .card__title {
+    font-size: 18px;
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0.2em 0; }
+  .card__info p {
+    margin: .5em 0;
+    font-size: 14px;
+    font-size: 0.875rem; }
+  .card__info i {
+    width: 30px;
+    padding-right: 10px;
+    text-align: center;
+    opacity: .5;
+    font-size: 16px;
+    font-size: 1rem; }
+
+.event__dateBox {
+  width: 40px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: center;
+  color: #fff;
+  line-height: 1; }
+  .event__dateBox span {
+    display: block; }
+  .event__dateBox .day {
+    font-size: 22px;
+    font-size: 1.375rem;
+    font-family: "industry", sans-serif; }
+  .event__dateBox .month {
+    font-size: 10px;
+    font-size: 0.625rem;
+    text-transform: uppercase; }
+
+.eventCard .event__dateBox {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0; }
+
+.eventCard__image {
+  height: 141px;
+  width: 100%;
+  overflow: hidden; }
+  .eventCard__image img {
+    max-width: 100%; }
+
+.film .event__dateBox,
+.film .card__button {
+  background-color: #72bcae; }
+
+.film .card__button:hover {
+  background-color: #1b7f6b; }
+
+.event .event__dateBox,
+.event .card__button {
+  background-color: #f6583e; }
+
+.event .card__button:hover {
+  background-color: #8d2c1b; }
 
 .featured-story {
   border: 1px solid darkorange;
@@ -1910,154 +2065,3 @@ div.wpcf7-validation-errors {
   background: #fff;
   -webkit-transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
   transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); }
-
-div[class^="inline-"] {
-  display: none; }
-
-.featuredEvent_carousel .carousel {
-  border: 1px solid #ccc;
-  max-height: 400px; }
-
-.featuredEvent__slideContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  max-height: 400px;
-  overflow: hidden; }
-
-.featuredEvent__image {
-  width: 66%; }
-  .featuredEvent__image img {
-    width: 100%;
-    display: block; }
-
-.featuredEvent__info {
-  width: 33%; }
-
-.upcoming-events .filmFilters {
-  display: none; }
-
-.filmFilters .default {
-  position: relative;
-  margin-right: 26px; }
-  .filmFilters .default::after {
-    position: absolute;
-    content: "|";
-    font-weight: 400;
-    right: -16px;
-    color: #ccc; }
-
-.card__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-line-pack: top;
-      align-content: top;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-top: 30px; }
-
-.card {
-  position: relative;
-  background-color: #fff;
-  vertical-align: top;
-  max-width: 250px;
-  width: 100%;
-  margin-right: 30px;
-  margin-bottom: 30px;
-  border: 1px solid #ccc;
-  overflow: hidden;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease; }
-  .card__button {
-    position: absolute;
-    z-index: 10;
-    text-align: center;
-    padding: 20px 10px;
-    width: 100%;
-    height: 50px;
-    bottom: -45px;
-    border-radius: 0;
-    margin: 0; }
-  .card:hover .card__button {
-    bottom: 0; }
-  .card:hover .card__title {
-    text-decoration: underline; }
-  .card__infoWrapper {
-    padding: 10px 10px 30px 10px; }
-  .card__title {
-    font-size: 18px;
-    font-size: 1.125rem;
-    font-weight: 700;
-    margin: 0.2em 0; }
-  .card__info p {
-    margin: .5em 0;
-    font-size: 14px;
-    font-size: 0.875rem; }
-  .card__info i {
-    width: 30px;
-    padding-right: 10px;
-    text-align: center;
-    opacity: .5;
-    font-size: 16px;
-    font-size: 1rem; }
-
-.film .event__dateBox,
-.film .card__button {
-  background-color: #72bcae; }
-
-.film .card__button:hover {
-  background-color: #1b7f6b; }
-
-.event .event__dateBox,
-.event .card__button {
-  background-color: #f6583e; }
-
-.event .card__button:hover {
-  background-color: #8d2c1b; }
-
-.event__dateBox {
-  width: 40px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  text-align: center;
-  color: #fff;
-  line-height: 1; }
-  .event__dateBox span {
-    display: block; }
-  .event__dateBox .day {
-    font-size: 22px;
-    font-size: 1.375rem;
-    font-family: "industry", sans-serif; }
-  .event__dateBox .month {
-    font-size: 10px;
-    font-size: 0.625rem;
-    text-transform: uppercase; }
-
-.eventCard .event__dateBox {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  right: 0; }
-
-.eventCard__image {
-  height: 141px;
-  width: 100%;
-  overflow: hidden; }
-  .eventCard__image img {
-    max-width: 100%; }
-
-.image-only__content-container {
-  position: absolute;
-  top: 10%;
-  left: 15%;
-  width: 70%;
-  margin: auto;
-  color: white;
-  text-align: center; }
-  .image-only__content-container ul {
-    list-style: none;
-    line-height: 4rem; }
-  .image-only__content-container button {
-    background-color: white;
-    color: black; }
