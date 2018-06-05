@@ -13,7 +13,22 @@
         <div class="featuredEvent__slide">
         	<div class="featuredEvent__slideContainer">
         		<div class="featuredEvent__image">
-              <img src="<?php echo get_field('event_image', $featured_ID)["url"]; ?>" alt="event poster" />
+        			<?php 
+	        			$haveRows = get_field('event_hero', $featured_ID);
+	        			$image_url = get_stylesheet_directory_uri().'/src/img/no-event-image-full.jpg';
+								$image_alt = 'No Event Image to Show'; 
+        				
+        				if ($haveRows){
+									$slideRepeater = get_field('panel_content', $featured_ID);
+									$image = $slideRepeater[0]['image'];
+							 	 	
+							 	 	if($image){ 
+			           		$image_url = $image['sizes']['hero-small'];
+			           		$image_alt = $image['alt'];
+			            } //endif 
+		            ?>
+							<?php } //endif haveRows ?>
+						 	<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>" />	
             </div>
             <div class="featuredEvent__info">
               <div class="container">

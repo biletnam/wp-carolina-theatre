@@ -829,17 +829,20 @@
 			// 1 - enter trigger = show dropdown
 			$edTrigger.on('mouseover touch', function(e) {
 			  $ed.addClass('show');	
+			  $edTrigger.addClass('hover');
 			});
 			// 2 - leave trigger, enter dropdown = show dropdown
 			$edTrigger.on('mouseleave touch', function(e) {
 				// e.relatedTarget – is the new under-the-pointer element (that mouse left for).
 				if (!$ed.is(e.relatedTarget) && $ed.has(e.relatedTarget).length === 0) {
 				  $ed.removeClass('show');
+				  $edTrigger.removeClass('hover');
 				}
 			});
 			// 3 - leave dropdown = hide dropdown
 			$ed.on('mouseleave', function(e) {
-			  $ed.removeClass('show');	
+			  $ed.removeClass('show');
+			  $edTrigger.removeClass('hover');	
 			});
 
 			// gallery featherlight init
