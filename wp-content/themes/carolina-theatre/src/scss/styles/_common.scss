@@ -347,10 +347,14 @@ main {
 			margin-right: 10px;
 			margin-bottom: 10px;
 		}		
+
 	}
 
 	&__gallery,
 	&__slider {
+		.image_wrapper {
+			position: relative;
+		}
 		img {
 			display: block;
 		}
@@ -429,17 +433,17 @@ main {
 
 
 // content-blocks-link-block.php
+
 .block__ctas {
 	display: flex;
-	justify-content: center;
 	flex-wrap: wrap;
 }
-
 .cta__card {
 	position: relative;
 	z-index: 1;
   padding: 20px 20px 20px 30px;
 	margin: 10px;
+	margin-left: 0;
 	width: 100%;
 	max-width: 350px;
 	border: 1px solid $gray;
@@ -465,6 +469,15 @@ main {
 		&::before {
 			right: 0;
 		}
+	}
+}
+.mainContent__noSidebar,
+.hp-ctaCards {
+	.block__ctas {
+		justify-content: center;
+	}
+	.cta__card {
+		margin-left: 10px;
 	}
 }
 .mainContent__sidebar {

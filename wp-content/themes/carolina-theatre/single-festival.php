@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 <?php while ( have_posts() ) { the_post(); ?>
+<?php get_template_part( 'blocks/content', 'breadcrumb' ); ?>
+
 <section class="hero-container contain container">
   <div class="carousel carousel__images">
     <?php if (have_rows('hero_images')) { ?>

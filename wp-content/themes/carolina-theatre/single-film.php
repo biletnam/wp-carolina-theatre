@@ -1,4 +1,6 @@
 <?php get_header(); ?>
+<?php get_template_part( 'blocks/content', 'breadcrumb' ); ?>
+
 <?php while ( have_posts() ) { the_post(); ?>
 <?php // convert date strings to integers for sorting
 	// $event_dates = array();

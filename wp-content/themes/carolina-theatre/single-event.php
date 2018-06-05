@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 <?php while ( have_posts() ) { the_post(); ?>
+<?php get_template_part( 'blocks/content', 'breadcrumb' ); ?>
+
 <?php 
 	$date_range = get_field('showtimes');
   if ($date_range != NULL) {
@@ -50,7 +52,7 @@
 					<?php } //endif ?>
 				</div>
       </div>
-      
+
       <p>The Carolina Theatre Presents...</p>
       <h2 class="singleEvent__title"><?php echo the_title(); ?></h2>
       <p class="singleEvent__subtitle"><?php echo get_field('event_subtitle'); ?></p>
