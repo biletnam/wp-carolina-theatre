@@ -6,19 +6,24 @@
 		  <?php 
 			  $uniqueID++;
 			  $media_type = get_sub_field('media_type');
+				$embedCode = get_sub_field('video_embed');
+
         $image = get_sub_field('image'); 
+        $image_full = $image['sizes']['hero-default'];
+				$image_thumb = $image['sizes']['thumbnail'];
+				$image_alt = $image['alt'];
+				$image_cap = $image['caption'];
       ?>
       
 	    <?php if ($media_type == 'image') { ?>
-        <div data-thumb="<?php echo $image['sizes']['thumbnail']; ?>" >
-        	<img src="<?php echo $image['sizes']['hero-default']; ?>" alt="<?php echo $image['alt']; ?>" />
+        <div data-thumb="<?php echo $image_thumb; ?>" >
+        	<img src="<?php echo $image_full; ?>" alt="<?php echo $image_alt; ?>" />
        	</div>
     	<?php } else if ($media_type == 'video') { ?>
-        <?php $embedCode = get_sub_field('video_embed'); ?>
-        <div data-thumb="<?php echo $image['sizes']['thumbnail']; ?>" >
+        <div data-thumb="<?php echo $image_thumb; ?>" >
         	<a href="<?php echo '.sliderContent-' . $uniqueID; ?>" data-featherlight>
             <i class="fas fa-play"></i>
-						<img src="<?php echo $image['sizes']['hero-default']; ?>" alt="<?php echo $image['alt']; ?>" />
+						<img src="<?php echo $image_full; ?>" alt="<?php echo $image_alt; ?>" />
 			    </a>
 			    <div class="gallery-content <?php echo 'sliderContent-' . $uniqueID; ?>">
 			      <div class="video"><?php echo $embedCode; ?></div>
