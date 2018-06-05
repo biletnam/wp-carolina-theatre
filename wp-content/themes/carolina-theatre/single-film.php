@@ -1,33 +1,83 @@
 <?php get_header(); ?>
+<?php get_template_part( 'blocks/content', 'breadcrumb' ); ?>
+
 <?php while ( have_posts() ) { the_post(); ?>
 <?php // convert date strings to integers for sorting
-	$event_dates = array();
-	if (have_rows('showtimes')) {
-    while (have_rows('showtimes')) { the_row();
-      $event_date = strtotime(get_sub_field('dates'));
-      array_push($event_dates, $event_date);
-    }
-	}
+	// $event_dates = array();
+	// if (have_rows('showtimes')) {
+ //    while (have_rows('showtimes')) { the_row();
+ //      $event_date = strtotime(get_sub_field('dates'));
+ //      array_push($event_dates, $event_date);
+ //    }
+	// }
 
-	// pick the min/max and convert to string 
-	$date_string = '';
-	$start_date = date("F d, Y", min($event_dates));
-	$end_date = date("F d, Y", max($event_dates));
+	// // pick the min/max and convert to string 
+	// $date_string = '';
+	// $start_date = date("F d, Y", min($event_dates));
+	// $end_date = date("F d, Y", max($event_dates));
 
-	if ($start_date == $end_date) {
-		$date_string = $start_date;
-	} else {
-		$date_string = $start_date . '-' . $end_date;
-	}
+	// if ($start_date == $end_date) {
+	// 	$date_string = $start_date;
+	// } else {
+	// 	$date_string = $start_date . '-' . $end_date;
+	// }
+
+	// // the closest upcoming date (to show in the card as the date square)
+ //  $dateToShowInCard = $event_dates[0]; 
 ?>
+
+<?php 
+	$date_range = get_field('showtimes');
+  if ($date_range != NULL) {
+  	// dates in YYYYMMDD format for easy comparing (ie: 20180130)
+    $start_date = get_field('start_date');
+    $end_date = get_field('end_date');
+    $today = date("Ymd", strtotime('today'));
+
+    // if event is a single day, set end_date
+    if($end_date == NULL) {
+    	$end_date = $start_date;
+    }
+
+    // only construct events if they are in the future
+    if ($end_date >= $today) {
+		  $event_dates = array();
+		  // $event_times = array();
+  		if (have_rows('showtimes')) { 
+        while (have_rows('showtimes')) { the_row();
+      		$showtime = get_sub_field('dates', false, false);
+      		if ($showtime >= $today) { // if the showtime is today or in the future,
+        		array_push($event_dates, $showtime);	// push date to array
+        		// array_push($event_times, get_sub_field('times')[0]['time']);	// push times to an array
+      		}
+         } // endwhile showtimes
+      } //endif showtimes 
+      
+      // the closest upcoming date (to show in the card as the date square)
+      $dateToShowInCard = $event_dates[0]; 
+    }
+  }
+?>
+
 <section class="mainContent contain film">
   <div class="mainContent__content">
   	<div class="container">
-      <p class="singleEvent__category"><?php echo get_post_type() ?></p>
       <div class="singleEvent__image">
-        <img src="<?php echo get_field('event_image')["url"]; ?>" alt="the poster for the film">
-        <div class="singleEvent__image--date"><?php echo $date_string; ?></div>
+       <div class="event__dateBox">
+					<span class="day"><?php echo date("j", strtotime($dateToShowInCard)); ?></span>
+					<span class="month"><?php echo date("M", strtotime($dateToShowInCard)); ?></span>
+				</div>
+				<div class="singleEvent__hero">
+					<?php if (have_rows('event_hero')){ ?>
+					<?php while (have_rows('event_hero')){ the_row(); ?>
+					<?php get_template_part( 'blocks/content-blocks', 'slider' ); ?>
+					<?php } //endwhile ?>
+					<?php } else { ?>
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/src/img/no-event-image-full.jpg" alt="No Event Image to Show">
+					<?php } //endif ?>
+				</div>
       </div>
+
       <p>The Carolina Theatre Presents...</p>
       <h2 class="singleEvent__title"><?php echo the_title(); ?></h2>
       <p class="singleEvent__subtitle"><?php echo get_field('event_subtitle'); ?></p>

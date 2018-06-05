@@ -13,7 +13,22 @@
         <div class="featuredEvent__slide">
         	<div class="featuredEvent__slideContainer">
         		<div class="featuredEvent__image">
-              <img src="<?php echo get_field('event_image', $featured_ID)["url"]; ?>" alt="event poster" />
+        			<?php 
+	        			$haveRows = get_field('event_hero', $featured_ID);
+	        			$image_url = get_stylesheet_directory_uri().'/src/img/no-event-image-full.jpg';
+								$image_alt = 'No Event Image to Show'; 
+        				
+        				if ($haveRows){
+									$slideRepeater = get_field('panel_content', $featured_ID);
+									$image = $slideRepeater[0]['image'];
+							 	 	
+							 	 	if($image){ 
+			           		$image_url = $image['sizes']['hero-small'];
+			           		$image_alt = $image['alt'];
+			            } //endif 
+		            ?>
+							<?php } //endif haveRows ?>
+						 	<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>" />	
             </div>
             <div class="featuredEvent__info">
               <div class="container">
@@ -45,30 +60,29 @@
                   ?> 
                 </p>
                 <p>
-                    <i class="far fa-map-marker-alt" aria-hidden="true"></i>
-                    <?php 
-                        $featured_location = get_field('location', $featured_ID);
-                         
-                        if (count($featured_location) > 1) {
-                            echo join(", ", $featured_location);
-                        } else {
-                            echo $featured_location[0];
-                        }
-                    ?>
+                  <i class="far fa-map-marker-alt" aria-hidden="true"></i>
+                  <?php 
+                    $featured_location = get_field('location', $featured_ID);
+                     
+                    if (count($featured_location) > 1) {
+                        echo join(", ", $featured_location);
+                    } else {
+                        echo $featured_location[0];
+                    }
+                  ?>
                 </p>
                 <p>
-                    <i class="far fa-ticket-alt" aria-hidden="true"></i>
-                    <?php 
-                        $multiple_ticket_prices = array();
-                        if (have_rows('ticket_prices', $featured_ID)) {
-                            while (have_rows('ticket_prices', $featured_ID)) {
-                                the_row();
-                                $price = get_sub_field('price');
-                                array_push($multiple_ticket_prices, $price);
-                            }
-                        }
-                        echo '$' . join(', ', $multiple_ticket_prices);
-                    ?>
+                  <i class="far fa-ticket-alt" aria-hidden="true"></i>
+                  <?php 
+                    $multiple_ticket_prices = array();
+                    if (have_rows('ticket_prices', $featured_ID)) {
+                      while (have_rows('ticket_prices', $featured_ID)) { the_row();
+                        $price = get_sub_field('price');
+                        array_push($multiple_ticket_prices, $price);
+                      }
+                    }
+                    echo '$' . join(', ', $multiple_ticket_prices);
+                  ?>
                 </p>
                 <a href="<?php echo get_page_link($featured_ID); ?>" class="button">More Info</a>
                 <a href="<?php echo get_page_link($featured_ID); ?>" class="button secondary">Tickets</a>
@@ -201,38 +215,7 @@
       </div> <!-- .events -->
     </div>
   </div><!-- .mainContent__content -->
-  <aside class="mainContent__sidebar">
-  	<div class="container">
-      <?php // TO-DO: Get search setup ?>
-      <div class="upcoming-events__sidebar--search">
-	      <input type="text" placeholder="Search..." />
-	      <button>Search Events</button>
-      </div>
-      <?php // TO-DO: Get sidebars setup ?>
-      <div class="sidebar__menus">
-      	<div class="sidebar__menu">
-	        <p class="h3">Upcoming Film Series</p>
-	        <ul>
-	            <li><a href="#" title="">Retro Epics ››</a></li>
-	            <li><a href="#" title="">Anime-Magic ››</a></li>
-	            <li><a href="#" title="">SplatterFlix ››</a></li>
-	            <li><a href="#" title="">Fantastic Realm ››</a></li>
-	            <li><a href="#" title="">Retro ArtHouse ››</a></li>
-	        </ul>
-	      </div>
-	      <div class="sidebar__menus--menu">
-	        <p class="h3">Upcoming Film Festivals</p>
-	        <ul>
-	          <li><a href="#" title="">NC Gay &amp; Lesbian Film Festival >></a></li>
-	          <li><a href="#" title="">Nevermore ››</a></li>
-	          <li><a href="#" title="">Full Frame ››</a></li>
-	        </ul>
-	      </div>
-      </div>
-      
-      <?php get_template_part( 'blocks/content-blocks', 'link-block' ); ?>
-  	</div>
-  </aside>
+  <?php get_sidebar('events'); ?>
 </section>
 <?php } // endwhile; ?>
 

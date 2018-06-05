@@ -26,7 +26,7 @@
                     "label": "Image",
                     "name": "image",
                     "type": "image",
-                    "instructions": "",
+                    "instructions": "Best results: <strong>1440px<\/strong> x <strong>810px<\/strong>\r\nMinimum width: 1280px",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -35,9 +35,9 @@
                         "id": ""
                     },
                     "return_format": "array",
-                    "preview_size": "thumbnail",
+                    "preview_size": "hero-default",
                     "library": "all",
-                    "min_width": "",
+                    "min_width": 1440,
                     "min_height": "",
                     "min_size": "",
                     "max_width": "",
@@ -84,5 +84,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1527714090
+    "modified": 1528208605
 }

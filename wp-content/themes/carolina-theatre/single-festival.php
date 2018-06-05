@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 <?php while ( have_posts() ) { the_post(); ?>
+<?php get_template_part( 'blocks/content', 'breadcrumb' ); ?>
+
 <section class="hero-container contain container">
   <div class="carousel carousel__images">
     <?php if (have_rows('hero_images')) { ?>
@@ -51,7 +53,7 @@
             <?php } // end if tabbed_content ?>
 	       </ul> 
 	    </div>
-	    <!-- Generate all tabs, show only highlighted tab content -->
+	    <!-- Generate content for all tabs -->
 	    <div class="tabbedContent_contentWrapper">
 	      <div class="tabbedContent__content overview">
           <?php if( have_rows('tabbed_content') ) { ?>
@@ -65,39 +67,36 @@
             <?php } // end if tabbed_content ?>
 	      </div>
 	      <div class="tabbedContent__content films card__wrapper hide-tab-content">
-	        <?php // film tab contents
-	        // TO-DO: Get the associates working between film and festival
-			    $limit = -1;
-					$events_query_args = array(
-						'post_type' => array('film'),
-						'post_status' => 'publish',
-						'posts_per_page' => $limit,
-						'meta_query' => array (array(
-              'key'     => 'associated_events',
-              'value'   => get_the_id(),
-              'compare' => '='
+	        <?php // get associated films with this festival
+					$associatedFilms_query_args = array(
+						'post_type' 			=> array('film'),
+						'post_status' 		=> 'publish',
+						'posts_per_page' 	=> -1,
+						'meta_query' 			=> array ( 
+							array(
+	              'key'     				=> 'associated_event',
+	              'value'   				=> get_the_id(),
+	              'compare' 				=> '=',
+	              'start_clause' 		=> array('key' => 'start_date'),
+							  'end_clause' 			=> array('key' => 'end_date')
               )
             ),
-						'meta_query' => array(
-						  'start_clause' => array('key' => 'start_date'),
-						  'end_clause' => array('key' => 'end_date')
-						),
-						'orderby' => array(
-						  'relation' => 'AND',
-						  'start_clause' => 'ASC',
-						  'end_clause' => 'ASC'
+						'orderby' 				=> array(
+						  'relation' 				=> 'AND',
+						  'start_clause'		=> 'ASC',
+						  'end_clause' 			=> 'ASC'
 						),
 					);
 
 					// The Loop
-					$events_query = new WP_Query($events_query_args);
-					if ($events_query->have_posts()) {
-						while ($events_query->have_posts()) { $events_query->the_post(); ?>
+					$associatedFilms_query = new WP_Query($associatedFilms_query_args);
+					if ($associatedFilms_query->have_posts()) {
+						while ($associatedFilms_query->have_posts()) { $associatedFilms_query->the_post(); ?>
 						  <?php get_template_part('blocks/event', 'card'); ?>
 			  		<?php } // endwhile have_posts events_query ?>
 					<?php wp_reset_postdata(); // Restore original Post Data
 					} else {
-					echo 'No events at this time';
+					echo '<div><h2>No Films Yet.</h2><p>Check back for updates!</p></div>';
 					} // endif have_posts events_query
 				?>
 	      </div>
@@ -161,29 +160,29 @@
     </div>
     <div class="festival-sidebar__additional-links">
       <ul>
-          <?php
-            $files = get_field('additional_resources');
+        <?php
+          $files = get_field('additional_resources');
 
-            if (have_rows('additional_resources')) {
-              while(have_rows('additional_resources')) { the_row();
-                $href = "";
-                $file = get_sub_field('file_link');
-                if ($file['add_file_by'] == 'File URL') {
-                    $href = $file['file_url'];
-                } else if ($file['add_file_by'] == "Upload a File") {
-                    $href = $file['upload_file'];
-                }
-   						 	?>
-                <li>
-                    <a target="_blank" href="<?php echo $href ?>">
-                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                    <?php echo $file['link_text']; ?>
-                    </a>
-                </li> 
-      				<?php     
+          if (have_rows('additional_resources')) {
+            while(have_rows('additional_resources')) { the_row();
+              $href = "";
+              $file = get_sub_field('file_link');
+              if ($file['add_file_by'] == 'File URL') {
+                  $href = $file['file_url'];
+              } else if ($file['add_file_by'] == "Upload a File") {
+                  $href = $file['upload_file'];
               }
+ 						 	?>
+              <li>
+                  <a target="_blank" href="<?php echo $href ?>">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  <?php echo $file['link_text']; ?>
+                  </a>
+              </li> 
+    				<?php     
             }
-          ?>
+          }
+        ?>
       </ul>
     </div>
   </aside>  <!-- Sidebar end -->

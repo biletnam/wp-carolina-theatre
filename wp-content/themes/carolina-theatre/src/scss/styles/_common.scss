@@ -302,8 +302,7 @@ main {
 
 // wrapper for content/sidebar on templates
 .mainContent {
-
-	&:not(.main_content__noSidebar){
+	&:not(.mainContent__noSidebar){
 		display: flex;
 	}
 
@@ -320,13 +319,25 @@ main {
 		> .container {
 	    padding-left: 20px;
 	    padding-right: 20px;
+	    padding-top: 0;
+
+	    > * {
+	    	padding-bottom: 30px;
+	    	border-bottom: 1px solid $gray;
+	    	margin-bottom: 30px;
+
+	    	&:last-of-type {
+	    		border-bottom: 0;
+	    	}
+	    }
 		}
 	}
 	&__noSidebar {
 		.block__default,
-		.block__gallery,
-		.accordion {
-			max-width: 800px;
+		.accordion,
+		.block__slider,
+		.block__gallery {
+			max-width: 960px;
 			margin: 0 auto;
 		}
 	}
@@ -343,18 +354,23 @@ main {
 	&__gallery {
 		a {
 			max-width: 350px;	
+			vertical-align: top;
+			margin-right: 10px;
+			margin-bottom: 10px;
 		}		
 	}
 
 	&__gallery,
 	&__slider {
+		.image_wrapper {
+			position: relative;
+		}
 		img {
 			display: block;
 		}
 		a {
 			position: relative;
 			display: inline-block;
-			margin-right: 10px;
 			width: 100%;
 
 			&::after {
@@ -418,26 +434,17 @@ main {
 	}
 }
 
-// .eventType__event {
-// 	color: $red;
-// }
-// .eventType__film {
-// 	color: $green;
-// }
-
-
 // content-blocks-link-block.php
 .block__ctas {
 	display: flex;
-	justify-content: center;
 	flex-wrap: wrap;
 }
-
 .cta__card {
 	position: relative;
 	z-index: 1;
   padding: 20px 20px 20px 30px;
 	margin: 10px;
+	margin-left: 0;
 	width: 100%;
 	max-width: 350px;
 	border: 1px solid $gray;
@@ -465,10 +472,47 @@ main {
 		}
 	}
 }
+.mainContent__noSidebar,
+.hp-ctaCards {
+	.block__ctas {
+		justify-content: center;
+	}
+	.cta__card {
+		margin-left: 10px;
+	}
+}
 .mainContent__sidebar {
 	.cta__card {
 		margin-right: 0;
     padding: 20px 20px 20px 30px;
+	}
+}
+
+.sidebar__menu {
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+	li {
+	  padding: 7px 0;
+
+	  &::after {
+	  	content: '››';
+	  	padding-left: 4px;
+	  }
+	}
+
+	.current_page_item,
+	.current_page_parent,
+	.current_page_ancestor {
+		font-weight: 700;
+	}
+
+	a {
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 }
 

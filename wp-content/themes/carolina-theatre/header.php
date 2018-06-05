@@ -80,10 +80,22 @@ $GLOBALS["location_directionlink"] = get_field('google_map_link', 'option');
 	    	) 
 	  	); ?>
 		</nav>
-
   	<div id="mobileNav__closeBtn" class="btn__close fas fa-times"></div>
 	</div>
 	<?php } ?>
+	<div class="cta">
+		<?php // call to action button
+	if(has_nav_menu('header-cta')){ ?>
+		<?php wp_nav_menu( array( 
+    	'theme_location' 	=> 'header-cta', 
+    	'container'				=> false,
+    	'menu_class'			=> 'header__cta',
+    	'menu_id'					=> '',
+    	) 
+  	); ?>
+	<?php } ?>	
+	</div>
+	
   <?php // primary mobile menu
 	if(has_nav_menu('header-main')){ ?>
     <nav class="header__mobileNav--menu" id="header__mobileNav--menu" role="navigation">

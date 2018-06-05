@@ -241,6 +241,13 @@
 		"oAP": "\/blocks\/content-blocks-section-divide.php",
 		"oF": 0
 		},
+	"\/blocks\/content-blocks-slider-hero.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/blocks\/content-blocks-slider-hero.php",
+		"oF": 0
+		},
 	"\/blocks\/content-blocks-slider.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -269,11 +276,11 @@
 		"oAP": "\/blocks\/content-breadcrumb.php",
 		"oF": 0
 		},
-	"\/blocks\/content-sidebar.php": {
+	"\/blocks\/content-latest-news-slider.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/blocks\/content-sidebar.php",
+		"oAP": "\/blocks\/content-latest-news-slider.php",
 		"oF": 0
 		},
 	"\/blocks\/content-upcoming-events-slider.php": {
@@ -362,6 +369,13 @@
 		"oAP": "\/header.php",
 		"oF": 0
 		},
+	"\/inc\/admin-dashboard.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/inc\/admin-dashboard.php",
+		"oF": 0
+		},
 	"\/inc\/custom-post-types.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -376,11 +390,11 @@
 		"oAP": "\/inc\/custom_walker-icon.php",
 		"oF": 0
 		},
-	"\/inc\/reorder-admin-dashboard.php": {
+	"\/inc\/tinymce.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/inc\/reorder-admin-dashboard.php",
+		"oAP": "\/inc\/tinymce.php",
 		"oF": 0
 		},
 	"\/index.php": {
@@ -429,6 +443,13 @@
 		"oAP": "\/searchform.php",
 		"oF": 0
 		},
+	"\/sidebar-events.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/sidebar-events.php",
+		"oF": 0
+		},
 	"\/sidebar.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -463,46 +484,6 @@
 		"oA": 0,
 		"oAP": "\/single.php",
 		"oF": 0
-		},
-	"\/src\/img\/background-background-image-creek-707915.jpg": {
-		"ft": 16384,
-		"iS": 6579815,
-		"oA": 0,
-		"oAP": "\/src\/img\/background-background-image-creek-707915.jpg",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"q": 100
-		},
-	"\/src\/img\/comedy.jpg": {
-		"ft": 16384,
-		"iS": 55151,
-		"oA": 0,
-		"oAP": "\/src\/img\/comedy.jpg",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"q": 100
-		},
-	"\/src\/img\/death_proof.jpg": {
-		"ft": 16384,
-		"iS": 99630,
-		"oA": 0,
-		"oAP": "\/src\/img\/death_proof.jpg",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"q": 100
-		},
-	"\/src\/img\/les_miserables.jpg": {
-		"ft": 16384,
-		"iS": 46662,
-		"oA": 0,
-		"oAP": "\/src\/img\/les_miserables.jpg",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"q": 100
 		},
 	"\/src\/img\/logos\/ctd-logo-new.svg": {
 		"ft": 2097152,
@@ -544,14 +525,24 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
-	"\/src\/img\/oliver.jpg": {
+	"\/src\/img\/no-event-image-full.jpg": {
 		"ft": 16384,
-		"iS": 143021,
+		"iS": 696945,
 		"oA": 0,
-		"oAP": "\/src\/img\/oliver.jpg",
+		"oAP": "\/src\/img\/no-event-image-full.jpg",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
+		"q": 100
+		},
+	"\/src\/img\/no-event-image-thumb.jpg": {
+		"ft": 16384,
+		"iS": 696945,
+		"oA": 0,
+		"oAP": "\/src\/img\/no-event-image-thumb.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 1,
 		"q": 100
 		},
 	"\/src\/img\/patterns\/pattern-black.png": {
@@ -596,26 +587,6 @@
 		"oIPL": 0,
 		"opt": 0,
 		"oT": 1,
-		"q": 100
-		},
-	"\/src\/img\/the-last-jedi-theatrical-blog.jpg": {
-		"ft": 16384,
-		"iS": 721767,
-		"oA": 0,
-		"oAP": "\/src\/img\/the-last-jedi-theatrical-blog.jpg",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"q": 100
-		},
-	"\/src\/img\/wizard-of-oz.jpg": {
-		"ft": 16384,
-		"iS": 533604,
-		"oA": 0,
-		"oAP": "\/src\/img\/wizard-of-oz.jpg",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
 		"q": 100
 		},
 	"\/src\/js\/alertBanner.js": {
@@ -729,16 +700,16 @@
 		"tS": 0
 		},
 	"\/src\/scss\/dashboard\/editor-style.scss": {
-		"aP": 0,
+		"aP": 1,
 		"bl": 0,
 		"dP": 10,
 		"dS": 0,
 		"ft": 4,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/src\/scss\/dashboard\/editor-style.css",
-		"oF": 0,
-		"oS": 0,
+		"oAP": "\/dist\/editor-style.css",
+		"oF": 2,
+		"oS": 3,
 		"uL": 1
 		},
 	"\/src\/scss\/helpers\/_functions.scss": {
@@ -977,6 +948,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/template-events.php",
+		"oF": 0
+		},
+	"\/template-fullwidth.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-fullwidth.php",
 		"oF": 0
 		},
 	"\/template-homepage.php": {

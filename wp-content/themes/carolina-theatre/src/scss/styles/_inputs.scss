@@ -3,7 +3,6 @@
 ////
 
 .button,
-.header__cta a,
 input[type="submit"] {
 	display: inline-block;
 	outline: 0;
@@ -19,11 +18,12 @@ input[type="submit"] {
 	border-radius: 3px;
 	margin-top: .5em;
 	margin-bottom: .5em;
-	padding: 14px 20px 13px; // specific to vertically center font
+	padding: 14px 20px 12px; // specific to vertically center font
 	transition: $transition;
 	
 	&:hover {
 		background-color: $red-med;
+		color: $white;
 	}
 
 	&.secondary {
@@ -54,7 +54,7 @@ input[type="submit"] {
 		box-shadow: inset 0 0 0 2px $gray;
 
 		&:hover {
-			box-shadow: inset 0 0 0 2px $off-black;
+			box-shadow: inset 0 0 0 2px $green;
 			color: $text;
 		}
 
@@ -80,6 +80,48 @@ input[type="submit"] {
 
 	~ .button {
 		margin-left: 8px;
+	}
+}
+
+.header__cta a {
+	display: inline-block;
+	outline: 0;
+	border: 0;
+	cursor: pointer;
+	font-family: $header;
+	font-weight: 700;
+	text-transform: uppercase;
+	@include rem(14);
+	line-height: 1;
+	border-radius: 3px;
+	margin-top: .5em;
+	margin-bottom: .5em;
+	padding: 14px 20px 10px; // specific to vertically center font
+	transition: $transition;
+	background-color: $white;
+	color: $text;
+	box-shadow: inset 0 0 0 2px $gray;
+
+	&:hover {
+		box-shadow: inset 0 0 0 2px $green;
+		color: $text;
+	}
+}
+
+p .button { // for TinyMCE 'p span.button a' elements
+	a {
+		text-decoration: none;
+		transition: none;
+
+		&:hover {
+			color: $white;
+		}
+	}
+
+	&.gray {
+		a:hover {
+			color: $text;
+		}
 	}
 }
 

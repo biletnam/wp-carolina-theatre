@@ -1,6 +1,5 @@
 <div class="cardSlider">
   <?php // The Query
-  	// TO-DO: Filter event showtimes within ARGS
     $limit = 12;
 		$events_query_args = array(
 			'post_type' => array('event', 'film'),

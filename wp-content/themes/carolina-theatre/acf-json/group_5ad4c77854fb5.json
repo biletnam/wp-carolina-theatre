@@ -3,6 +3,27 @@
     "title": "Film Series & Festivals",
     "fields": [
         {
+            "key": "field_5ad4dd488d003",
+            "label": "Hero Slider",
+            "name": "hero_slider",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_5ad4dced3f094"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
             "key": "field_5b1032809a90b",
             "label": "Overview, Films and More",
             "name": "tabbed_content",
@@ -37,6 +58,23 @@
                     "layout": "block",
                     "prefix_label": 0,
                     "prefix_name": 0
+                },
+                {
+                    "key": "field_5b16abd498713",
+                    "label": "Films Tab",
+                    "name": "",
+                    "type": "message",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "You can add associated films to this festival\/series thru the individual <a href=\"http:\/\/wp-carolina-theater.test\/wp-admin\/edit.php?post_type=film\" target=\"_blank\">single Film posts<\/a>.",
+                    "new_lines": "wpautop",
+                    "esc_html": 0
                 },
                 {
                     "key": "field_5ad76fc84f61a",
@@ -102,27 +140,6 @@
             ]
         },
         {
-            "key": "field_5ad4dd488d003",
-            "label": "Image Slider",
-            "name": "image_slider",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_5ad4dced3f094"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
             "key": "field_5ad4ed0b4c167",
             "label": "Start Date",
             "name": "start_date",
@@ -155,82 +172,6 @@
             "display_format": "F j, Y",
             "return_format": "F j, Y",
             "first_day": 0
-        },
-        {
-            "key": "field_5ad4ee230f2c1",
-            "label": "Video Link 1",
-            "name": "video_link_1",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5ad4ee370f2c2",
-            "label": "Video Caption 1",
-            "name": "video_caption_1",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5ad4ee420f2c3",
-            "label": "Video Link 2",
-            "name": "video_link_2",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5ad4ee780f2c4",
-            "label": "Video Caption 2",
-            "name": "video_caption_2",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
         },
         {
             "key": "field_5ad4f9c8b6ed0",
@@ -398,6 +339,20 @@
                 "operator": "==",
                 "value": "festival"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "series"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "education"
+            }
         ]
     ],
     "menu_order": 20,
@@ -406,9 +361,10 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [
-        "the_content"
+        "the_content",
+        "excerpt"
     ],
     "active": 1,
     "description": "",
-    "modified": 1528146031
+    "modified": 1528213148
 }

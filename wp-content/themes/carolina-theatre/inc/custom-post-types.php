@@ -1,22 +1,22 @@
 <?php
 /*
- * Register Film Series & Festiavls Post Types
+ * Register Film Festivals Post Types
  */
 function festival_create_post_type() {
 	$labels = array(
-		'name' => 'Series/Festivals',
-		'singular_name' => 'Film Series/Festival',
-		'add_new' => 'Add Series/Festival',
-		'all_items' => 'All Film Series/Festivals',
-		'add_new_item' => 'Add Film Series/Festival',
-		'edit_item' => 'Edit Series/Festival',
-		'new_item' => 'New Series/Festival',
-		'view_item' => 'View Film Series/Festival',
-		'search_items' => 'Search Film Series/Festivals',
-		'not_found' => 'No Film Series/Festivals found',
-		'not_found_in_trash' => 'No Film Series/Festivals found in trash',
-		'parent_item_colon' => 'Parent Film Series/Festival',
-		'menu_name' => 'Series/Festivals'
+		'name' => 'Film Festivals',
+		'singular_name' => 'Film Festival',
+		'add_new' => 'Add Festival',
+		'all_items' => 'All Film Festivals',
+		'add_new_item' => 'Add Film Festival',
+		'edit_item' => 'Edit Film Festival',
+		'new_item' => 'New Film Festival',
+		'view_item' => 'View Film Festival',
+		'search_items' => 'Search Film Festivals',
+		'not_found' => 'No Film Festivals found',
+		'not_found_in_trash' => 'No Film Festivals found in trash',
+		'parent_item_colon' => 'Parent Film Festival',
+		'menu_name' => 'Film Festivals'
 	);
 	$args = array(
 		'labels' => $labels,
@@ -44,10 +44,111 @@ function festival_create_post_type() {
 		'taxonomies' => array( 'category', 'post_tag' ), // add default post categories and tags
 		'menu_position' => 9,
 		'exclude_from_search' => false,
-		'menu_icon' => 'dashicons-awards',
+		'menu_icon' => 'dashicons-video-alt2',
 	);
 	register_post_type( 'festival', $args );
 } add_action( 'init', 'festival_create_post_type', 0 );
+
+/*
+ * Register Film Series Post Types
+ */
+function series_create_post_type() {
+	$labels = array(
+		'name' => 'Film Series',
+		'singular_name' => 'Film Series',
+		'add_new' => 'Add Film Series',
+		'all_items' => 'All Film Series',
+		'add_new_item' => 'Add Film Series',
+		'edit_item' => 'Edit Film Series',
+		'new_item' => 'New Film Series',
+		'view_item' => 'View Film Series',
+		'search_items' => 'Search Film Series',
+		'not_found' => 'No Film Series found',
+		'not_found_in_trash' => 'No Film Series found in trash',
+		'parent_item_colon' => 'Parent Film Series',
+		'menu_name' => 'Film Series'
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => true,
+		'publicly_queryable' => true,
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'show_in_nav_menus' => true,
+		'hierarchical' => false,
+		'supports' => array(
+			'title',
+			'editor',
+			'excerpt',
+			'thumbnail',
+			//'author',
+			//'trackbacks',
+			//'custom-fields',
+			//'comments',
+			'revisions',
+			//'page-attributes', // (menu order, hierarchical must be true to show Parent option)
+			//'post-formats',
+		),
+		'taxonomies' => array( 'category', 'post_tag' ), // add default post categories and tags
+		'menu_position' => 9,
+		'exclude_from_search' => false,
+		'menu_icon' => 'dashicons-video-alt3',
+	);
+	register_post_type( 'series', $args );
+} add_action( 'init', 'series_create_post_type', 0 );
+
+/*
+ * Register Education Series Post Types
+ */
+function education_create_post_type() {
+	$labels = array(
+		'name' => 'Education Series',
+		'singular_name' => 'Education Series',
+		'add_new' => 'Add Education Series',
+		'all_items' => 'All Education Series',
+		'add_new_item' => 'Add Education Series',
+		'edit_item' => 'Edit Education Series',
+		'new_item' => 'New Education Series',
+		'view_item' => 'View Education Series',
+		'search_items' => 'Search Education Series',
+		'not_found' => 'No Education Series found',
+		'not_found_in_trash' => 'No Education Series found in trash',
+		'parent_item_colon' => 'Parent Education Series',
+		'menu_name' => 'Education Series'
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => true,
+		'publicly_queryable' => true,
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'show_in_nav_menus' => true,
+		'hierarchical' => false,
+		'supports' => array(
+			'title',
+			'editor',
+			'excerpt',
+			'thumbnail',
+			//'author',
+			//'trackbacks',
+			//'custom-fields',
+			//'comments',
+			'revisions',
+			//'page-attributes', // (menu order, hierarchical must be true to show Parent option)
+			//'post-formats',
+		),
+		'taxonomies' => array( 'category', 'post_tag' ), // add default post categories and tags
+		'menu_position' => 9,
+		'exclude_from_search' => false,
+		'menu_icon' => 'dashicons-welcome-learn-more',
+	);
+	register_post_type( 'education', $args );
+} add_action( 'init', 'education_create_post_type', 0 );
+
 
 /*
  * Register Live Event Post Types
@@ -94,7 +195,7 @@ function event_create_post_type() {
 		'taxonomies' => array( 'category', 'post_tag' ), // add default post categories and tags
 		'menu_position' => 7,
 		'exclude_from_search' => false,
-		'menu_icon' => 'dashicons-admin-media',
+		'menu_icon' => 'dashicons-format-audio',
 	);
 	register_post_type( 'event', $args );
 } add_action( 'init', 'event_create_post_type', 0 );
@@ -198,35 +299,3 @@ function alertbanner_create_post_type() {
 	);
 	register_post_type( 'alertbanner', $args );
 } add_action( 'init', 'alertbanner_create_post_type', 0 );
-
-/*
- * Rename "Posts" to "News" in WordPress Dashboard
- */
-function revcon_change_post_label() {
-    global $menu;
-    global $submenu;
-    $menu[5][0] = 'News';
-    $submenu['edit.php'][5][0] = 'News';
-    $submenu['edit.php'][10][0] = 'Add News';
-    $submenu['edit.php'][16][0] = 'News Tags';
-}
-function revcon_change_post_object() {
-    global $wp_post_types;
-    $labels = &$wp_post_types['post']->labels;
-    $labels->name = 'News';
-    $labels->singular_name = 'News';
-    $labels->add_new = 'Add News';
-    $labels->add_new_item = 'Add News';
-    $labels->edit_item = 'Edit News';
-    $labels->new_item = 'News';
-    $labels->view_item = 'View News';
-    $labels->search_items = 'Search News';
-    $labels->not_found = 'No News found';
-    $labels->not_found_in_trash = 'No News found in Trash';
-    $labels->all_items = 'All News';
-    $labels->menu_name = 'News';
-    $labels->name_admin_bar = 'News';
-}
- 
-add_action( 'admin_menu', 'revcon_change_post_label' );
-add_action( 'init', 'revcon_change_post_object' );

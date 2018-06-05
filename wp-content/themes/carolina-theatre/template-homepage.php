@@ -57,33 +57,7 @@ get_header();
 <section class="hp-news">
 	<div class="container contain">
 		<h2>New &amp; Press</h2>
-		<?php // TO-DO: get Posts pulled in here ?>
-	  <div class="cardSlider">
-	      <div class="cardSlider__card">
-	          <img 
-	              src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-	              alt="landscape on the lake in fall"
-	          />
-	      </div>
-	      <div class="cardSlider__card">
-	          <img 
-	              src="https://static.boredpanda.com/blog/wp-content/uploads/2015/11/reflection-landscape-photography-jaewoon-u-36.jpg"
-	              alt="landscape on the lake in fall"
-	          />
-	      </div>
-	      <div class="cardSlider__card">Panel 3</div>
-	      <div class="cardSlider__card">Panel 4</div>
-	      <div class="cardSlider__card">Panel 5</div>
-	      <div class="cardSlider__card">Panel 6</div>
-	      <div class="cardSlider__card">Panel 7</div>
-	      <div class="cardSlider__card">Panel 8</div>
-	      <div class="cardSlider__card">Panel 9</div>
-	      <div class="cardSlider__card">Panel 10</div>
-	  </div>
-	  <div class="cardSlider__nav">
-	      <a href="#" class="button gray">See All News</a>
-	      <div class="cardSlider__arrows"></div>
-	  </div>
+    <?php get_template_part( 'blocks/content', 'latest-news-slider' ) ?>
 	</div>
 </section>
 <?php } // endwhile; ?>

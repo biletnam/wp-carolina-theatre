@@ -122,14 +122,18 @@
 			}
 		}
 	}
-}
 
-.header__cta {
-	text-align: right;
+	.header__cta {
+		text-align: right;
 
-  @include breakpoint($menuBreakpoint){
-  	display: none;
-  }
+	  @include breakpoint($menuBreakpoint){
+	  	display: none;
+	  }
+
+		> li {
+			padding-left: 20px;
+		}
+	}
 }
 
 .header__logo {
@@ -242,7 +246,8 @@
 		}
 	}
 
-	&:hover {
+	&:hover,
+	&.hover {
 		> a::after {
 			background-color: $green;
 		}
@@ -268,11 +273,6 @@
 		> a::after {
 			background-color: $green;
 		}	
-	}
-}
-.header__cta { // wrapper ul element for the main menu
-	> li {
-		padding-left: 20px;
 	}
 }
 
@@ -319,6 +319,18 @@
 	}
 	.btn__close {
 		top: 12px;
+	}
+
+	.header__cta {
+		text-align: center;
+		border-bottom: 1px solid $gray;
+
+		> li {
+			margin: 15px;
+		}
+		a {
+			display: block;
+		}
 	}
 
 	&--menu {
@@ -618,6 +630,13 @@
   border-bottom: 1px solid $gray;
   border-top: 1px solid $gray;
 
+  .card {
+  	margin-bottom: 0;
+  }
+  
+  h2 {
+  	display: none;
+  }
 	&.show {
 		display: block;
 	}

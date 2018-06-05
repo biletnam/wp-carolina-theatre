@@ -829,17 +829,20 @@
 			// 1 - enter trigger = show dropdown
 			$edTrigger.on('mouseover touch', function(e) {
 			  $ed.addClass('show');	
+			  $edTrigger.addClass('hover');
 			});
 			// 2 - leave trigger, enter dropdown = show dropdown
 			$edTrigger.on('mouseleave touch', function(e) {
 				// e.relatedTarget – is the new under-the-pointer element (that mouse left for).
 				if (!$ed.is(e.relatedTarget) && $ed.has(e.relatedTarget).length === 0) {
 				  $ed.removeClass('show');
+				  $edTrigger.removeClass('hover');
 				}
 			});
 			// 3 - leave dropdown = hide dropdown
 			$ed.on('mouseleave', function(e) {
-			  $ed.removeClass('show');	
+			  $ed.removeClass('show');
+			  $edTrigger.removeClass('hover');	
 			});
 
 			// gallery featherlight init
@@ -1040,6 +1043,7 @@ jQuery(function($) {
 				arrows: false,
 				swipeToSlide: true,
 				adaptiveHeight: true,
+				rows: 0, // removes extra 'div'
 				// lazyLoad: 'progressive',
 				// variableWidth: true,
 				// centerMode: false,
@@ -1071,7 +1075,6 @@ jQuery(function($) {
 			pauseOnHover: true,
       customPaging : function(slider, i) {
       	var $slide = $(slider.$slides[i]);
-	      console.log($slide);
 	      var thumb = $slide.data('thumb');
 	      return '<button class="thumbnail"><img src="'+thumb+'"></button>';
     	}
@@ -1089,6 +1092,7 @@ jQuery(function($) {
 		        swipeToSlide: true,
 		        infinite: false,
 		        variableWidth: true,
+		        rows: 0, // removes extra 'div'
 		        responsive:[
 					    {
 					      breakpoint: 1280,
