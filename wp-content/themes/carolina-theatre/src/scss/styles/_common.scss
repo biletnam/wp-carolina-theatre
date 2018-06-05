@@ -323,9 +323,10 @@ main {
 	}
 	&__noSidebar {
 		.block__default,
-		.block__gallery,
-		.accordion {
-			max-width: 800px;
+		.accordion,
+		.block__slider,
+		.block__gallery {
+			max-width: 960px;
 			margin: 0 auto;
 		}
 	}
@@ -342,6 +343,9 @@ main {
 	&__gallery {
 		a {
 			max-width: 350px;	
+			vertical-align: top;
+			margin-right: 10px;
+			margin-bottom: 10px;
 		}		
 	}
 
@@ -353,7 +357,6 @@ main {
 		a {
 			position: relative;
 			display: inline-block;
-			margin-right: 10px;
 			width: 100%;
 
 			&::after {

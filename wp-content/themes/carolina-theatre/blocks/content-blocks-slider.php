@@ -10,13 +10,15 @@
       ?>
       
 	    <?php if ($media_type == 'image') { ?>
-        <div><img src="<?php echo $image['sizes']['hero-default']; ?>" alt="<?php echo $image['alt']; ?>" /></div>
+        <div>
+        	<img src="<?php echo $image['sizes']['hero-small']; ?>" alt="<?php echo $image['alt']; ?>" />
+       	</div>
     	<?php } else if ($media_type == 'video') { ?>
         <?php $embedCode = get_sub_field('video_embed'); ?>
         <div>
         	<a href="<?php echo '.sliderContent-' . $uniqueID; ?>" data-featherlight>
             <i class="fas fa-play"></i>
-						<img src="<?php echo $image['sizes']['hero-default']; ?>" alt="<?php echo $image['alt']; ?>" />
+						<img src="<?php echo $image['sizes']['hero-small']; ?>" alt="<?php echo $image['alt']; ?>" />
 			    </a>
 			    <div class="gallery-content <?php echo 'sliderContent-' . $uniqueID; ?>">
 			      <div class="video"><?php echo $embedCode; ?></div>

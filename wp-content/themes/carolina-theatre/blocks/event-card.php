@@ -61,7 +61,17 @@
 						<span class="month"><?php echo date("M", strtotime($dateToShowInCard)); ?></span>
           </div>
           <div class="eventCard__image">
-            <img src="<?php echo get_field('event_image')['sizes']['event-thumb'];?>" alt="<?php echo get_field('event_image')['alt']; ?>" />
+          	<?php if (have_rows('event_hero')){ ?>
+						<?php while (have_rows('event_hero')){ the_row(); ?>
+							<?php 
+								$slideRepeater = get_field('panel_content');
+								$image = $slideRepeater[0]['image'];
+						 	?>
+	            <img src="<?php echo $image['sizes']['event-thumb']; ?>" alt="<?php echo $image['alt']; ?>" />	
+						<?php } //endwhile ?>
+						<?php } else { ?>
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/src/img/no-event-image-thumb.jpg" alt="No Event Image to Show">
+						<?php } //endif ?>
           </div>
           <div class="card__infoWrapper">
               <p class="card__subtitle"><?php the_field('single_event_type');?></p>

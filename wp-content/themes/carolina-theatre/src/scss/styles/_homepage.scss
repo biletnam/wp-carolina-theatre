@@ -8,11 +8,15 @@
 		flex-direction: row;
 	}
 
-	.heroSlider {
+	.heroSlider--homepage {
 		@include breakpoint-min($sizeTablet + 1px){
 			flex: 1 1 auto;
     	width: calc(100% - 200px);
     }
+
+		@include breakpoint($sizeMobile){
+			min-height: 320px;
+		}
 	}
 
 	.statistics {
@@ -84,140 +88,7 @@
 		}
 	}
 }
-.heroSlider {
-	position: relative;
-	min-height: 50vw;
-	max-height: 900px;
-	
-	@include breakpoint($sizeMobile){
-		min-height: 320px;
-	}
 
-	.slick-list,
-	.slick-track {
-		height: 100%;
-	}
-
-	&__slide {
-		min-height: 50vw;
-		max-height: 900px;
-		height: 100%;
-		overflow: hidden;
-		background-color: $off-black;
-		background-size: cover;
-		background-position: center center;
-
-		@include breakpoint($sizeMobile){
-			min-height: 320px;
-		}
-	}
-
-  &__slideContent {
-  	position: absolute;
-  	z-index: 150;
-  	bottom: 0;
-  	left: 0;
-		max-width: 700px;
-    width: 90%;
-  	color: $white;
-		text-shadow: 0 0 2px rgba($black, .65);
-
-  	h1, h2, h3, h4, h5, p {
-  		margin-top: 0;
-	    line-height: 1;
-  	}
-
-  	.button {
-  		text-shadow: 0;
-  	}
-	}
-	
-	// vertically stacked, with thumbnail images
-	.slick-dots {
-		height: auto;
-		bottom: 20px;
-		right: 20px;
-
-		@include breakpoint($sizeMobile){
-			bottom: 10px;
-			right: 10px;
-		}
-
-		li {
-			display: block;
-			margin: 0 0 10px 0;
-
-			button.thumbnail {
-				width: 75px;
-				height: 50px;
-				overflow: hidden;
-
-				@include breakpoint($sizeMobile){
-					width: 15px;
-					height: 26px;
-				}
-
-				&::before {
-					z-index: 100;
-					width: 3px;
-					height: 50px;
-					background-color: rgba($white, .3);
-					left: auto;
-					right: 0;
-
-					@include breakpoint($sizeMobile){
-						height: 26px;
-					}
-				}
-
-				&:hover {
-					@include box-shadow;
-
-					&::before {
-						background-color: $green;
-					}
-
-					img {
-						opacity: 1;
-						left: 0;
-					}
-				}
-
-				img {
-
-					opacity: 0;
-					left: 100%;
-					transition: $transition;
-
-					@include breakpoint($sizeMobile){
-						display: none;
-					}
-				}
-			}
-
-			&.slick-active {
-				button {
-					&::before {
-						background-color: $white;
-					}
-				}
-			}
-		}
-	}
-
-	&.slick-slider.slick-dotted {
-		margin-bottom: 0; // overrides when the dots are normally under the slides (not over)
-	}
-}
-
-.statistics {
-	// display: inline-block;
-	// width: 19%;
-
-	
-
-	
-}
 .statistic {
 	position: relative;
   display: block;

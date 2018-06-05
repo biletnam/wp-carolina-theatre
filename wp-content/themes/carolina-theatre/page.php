@@ -41,9 +41,7 @@ get_header(); ?>
 </section>
 
 <?php if(get_field('show_hero_slider')){ ?>
-<section class="pageHero contain container">
-	<?php get_template_part( 'blocks/content-blocks', 'slider' ); ?>
-</section>
+	<?php get_template_part( 'blocks/content-blocks', 'slider-hero' ); ?>
 <?php } //endif show hero ?>
 
 <?php if(get_field('show_sidebar')){ ?>

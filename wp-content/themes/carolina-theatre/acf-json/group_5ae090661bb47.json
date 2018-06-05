@@ -16,7 +16,7 @@
                 "id": ""
             },
             "collapsed": "field_5ae0908354e77",
-            "min": 0,
+            "min": 1,
             "max": 0,
             "layout": "block",
             "button_label": "Add Slide",
@@ -53,7 +53,7 @@
                     "label": "Image",
                     "name": "image",
                     "type": "image",
-                    "instructions": "Min width: 700px",
+                    "instructions": "Best results: <strong>1440px<\/strong> x <strong>810px<\/strong>\r\nMin width: 1280px",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -62,7 +62,7 @@
                         "id": ""
                     },
                     "return_format": "array",
-                    "preview_size": "gallery-thumb",
+                    "preview_size": "hero-small",
                     "library": "all",
                     "min_width": 700,
                     "min_height": "",
@@ -119,5 +119,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1528143848
+    "modified": 1528208657
 }

@@ -25,8 +25,19 @@
   	<div class="container">
       <p class="singleEvent__category"><?php echo get_post_type() ?></p>
       <div class="singleEvent__image">
-        <img src="<?php echo get_field('event_image')["url"]; ?>" alt="the poster for the film">
-        <div class="singleEvent__image--date"><?php echo $date_string; ?></div>
+       <div class="event__dateBox">
+					<span class="day"><?php echo date("j", strtotime($dateToShowInCard)); ?></span>
+					<span class="month"><?php echo date("M", strtotime($dateToShowInCard)); ?></span>
+				</div>
+				<div class="singleEvent__hero">
+					<?php if (have_rows('event_hero')){ ?>
+					<?php while (have_rows('event_hero')){ the_row(); ?>
+					<?php get_template_part( 'blocks/content-blocks', 'slider' ); ?>
+					<?php } //endwhile ?>
+					<?php } else { ?>
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/src/img/no-event-image-full.jpg" alt="No Event Image to Show">
+					<?php } //endif ?>
+				</div>
       </div>
       <p>The Carolina Theatre Presents...</p>
       <h2 class="singleEvent__title"><?php echo the_title(); ?></h2>

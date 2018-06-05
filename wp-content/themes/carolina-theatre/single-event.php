@@ -33,7 +33,13 @@
 					<span class="month"><?php echo date("M", strtotime($dateToShowInCard)); ?></span>
 				</div>
 				<div class="singleEvent__hero">
+					<?php if (have_rows('event_hero')){ ?>
+					<?php while (have_rows('event_hero')){ the_row(); ?>
 					<?php get_template_part( 'blocks/content-blocks', 'slider' ); ?>
+					<?php } //endwhile ?>
+					<?php } else { ?>
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/src/img/no-event-image-full.jpg" alt="No Event Image to Show">
+					<?php } //endif ?>
 				</div>
       </div>
       <p>The Carolina Theatre Presents...
