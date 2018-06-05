@@ -165,9 +165,17 @@
 
 // sliders on homepage & event dropdown with info cards
 .cardSlider {
+	.slick-track {
+		display: flex;
+
+		.card {
+			flex: 1;
+		}
+	}
 	.slick-slide {
 		width: 250px;
 		margin-right: 15px;
+		height: auto;
 	}
 
 	.slick-list {

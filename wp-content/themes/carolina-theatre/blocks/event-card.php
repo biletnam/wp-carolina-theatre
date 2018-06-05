@@ -62,13 +62,15 @@
           </div>
           <div class="eventCard__image">
           	<?php if (have_rows('event_hero')){ ?>
-						<?php while (have_rows('event_hero')){ the_row(); ?>
 							<?php 
 								$slideRepeater = get_field('panel_content');
 								$image = $slideRepeater[0]['image'];
 						 	?>
+						 	<?php if($image){ ?> 
 	            <img src="<?php echo $image['sizes']['event-thumb']; ?>" alt="<?php echo $image['alt']; ?>" />	
-						<?php } //endwhile ?>
+	            <?php } else { ?>
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/src/img/no-event-image-thumb.jpg" alt="No Event Image to Show">
+							<?php } //endif ?>
 						<?php } else { ?>
 							<img src="<?php echo get_stylesheet_directory_uri(); ?>/src/img/no-event-image-thumb.jpg" alt="No Event Image to Show">
 						<?php } //endif ?>

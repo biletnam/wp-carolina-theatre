@@ -276,6 +276,13 @@
 		"oAP": "\/blocks\/content-breadcrumb.php",
 		"oF": 0
 		},
+	"\/blocks\/content-latest-news-slider.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/blocks\/content-latest-news-slider.php",
+		"oF": 0
+		},
 	"\/blocks\/content-sidebar.php": {
 		"cB": 0,
 		"ft": 8192,

@@ -12,6 +12,7 @@ jQuery(function($) {
 				arrows: false,
 				swipeToSlide: true,
 				adaptiveHeight: true,
+				rows: 0, // removes extra 'div'
 				// lazyLoad: 'progressive',
 				// variableWidth: true,
 				// centerMode: false,
@@ -43,7 +44,6 @@ jQuery(function($) {
 			pauseOnHover: true,
       customPaging : function(slider, i) {
       	var $slide = $(slider.$slides[i]);
-	      console.log($slide);
 	      var thumb = $slide.data('thumb');
 	      return '<button class="thumbnail"><img src="'+thumb+'"></button>';
     	}
@@ -61,6 +61,7 @@ jQuery(function($) {
 		        swipeToSlide: true,
 		        infinite: false,
 		        variableWidth: true,
+		        rows: 0, // removes extra 'div'
 		        responsive:[
 					    {
 					      breakpoint: 1280,

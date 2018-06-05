@@ -101,7 +101,95 @@
 	}
 }
 
+.event__dateBox {
+	width: 40px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	text-align: center;
+	color: $white;
+	line-height: 1;
+
+	span {
+		display: block;
+	}
+	.day {
+		@include rem(22);
+		font-family: $header;
+	}
+	.month {
+		@include rem(10);
+		text-transform: uppercase;
+	}
+}
+.event__dateBox {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: 0;
+}
+
 ///////// NEWS, EVENT, FILM CARDS ////////////
+// sliders on homepage & event dropdown with info cards
+.cardSlider {
+	.slick-track {
+		display: flex;
+
+		.card {
+			flex: 1;
+		}
+	}
+	.slick-slide {
+		width: 250px;
+		margin-right: 15px;
+		height: auto;
+	}
+
+	.slick-list {
+		&::after {
+			content: "";
+	    position: absolute;
+	    z-index: 100;
+	    top: 0;
+	    right: 0;
+	    width: 30px;
+	    height: 100%;
+	    background: linear-gradient(to left, $white, rgba($white,0));
+		}
+	}
+
+	&__nav {
+    float: right;
+    margin-top: 25px;
+
+    .button {
+		  display: inline-block;
+      vertical-align: middle;
+		}
+  }
+	&__arrows {
+		margin-left: 15px;
+		width: 90px; // each button is 45px wide
+		position: relative;
+    display: inline-block;
+    vertical-align: middle;
+
+		.slick-prev,
+		.slick-next {
+			&::before { 
+				background-color: transparent;
+				font-size: 16px;
+				color: $green;
+			}
+
+			&:hover {
+				&::before {
+					color: $green-med;
+				}
+			}
+		}
+	}
+}
+
 .card__wrapper {
 	display: flex;
 	align-content: top;
@@ -130,6 +218,12 @@
 		bottom: -45px;
 		border-radius: 0;
     margin: 0;
+		background-color: $off-white;
+		color: $text;
+
+    &:hover {
+			color: $text;
+		}
 	}
 
 	&:hover {
@@ -171,26 +265,6 @@
 	}
 }
 
-.event__dateBox {
-	width: 40px;
-	padding-top: 8px;
-	padding-bottom: 8px;
-	text-align: center;
-	color: $white;
-	line-height: 1;
-
-	span {
-		display: block;
-	}
-	.day {
-		@include rem(22);
-		font-family: $header;
-	}
-	.month {
-		@include rem(10);
-		text-transform: uppercase;
-	}
-}
 .eventCard {
 	&__image {
 		height: 141px;
@@ -202,17 +276,21 @@
 		}
 	}
 }
-.event__dateBox {
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	right: 0;
+
+.newsCard {
+	.card__button {
+		background-color: $off-white;
+		background-image: url('../src/img/patterns/pattern-white.png');
+		background-size: 147px 147px;
+		background-repeat: repeat;
+	}
 }
 
 .film {
 	.event__dateBox,
 	.card__button {
 		background-color: $green;
+		color: $white;
 	}
 
 	.card__button {
@@ -226,6 +304,7 @@
 	.event__dateBox,
 	.card__button {
 		background-color: $red;
+		color: $white;
 	}
 
 	.card__button {
