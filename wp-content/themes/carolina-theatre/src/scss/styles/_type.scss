@@ -51,6 +51,10 @@ h5, .h5 {
 	font-family: $header;
 	text-transform: uppercase;
 }
+h6, .h6 { 
+	@include rem(18); 
+	font-weight: 700;
+}
 
 a {
   text-decoration: none;

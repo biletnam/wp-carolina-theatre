@@ -117,6 +117,11 @@ h5, .h5, .card__subtitle {
   font-family: "industry", sans-serif;
   text-transform: uppercase; }
 
+h6, .h6 {
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-weight: 700; }
+
 a {
   text-decoration: none;
   font-size: inherit;
@@ -1332,7 +1337,14 @@ main {
   border-left: 1px solid #ccc; }
   .mainContent__sidebar > .container {
     padding-left: 20px;
-    padding-right: 20px; }
+    padding-right: 20px;
+    padding-top: 0; }
+    .mainContent__sidebar > .container > * {
+      padding-bottom: 30px;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 30px; }
+      .mainContent__sidebar > .container > *:last-of-type {
+        border-bottom: 0; }
 
 .mainContent__noSidebar .block__default,
 .mainContent__noSidebar .accordion,
@@ -1451,6 +1463,25 @@ main {
 .mainContent__sidebar .cta__card {
   margin-right: 0;
   padding: 20px 20px 20px 30px; }
+
+.sidebar__menu ul {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+
+.sidebar__menu li {
+  padding: 7px 0; }
+  .sidebar__menu li::after {
+    content: '››';
+    padding-left: 4px; }
+
+.sidebar__menu .current_page_item,
+.sidebar__menu .current_page_parent,
+.sidebar__menu .current_page_ancestor {
+  font-weight: 700; }
+
+.sidebar__menu a:hover {
+  text-decoration: underline; }
 
 .button,
 input[type="submit"] {

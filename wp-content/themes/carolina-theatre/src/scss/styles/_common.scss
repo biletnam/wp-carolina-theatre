@@ -319,6 +319,17 @@ main {
 		> .container {
 	    padding-left: 20px;
 	    padding-right: 20px;
+	    padding-top: 0;
+
+	    > * {
+	    	padding-bottom: 30px;
+	    	border-bottom: 1px solid $gray;
+	    	margin-bottom: 30px;
+
+	    	&:last-of-type {
+	    		border-bottom: 0;
+	    	}
+	    }
 		}
 	}
 	&__noSidebar {
@@ -347,7 +358,6 @@ main {
 			margin-right: 10px;
 			margin-bottom: 10px;
 		}		
-
 	}
 
 	&__gallery,
@@ -424,16 +434,7 @@ main {
 	}
 }
 
-// .eventType__event {
-// 	color: $red;
-// }
-// .eventType__film {
-// 	color: $green;
-// }
-
-
 // content-blocks-link-block.php
-
 .block__ctas {
 	display: flex;
 	flex-wrap: wrap;
@@ -484,6 +485,34 @@ main {
 	.cta__card {
 		margin-right: 0;
     padding: 20px 20px 20px 30px;
+	}
+}
+
+.sidebar__menu {
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+	li {
+	  padding: 7px 0;
+
+	  &::after {
+	  	content: '››';
+	  	padding-left: 4px;
+	  }
+	}
+
+	.current_page_item,
+	.current_page_parent,
+	.current_page_ancestor {
+		font-weight: 700;
+	}
+
+	a {
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 }
 

@@ -165,9 +165,10 @@ function carolinatheatre_scripts() {
 add_action( 'wp_enqueue_scripts', 'carolinatheatre_scripts' );
 
 /**
- * Reorder Menu Items in WordPress Dashboard
+ * 1 - Reorder Menu Items in WordPress Dashboard
+ * 2 - Add Columns to Custom Post Types
  */
-require get_template_directory() . '/inc/reorder-admin-dashboard.php';
+require get_template_directory() . '/inc/admin-dashboard.php';
 
 /**
  * Instantiate Custom Post Types

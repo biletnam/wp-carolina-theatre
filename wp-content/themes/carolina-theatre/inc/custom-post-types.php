@@ -4,13 +4,13 @@
  */
 function festival_create_post_type() {
 	$labels = array(
-		'name' => 'Festivals',
+		'name' => 'Film Festivals',
 		'singular_name' => 'Film Festival',
 		'add_new' => 'Add Festival',
 		'all_items' => 'All Film Festivals',
 		'add_new_item' => 'Add Film Festival',
-		'edit_item' => 'Edit Festival',
-		'new_item' => 'New Festival',
+		'edit_item' => 'Edit Film Festival',
+		'new_item' => 'New Film Festival',
 		'view_item' => 'View Film Festival',
 		'search_items' => 'Search Film Festivals',
 		'not_found' => 'No Film Festivals found',
@@ -54,13 +54,13 @@ function festival_create_post_type() {
  */
 function series_create_post_type() {
 	$labels = array(
-		'name' => 'Series',
+		'name' => 'Film Series',
 		'singular_name' => 'Film Series',
-		'add_new' => 'Add Series',
+		'add_new' => 'Add Film Series',
 		'all_items' => 'All Film Series',
 		'add_new_item' => 'Add Film Series',
-		'edit_item' => 'Edit Series',
-		'new_item' => 'New Series',
+		'edit_item' => 'Edit Film Series',
+		'new_item' => 'New Film Series',
 		'view_item' => 'View Film Series',
 		'search_items' => 'Search Film Series',
 		'not_found' => 'No Film Series found',
@@ -104,13 +104,13 @@ function series_create_post_type() {
  */
 function education_create_post_type() {
 	$labels = array(
-		'name' => 'Series',
+		'name' => 'Education Series',
 		'singular_name' => 'Education Series',
-		'add_new' => 'Add Series',
+		'add_new' => 'Add Education Series',
 		'all_items' => 'All Education Series',
 		'add_new_item' => 'Add Education Series',
-		'edit_item' => 'Edit Series',
-		'new_item' => 'New Series',
+		'edit_item' => 'Edit Education Series',
+		'new_item' => 'New Education Series',
 		'view_item' => 'View Education Series',
 		'search_items' => 'Search Education Series',
 		'not_found' => 'No Education Series found',

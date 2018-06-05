@@ -22,11 +22,30 @@ get_header(); ?>
 <?php get_template_part( 'blocks/content', 'breadcrumb' ); ?>
 <section class="pageHeading contain">
 	<div class="container">
-		<h1 class="pageTitle"><?php the_title(); ?></h1>
-		<?php if($post->post_parent){ ?>
-		<div class="tabbedContent__tabs">
-			<ul class="siblings">
-				<?php 
+		<?php 
+			$children = get_pages( array( 'child_of' => $post->ID ) ); 
+			$children_children = get_pages( array( 'child_of' => $post->ID ) ); 
+			$parent = $post->post_parent;
+		?>
+		<?php if(count($children) > 0){ ?>
+		<h1 class="pageTitle"><?php echo get_the_title(); ?></h1>
+		<div class="tabbedContent__tabs relatedPages children">
+			<ul>
+				<?php // show children of current page
+					wp_list_pages(array(
+				    'child_of' => $post->ID,
+				    'post_status' => 'publish',
+				    'title_li' => null,
+				    'depth' => 1
+					));
+				?>
+			</ul>
+		</div>
+		<?php } else if($parent){ ?>
+		<h1 class="pageTitle"><?php echo get_the_title($parent); ?></h1>
+		<div class="tabbedContent__tabs relatedPages siblings">
+			<ul>
+				<?php // if current post has no children, show siblings
 					wp_list_pages(array(
 				    'child_of' => $post->post_parent,
 				    'post_status' => 'publish',
@@ -36,30 +55,25 @@ get_header(); ?>
 				?>
 			</ul>
 		</div>
+		<?php } else { ?>
+		<h1 class="pageTitle"><?php echo get_the_title(); ?></h1>
 		<?php } ?>
 	</div>
 </section>
 
 <?php if(get_field('show_hero_slider')){ ?>
-	<?php get_template_part( 'blocks/content-blocks', 'slider-hero' ); ?>
+<?php get_template_part( 'blocks/content-blocks', 'slider-hero' ); ?>
 <?php } //endif show hero ?>
 
-<?php if(get_field('show_sidebar')){ ?>
 <section class="mainContent contain">
   <div class="mainContent__content">
 		<div class="container">
 			<?php get_template_part( 'blocks/content', 'blocks' ); ?>
 		</div>
 	</div>
-	<?php get_template_part( 'blocks/content', 'sidebar' ); ?>
+	<?php get_sidebar(); ?>
 </section>
-<?php } else { ?>
-<section class="mainContent mainContent__noSidebar contain">
-	<div class="container">
-		<?php get_template_part( 'blocks/content', 'blocks' ); ?>
-	</div>
-</section>
-<?php } ?>
+
 <?php } // endwhile; ?>
 
 <?php get_footer();

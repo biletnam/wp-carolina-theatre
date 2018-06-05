@@ -283,13 +283,6 @@
 		"oAP": "\/blocks\/content-latest-news-slider.php",
 		"oF": 0
 		},
-	"\/blocks\/content-sidebar.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/blocks\/content-sidebar.php",
-		"oF": 0
-		},
 	"\/blocks\/content-upcoming-events-slider.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -376,6 +369,13 @@
 		"oAP": "\/header.php",
 		"oF": 0
 		},
+	"\/inc\/admin-dashboard.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/inc\/admin-dashboard.php",
+		"oF": 0
+		},
 	"\/inc\/custom-post-types.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -388,13 +388,6 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/inc\/custom_walker-icon.php",
-		"oF": 0
-		},
-	"\/inc\/reorder-admin-dashboard.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/inc\/reorder-admin-dashboard.php",
 		"oF": 0
 		},
 	"\/inc\/tinymce.php": {
@@ -448,6 +441,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/searchform.php",
+		"oF": 0
+		},
+	"\/sidebar-events.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/sidebar-events.php",
 		"oF": 0
 		},
 	"\/sidebar.php": {
@@ -948,6 +948,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/template-events.php",
+		"oF": 0
+		},
+	"\/template-fullwidth.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-fullwidth.php",
 		"oF": 0
 		},
 	"\/template-homepage.php": {

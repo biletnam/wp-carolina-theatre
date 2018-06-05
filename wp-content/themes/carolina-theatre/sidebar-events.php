@@ -1,3 +1,8 @@
+<?php
+/**
+ * The Events (and Films) Template sidebar
+ */
+?>
 <aside class="mainContent__sidebar">
 	<div class="container">
     <?php // TO-DO: Get search setup ?>
@@ -6,6 +11,7 @@
       <button>Search Events</button>
     </div>
     <?php // TO-DO: Get sidebars setup ?>
+
     <div class="sidebar__menus">
     	<div class="sidebar__menu">
         <p class="h3">Upcoming Film Series</p>
@@ -17,7 +23,7 @@
             <li><a href="#" title="">Retro ArtHouse ››</a></li>
         </ul>
       </div>
-      <div class="sidebar__menus--menu">
+      <div class="sidebar__menu">
         <p class="h3">Upcoming Film Festivals</p>
         <ul>
           <li><a href="#" title="">NC Gay &amp; Lesbian Film Festival >></a></li>
