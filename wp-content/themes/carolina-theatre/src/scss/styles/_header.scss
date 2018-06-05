@@ -122,14 +122,18 @@
 			}
 		}
 	}
-}
 
-.header__cta {
-	text-align: right;
+	.header__cta {
+		text-align: right;
 
-  @include breakpoint($menuBreakpoint){
-  	display: none;
-  }
+	  @include breakpoint($menuBreakpoint){
+	  	display: none;
+	  }
+
+		> li {
+			padding-left: 20px;
+		}
+	}
 }
 
 .header__logo {
@@ -270,11 +274,6 @@
 		}	
 	}
 }
-.header__cta { // wrapper ul element for the main menu
-	> li {
-		padding-left: 20px;
-	}
-}
 
 // Mobile Menu Styling
 .header__mobileNav {
@@ -319,6 +318,18 @@
 	}
 	.btn__close {
 		top: 12px;
+	}
+
+	.header__cta {
+		text-align: center;
+		border-bottom: 1px solid $gray;
+
+		> li {
+			margin: 15px;
+		}
+		a {
+			display: block;
+		}
 	}
 
 	&--menu {

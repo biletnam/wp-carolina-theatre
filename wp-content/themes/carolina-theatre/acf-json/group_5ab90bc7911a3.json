@@ -3,6 +3,27 @@
     "title": "Single Event",
     "fields": [
         {
+            "key": "field_5abba28413b8d",
+            "label": "Event Info",
+            "name": "event_info",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_5ab9233d9fcff"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
             "key": "field_5ab27b24b3e7d",
             "label": "Single Event Type",
             "name": "single_event_type",
@@ -29,27 +50,6 @@
             "layout": "horizontal",
             "toggle": 0,
             "return_format": "value"
-        },
-        {
-            "key": "field_5abba28413b8d",
-            "label": "Event Info",
-            "name": "event_info",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_5ab9233d9fcff"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
         },
         {
             "key": "field_5abba3aa83a1a",
@@ -84,7 +84,7 @@
                         "id": ""
                     },
                     "display_format": "F j, Y",
-                    "return_format": "F j, Y",
+                    "return_format": "Ymd",
                     "first_day": 0
                 },
                 {
@@ -157,8 +157,10 @@
     "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "excerpt"
+    ],
     "active": 1,
     "description": "",
-    "modified": 1526312820
+    "modified": 1528213686
 }

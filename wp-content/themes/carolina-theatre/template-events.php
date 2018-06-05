@@ -213,6 +213,7 @@
       	<div class="sidebar__menu">
 	        <p class="h3">Upcoming Film Series</p>
 	        <ul>
+	            <?php // TO-DO: Make dynamic, based on published Series  ?>
 	            <li><a href="#" title="">Retro Epics ››</a></li>
 	            <li><a href="#" title="">Anime-Magic ››</a></li>
 	            <li><a href="#" title="">SplatterFlix ››</a></li>
@@ -223,6 +224,7 @@
 	      <div class="sidebar__menus--menu">
 	        <p class="h3">Upcoming Film Festivals</p>
 	        <ul>
+            <?php // TO-DO: Make dynamic, based on published Festivals  ?>
 	          <li><a href="#" title="">NC Gay &amp; Lesbian Film Festival >></a></li>
 	          <li><a href="#" title="">Nevermore ››</a></li>
 	          <li><a href="#" title="">Full Frame ››</a></li>

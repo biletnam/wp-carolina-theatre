@@ -556,12 +556,13 @@ blockquote {
       padding-bottom: 18px; }
       .header__main.sticky .header__mainMenu > li.large {
         padding-bottom: 15px; }
-
-.header__cta {
-  text-align: right; }
-  @media screen and (max-width: 1080px) {
-    .header__cta {
-      display: none; } }
+  .header__main .header__cta {
+    text-align: right; }
+    @media screen and (max-width: 1080px) {
+      .header__main .header__cta {
+        display: none; } }
+    .header__main .header__cta > li {
+      padding-left: 20px; }
 
 .header__logo {
   padding-top: 20px;
@@ -647,9 +648,6 @@ blockquote {
   .header__mainMenu > li.current-menu-item > a::after, .header__mainMenu > li.current-menu-ancestor > a::after {
     background-color: #72bcae; }
 
-.header__cta > li {
-  padding-left: 20px; }
-
 .header__mobileNav {
   position: fixed;
   z-index: 999;
@@ -685,6 +683,13 @@ blockquote {
       text-decoration: underline; }
   .header__mobileNav .btn__close {
     top: 12px; }
+  .header__mobileNav .header__cta {
+    text-align: center;
+    border-bottom: 1px solid #ccc; }
+    .header__mobileNav .header__cta > li {
+      margin: 15px; }
+    .header__mobileNav .header__cta a {
+      display: block; }
   .header__mobileNav--menu > ul > li {
     position: relative;
     border-bottom: 1px solid #ccc; }
@@ -1433,7 +1438,6 @@ main {
   padding: 20px 20px 20px 30px; }
 
 .button,
-.header__cta a,
 input[type="submit"] {
   display: inline-block;
   outline: 0;
@@ -1450,72 +1454,87 @@ input[type="submit"] {
   border-radius: 3px;
   margin-top: .5em;
   margin-bottom: .5em;
-  padding: 14px 20px 13px;
+  padding: 14px 20px 12px;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease; }
   .button:hover,
-  .header__cta a:hover,
   input[type="submit"]:hover {
     background-color: #8d2c1b;
     color: #fff; }
   .button.secondary,
-  .header__cta a.secondary,
   input[type="submit"].secondary {
     background-color: transparent;
     color: #f6583e;
     -webkit-box-shadow: inset 0 0 0 2px #f6583e;
             box-shadow: inset 0 0 0 2px #f6583e; }
     .button.secondary:hover,
-    .header__cta a.secondary:hover,
     input[type="submit"].secondary:hover {
       background-color: #f6583e;
       color: #fff; }
     .button.secondary.disabled,
-    .header__cta a.secondary.disabled,
     input[type="submit"].secondary.disabled {
       -webkit-box-shadow: inset 0 0 0 2px #ccc;
               box-shadow: inset 0 0 0 2px #ccc;
       color: #333;
       background-color: #fff; }
       .button.secondary.disabled:hover,
-      .header__cta a.secondary.disabled:hover,
       input[type="submit"].secondary.disabled:hover {
         background-color: #fff;
         color: #333; }
   .button.gray,
-  .header__cta a.gray,
   input[type="submit"].gray {
     background-color: #fff;
     color: #333;
     -webkit-box-shadow: inset 0 0 0 2px #ccc;
             box-shadow: inset 0 0 0 2px #ccc; }
     .button.gray:hover,
-    .header__cta a.gray:hover,
     input[type="submit"].gray:hover {
-      -webkit-box-shadow: inset 0 0 0 2px #333;
-              box-shadow: inset 0 0 0 2px #333;
+      -webkit-box-shadow: inset 0 0 0 2px #72bcae;
+              box-shadow: inset 0 0 0 2px #72bcae;
       color: #333; }
     .button.gray.disabled:hover,
-    .header__cta a.gray.disabled:hover,
     input[type="submit"].gray.disabled:hover {
       background-color: #fff;
       color: #333; }
   .button.disabled,
-  .header__cta a.disabled,
   input[type="submit"].disabled {
     opacity: .6;
     cursor: default;
     background-color: #ccc;
     color: #333; }
     .button.disabled:hover,
-    .header__cta a.disabled:hover,
     input[type="submit"].disabled:hover {
       color: #333;
       background-color: #ccc; }
   .button ~ .button,
-  .header__cta a ~ .button,
   input[type="submit"] ~ .button {
     margin-left: 8px; }
+
+.header__cta a {
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  font-family: "industry", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1;
+  border-radius: 3px;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  padding: 14px 20px 10px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background-color: #fff;
+  color: #333;
+  -webkit-box-shadow: inset 0 0 0 2px #ccc;
+          box-shadow: inset 0 0 0 2px #ccc; }
+  .header__cta a:hover {
+    -webkit-box-shadow: inset 0 0 0 2px #72bcae;
+            box-shadow: inset 0 0 0 2px #72bcae;
+    color: #333; }
 
 p .button a {
   text-decoration: none;
