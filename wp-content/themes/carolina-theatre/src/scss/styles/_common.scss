@@ -302,8 +302,7 @@ main {
 
 // wrapper for content/sidebar on templates
 .mainContent {
-
-	&:not(.main_content__noSidebar){
+	&:not(.mainContent__noSidebar){
 		display: flex;
 	}
 

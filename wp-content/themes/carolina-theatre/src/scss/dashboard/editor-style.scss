@@ -3,6 +3,13 @@ Theme Name: Carolina Theatre
 Description: Used to style the TinyMCE editor.
 */
 
+$transition: all .5s ease;
+
+@import "../helpers/important";
+@import "../helpers/functions";
+@import "../styles/colors";
+@import "../styles/type";
+
 /**
  * Typography
  */
@@ -12,23 +19,21 @@ button,
 input,
 select,
 textarea {
-	font-family: "Libre Franklin", "Helvetica Neue", helvetica, arial, sans-serif;
-	font-size: 16px;
-	font-size: 1rem;
-	font-weight: 400;
-	line-height: 1.66;
+  position: relative;
+  background-color: $white;
+  font-family: $body;
+  @include rem(16);
+  font-weight: 400;
+  line-height: 1.5;
+  color: $text;
+  margin: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	clear: both;
-	line-height: 1.4;
-	margin: 0 0 0.75em;
-	padding: 1.5em 0 0;
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: $body;
+  margin-top: .25em;
+  margin-bottom: .25em;
 }
 
 h1:first-child,
@@ -37,55 +42,53 @@ h3:first-child,
 h4:first-child,
 h5:first-child,
 h6:first-child {
-	padding-top: 0;
+	margin-top: 0;
 }
 
-h1 {
-	font-size: 24px;
-	font-size: 1.5rem;
+h1, .h1 { 
+	@include rem(50); 
 	font-weight: 300;
 }
-
-h2 {
-	color: #666;
-	font-size: 20px;
-	font-size: 1.25rem;
+h2, .h2 { 
+	@include rem(40); 
+	font-weight: 700;
+}
+h3, .h3 { 
+	@include rem(32);
 	font-weight: 300;
 }
-
-h3 {
-	color: #333;
-	font-size: 18px;
-	font-size: 1.125rem;
-	font-weight: 300;
+h4, .h4 { 
+	@include rem(24); 
+	font-weight: 600;
 }
-
-h4 {
-	color: #333;
-	font-size: 16px;
-	font-size: 1rem;
-	font-weight: 800;
-}
-
-h5 {
-	color: #767676;
-	font-size: 13px;
-	font-size: 0.8125rem;
-	font-weight: 800;
-	letter-spacing: 0.15em;
+h5, .h5 { 
+	@include rem(12); 
+	font-weight: 700;
+	font-family: $header;
 	text-transform: uppercase;
 }
 
 h6 {
-	color: #333;
-	font-size: 15px;
-	font-size: 0.9375rem;
-	font-weight: 800;
+	@include rem(12); 
+	font-weight: 700;
 }
 
-p {
-	margin: 0 0 1.5em;
-	padding: 0;
+p, .p {
+	@include rem(16);
+  margin-top: 1em;
+  margin-bottom: 1em;
+
+  a {  	
+  	text-decoration: underline;
+  	
+  	&.button {
+  		text-decoration: none;
+  	}
+
+  	&:hover {
+	  	color: $green; 
+	  }
+  }
 }
 
 dfn,
@@ -96,21 +99,19 @@ i {
 }
 
 blockquote {
-	color: #666;
-	font-size: 18px;
-	font-size: 1.125rem;
-	font-style: italic;
-	line-height: 1.7;
-	margin: 0;
-	overflow: hidden;
-	padding: 0;
-}
+	position: relative;
+  margin: 2em auto;
+  padding-left: 35px;
 
-blockquote.alignleft,
-blockquote.alignright {
-	font-size: 14px;
-	font-size: 0.875rem;
-	width: 34%;
+	&::before {
+    content: '';
+    position: absolute;    
+    background-color: $green;
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    width: 4px;
+	}
 }
 
 address {
@@ -150,20 +151,14 @@ ins {
 	text-decoration: none;
 }
 
-big {
-	font-size: 125%;
+small, .small {
+  font-size: 87.5%;
+  margin-top: .5em;
+  margin-bottom: .5em;
 }
 
-blockquote,
-q {
-	quotes: "" "";
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-	content: "";
+big, .big {
+	font-size: 125%; 
 }
 
 /* Typography for Thai Font */
@@ -191,10 +186,11 @@ html[lang="th"] textarea {
  */
 
 hr {
-	background-color: #bbb;
-	border: 0;
+	background-color: $gray;
 	height: 1px;
-	margin-bottom: 1.5em;
+	width: 50%;
+	margin: 2em auto;
+  border: 0;
 }
 
 ul,
@@ -273,33 +269,20 @@ td:last-child {
 }
 
 a {
-	-webkit-box-shadow: inset 0 -1px 0 rgba(15, 15, 15, 1);
-	box-shadow: inset 0 -1px 0 rgba(15, 15, 15, 1);
-	color: #222;
-	text-decoration: none;
-	-webkit-transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
-	transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
-	transition: color 80ms ease-in, box-shadow 130ms ease-in-out;
-	transition: color 80ms ease-in, box-shadow 130ms ease-in-out, -webkit-box-shadow 130ms ease-in-out;
-}
+  text-decoration: none;
+  font-size: inherit;
+  color: inherit;
+  transition: .5s ease all;
 
-a:focus {
-	outline: thin dotted;
-}
-
-a:hover,
-a:focus {
-	color: #000;
-	-webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 3px 0 rgba(0, 0, 0, 1);
-	box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 3px 0 rgba(0, 0, 0, 1);
+	&:focus {
+		outline: none;
+	}
 }
 
 /* Fixes linked images */
 
 a img {
 	background: #fff;
-	-webkit-box-shadow: 0 0 0 6px #fff;
-	box-shadow: 0 0 0 6px #fff;
 }
 
 /**
@@ -324,12 +307,14 @@ object {
  */
 
 .wp-caption {
-	color: #666;
-	font-size: 13px;
-	font-size: 0.8125rem;
-	font-style: italic;
-	margin-bottom: 1.5em;
-	max-width: 100%;
+	font-size: 87.5%;
+	text-align: right;
+	color: rgba($text, .75);
+  margin: 0;
+  padding: 5px 10px;
+	border-right: 3px solid $green;
+	border-bottom: 1px solid $gray-lt;
+	border-left: 1px solid $gray-lt;
 }
 
 .wp-caption img[class*="wp-image-"] {
@@ -340,4 +325,111 @@ object {
 
 .wp-caption .wp-caption-text {
 	margin: 0.8075em 0;
+}
+
+
+/**
+ * Buttons
+ */
+.button,
+.header__cta a,
+input[type="submit"] {
+	display: inline-block;
+	outline: 0;
+	border: 0;
+	cursor: pointer;
+	font-family: $header;
+	font-weight: 700;
+	text-transform: uppercase;
+	@include rem(14);
+	line-height: 1;
+	color: $white;
+	background-color: $red;
+	border-radius: 3px;
+	margin-top: .5em;
+	margin-bottom: .5em;
+	padding: 14px 20px 13px; // specific to vertically center font
+	transition: $transition;
+	
+	&:hover {
+		background-color: $red-med;
+		color: $white;
+	}
+
+	&.secondary {
+		background-color: transparent;
+		color: $red;
+		box-shadow: inset 0 0 0 2px $red;
+
+		&:hover {
+			background-color: $red;
+			color: $white;
+		}
+
+		&.disabled {
+			box-shadow: inset 0 0 0 2px $gray;
+			color: $text;
+			background-color: $white;
+
+			&:hover {
+				background-color: $white;
+				color: $text;
+			}
+		}
+	}
+
+	&.gray {
+		background-color: $white;
+		color: $text;
+		box-shadow: inset 0 0 0 2px $gray;
+
+		&:hover {
+			box-shadow: inset 0 0 0 2px $off-black;
+			color: $text;
+		}
+
+		&.disabled {
+			&:hover {
+				background-color: $white;
+				color: $text;
+			}
+		}
+	}
+
+	&.disabled {
+		opacity: .6;
+		cursor: default;
+		background-color: $gray;
+		color: $text;
+		
+		&:hover {
+			color: $text;
+			background-color: $gray;
+		}
+	}
+
+	~ .button {
+		margin-left: 8px;
+	}
+}
+
+p .button { // for TinyMCE 'p span.button a' elements
+	a {
+		text-decoration: none;
+		transition: none;
+
+		&:hover {
+			color: $white;
+		}
+	}
+
+	&.gray {
+		a:hover {
+			color: $text;
+		}
+	}
+}
+
+button {
+	outline: 0;
 }

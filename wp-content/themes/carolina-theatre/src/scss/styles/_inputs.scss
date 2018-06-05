@@ -24,6 +24,7 @@ input[type="submit"] {
 	
 	&:hover {
 		background-color: $red-med;
+		color: $white;
 	}
 
 	&.secondary {
@@ -80,6 +81,23 @@ input[type="submit"] {
 
 	~ .button {
 		margin-left: 8px;
+	}
+}
+
+p .button { // for TinyMCE 'p span.button a' elements
+	a {
+		text-decoration: none;
+		transition: none;
+
+		&:hover {
+			color: $white;
+		}
+	}
+
+	&.gray {
+		a:hover {
+			color: $text;
+		}
 	}
 }
 

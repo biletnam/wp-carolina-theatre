@@ -383,6 +383,13 @@
 		"oAP": "\/inc\/reorder-admin-dashboard.php",
 		"oF": 0
 		},
+	"\/inc\/tinymce.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/inc\/tinymce.php",
+		"oF": 0
+		},
 	"\/index.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -729,16 +736,16 @@
 		"tS": 0
 		},
 	"\/src\/scss\/dashboard\/editor-style.scss": {
-		"aP": 0,
+		"aP": 1,
 		"bl": 0,
 		"dP": 10,
 		"dS": 0,
 		"ft": 4,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "\/src\/scss\/dashboard\/editor-style.css",
-		"oF": 0,
-		"oS": 0,
+		"oAP": "\/dist\/editor-style.css",
+		"oF": 2,
+		"oS": 3,
 		"uL": 1
 		},
 	"\/src\/scss\/helpers\/_functions.scss": {

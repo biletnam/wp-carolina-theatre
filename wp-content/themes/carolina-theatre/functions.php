@@ -76,14 +76,6 @@ function add_file_types_to_uploads($file_types){
 }
 add_action('upload_mimes', 'add_file_types_to_uploads');
 
-/**
- * Registers an editor stylesheet for the theme.
- * Add styles to TinyMCE WYSIWIG
- */
-function mrc_custom_editor_styles() {
-	add_editor_style('dist/editor-style.css');
-}
-add_action( 'admin_init', 'mrc_custom_editor_styles' );
 
 /*
  * Adding an ACF Theme Options page in the Dashboard
@@ -186,3 +178,8 @@ require get_template_directory() . '/inc/custom-post-types.php';
  * Custom Walker for Main Mobile Menu
  */
 require get_template_directory() . '/inc/custom_walker-icon.php';
+
+/**
+ * Extra buttons, styles, and styling of TinyMCE WYSIWYG
+ */
+require get_template_directory() . '/inc/tinymce.php';

@@ -46,20 +46,22 @@ get_header(); ?>
 </section>
 <?php } //endif show hero ?>
 
+<?php if(get_field('show_sidebar')){ ?>
 <section class="mainContent contain">
-	<?php if(get_field('show_sidebar')){ ?>
   <div class="mainContent__content">
 		<div class="container">
 			<?php get_template_part( 'blocks/content', 'blocks' ); ?>
 		</div>
 	</div>
 	<?php get_template_part( 'blocks/content', 'sidebar' ); ?>
-	<?php } else { ?>
-	<div class="container mainContent__noSidebar">
+</section>
+<?php } else { ?>
+<section class="mainContent mainContent__noSidebar contain">
+	<div class="container">
 		<?php get_template_part( 'blocks/content', 'blocks' ); ?>
 	</div>
-	<?php } ?>
 </section>
+<?php } ?>
 <?php } // endwhile; ?>
 
 <?php get_footer();

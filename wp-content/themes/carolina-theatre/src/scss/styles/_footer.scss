@@ -126,7 +126,7 @@
 }
 
 .footer__slogan {
-	p {
+	p.h1 {
     @include rem(80);
     font-weight: 700;
     line-height: 1;
