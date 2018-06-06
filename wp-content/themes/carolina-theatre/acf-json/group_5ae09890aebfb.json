@@ -1,13 +1,13 @@
 {
     "key": "group_5ae09890aebfb",
-    "title": "Content Blocks",
+    "title": "Main Content",
     "fields": [
         {
             "key": "field_5ae0989a7b5cd",
-            "label": "Content Block Type",
+            "label": "Content Blocks",
             "name": "content_block_type",
             "type": "flexible_content",
-            "instructions": "",
+            "instructions": "The page's main content is added here. Choose from a variety of block types.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -224,6 +224,20 @@
                 "operator": "==",
                 "value": "default"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "film"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "event"
+            }
         ]
     ],
     "menu_order": 20,
@@ -236,5 +250,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1528135574
+    "modified": 1528318058
 }

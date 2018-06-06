@@ -3,35 +3,82 @@
 
 <?php while ( have_posts() ) { the_post(); ?>
 
-<?php 
-	$date_range = get_field('showtimes');
-  if ($date_range != NULL) {
-  	// dates in YYYYMMDD format for easy comparing (ie: 20180130)
-    $start_date = get_field('start_date');
-    $end_date = get_field('end_date');
-    $today = date("Ymd", strtotime('today'));
+<?php // ACF fields
+	$event_title = get_field('event_title'); 												// text
+	if(empty($event_title)){
+		$event_title = get_the_title();
+	}
 
-    // if event is a single day, set end_date
-    if($end_date == NULL) {
-    	$end_date = $start_date;
-    }
+	$event_preheading = get_field('event_preheading'); 							// text
+	$event_specialguests = get_field('event_specialguests'); 				// text
+	$event_subheading = get_field('event_subheading'); 							// text
 
+	$event_coming_soon = get_field('event_comingsoon');
+	$multiday_event = get_field('event_multipledates'); 						// boolean
+	$start_date = get_field('start_date'); 													// YYYYMMDD
+	$end_date = get_field('end_date'); 															// YYYYMMDD
+	$showtimes = get_field('showtimes'); 														// repeater
+		// $date = get_sub_field('date'); 																// YYYYMMDD
+		// $times = get_sub_field('times'); 															// repeater
+		// 	$time = get_sub_field('time'); 															// 8:55 pm  |  g:i a
+
+	$ticket_link = get_field('ticket_link'); 												// url
+	$ticket_prices = get_field('ticket_prices'); 										// repeater
+		// $ticket_price = get_sub_field('ticket_price'); 								// text (no leading $)
+		// $ticket_label get_sub_field('ticket_label'); 									// text
+	$tickets_onsaledate = get_field('tickets_onsaledate'); 					// 2018-06-06 20:55:09  |  Y-m-d H:i:s
+	$tickets_presaledate = get_field('tickets_presaledate'); 				// 2018-06-06 20:55:09  |  Y-m-d H:i:s
+
+	$show_member_tickets = get_field('show_member_tickets'); 				// boolean
+	$member_ticket_link = get_field('member_ticket_link'); 					// url
+	$show_season_pass = get_field('show_season_pass'); 							// boolean
+	$season_pass_link = get_field('season_pass_link'); 							// url
+	$event_soldout = get_field('event_soldout');
+	
+	$film_director = get_field('director'); 												// text
+	$film_release_country = get_field('release_country'); 					// text
+	$film_release_year = get_field('release_year'); 								// number
+	$film_runtime = get_field('runtime'); 													// number
+	$film_rating = get_field('rating');															// select
+
+	$associated_event = get_field('associated_event');							// Post ID
+	
+	$external_links = get_field('external_links');									// repeater
+		// $external_link_icon = get_sub_field('external_link_icon'); 		// text | Font Awesome class 'fa-link'
+		// $external_link_label = get_sub_field('external_link_label'); 	// text
+		// $external_link_url = get_sub_field('external_link_url'); 			// url
+?>
+
+<?php
+  $today = date("Ymd", strtotime('today'));
+  $showtime_closestToToday = $start_date; 
+
+  // if no start date was given, set it as yesterday (so it doesn't show)
+  if ($start_date == NULL) {
+  	$start_date == $today-1;
+  }
+
+  // if a single day event, set end_date 
+  if($end_date == NULL) {
+  	$end_date = $start_date;
+  }
+
+  if ($showtimes != NULL) {
     // only construct events if they are in the future
     if ($end_date >= $today) {
 		  $event_dates = array();
-		  // $event_times = array();
+
   		if (have_rows('showtimes')) { 
         while (have_rows('showtimes')) { the_row();
-      		$showtime = get_sub_field('dates', false, false);
-      		if ($showtime >= $today) { // if the showtime is today or in the future,
-        		array_push($event_dates, $showtime);	// push date to array
-        		// array_push($event_times, get_sub_field('times')[0]['time']);	// push times to an array
+      		$single_date = get_sub_field('date', false, false);
+      		if ($single_date >= $today) { // if the showtime is today or in the future,
+        		array_push($event_dates, $single_date);	// push date to array
       		}
          } // endwhile showtimes
       } //endif showtimes 
       
-      // the closest upcoming date (to show in the card as the date square)
-      $dateToShowInCard = $event_dates[0]; 
+      // get the date to show in the card as the date square
+      $showtime_closestToToday = $event_dates[0]; 
     }
   }
 ?>
@@ -39,10 +86,14 @@
 <section class="mainContent contain film">
   <div class="mainContent__content">
   	<div class="container">
+      <?php if ($associated_event) { ?>
+    	<a class="singleEvent__associatedEvent" href="<?php echo get_permalink($associated_event); ?>#films"><?php echo get_the_title($associated_event); ?> ››</a>
+      <?php } ?>
+
       <div class="singleEvent__image">
        <div class="event__dateBox">
-					<span class="day"><?php echo date("j", strtotime($dateToShowInCard)); ?></span>
-					<span class="month"><?php echo date("M", strtotime($dateToShowInCard)); ?></span>
+					<span class="day"><?php echo date("j", strtotime($showtime_closestToToday)); ?></span>
+					<span class="month"><?php echo date("M", strtotime($showtime_closestToToday)); ?></span>
 				</div>
 				<div class="singleEvent__hero">
 					<?php if (have_rows('event_hero')){ ?>
@@ -55,31 +106,36 @@
 				</div>
       </div>
 
-      <p>The Carolina Theatre Presents...</p>
-      <h2 class="singleEvent__title"><?php echo the_title(); ?></h2>
-      <p class="singleEvent__subtitle"><?php echo get_field('event_subtitle'); ?></p>
+      <?php if (!empty($event_preheading)) { ?>
+      <p class="singleEvent__preheading"><?php echo $event_preheading; ?></p>
+      <?php } ?>
+      <h1 class="singleEvent__title h2"><?php echo $event_title; ?></h1>
+      <?php if (!empty($event_specialguests)) { ?>
+      <p class="singleEvent__specialGuests"><?php echo $event_specialguests; ?></p>
+      <?php } ?>
+      <?php if (!empty($event_subheading)) { ?>
+      <p class="singleEvent__subtitle"><?php echo $event_subheading; ?></p>
+      <?php } ?>
+
+
       <div class="singleEvent__description">
-      	<?php the_content(); ?>
-      </div>
-      <div class="singleEvent__read-more">
-        <hr />
+				<?php get_template_part( 'template-parts/content-blocks/content-blocks' ); ?>
+			</div>
+<!-- 			<div class="singleEvent__read-more">
+        <hr/>
         <p>Read More</p>
-      </div>
-      <div class="singleEvent__videos">
-        <div class="singleEvent__videos--one">
-          <?php the_field('video_1_link'); ?>
-          <p><?php the_field('video_1_caption') ?></p>
-        </div>
-        <div class="singleEvent__videos--two">
-          <?php the_field('video_2_link'); ?>
-          <p><?php the_field('video_2_caption') ?></p>
-        </div>
+      </div> -->
+
+      <?php // TO-DO: Related Events/Films ?>
+      <div class="singleEvent__relatedPosts">
+      	<h3>related posts go here</h3>
       </div>
     </div>
   </div>  
 
   <aside class="mainContent__sidebar">
   	<div class="container">
+  		<?php // TO-DO: Ticket Button functionality ?>
   		<div class="sidebar__tickets">
         <a href="#" target="_blank" title="Purchase Tickets to <?php the_title(); ?>" class="button">Buy Tickets</a>
   		</div>
@@ -94,48 +150,84 @@
         	} //endif ticket_prices
       	?>
         <p class="showInfo__ticketPrices"><?php echo '$' . join($price_vals, ' | '); ?></p>
-        <ul class="showInfo__showdates">
+        
+      <?php if (!$event_coming_soon){ ?>
+      	<ul class="showInfo__showdates">
         	<?php if (have_rows('showtimes')) { // output all dates for a show
             while (have_rows('showtimes')) { the_row(); ?>
-            	<?php $showdate = get_sub_field('dates');?>
-              <li><?php echo $showdate; ?></li>
+            	<?php 
+	            	$date = get_sub_field('date');
+								$times = get_sub_field('times');
+							?>
+              <li><?php echo date('F j', strtotime($date)); ?></li>
               <?php if (have_rows('times')) { // output all times for a given date ?>
               	<ul class="showInfo__showtimes">
                   <?php while (have_rows('times')) { the_row(); ?>
-                  	<?php $showtime = get_sub_field('time'); ?>
-                 	 	<li><?php echo $showtime . '<i class="fa fa-ticket" aria-hidden="true"></i>'; ?></li>
+                  	<?php $time = get_sub_field('time'); ?>
+                 	 	<li>
+                 	 		<?php echo date('g:ia', strtotime($time)); ?>
+                 	 		<a href="<?php echo $ticket_link; ?>" target="_blank"><i class="far fa-ticket-alt" aria-hidden="true"></i></a>
+                 	 	</li>
                   <?php } // endwhile times ?>
                 </ul>
                <?php } // endif times ?>
              <?php } // endwhile showtimes ?>
           <?php } //endif showtimes ?>
       	</ul>
+      <?php } // endif showtimes are available ?>
+        
       </div>
       <div class="sidebar__filmInfo">
-      		<?php $movie_info = get_field('film_information'); ?>
           <h3>Movie Info</h3>
+          <?php if ($film_director) { ?>
           <div>
               <h5>Director</h5>
-              <p><?php echo $movie_info["director"]; ?></p>
+              <p><?php echo $film_director; ?></p>
           </div>
+          <?php } ?>
+          <?php if ($film_release_year) { ?>
           <div>
               <h5>Release Year</h5>
-              <p><?php echo $movie_info["release_year"]; ?></p>
+              <p><?php echo $film_release_year; ?></p>
           </div>
+          <?php } ?>
+          <?php if ($film_release_country) { ?>
           <div>
               <h5>Release Country</h5>
-              <p><?php echo $movie_info["release_country"]; ?></p>
+              <p><?php echo $film_release_country; ?></p>
           </div>
-          <div>
-              <h5>Rating</h5>
-              <p><?php echo $movie_info["rating"]; ?></p>
-          </div>
+          <?php } ?>
+          <?php if ($film_runtime) { ?>
           <div>
               <h5>Runtime</h5>
-              <p><?php echo $movie_info["runtime"] . ' min'; ?></p>
+              <p><?php echo $film_runtime; ?> min</p>
           </div>
+          <?php } ?>
+          <?php if ($film_rating) { ?>
+          <div>
+              <h5>MPAA Rating</h5>
+              <p><?php echo $film_rating; ?></p>
+          </div>
+          <?php } ?>
       </div>
-      <?php get_template_part( 'template-parts/event', 'external_links' ); ?>
+
+      <?php //get_template_part( 'template-parts/event', 'external_links' ); ?>
+      <div class="externalLinks">
+			  <?php if (have_rows('external_links')) {
+			    while (have_rows('external_links')) { the_row();
+			      $external_link_icon = get_sub_field('external_link_icon');
+						$external_link_label = get_sub_field('external_link_label');
+						$external_link_url = get_sub_field('external_link_url');
+			    ?>
+			    <p>
+			    	<i class="far <?php echo $external_link_icon; ?>"></i>
+			    	<a href="<?php echo $external_link_url; ?>" target="_blank"><?php echo $external_link_label; ?></a>
+			    </p>
+			    <?php } // end while ?>
+			  <?php } // end if ?>
+			</div>
+
+
       <?php get_template_part( 'template-parts/content-blocks/block', 'link_block' ); ?>
     </div>
   </aside>
