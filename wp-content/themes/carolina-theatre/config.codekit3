@@ -971,6 +971,13 @@
 		"oAP": "\/template-parts\/part-page_heading.php",
 		"oF": 0
 		},
+	"\/template-parts\/slider-featured_events.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/slider-featured_events.php",
+		"oF": 0
+		},
 	"\/template-parts\/slider-image_video.php": {
 		"cB": 0,
 		"ft": 8192,

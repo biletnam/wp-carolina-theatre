@@ -43,4 +43,6 @@
 		<img src="<?php echo get_stylesheet_directory_uri(); ?>/src/img/no-event-image-full.jpg" alt="No Event Image to Show">
 		<?php } // endif $image ?>
 	<?php } // end while ?> 
+<?php } else { ?>
+<img src="<?php echo get_stylesheet_directory_uri(); ?>/src/img/no-event-image-full.jpg" alt="No Event Image to Show">
 <?php } // end if ?> 

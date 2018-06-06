@@ -58,10 +58,10 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "collapsed": "field_5ab941e08e80b",
             "min": 0,
             "max": 0,
-            "layout": "table",
+            "layout": "block",
             "button_label": "Add Date",
             "sub_fields": [
                 {
@@ -73,7 +73,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -90,11 +90,11 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
-                    "collapsed": "",
+                    "collapsed": "field_5ab9432b22b14",
                     "min": 0,
                     "max": 0,
                     "layout": "table",
@@ -252,5 +252,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1528231886
+    "modified": 1528302955
 }

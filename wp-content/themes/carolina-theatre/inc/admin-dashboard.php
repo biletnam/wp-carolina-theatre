@@ -163,6 +163,7 @@ function set_custom_edit_event_columns($columns) {
   $columns['upcoming'] = __( 'Upcoming', 'carolinatheatre' );
   $columns['start_date'] = __( 'Starting', 'carolinatheatre' );
   $columns['end_date'] = __( 'Ending', 'carolinatheatre' );
+  $columns['parent_event'] = __( 'Parent Event', 'carolinatheatre' );
 
   return $columns;
 }
@@ -171,7 +172,18 @@ function set_custom_edit_event_columns($columns) {
 add_action( 'manage_event_posts_custom_column' , 'custom_event_column', 10, 2 );
 function custom_event_column( $column, $post_id ) {
   switch ( $column ) {
-  	case 'upcoming' :
+  	case 'parent_event' :
+      $festival_id = get_field('associated_event', $post_id);
+      $festival_name = get_the_title($festival_id);
+
+      if($festival_id){
+        echo $festival_name;
+      } else {
+        echo '';
+      }
+      break;
+
+    case 'upcoming' :
       $today = date("Ymd", strtotime('today'));
       $start_date = get_field('start_date', $post_id);
       $end_date = get_field('end_date', $post_id);
@@ -213,6 +225,7 @@ function custom_event_column( $column, $post_id ) {
 // Make custom columns sortable
 add_filter( 'manage_edit-event_sortable_columns', 'sortable_event_columns' );
 function sortable_event_columns( $columns ) {
+  $columns['parent_event'] = 'parent_event';
   $columns['upcoming'] = 'upcoming';
   $columns['start_date'] = 'start_date';
   $columns['end_date'] = 'end_date';
