@@ -8,7 +8,7 @@
 		<div class="accordion__content">
 		<?php if (have_rows('content')) { ?>
 		<?php  while(have_rows('content')) { the_row(); ?>
-			<?php  get_template_part( 'blocks/content-blocks' ); ?>
+			<?php  get_template_part( 'template-parts/content-blocks/content-blocks' ); ?>
 		<?php } // endwhile ?>
 		<?php } // endif ?>
 		</div>

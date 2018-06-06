@@ -1302,6 +1302,12 @@ main {
         border-bottom-color: #72bcae; }
       .tabbedContent__tabs ul .page_item:hover {
         border-bottom-color: #72bcae; }
+    .tabbedContent__tabs ul.children {
+      position: absolute; }
+      .tabbedContent__tabs ul.children li {
+        font-size: 14px;
+        font-size: 0.875rem;
+        font-weight: 400; }
 
 .tabbedContent__tab {
   display: inline-block;
@@ -1328,6 +1334,8 @@ main {
 
 .mainContent__content {
   width: 65%; }
+  .mainContent__content > .container {
+    padding-top: 0; }
 
 .mainContent__sidebar {
   width: 100%;

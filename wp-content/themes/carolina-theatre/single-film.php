@@ -1,30 +1,7 @@
 <?php get_header(); ?>
-<?php get_template_part( 'blocks/content', 'breadcrumb' ); ?>
+<?php get_template_part( 'template-parts/part', 'breadcrumb' ); ?>
 
 <?php while ( have_posts() ) { the_post(); ?>
-<?php // convert date strings to integers for sorting
-	// $event_dates = array();
-	// if (have_rows('showtimes')) {
- //    while (have_rows('showtimes')) { the_row();
- //      $event_date = strtotime(get_sub_field('dates'));
- //      array_push($event_dates, $event_date);
- //    }
-	// }
-
-	// // pick the min/max and convert to string 
-	// $date_string = '';
-	// $start_date = date("F d, Y", min($event_dates));
-	// $end_date = date("F d, Y", max($event_dates));
-
-	// if ($start_date == $end_date) {
-	// 	$date_string = $start_date;
-	// } else {
-	// 	$date_string = $start_date . '-' . $end_date;
-	// }
-
-	// // the closest upcoming date (to show in the card as the date square)
- //  $dateToShowInCard = $event_dates[0]; 
-?>
 
 <?php 
 	$date_range = get_field('showtimes');
@@ -70,7 +47,7 @@
 				<div class="singleEvent__hero">
 					<?php if (have_rows('event_hero')){ ?>
 					<?php while (have_rows('event_hero')){ the_row(); ?>
-					<?php get_template_part( 'blocks/content-blocks', 'slider' ); ?>
+					<?php get_template_part( 'template-parts/content-blocks/block', 'slider' ); ?>
 					<?php } //endwhile ?>
 					<?php } else { ?>
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/src/img/no-event-image-full.jpg" alt="No Event Image to Show">
@@ -158,8 +135,8 @@
               <p><?php echo $movie_info["runtime"] . ' min'; ?></p>
           </div>
       </div>
-      <?php get_template_part( 'blocks/event', 'externalLinks' ); ?>
-      <?php get_template_part( 'blocks/content-blocks', 'link-block' ); ?>
+      <?php get_template_part( 'template-parts/event', 'external_links' ); ?>
+      <?php get_template_part( 'template-parts/content-blocks/block', 'link_block' ); ?>
     </div>
   </aside>
 </section>

@@ -184,7 +184,7 @@
 					$events_query = new WP_Query($events_query_args);
 					if ($events_query->have_posts()) {
 						while ($events_query->have_posts()) { $events_query->the_post(); ?>
-						  <?php get_template_part('blocks/event', 'card'); ?>
+						  <?php get_template_part('template-parts/event', 'thumbnail_card'); ?>
 			  		<?php } // endwhile have_posts events_query ?>
 
 						<div class="pagination">

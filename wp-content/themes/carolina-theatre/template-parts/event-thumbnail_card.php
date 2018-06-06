@@ -66,7 +66,7 @@
 							$image_alt = 'No Event Image to Show'; 
       				
       				if (have_rows('event_hero')){
-								$slideRepeater = get_field('panel_content', $featured_ID);
+								$slideRepeater = get_field('panel_content');
 								$image = $slideRepeater[0]['image'];
 						 	 	
 						 	 	if($image){ 

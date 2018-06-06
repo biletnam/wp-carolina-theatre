@@ -269,6 +269,15 @@ main {
 				border-bottom-color: $green;
 			}
 		}
+
+		&.children {
+	    position: absolute;
+	   	
+	   	li {
+	   		@include rem(14);
+	   		font-weight: 400;
+	   	}
+		}
 	}
 }
 
@@ -308,6 +317,10 @@ main {
 
 	&__content {
 		width: 65%;
+
+		> .container {
+			padding-top: 0;
+		}
 	}
 	&__sidebar {
     width: 100%;
@@ -434,7 +447,7 @@ main {
 	}
 }
 
-// content-blocks-link-block.php
+// content-blocks-link_block.php
 .block__ctas {
 	display: flex;
 	flex-wrap: wrap;
