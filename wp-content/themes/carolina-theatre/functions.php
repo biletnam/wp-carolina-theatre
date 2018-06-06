@@ -165,6 +165,18 @@ function carolinatheatre_scripts() {
 add_action( 'wp_enqueue_scripts', 'carolinatheatre_scripts' );
 
 /**
+ * Global Variables
+ */
+global $accordionCount;
+$accordionCount = 0;
+
+global $galleryCount;
+$galleryCount = 0;
+
+global $sliderCount;
+$sliderCount = 0;
+
+/**
  * 1 - Reorder Menu Items in WordPress Dashboard
  * 2 - Add Columns to Custom Post Types
  */

@@ -1,9 +1,11 @@
+<?php global $sliderCount; ?>
 <?php if (have_rows('panel_content')) { ?>
 	<?php while (have_rows('panel_content')) { the_row(); ?>
   	<?php // make sure first row has an image to determine if slider is actually used.  ?>
 		<?php $image = get_sub_field('image');
 		if ($image) { ?>	
 			<?php 
+			  $sliderCount++;
 			  $media_type = get_sub_field('media_type'); 
 				$embedCode = get_sub_field('video_embed');
 
@@ -11,10 +13,6 @@
 				$image_thumb = $image['sizes']['thumbnail'];
 				$image_alt = $image['alt'];
 				// $image_cap = $image['caption'];
-
-		    // create random number id for sliderContent
-		    $num = mt_rand();
-		    $num_var = sprintf($num);
 		  ?>
 		  <div data-thumb="<?php echo $image_thumb; ?>">
 		  <?php if ($media_type == 'image') { ?>
@@ -25,7 +23,7 @@
 	      	<!-- <figcaption class="small caption"><?php echo $image_cap; ?></figcaption> -->
 	      <?php //} ?>
 		  <?php } else if ($media_type == 'video') { ?>
-		    <a href="<?php echo '.sliderContent-' . $num_var; ?>" data-featherlight>
+		    <a href="<?php echo '.sliderContent-' . $sliderCount; ?>" data-featherlight>
           <div class="image_wrapper">
           	<i class="fas fa-play"></i>
 		      	<img src="<?php echo $image_full; ?>" alt="<?php echo $image_alt; ?>" />
@@ -34,7 +32,7 @@
 		      	<!-- <figcaption class="small caption"><?php echo $image_cap; ?></figcaption> -->
 		      <?php //} ?>
 		    </a>
-		    <div class="gallery-content <?php echo 'sliderContent-' . $num_var; ?>">
+		    <div class="gallery-content <?php echo 'sliderContent-' . $sliderCount; ?>">
 		      <div class="video"><?php echo $embedCode; ?></div>
 		    </div>
 		  <?php } // end if image or video ?>

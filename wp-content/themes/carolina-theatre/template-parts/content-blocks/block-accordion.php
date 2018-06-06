@@ -1,10 +1,11 @@
-<?php $panel_count = 0; ?>
+<?php global $accordionCount; ?>
 <?php if (have_rows('panel')) { ?>
 <div class="accordion">
 <?php while(have_rows('panel')) { the_row(); ?>
 	<div class="accordion__panel">
-		<input id="panel-<?php echo $panel_count;?>" type="checkbox" name="panels">
-		<label for="panel-<?php echo $panel_count;?>"><?php echo get_sub_field('title'); ?></label>
+		<?php $accordionCount++; ?>
+		<input id="panel-<?php echo $accordionCount;?>" type="checkbox" name="panels">
+		<label for="panel-<?php echo $accordionCount;?>"><?php echo get_sub_field('title'); ?></label>
 		<div class="accordion__content">
 		<?php if (have_rows('content')) { ?>
 		<?php  while(have_rows('content')) { the_row(); ?>
@@ -13,7 +14,6 @@
 		<?php } // endif ?>
 		</div>
 	</div>
-	<?php $panel_count++; ?>
 <?php } // endwhile ?>
 <?php wp_reset_postdata(); ?>
 </div>
