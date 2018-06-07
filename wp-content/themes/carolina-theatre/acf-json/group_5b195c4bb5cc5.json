@@ -19,25 +19,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_5b195c4bbdb3a",
-            "label": "Main Title",
-            "name": "event_title",
-            "type": "text",
-            "instructions": "If blank, post title will be used.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "The Event's Title...",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_5b195c4bbdb50",
             "label": "Preheading",
             "name": "event_preheading",
@@ -360,10 +341,10 @@
         },
         {
             "key": "field_5b195e84f270d",
-            "label": "When do doors open?",
+            "label": "Doors:",
             "name": "event_doorstime",
             "type": "text",
-            "instructions": "",
+            "instructions": "When do doors open, relative to the start time?",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -372,7 +353,7 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "1 hour prior",
+            "placeholder": "1 hour before",
             "prepend": "",
             "append": "",
             "maxlength": ""
@@ -680,7 +661,7 @@
             "label": "External Links & Resources",
             "name": "external_links",
             "type": "repeater",
-            "instructions": "List of icons can be found here: <b><a href=\"https:\/\/fontawesome.com\/cheatsheet\/pro\">Font Awesome<\/a><\/b>. <br>Common class names include: <b>fa-facebook<\/b>, <b>fa-twitter<\/b>, <b>fa-youtube<\/b>, <b>fa-link<\/b>",
+            "instructions": "List of icons can be found here: <b><a href=\"https:\/\/fontawesome.com\/cheatsheet\/pro\">Font Awesome<\/a><\/b>. <br>Prepend class name with 'far fa-' for standard icons (<b>far fa-link<\/b>, <b>far fa-file<\/b>), and 'fab fa-' for brands (<b>fab fa-facebook<\/b>, <b>fab fa-twitter<\/b>, <b>fab fa-youtube<\/b>)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -688,7 +669,7 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "field_5b18454b52917",
+            "collapsed": "field_5b195c4c2dcb3",
             "min": 0,
             "max": 0,
             "layout": "block",
@@ -703,12 +684,12 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "20",
+                        "width": "30",
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "fa-link",
-                    "placeholder": "fa-link",
+                    "default_value": "far fa-link",
+                    "placeholder": "far fa-link",
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
@@ -722,7 +703,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "40",
+                        "width": "70",
                         "class": "",
                         "id": ""
                     },
@@ -733,22 +714,121 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5b195c4c2dcc8",
-                    "label": "Link",
-                    "name": "external_link_url",
-                    "type": "url",
+                    "key": "field_5b197f2dc6ee7",
+                    "label": "Link Type",
+                    "name": "external_link_type",
+                    "type": "true_false",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "40",
+                        "width": "30",
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": ""
+                    "message": "",
+                    "default_value": 1,
+                    "ui": 1,
+                    "ui_on_text": "URL",
+                    "ui_off_text": "File"
+                },
+                {
+                    "key": "field_5b195c4c2dcc8",
+                    "label": "URL",
+                    "name": "external_link_url",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5b197f2dc6ee7",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url"
+                },
+                {
+                    "key": "field_5b197eb39b88e",
+                    "label": "File",
+                    "name": "external_link_file",
+                    "type": "file",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5b197f2dc6ee7",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "library": "all",
+                    "min_size": "",
+                    "max_size": "",
+                    "mime_types": ""
                 }
             ]
+        },
+        {
+            "key": "field_5b19635962449",
+            "label": "Show sidebar's fine print",
+            "name": "show_sidebar_fineprint",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5b1963646244a",
+            "label": "Sidebar's Fine Print",
+            "name": "sidebar_fineprint",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b19635962449",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "No Cameras\r\nNo Outside Food or Drink\r\nNo Backpacks\r\nNo Video Recording Devices\r\nNo Weapons",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 5,
+            "new_lines": ""
         }
     ],
     "location": [
@@ -756,17 +836,26 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
+                "value": "event"
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 15,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "discussion",
+        "comments",
+        "format",
+        "featured_image",
+        "categories",
+        "tags"
+    ],
     "active": 1,
     "description": "",
-    "modified": 1528389303
+    "modified": 1528400610
 }

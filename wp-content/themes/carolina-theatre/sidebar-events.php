@@ -13,24 +13,74 @@
     <?php // TO-DO: Get sidebars setup ?>
 
     <div class="sidebar__menus">
+      <?php $today = date("Ymd", strtotime('today')); ?>
+      <?php 
+        $festival_query_args = array(
+					'post_type' => array('festival'),
+					'post_status' => 'publish',
+					'posts_per_page' => -1,
+					'meta_query'	=> array(
+						'relation' => 'OR',
+						'start_clause' => array( // if event hasn't started yet
+							'key'		=> 'start_date', 
+							'compare'	=> '>=',
+							'value'		=> $today,
+						),
+						'end_clause' => array( // if event hasn't ended yet
+							'key'		=> 'end_date',
+							'compare'	=> '>=',
+							'value'		=> $today,
+						),
+					),
+					'orderby' => 'ASC',
+				);
+      ?>
+			
+			<?php $festival_query = new WP_Query($festival_query_args); ?>
+			<?php if ($festival_query->have_posts()) { ?>
+    	<div class="sidebar__menu">
+        <p class="h3">Upcoming Film Festivals</p>
+				<ul>
+					<?php while ($festival_query->have_posts()) { $festival_query->the_post(); ?>
+          <li><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></li>
+          <?php } // end while ?>
+        </ul>
+      </div>
+      <?php } // end if festivals ?>
+
+      <?php 
+        $filmseries_query_args = array(
+					'post_type' => array('series'),
+					'post_status' => 'publish',
+					'posts_per_page' => -1,
+					'meta_query'	=> array(
+						'relation' => 'OR',
+						'start_clause' => array( // if event hasn't started yet
+							'key'		=> 'start_date', 
+							'compare'	=> '>=',
+							'value'		=> $today,
+						),
+						'end_clause' => array( // if event hasn't ended yet
+							'key'		=> 'end_date',
+							'compare'	=> '>=',
+							'value'		=> $today,
+						),
+					),
+					'orderby' => 'ASC',
+				);
+      ?>
+			
+			<?php $filmseries_query = new WP_Query($filmseries_query_args); ?>
+			<?php if ($filmseries_query->have_posts()) { ?>
     	<div class="sidebar__menu">
         <p class="h3">Upcoming Film Series</p>
-        <ul>
-            <li><a href="#" title="">Retro Epics ››</a></li>
-            <li><a href="#" title="">Anime-Magic ››</a></li>
-            <li><a href="#" title="">SplatterFlix ››</a></li>
-            <li><a href="#" title="">Fantastic Realm ››</a></li>
-            <li><a href="#" title="">Retro ArtHouse ››</a></li>
+				<ul>
+					<?php while ($filmseries_query->have_posts()) { $filmseries_query->the_post(); ?>
+          <li><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></li>
+          <?php } // end while ?>
         </ul>
       </div>
-      <div class="sidebar__menu">
-        <p class="h3">Upcoming Film Festivals</p>
-        <ul>
-          <li><a href="#" title="">NC Gay &amp; Lesbian Film Festival >></a></li>
-          <li><a href="#" title="">Nevermore ››</a></li>
-          <li><a href="#" title="">Full Frame ››</a></li>
-        </ul>
-      </div>
+      <?php } // end if film series ?>
     </div>
     
     <?php get_template_part( 'template-parts/content-blocks/block', 'link_block' ); ?>

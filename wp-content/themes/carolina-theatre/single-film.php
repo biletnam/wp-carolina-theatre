@@ -1,13 +1,9 @@
 <?php get_header(); ?>
+<?php while ( have_posts() ) { the_post(); ?>
 <?php get_template_part( 'template-parts/part', 'breadcrumb' ); ?>
 
-<?php while ( have_posts() ) { the_post(); ?>
-
 <?php // ACF fields
-	$event_title = get_field('event_title'); 												// text
-	if(empty($event_title)){
-		$event_title = get_the_title();
-	}
+	$event_title = get_the_title(); 
 
 	$event_preheading = get_field('event_preheading'); 							// text
 	$event_specialguests = get_field('event_specialguests'); 				// text
@@ -21,6 +17,7 @@
 		// $date = get_sub_field('date'); 																// YYYYMMDD
 		// $times = get_sub_field('times'); 															// repeater
 		// 	$time = get_sub_field('time'); 															// 8:55 pm  |  g:i a
+	$event_location = get_field('event_location');									// Select (array)
 
 	$ticket_link = get_field('ticket_link'); 												// url
 	$ticket_prices = get_field('ticket_prices'); 										// repeater
@@ -42,11 +39,9 @@
 	$film_rating = get_field('rating');															// select
 
 	$associated_event = get_field('associated_event');							// Post ID
-	
-	$external_links = get_field('external_links');									// repeater
-		// $external_link_icon = get_sub_field('external_link_icon'); 		// text | Font Awesome class 'fa-link'
-		// $external_link_label = get_sub_field('external_link_label'); 	// text
-		// $external_link_url = get_sub_field('external_link_url'); 			// url
+
+	$show_sidebar_fineprint = get_field('show_sidebar_fineprint'); 	// boolean
+	$sidebar_fineprint = get_field('sidebar_fineprint'); 						// text area
 ?>
 
 <?php
@@ -83,8 +78,8 @@
   }
 ?>
 
-<section class="mainContent contain film">
-  <div class="mainContent__content">
+<div class="mainContent contain film">
+  <section class="mainContent__content">
   	<div class="container">
       <?php if ($associated_event) { ?>
     	<a class="singleEvent__associatedEvent" href="<?php echo get_permalink($associated_event); ?>#films"><?php echo get_the_title($associated_event); ?> ››</a>
@@ -121,17 +116,13 @@
       <div class="singleEvent__description">
 				<?php get_template_part( 'template-parts/content-blocks/content-blocks' ); ?>
 			</div>
-<!-- 			<div class="singleEvent__read-more">
-        <hr/>
-        <p>Read More</p>
-      </div> -->
 
       <?php // TO-DO: Related Events/Films ?>
       <div class="singleEvent__relatedPosts">
       	<h3>related posts go here</h3>
       </div>
     </div>
-  </div>  
+  </section>  
 
   <aside class="mainContent__sidebar">
   	<div class="container">
@@ -219,6 +210,6 @@
       <?php // TO-DO: Add and implement fine print text area ?>
     </div>
   </aside>
-</section>
+</div>
 <?php } // endwhile; ?>
 <?php get_footer(); ?>

@@ -26,8 +26,8 @@
 	          <li data-tab='films' class="tabbedContent__tab">
 	          	<a href="#films">Films</a>
 	        	</li>
-	        	<?php if( have_rows('tabbed_content') ) { ?>
-           	<?php while ( have_rows('tabbed_content') ) { the_row(); ?>
+
+
 	          <?php if( have_rows('tabs') ) { ?>
            	<?php while ( have_rows('tabs') ) { the_row(); ?>
             <?php
@@ -42,22 +42,19 @@
           	</li>
     				<?php } //end while tabs ?>
             <?php } // end if tabs ?>
-            <?php } //end while tabbed_content ?>
-            <?php } // end if tabbed_content ?>
+
 	       </ul> 
 	    </div>
 	    <!-- Generate content for all tabs -->
 	    <div class="tabbedContent_contentWrapper">
 	      <div class="tabbedContent__content overview">
-          <?php if( have_rows('tabbed_content') ) { ?>
-           	<?php while ( have_rows('tabbed_content') ) { the_row(); ?>
+
 	          <?php if( have_rows('overview') ) { ?>
            	<?php while ( have_rows('overview') ) { the_row(); ?>
               <?php get_template_part( 'template-parts/content-blocks/content-blocks' ); ?>
             <?php } //end while overview ?>
             <?php } // end if overview ?>
-            <?php } //end while tabbed_content ?>
-            <?php } // end if tabbed_content ?>
+
 	      </div>
 	      <div class="tabbedContent__content films card__wrapper hide-tab-content">
 	        <?php // get associated films with this festival
@@ -94,8 +91,7 @@
 				?>
 	      </div>
 	      <?php // using regex to replace tab names with valid id's for html
-				if( have_rows('tabbed_content') ) {
-				while ( have_rows('tabbed_content') ) { the_row();
+
 				if( have_rows('tabs') ) {
 				while ( have_rows('tabs') ) { the_row();
           $tab_name = get_sub_field('tab_name');
@@ -108,76 +104,53 @@
         	</div>
 	    	<?php } // end while have_rows for tabs ?>
 	    	<?php } // end if have_rows for tabs ?>
-	    	<?php } // end while have_rows for tabbed_content ?>
-	    	<?php } // end if have_rows for tabbed_content ?>
+
 	  	</div>
 	  </div>
-  </section> <!-- Main Content end -->
+  </section> <!-- Main Content Content end -->
   
   <aside class="mainContent__sidebar"> <!-- Sidebar start -->
-    <div class='festival-sidebar__btn'>
-        <button>Buy Tickets</button>
-    </div>
-    <div class="festival-sidebar__ticket-info">
-        <ul>
-          <li>
-            <i class="fa fa-calendar" aria-hidden="true"></i>
-            <?php echo get_field('start_date') . ' - ' . get_field('end_date'); ?>
-          </li>
-          <li>
-            <i class="fa fa-map-marker" aria-hidden="true"></i>
-            <?php
-                $locations = get_field('location');
-                echo join(', ', $locations);
-            ?>
-          </li>
-          <li>
-          	<?php // TO-DO: tickets ?>
-            <i class="fa fa-ticket" aria-hidden="true"></i> $12
-          </li>
-        </ul>
-        <div class="festival-sidebar__links">
-          <h3>Get Involved</h3>
-          <ul>
-              <li>Become a Volunteer >></li>
-              <li>Support the Festival >></li>
-              <li>Contact &amp; Media Kit >></li>
-          </ul>
-        </div>
-        <div class="cta__card">
-          <a href="">
-          	<h3>Plan Your Visit ››</h3>
-	          <p>What to Bring, Where to Eat, Where to Stay, Parking and more...</p>
-          </a>
-        </div>
-    </div>
-    <div class="festival-sidebar__additional-links">
-      <ul>
-        <?php
-          $files = get_field('additional_resources');
+    <div class="container">
+    	<div class='festival-sidebar__btn'>
+	        <button>Buy Tickets</button>
+	    </div>
+	    <div class="festival-sidebar__ticket-info">
+	        <ul>
+	          <li>
+	            <i class="fa fa-calendar" aria-hidden="true"></i>
+	            <?php echo get_field('start_date') . ' - ' . get_field('end_date'); ?>
+	          </li>
+	          <li>
+	            <i class="fa fa-map-marker" aria-hidden="true"></i>
+	            <?php
+	                $locations = get_field('location');
+	                echo join(', ', $locations);
+	            ?>
+	          </li>
+	          <li>
+	          	<?php // TO-DO: tickets ?>
+	            <i class="fa fa-ticket" aria-hidden="true"></i> $12
+	          </li>
+	        </ul>
+	        <div class="festival-sidebar__links">
+	          <h3>Get Involved</h3>
+	          <ul>
+	              <li>Become a Volunteer >></li>
+	              <li>Support the Festival >></li>
+	              <li>Contact &amp; Media Kit >></li>
+	          </ul>
+	        </div>
+	        <div class="cta__card">
+	          <a href="">
+	          	<h3>Plan Your Visit ››</h3>
+		          <p>What to Bring, Where to Eat, Where to Stay, Parking and more...</p>
+	          </a>
+	        </div>
+	    </div>
 
-          if (have_rows('additional_resources')) {
-            while(have_rows('additional_resources')) { the_row();
-              $href = "";
-              $file = get_sub_field('file_link');
-              if ($file['add_file_by'] == 'File URL') {
-                  $href = $file['file_url'];
-              } else if ($file['add_file_by'] == "Upload a File") {
-                  $href = $file['upload_file'];
-              }
- 						 	?>
-              <li>
-                  <a target="_blank" href="<?php echo $href ?>">
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  <?php echo $file['link_text']; ?>
-                  </a>
-              </li> 
-    				<?php     
-            }
-          }
-        ?>
-      </ul>
-    </div>
+	    <?php get_template_part( 'template-parts/event', 'external_links' ); ?>
+	    <?php get_template_part( 'template-parts/content-blocks/block', 'link_block' ); ?>
+	  </div>
   </aside>  <!-- Sidebar end -->
 </div>
 <?php } // endwhile; ?>
