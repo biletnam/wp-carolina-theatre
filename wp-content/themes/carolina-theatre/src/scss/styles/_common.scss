@@ -529,6 +529,36 @@ main {
 	}
 }
 
+.paginate {
+	margin-top: 20px;
+	display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+	&__prev,
+	&__next {
+		width: 30%;
+
+		a {
+			display: block;
+			padding: 20px 0;
+			opacity: .5;
+
+	    &:hover {
+	    	opacity: 1;
+	    	color: $green;
+	    }
+		}
+	}
+
+	&__next {
+		text-align: right;
+	}
+
+	&__current {
+		@include rem(14);
+	}
+}
 
 
 

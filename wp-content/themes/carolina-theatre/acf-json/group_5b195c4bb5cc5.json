@@ -1,9 +1,9 @@
 {
-    "key": "group_5b184e587f2cf",
-    "title": "Film Content",
+    "key": "group_5b195c4bb5cc5",
+    "title": "Live Event Content",
     "fields": [
         {
-            "key": "field_5b184899ab496",
+            "key": "field_5b195c4bbdb16",
             "label": "Page Heading",
             "name": "",
             "type": "tab",
@@ -19,7 +19,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_5b1837f0a2c7c",
+            "key": "field_5b195c4bbdb3a",
             "label": "Main Title",
             "name": "event_title",
             "type": "text",
@@ -38,7 +38,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_5b183875a2c7d",
+            "key": "field_5b195c4bbdb50",
             "label": "Preheading",
             "name": "event_preheading",
             "type": "text",
@@ -57,7 +57,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_5b18389ca2c7e",
+            "key": "field_5b195c4bbdb63",
             "label": "Special Guests",
             "name": "event_specialguests",
             "type": "text",
@@ -76,7 +76,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_5b1838f3a2c7f",
+            "key": "field_5b195c4bbdb76",
             "label": "Subheading",
             "name": "event_subheading",
             "type": "text",
@@ -95,7 +95,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_5b18377fa2c7b",
+            "key": "field_5b195c4bbdb89",
             "label": "Images \/ Videos",
             "name": "",
             "type": "tab",
@@ -111,7 +111,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_5b1846beb5d59",
+            "key": "field_5b195c4bbdb9b",
             "label": "",
             "name": "",
             "type": "message",
@@ -128,7 +128,7 @@
             "esc_html": 0
         },
         {
-            "key": "field_5b18397aa2c81",
+            "key": "field_5b195c4bbdbae",
             "label": "Thumbnail & Hero",
             "name": "event_hero",
             "type": "clone",
@@ -149,7 +149,7 @@
             "prefix_name": 0
         },
         {
-            "key": "field_5b18395fa2c80",
+            "key": "field_5b195c4bbdbc0",
             "label": "Dates",
             "name": "",
             "type": "tab",
@@ -165,7 +165,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_5b183d95c9028",
+            "key": "field_5b195c4bbdbd1",
             "label": "",
             "name": "event_comingsoon",
             "type": "true_false",
@@ -184,7 +184,7 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_5b183a36a2c83",
+            "key": "field_5b195c4bbdbe3",
             "label": "Multiday Event?",
             "name": "event_multipledates",
             "type": "true_false",
@@ -203,7 +203,7 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_5b183b15a2c85",
+            "key": "field_5b195c4bbdbf5",
             "label": "Start Date",
             "name": "start_date",
             "type": "date_picker",
@@ -220,7 +220,7 @@
             "first_day": 0
         },
         {
-            "key": "field_5b183b2ea2c86",
+            "key": "field_5b195c4bbdc26",
             "label": "End Date",
             "name": "end_date",
             "type": "date_picker",
@@ -229,7 +229,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5b183a36a2c83",
+                        "field": "field_5b195c4bbdbe3",
                         "operator": "==",
                         "value": "1"
                     }
@@ -245,7 +245,7 @@
             "first_day": 0
         },
         {
-            "key": "field_5b183e08c9029",
+            "key": "field_5b195c4bbdc42",
             "label": "Showtimes",
             "name": "showtimes",
             "type": "repeater",
@@ -254,7 +254,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5b183d95c9028",
+                        "field": "field_5b195c4bbdbd1",
                         "operator": "!=",
                         "value": "1"
                     }
@@ -272,7 +272,7 @@
             "button_label": "Add Date",
             "sub_fields": [
                 {
-                    "key": "field_5b183e31c902a",
+                    "key": "field_5b195c4be0546",
                     "label": "Date",
                     "name": "date",
                     "type": "date_picker",
@@ -289,7 +289,7 @@
                     "first_day": 0
                 },
                 {
-                    "key": "field_5b183e41c902b",
+                    "key": "field_5b195c4be058d",
                     "label": "Times",
                     "name": "times",
                     "type": "repeater",
@@ -308,7 +308,7 @@
                     "button_label": "Add Showtime",
                     "sub_fields": [
                         {
-                            "key": "field_5b183e4f59f6b",
+                            "key": "field_5b195c4be53b1",
                             "label": "Time",
                             "name": "time",
                             "type": "time_picker",
@@ -328,9 +328,9 @@
             ]
         },
         {
-            "key": "field_5b195d4e3ff53",
-            "label": "event_location",
-            "name": "eevnt_location",
+            "key": "field_5b195cd293dbc",
+            "label": "Location",
+            "name": "event_location",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -359,7 +359,26 @@
             "placeholder": ""
         },
         {
-            "key": "field_5b183e8959f6c",
+            "key": "field_5b195e84f270d",
+            "label": "When do doors open?",
+            "name": "event_doorstime",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "1 hour prior",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5b195c4bbdc86",
             "label": "Tickets",
             "name": "",
             "type": "tab",
@@ -375,7 +394,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_5b183f6559f70",
+            "key": "field_5b195c4bbdcb1",
             "label": "Main Ticket Link",
             "name": "ticket_link",
             "type": "url",
@@ -391,7 +410,7 @@
             "placeholder": "http:\/\/ticketmaster.com\/"
         },
         {
-            "key": "field_5b18402e59f75",
+            "key": "field_5b195c4bbdce3",
             "label": "Ticket Prices",
             "name": "ticket_prices",
             "type": "repeater",
@@ -410,7 +429,7 @@
             "button_label": "Add Ticket Price",
             "sub_fields": [
                 {
-                    "key": "field_5b18403e59f76",
+                    "key": "field_5b195c4bf38f6",
                     "label": "Price",
                     "name": "ticket_price",
                     "type": "text",
@@ -429,7 +448,7 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5b18407f59f77",
+                    "key": "field_5b195c4bf3931",
                     "label": "Label",
                     "name": "ticket_label",
                     "type": "text",
@@ -450,7 +469,7 @@
             ]
         },
         {
-            "key": "field_5b183e9859f6d",
+            "key": "field_5b195c4bbdcfe",
             "label": "When do tickets go on sale?",
             "name": "tickets_onsaledate",
             "type": "date_time_picker",
@@ -467,7 +486,7 @@
             "first_day": 0
         },
         {
-            "key": "field_5b183f0a59f6e",
+            "key": "field_5b195c4bbdd14",
             "label": "Presale Date",
             "name": "tickets_presaledate",
             "type": "date_time_picker",
@@ -484,7 +503,7 @@
             "first_day": 0
         },
         {
-            "key": "field_5b183fb659f72",
+            "key": "field_5b195c4bbdd26",
             "label": "Show a button for Member Tickets",
             "name": "show_member_tickets",
             "type": "true_false",
@@ -503,7 +522,7 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_5b183f8159f71",
+            "key": "field_5b195c4bbdd38",
             "label": "Member Ticket Link",
             "name": "member_ticket_link",
             "type": "url",
@@ -512,7 +531,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5b183fb659f72",
+                        "field": "field_5b195c4bbdd26",
                         "operator": "==",
                         "value": "1"
                     }
@@ -527,7 +546,7 @@
             "placeholder": "http:\/\/ticketmaster.com\/members"
         },
         {
-            "key": "field_5b183fe559f73",
+            "key": "field_5b195c4bbdd4d",
             "label": "Show a link for Season Passes",
             "name": "show_season_pass",
             "type": "true_false",
@@ -546,7 +565,7 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_5b183ffb59f74",
+            "key": "field_5b195c4bbdd5e",
             "label": "Season Pass Link",
             "name": "season_pass_link",
             "type": "url",
@@ -555,7 +574,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5b183fe559f73",
+                        "field": "field_5b195c4bbdd4d",
                         "operator": "==",
                         "value": "1"
                     }
@@ -570,7 +589,7 @@
             "placeholder": "http:\/\/ticketmaster.com\/seasonpass"
         },
         {
-            "key": "field_5b183f3c59f6f",
+            "key": "field_5b195c4bbdd70",
             "label": "Are Tickets Sold Out?",
             "name": "event_soldout",
             "type": "true_false",
@@ -589,132 +608,7 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_5b18430efba3b",
-            "label": "Film Information",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_5b1843a252910",
-            "label": "Director",
-            "name": "director",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "Wes Anderson",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5b1843ab52911",
-            "label": "Release Country",
-            "name": "release_country",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "USA",
-            "placeholder": "USA",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5b1843b552912",
-            "label": "Release Year",
-            "name": "release_year",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": 1990,
-            "prepend": "",
-            "append": "",
-            "min": 1900,
-            "max": 2030,
-            "step": ""
-        },
-        {
-            "key": "field_5b1843bf52913",
-            "label": "Runtime (minutes)",
-            "name": "runtime",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": 130,
-            "prepend": "",
-            "append": "",
-            "min": 0,
-            "max": 300,
-            "step": 1
-        },
-        {
-            "key": "field_5b1843c752914",
-            "label": "MPAA Rating",
-            "name": "rating",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "nr": "NR",
-                "g": "G",
-                "pg": "PG",
-                "pg-13": "PG-13",
-                "r": "R",
-                "nc-17": "NC-17"
-            },
-            "default_value": [],
-            "allow_null": 1,
-            "multiple": 0,
-            "ui": 0,
-            "ajax": 0,
-            "return_format": "value",
-            "placeholder": ""
-        },
-        {
-            "key": "field_5b184318fba3c",
+            "key": "field_5b195c4bbddf5",
             "label": "Extras",
             "name": "",
             "type": "tab",
@@ -730,7 +624,35 @@
             "endpoint": 0
         },
         {
-            "key": "field_5b183a61a2c84",
+            "key": "field_5b195d929811f",
+            "label": "Event Categories",
+            "name": "event_categories",
+            "type": "select",
+            "instructions": "Assign this event to a filter.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Music": "Music",
+                "Comedy": "Comedy",
+                "Discussion": "Discussion",
+                "Dance": "Dance",
+                "Theater": "Theater"
+            },
+            "default_value": [],
+            "allow_null": 1,
+            "multiple": 1,
+            "ui": 0,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5b195c4bbde0e",
             "label": "Associated Series \/ Festival",
             "name": "associated_event",
             "type": "post_object",
@@ -754,7 +676,7 @@
             "ui": 1
         },
         {
-            "key": "field_5b18446252915",
+            "key": "field_5b195c4bbde4d",
             "label": "External Links & Resources",
             "name": "external_links",
             "type": "repeater",
@@ -773,7 +695,7 @@
             "button_label": "Add Link",
             "sub_fields": [
                 {
-                    "key": "field_5b18447a52916",
+                    "key": "field_5b195c4c2dc96",
                     "label": "Icon",
                     "name": "external_link_icon",
                     "type": "text",
@@ -792,7 +714,7 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5b18454b52917",
+                    "key": "field_5b195c4c2dcb3",
                     "label": "Label",
                     "name": "external_link_label",
                     "type": "text",
@@ -811,7 +733,7 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5b18458652918",
+                    "key": "field_5b195c4c2dcc8",
                     "label": "Link",
                     "name": "external_link_url",
                     "type": "url",
@@ -846,5 +768,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1528388966
+    "modified": 1528389303
 }

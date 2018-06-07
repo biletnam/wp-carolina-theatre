@@ -1491,6 +1491,32 @@ main {
 .sidebar__menu a:hover {
   text-decoration: underline; }
 
+.paginate {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .paginate__prev, .paginate__next {
+    width: 30%; }
+    .paginate__prev a, .paginate__next a {
+      display: block;
+      padding: 20px 0;
+      opacity: .5; }
+      .paginate__prev a:hover, .paginate__next a:hover {
+        opacity: 1;
+        color: #72bcae; }
+  .paginate__next {
+    text-align: right; }
+  .paginate__current {
+    font-size: 14px;
+    font-size: 0.875rem; }
+
 .button,
 input[type="submit"] {
   display: inline-block;

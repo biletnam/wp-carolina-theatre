@@ -1,18 +1,35 @@
 <div class="cardSlider">
   <?php // The Query
-    $limit = 12;
+    $limit = 8;
+    $today = date("Ymd", strtotime('today'));
 		$events_query_args = array(
 			'post_type' => array('event', 'film'),
 			'post_status' => 'publish',
 			'posts_per_page' => $limit,
-			'meta_query' => array(
-			  'start_clause' => array('key' => 'start_date'),
-			  'end_clause' => array('key' => 'end_date')
+			'meta_query'	=> array(
+		  	'relation'		=> 'AND', // both arrays below must be TRUE
+				array( 	// make sure event has not passed
+					'relation' => 'OR',
+					'start_clause' => array( // if event hasn't started yet
+						'key'		=> 'start_date', 
+						'compare'	=> '>=',
+						'value'		=> $today,
+					),
+					'end_clause' => array( // if event hasn't ended yet
+						'key'		=> 'end_date',
+						'compare'	=> '>=',
+						'value'		=> $today,
+					),
+				),
+				array ( 	// make sure event has start date and use to order query
+					'sorting_clause' => array(
+            'key'     => 'start_date',
+            'compare' => 'EXISTS',
+	        ),
+				),
 			),
 			'orderby' => array(
-			  'relation' => 'AND',
-			  'start_clause' => 'ASC',
-			  'end_clause' => 'ASC'
+			  'sorting_clause' => 'ASC',
 			),
 		);
 
