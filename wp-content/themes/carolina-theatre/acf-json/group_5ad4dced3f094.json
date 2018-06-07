@@ -1,6 +1,6 @@
 {
     "key": "group_5ad4dced3f094",
-    "title": "Hero Slider",
+    "title": "Page Hero Slider",
     "fields": [
         {
             "key": "field_5b157fdd28dd5",
@@ -60,5 +60,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1528141702
+    "modified": 1528292429
 }

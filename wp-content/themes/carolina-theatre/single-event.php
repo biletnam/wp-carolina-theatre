@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <?php while ( have_posts() ) { the_post(); ?>
-<?php get_template_part( 'blocks/content', 'breadcrumb' ); ?>
+<?php get_template_part( 'template-parts/part', 'breadcrumb' ); ?>
 
 <?php 
 	$date_range = get_field('showtimes');
@@ -45,7 +45,7 @@
 				<div class="singleEvent__hero">
 					<?php if (have_rows('event_hero')){ ?>
 					<?php while (have_rows('event_hero')){ the_row(); ?>
-					<?php get_template_part( 'blocks/content-blocks', 'slider' ); ?>
+					<?php get_template_part( 'template-parts/content-blocks/block', 'slider' ); ?>
 					<?php } //endwhile ?>
 					<?php } else { ?>
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/src/img/no-event-image-full.jpg" alt="No Event Image to Show">
@@ -136,8 +136,8 @@
         </p>
         </ul>
       </div>
-      <?php get_template_part( 'blocks/event', 'externalLinks' ); ?>
-      <?php get_template_part( 'blocks/content-blocks', 'link-block' ); ?>
+      <?php get_template_part( 'template-parts/event', 'external_links' ); ?>
+      <?php get_template_part( 'template-parts/content-blocks/block', 'link_block' ); ?>
     </div>
   </aside>
 </section>

@@ -1,18 +1,11 @@
 <?php get_header(); ?>
 <?php while ( have_posts() ) { the_post(); ?>
-<?php get_template_part( 'blocks/content', 'breadcrumb' ); ?>
+<?php get_template_part( 'template-parts/part', 'breadcrumb' ); ?>
 
-<section class="hero-container contain container">
-  <div class="carousel carousel__images">
-    <?php if (have_rows('hero_images')) { ?>
-			<?php while (have_rows('hero_images')) { the_row(); ?>
-				<div>
-					<img src="<?php echo get_sub_field('image')['url']; ?>" alt="<?php echo get_sub_field('image')['alt']; ?>" class="hero-slider__image">
-				</div>
-			<?php } // end while ?>
-     <?php  } // end if; ?>
-  </div>
-</section>
+<?php if(get_field('show_hero_slider')){ ?>
+<?php get_template_part( 'template-parts/slider', 'page_hero' ); ?>
+<?php } ?>
+
 <section class="pageHeader contain">
 	<div class="container">
 	  <p class="date">
@@ -60,7 +53,7 @@
            	<?php while ( have_rows('tabbed_content') ) { the_row(); ?>
 	          <?php if( have_rows('overview') ) { ?>
            	<?php while ( have_rows('overview') ) { the_row(); ?>
-              <?php get_template_part( 'blocks/content', 'blocks' ); ?>
+              <?php get_template_part( 'template-parts/content-blocks/content-blocks' ); ?>
             <?php } //end while overview ?>
             <?php } // end if overview ?>
             <?php } //end while tabbed_content ?>
@@ -92,7 +85,7 @@
 					$associatedFilms_query = new WP_Query($associatedFilms_query_args);
 					if ($associatedFilms_query->have_posts()) {
 						while ($associatedFilms_query->have_posts()) { $associatedFilms_query->the_post(); ?>
-						  <?php get_template_part('blocks/event', 'card'); ?>
+						  <?php get_template_part('template-parts/event', 'thumbnail_card'); ?>
 			  		<?php } // endwhile have_posts events_query ?>
 					<?php wp_reset_postdata(); // Restore original Post Data
 					} else {
@@ -111,7 +104,7 @@
           $tab_content = get_sub_field('tab_content'); ?>  
 
           <div class='tabbedContent__content <?php echo $id_name ?> hide-tab-content'>
-          	<?php get_template_part( 'blocks/content-blocks' ); ?>
+          	<?php get_template_part( 'template-parts/content-blocks/content-blocks' ); ?>
         	</div>
 	    	<?php } // end while have_rows for tabs ?>
 	    	<?php } // end if have_rows for tabs ?>

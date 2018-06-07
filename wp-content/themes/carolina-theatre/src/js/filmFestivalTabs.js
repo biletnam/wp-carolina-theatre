@@ -29,6 +29,7 @@ jQuery(function($) {
 	    className = '.' + $(this).data('tab');
 	    $(".tabbedContent__content").addClass("hide-tab-content");
 	    $(className).removeClass("hide-tab-content");
+	    $('.carousel').slick('setPosition'); // when a slick slider is hidden on page load, this correctly instantiates at the right time
 		});
 	});
 });

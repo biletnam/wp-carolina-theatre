@@ -45,6 +45,7 @@ function set_custom_edit_film_columns($columns) {
   unset( $columns['tags'] );
   unset( $columns['categories'] );
   unset( $columns['date'] );
+  $columns['upcoming'] = __( 'Upcoming', 'carolinatheatre' );
   $columns['start_date'] = __( 'Starting', 'carolinatheatre' );
   $columns['end_date'] = __( 'Ending', 'carolinatheatre' );
   $columns['parent_event'] = __( 'Parent Event', 'carolinatheatre' );
@@ -66,6 +67,23 @@ function custom_film_column( $column, $post_id ) {
         echo $festival_name;
       } else {
         echo '';
+      }
+      break;
+
+    case 'upcoming' :
+      $today = date("Ymd", strtotime('today'));
+      $start_date = get_field('start_date', $post_id);
+      $end_date = get_field('end_date', $post_id);
+      if($end_date == NULL) { $end_date = $start_date; }
+      
+      if($today >= $start_date && $today < $end_date){
+      	echo 'Now Playing';
+      } else if ($end_date == $today) {
+      	echo 'Ends Today';
+      } else if ($end_date > $today){
+	      echo 'Upcoming';
+      } else {
+      	echo 'Past Event';
       }
       break;
 
@@ -108,6 +126,7 @@ function custom_film_column( $column, $post_id ) {
 add_filter( 'manage_edit-film_sortable_columns', 'sortable_film_columns' );
 function sortable_film_columns( $columns ) {
   $columns['parent_event'] = 'parent_event';
+  $columns['upcoming'] = 'upcoming';
   $columns['start_date'] = 'start_date';
   $columns['end_date'] = 'end_date';
   return $columns;
@@ -141,8 +160,10 @@ function set_custom_edit_event_columns($columns) {
   unset( $columns['tags'] );
   unset( $columns['categories'] );
   unset( $columns['date'] );
+  $columns['upcoming'] = __( 'Upcoming', 'carolinatheatre' );
   $columns['start_date'] = __( 'Starting', 'carolinatheatre' );
   $columns['end_date'] = __( 'Ending', 'carolinatheatre' );
+  $columns['parent_event'] = __( 'Parent Event', 'carolinatheatre' );
 
   return $columns;
 }
@@ -151,6 +172,33 @@ function set_custom_edit_event_columns($columns) {
 add_action( 'manage_event_posts_custom_column' , 'custom_event_column', 10, 2 );
 function custom_event_column( $column, $post_id ) {
   switch ( $column ) {
+  	case 'parent_event' :
+      $festival_id = get_field('associated_event', $post_id);
+      $festival_name = get_the_title($festival_id);
+
+      if($festival_id){
+        echo $festival_name;
+      } else {
+        echo '';
+      }
+      break;
+
+    case 'upcoming' :
+      $today = date("Ymd", strtotime('today'));
+      $start_date = get_field('start_date', $post_id);
+      $end_date = get_field('end_date', $post_id);
+      if($end_date == NULL) { $end_date = $start_date; }
+      
+      if($today >= $start_date && $today < $end_date){
+      	echo 'Now Playing';
+      } else if ($end_date == $today) {
+      	echo 'Ends Today';
+      } else if ($end_date > $today){
+	      echo 'Upcoming';
+      } else {
+      	echo 'Past Event';
+      }
+      break;
 
     case 'start_date' :
       $start_date = get_field('start_date', $post_id);
@@ -177,6 +225,8 @@ function custom_event_column( $column, $post_id ) {
 // Make custom columns sortable
 add_filter( 'manage_edit-event_sortable_columns', 'sortable_event_columns' );
 function sortable_event_columns( $columns ) {
+  $columns['parent_event'] = 'parent_event';
+  $columns['upcoming'] = 'upcoming';
   $columns['start_date'] = 'start_date';
   $columns['end_date'] = 'end_date';
   return $columns;

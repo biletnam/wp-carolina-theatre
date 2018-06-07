@@ -1,4 +1,4 @@
-<?php 
+<?php // TO-DO: Refactor taking into account the new event query
 	// array of showdates and showtimes
 	$date_range = get_field('showtimes');
   if ($date_range != NULL) {
@@ -13,7 +13,7 @@
     }
 
     // only construct events if they are in the future
-    if ($end_date >= $today) {
+   	if ($end_date >= $today) {
 		  $event_dates = array();
 		  $event_times = array();
   		if (have_rows('showtimes')) { 
@@ -66,7 +66,7 @@
 							$image_alt = 'No Event Image to Show'; 
       				
       				if (have_rows('event_hero')){
-								$slideRepeater = get_field('panel_content', $featured_ID);
+								$slideRepeater = get_field('panel_content');
 								$image = $slideRepeater[0]['image'];
 						 	 	
 						 	 	if($image){ 

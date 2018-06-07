@@ -1,9 +1,9 @@
-<?php $uniqueID = 0; ?>
+<?php global $galleryCount; ?>
 <?php if ( have_rows('popup_overlay') ) { ?>
 <div class="block__gallery">
 <?php while ( have_rows('popup_overlay') ) { the_row(); ?>
   <?php 
-	  $uniqueID++;
+	  $galleryCount++;
 	  $media_type = get_sub_field('media_type'); 
 		$embedCode = get_sub_field('video_embed');
 
@@ -23,14 +23,14 @@
       <?php if($image_cap) { ?><figcaption class="small caption"><?php echo $image_cap; ?></figcaption><?php } ?>
     </a>
   <?php } else if ($media_type == 'video') { ?>
-    <a class="gallery" href="<?php echo '.gallery-' . $uniqueID; ?>">
+    <a class="gallery" href="<?php echo '.gallery-' . $galleryCount; ?>">
       <div class="image_wrapper">
       	<i class="fas fa-play"></i>
       	<img src="<?php echo $image_thumb; ?>" alt="<?php echo $image_alt; ?>" />
       </div>
       <?php if($image_cap) { ?><figcaption class="small caption"><?php echo $image_cap; ?></figcaption><?php } ?>
     </a>
-    <div class="gallery-content <?php echo 'gallery-' . $uniqueID; ?>">
+    <div class="gallery-content <?php echo 'gallery-' . $galleryCount; ?>">
       <div class="video"><?php echo $embedCode; ?></div>
     </div>
   <?php } // end if image or video ?>

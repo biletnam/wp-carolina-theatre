@@ -46,18 +46,18 @@ get_header();
 <section class="hp-upcoming">
   <div class="container contain">
   	<h2>Upcoming Events</h2>
-    <?php get_template_part( 'blocks/content', 'upcoming-events-slider' ) ?>
+    <?php get_template_part( 'template-parts/slider', 'upcoming_events' ); ?>
   </div>
 </section>
 <section class="hp-ctaCards">
 	<div class="container contain">
-		<?php get_template_part( 'blocks/content-blocks', 'link-block' ); ?>
+		<?php get_template_part( 'template-parts/content-blocks/block', 'link_block' ); ?>
 	</div>
 </section>
 <section class="hp-news">
 	<div class="container contain">
 		<h2>New &amp; Press</h2>
-    <?php get_template_part( 'blocks/content', 'latest-news-slider' ) ?>
+    <?php get_template_part( 'template-parts/slider', 'latest_news' ); ?>
 	</div>
 </section>
 <?php } // endwhile; ?>

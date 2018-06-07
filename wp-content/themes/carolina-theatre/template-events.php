@@ -7,145 +7,67 @@
 <section class="featuredEvent_carousel">
   <div class="container contain">
   	<h2>Featured Events</h2>
-    <div class="carousel">
-      <?php $featured = get_field('featured_events'); ?>
-      <?php foreach($featured as $feature_obj) { $featured_ID = $feature_obj->ID; ?>
-        <div class="featuredEvent__slide">
-        	<div class="featuredEvent__slideContainer">
-        		<div class="featuredEvent__image">
-        			<?php 
-	        			$haveRows = get_field('event_hero', $featured_ID);
-	        			$image_url = get_stylesheet_directory_uri().'/src/img/no-event-image-full.jpg';
-								$image_alt = 'No Event Image to Show'; 
-        				
-        				if ($haveRows){
-									$slideRepeater = get_field('panel_content', $featured_ID);
-									$image = $slideRepeater[0]['image'];
-							 	 	
-							 	 	if($image){ 
-			           		$image_url = $image['sizes']['hero-small'];
-			           		$image_alt = $image['alt'];
-			            } //endif 
-		            ?>
-							<?php } //endif haveRows ?>
-						 	<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>" />	
-            </div>
-            <div class="featuredEvent__info">
-              <div class="container">
-                <h5>
-                  <?php if (get_post_type($featured_ID) == "film") {
-                      echo "Film";
-                  } else {
-                      echo join(get_field('single_event_type', $featured_ID), ', ');
-                  } ?>
-                </h5>
-                <h3><?php echo $feature_obj->post_title; ?></h3>
-                <p><i class="far fa-calendar-alt"></i>
-                  <?php
-                    // convert date strings to integers for sorting
-                    $featured_event_dates = array();
-                    if (have_rows('showtimes', $featured_ID)) {
-                        while (have_rows('showtimes', $featured_ID)) {
-                            the_row();
-                            $featured_event_date = strtotime(get_sub_field('dates'));
-                            array_push($featured_event_dates, $featured_event_date);
-                        }
-                    }
-
-                    $featured_start_date = min($featured_event_dates);
-                    $featured_end_date = max($featured_event_dates);
-                    $featured_start_date_string = date("F d, Y", min($featured_event_dates));
-                    $featured_end_date_string = date("F d, Y", max($featured_event_dates));
-                    echo $featured_start_date_string . ' - ' . $featured_end_date_string;
-                  ?> 
-                </p>
-                <p>
-                  <i class="far fa-map-marker-alt" aria-hidden="true"></i>
-                  <?php 
-                    $featured_location = get_field('location', $featured_ID);
-                     
-                    if (count($featured_location) > 1) {
-                        echo join(", ", $featured_location);
-                    } else {
-                        echo $featured_location[0];
-                    }
-                  ?>
-                </p>
-                <p>
-                  <i class="far fa-ticket-alt" aria-hidden="true"></i>
-                  <?php 
-                    $multiple_ticket_prices = array();
-                    if (have_rows('ticket_prices', $featured_ID)) {
-                      while (have_rows('ticket_prices', $featured_ID)) { the_row();
-                        $price = get_sub_field('price');
-                        array_push($multiple_ticket_prices, $price);
-                      }
-                    }
-                    echo '$' . join(', ', $multiple_ticket_prices);
-                  ?>
-                </p>
-                <a href="<?php echo get_page_link($featured_ID); ?>" class="button">More Info</a>
-                <a href="<?php echo get_page_link($featured_ID); ?>" class="button secondary">Tickets</a>
-            	</div>
-            </div>
-          </div> 
-        </div> 
-      <?php } // end foreach ?>
-    </div> <!-- .carousel -->
-  </div> <!-- .container -->
+    <?php get_template_part('template-parts/slider', 'featured_events'); ?>
+  </div>
 </section>
 <section class="mainContent upcoming-events contain">
   <div class="mainContent__content">
     <div class="container">
       <h2>Upcoming Events</h2>
 
+      <?php
+	      // TO-DO: setup tabbed filters to work across pagination and on page load. 
+	      // Dynamic $_GET parameters
+	      // https://www.advancedcustomfields.com/resources/query-posts-custom-fields/  
+      ?>
       <div class="tabbedContent__tabs">
         <ul class="upcoming-events__type">
-            <li class="tabbedContent__tab active-link">All</li>
-            <li class="tabbedContent__tab">Film</li>
-            <li class="tabbedContent__tab">Music</li>
-            <li class="tabbedContent__tab">Comedy</li>
-            <li class="tabbedContent__tab">Theater</li>
-            <li class="tabbedContent__tab">Discussion</li>
-            <li class="tabbedContent__tab">Dance</li>
-            <li class="tabbedContent__tab">Family Saturday</li>
-            <?php 
-                $standard_events = array("Music", "Comedy", "Theater", "Discussion", "Dance", "Family Saturday");
-                $custom_events = array();
+          <li class="tabbedContent__tab active-link">All</li>
+          <li class="tabbedContent__tab">Film</li>
+          <?php // TO-DO: Make tabs dynamic based on event types ?>
+          <li class="tabbedContent__tab">Music</li>
+          <li class="tabbedContent__tab">Comedy</li>
+          <li class="tabbedContent__tab">Theater</li>
+          <li class="tabbedContent__tab">Discussion</li>
+          <li class="tabbedContent__tab">Dance</li>
+          <li class="tabbedContent__tab">Family Saturday</li>
+          <?php 
+          $standard_events = array("Music", "Comedy", "Theater", "Discussion", "Dance", "Family Saturday");
+          $custom_events = array();
 
-                // filter events only to check for custom event types
-                $filter_query_args = array(
-                    'post_type' => 'event');
-                
-                $filter_query = new WP_Query($filter_query_args);
-                
-                if ($filter_query->have_posts()) {
-                    while ($filter_query->have_posts()) { $filter_query->the_post();
-                        // assumes 'End Date' and last 'Showtime' are the same in the dashboard
-                        $last_date = get_field('end_date');
+          // filter events only to check for custom event types
+          $filter_query_args = array(
+              'post_type' => 'event');
+          
+          $filter_query = new WP_Query($filter_query_args);
+          
+          if ($filter_query->have_posts()) {
+            while ($filter_query->have_posts()) { $filter_query->the_post();
+              // assumes 'End Date' and last 'Showtime' are the same in the dashboard
+              $last_date = get_field('end_date');
 
-                        // if event is playing or will be in the future, append custom
-                        // event type to array
-                        if (strtotime($last_date) >= strtotime('today')) {
-                            $event_types = get_field("single_event_type");
-                            // loop thru all event types associated with post,
-                            // check if they are in $standard_events and $custom_events, if not
-                            // in either add to $custom_events
-                            foreach($event_types as $et) {
-                                if (!in_array($et, $standard_events) && !in_array($et, $custom_events)) {
-                                    array_push($custom_events, $et);
-                                }
-                            }
-                        }  
-                    }
+              // if event is playing or will be in the future, append custom
+              // event type to array
+              if (strtotime($last_date) >= strtotime('today')) {
+                $event_types = get_field("single_event_type");
+                // loop thru all event types associated with post,
+                // check if they are in $standard_events and $custom_events, if not
+                // in either add to $custom_events
+                foreach($event_types as $et) {
+                  if (!in_array($et, $standard_events) && !in_array($et, $custom_events)) {
+                    array_push($custom_events, $et);
+                  }
                 }
-                // append $custom_events to filter list of standard events
-                if (count($custom_events) > 0) {
-                    foreach($custom_events as $ce) { ?>
-                        <li class="tabbedContent__tab"><?php echo $ce; ?></li>
-	              <?php } // end for each ?>
-	            <?php } // end if ?>
-	          <?php wp_reset_postdata(); ?>
+              }  
+            }
+          }
+          // append $custom_events to filter list of standard events
+          if (count($custom_events) > 0) {
+            foreach($custom_events as $ce) { ?>
+              <li class="tabbedContent__tab"><?php echo $ce; ?></li>
+            <?php } // end for each ?>
+          <?php } // end if ?>
+        <?php wp_reset_postdata(); ?>
         </ul>
         <ul class="upcoming-events__type--secondary filmFilters">
           <li class="tabbedContent__tab default active-link">All Films</li>
@@ -159,61 +81,120 @@
           <li class="tabbedContent__tab">Retro Art House</li>
         </ul>
       </div>
-      <div class="events card__wrapper">
-        <?php // The Query
-        	// TO-DO: Filter event showtimes within args, before querying
-	        $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
-	        $limit = 10;
-					$events_query_args = array(
-						'post_type' => array('event', 'film'),
-						'post_status' => 'publish',
-						'posts_per_page' => $limit,
-						'paged' => $paged,
-						'meta_query' => array(
-						  'start_clause' => array('key' => 'start_date'),
-						  'end_clause' => array('key' => 'end_date')
+
+    	<?php // The Query
+     
+      // // Original Query, & Event Thumb Cards filtering out past dates after in PHP
+			// $events_query_args = array(
+			// 	'post_type' => array('event', 'film'),
+			// 	'post_status' => 'publish',
+			// 	'posts_per_page' => $limit,
+			// 	'paged' => $paged,
+			// 	'meta_query' => array(
+			// 	  'start_clause' => array('key' => 'start_date'),
+			// 	  'end_clause' => array('key' => 'end_date')
+			// 	),
+			// 	'orderby' => array(
+			// 	  'relation' => 'AND',
+			// 	  'start_clause' => 'ASC',
+			// 	  'end_clause' => 'ASC'
+			// 	),
+			// );
+		 	// get_template_part('template-parts/event', 'thumbnail_card-originalQuery');
+    	
+
+ 			$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
+      $limit = 6;
+      $today = date("Ymd", strtotime('today'));
+			$events_query_args = array(
+				'post_type' => array('event', 'film'),
+				'post_status' => 'publish',
+				'posts_per_page' => $limit,
+				'paged' => $paged,
+				'meta_query'	=> array(
+			  	'relation'		=> 'AND', // both arrays below must be TRUE
+					array( 	// make sure event has not passed
+						'relation' => 'OR',
+						'start_clause' => array( // if event hasn't started yet
+							'key'		=> 'start_date', 
+							'compare'	=> '>=',
+							'value'		=> $today,
 						),
-						'orderby' => array(
-						  'relation' => 'AND',
-						  'start_clause' => 'ASC',
-						  'end_clause' => 'ASC'
+						'end_clause' => array( // if event hasn't ended yet
+							'key'		=> 'end_date',
+							'compare'	=> '>=',
+							'value'		=> $today,
 						),
-					);
+					),
+					array ( 	// make sure event has start date and use to order query
+						'sorting_clause' => array(
+	            'key'     => 'start_date',
+	            'compare' => 'EXISTS',
+		        ),
+					),
+				),
+				'orderby' => array(
+				  'sorting_clause' => 'ASC',
+				),
+			);
 
-					// The Loop
-					$events_query = new WP_Query($events_query_args);
-					if ($events_query->have_posts()) {
-						while ($events_query->have_posts()) { $events_query->the_post(); ?>
-						  <?php get_template_part('blocks/event', 'card'); ?>
-			  		<?php } // endwhile have_posts events_query ?>
+			// The Loop
+			$events_query = new WP_Query($events_query_args);
+			if ($events_query->have_posts()) { ?>
+	      <div class="events card__wrapper">
+					<?php while ($events_query->have_posts()) { $events_query->the_post(); ?>
+					  <?php get_template_part('template-parts/event', 'thumbnail_card'); ?>
+		  		<?php } // endwhile have_posts events_query ?>
+	 			</div> <!-- .events -->
 
-						<div class="pagination">
-						    <?php // TO-DO: Get pagination working
-					        // echo paginate_links( array(
-					        //     'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
-					        //     'total'        => $events_query_args->max_num_pages,
-					        //     'current'      => max( 1, get_query_var( 'paged' ) ),
-					        //     'format'       => '?paged=%#%',
-					        //     'show_all'     => false,
-					        //     'type'         => 'plain',
-					        //     'end_size'     => 2,
-					        //     'mid_size'     => 1,
-					        //     'prev_next'    => true,
-					        //     'prev_text'    => sprintf( '<i></i> %1$s', __( 'Newer Posts', 'text-domain' ) ),
-					        //     'next_text'    => sprintf( '%1$s <i></i>', __( 'Older Posts', 'text-domain' ) ),
-					        //     'add_args'     => false,
-					        //     'add_fragment' => '',
-					        // ) );
-						    ?>
-						</div>
+				<div class="paginate">
+			    <?php 
+		        $paginate_links = paginate_links( array(
+	            'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+	            'total'        => $events_query->max_num_pages,
+	            'current'      => max( 1, get_query_var( 'paged' ) ),
+	            'format'       => '?paged=%#%',
+	            'show_all'     => false,
+	            'type'         => 'array',
+	            'end_size'     => 1,
+	            'mid_size'     => 0,
+	            'prev_next'    => true,
+	            'prev_text'    => '<i class="fas fa-chevron-left"></i>',
+	            'next_text'    => '<i class="fas fa-chevron-right"></i>',
+	            'add_args'     => false,
+	            'add_fragment' => '',
+		        ) );
 
-					<?php wp_reset_postdata(); // Restore original Post Data
-					} else {
-					echo 'No events at this time';
-					} // endif have_posts events_query
-				?>
-      </div> <!-- .events -->
-    </div>
+		        $paginate_next       = '';
+						$paginate_current    = '1';
+						$paginate_prev       = '';
+						$paginate_pages			 = '1';
+
+						if($events_query->max_num_pages != 0) {
+							$paginate_pages = $events_query->max_num_pages;
+						}
+
+						foreach( $paginate_links as $link ) {           
+					    if( false !== strpos( $link, 'prev ' ) ){
+				        $paginate_prev = $link;
+					    } else if( false !== strpos( $link, ' current' ) ){
+				        $paginate_current = $link;       
+					    } else if( false !== strpos( $link, 'next ' ) ){
+				        $paginate_next = $link;
+					    }
+						}
+			    ?>
+			    <div class="paginate__prev"><?php echo $paginate_prev; ?></div>
+			    <div class="paginate__current"><?php echo 'Page '. $paginate_current . ' of '. $paginate_pages; ?></div>
+			    <div class="paginate__next"><?php echo $paginate_next; ?></div>
+				</div>
+				<?php wp_reset_postdata(); ?>
+			<?php } else { ?>
+			<div class="events card__wrapper">
+			 No events at this time.
+			</div>
+			<?php } // endif have_posts events_query ?>
+    </div><!-- .container -->
   </div><!-- .mainContent__content -->
   <?php get_sidebar('events'); ?>
 </section>

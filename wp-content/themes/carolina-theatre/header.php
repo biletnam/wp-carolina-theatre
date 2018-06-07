@@ -83,18 +83,6 @@ $GLOBALS["location_directionlink"] = get_field('google_map_link', 'option');
   	<div id="mobileNav__closeBtn" class="btn__close fas fa-times"></div>
 	</div>
 	<?php } ?>
-	<div class="cta">
-		<?php // call to action button
-	if(has_nav_menu('header-cta')){ ?>
-		<?php wp_nav_menu( array( 
-    	'theme_location' 	=> 'header-cta', 
-    	'container'				=> false,
-    	'menu_class'			=> 'header__cta',
-    	'menu_id'					=> '',
-    	) 
-  	); ?>
-	<?php } ?>	
-	</div>
 	
   <?php // primary mobile menu
 	if(has_nav_menu('header-main')){ ?>
@@ -109,6 +97,20 @@ $GLOBALS["location_directionlink"] = get_field('google_map_link', 'option');
 	  	); ?>
   	</nav>
 	<?php } ?>
+
+	<?php // call to action button
+	if(has_nav_menu('header-cta')){ ?>
+	<div class="cta">
+		<?php wp_nav_menu( array( 
+    	'theme_location' 	=> 'header-cta', 
+    	'container'				=> false,
+    	'menu_class'			=> 'header__cta',
+    	'menu_id'					=> '',
+    	) 
+  	); ?>
+	</div>
+	<?php } ?>	
+	
 </div>
 
 <div class="mainWrapper">
@@ -231,7 +233,7 @@ $GLOBALS["location_directionlink"] = get_field('google_map_link', 'option');
 		<div id="eventsDropdown" class="eventsDropdown">
 		  <div class="container contain">
 		  	<h2>Upcoming Events</h2>
-		    <?php get_template_part( 'blocks/content', 'upcoming-events-slider' ) ?>
+		    <?php get_template_part( 'template-parts/slider', 'upcoming_events' ); ?>
 		  </div>
 		</div>
   </div><!-- .header-main  -->

@@ -1,6 +1,6 @@
 <div class="cardSlider">
   <?php // The Query
-    $limit = 12;
+    $limit = 8;
 		$news_query_args = array(
 			'post_type' 			=> array('post'),
 			'post_status' 		=> 'publish',

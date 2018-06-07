@@ -33,6 +33,6 @@
       </div>
     </div>
     
-    <?php get_template_part( 'blocks/content-blocks', 'link-block' ); ?>
+    <?php get_template_part( 'template-parts/content-blocks/block', 'link_block' ); ?>
 	</div>
 </aside>

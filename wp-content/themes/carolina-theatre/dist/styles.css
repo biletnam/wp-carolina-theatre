@@ -1302,6 +1302,12 @@ main {
         border-bottom-color: #72bcae; }
       .tabbedContent__tabs ul .page_item:hover {
         border-bottom-color: #72bcae; }
+    .tabbedContent__tabs ul.children {
+      position: absolute; }
+      .tabbedContent__tabs ul.children li {
+        font-size: 14px;
+        font-size: 0.875rem;
+        font-weight: 400; }
 
 .tabbedContent__tab {
   display: inline-block;
@@ -1328,6 +1334,8 @@ main {
 
 .mainContent__content {
   width: 65%; }
+  .mainContent__content > .container {
+    padding-top: 0; }
 
 .mainContent__sidebar {
   width: 100%;
@@ -1482,6 +1490,32 @@ main {
 
 .sidebar__menu a:hover {
   text-decoration: underline; }
+
+.paginate {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .paginate__prev, .paginate__next {
+    width: 30%; }
+    .paginate__prev a, .paginate__next a {
+      display: block;
+      padding: 20px 0;
+      opacity: .5; }
+      .paginate__prev a:hover, .paginate__next a:hover {
+        opacity: 1;
+        color: #72bcae; }
+  .paginate__next {
+    text-align: right; }
+  .paginate__current {
+    font-size: 14px;
+    font-size: 0.875rem; }
 
 .button,
 input[type="submit"] {
@@ -1881,10 +1915,6 @@ div.wpcf7-validation-errors {
     top: 0;
     left: 0;
     color: white; }
-
-.singleEvent__description {
-  max-height: 250px;
-  overflow: hidden; }
 
 .singleEvent__reveal {
   max-height: 100%;
