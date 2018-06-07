@@ -77,52 +77,77 @@
           <li class="tabbedContent__tab">Retro Art House</li>
         </ul>
       </div>
+
       <div class="events card__wrapper">
         <?php // The Query
-        	// TO-DO: Filter event showtimes within args, before querying
 	        $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
 	        $limit = 10;
+
+	        $today = date("Ymd", strtotime('today'));
 					$events_query_args = array(
 						'post_type' => array('event', 'film'),
 						'post_status' => 'publish',
 						'posts_per_page' => $limit,
 						'paged' => $paged,
-						'meta_query' => array(
-						  'start_clause' => array('key' => 'start_date'),
-						  'end_clause' => array('key' => 'end_date')
+						'max_num_pages' => -1,
+						'meta_query'	=> array(
+					  	'relation'		=> 'AND', // both arrays below must be TRUE
+							array( 	// make sure event has not passed
+								'relation' => 'OR',
+								'start_clause' => array( // if event hasn't started yet
+									'key'		=> 'start_date', 
+									'compare'	=> '>=',
+									'value'		=> $today,
+								),
+								'end_clause' => array( // if event hasn't ended yet
+									'key'		=> 'end_date',
+									'compare'	=> '>=',
+									'value'		=> $today,
+								),
+							),
+							array ( 	// make sure event has start date and use to order query
+								'sorting_clause' => array(
+			            'key'     => 'start_date',
+			            'compare' => 'EXISTS',
+				        ),
+							),
 						),
 						'orderby' => array(
-						  'relation' => 'AND',
-						  'start_clause' => 'ASC',
-						  'end_clause' => 'ASC'
+						  'sorting_clause' => 'ASC',
 						),
 					);
+
+					// // Original Query, filtering out past dates after in PHP
+					// $events_query_args = array(
+					// 	'post_type' => array('event', 'film'),
+					// 	'post_status' => 'publish',
+					// 	'posts_per_page' => $limit,
+					// 	'paged' => $paged,
+					// 	'meta_query' => array(
+					// 	  'start_clause' => array('key' => 'start_date'),
+					// 	  'end_clause' => array('key' => 'end_date')
+					// 	),
+					// 	'orderby' => array(
+					// 	  'relation' => 'AND',
+					// 	  'start_clause' => 'ASC',
+					// 	  'end_clause' => 'ASC'
+					// 	),
+					// );
 
 					// The Loop
 					$events_query = new WP_Query($events_query_args);
 					if ($events_query->have_posts()) {
+						// print_r($events_query);
 						while ($events_query->have_posts()) { $events_query->the_post(); ?>
 						  <?php get_template_part('template-parts/event', 'thumbnail_card'); ?>
 			  		<?php } // endwhile have_posts events_query ?>
 
 						<div class="pagination">
-						    <?php // TO-DO: Get pagination working
-					        // echo paginate_links( array(
-					        //     'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
-					        //     'total'        => $events_query_args->max_num_pages,
-					        //     'current'      => max( 1, get_query_var( 'paged' ) ),
-					        //     'format'       => '?paged=%#%',
-					        //     'show_all'     => false,
-					        //     'type'         => 'plain',
-					        //     'end_size'     => 2,
-					        //     'mid_size'     => 1,
-					        //     'prev_next'    => true,
-					        //     'prev_text'    => sprintf( '<i></i> %1$s', __( 'Newer Posts', 'text-domain' ) ),
-					        //     'next_text'    => sprintf( '%1$s <i></i>', __( 'Older Posts', 'text-domain' ) ),
-					        //     'add_args'     => false,
-					        //     'add_fragment' => '',
-					        // ) );
-						    ?>
+			        <?php // TO-DO: Style pagination ?>
+			        <ul class="pagination pull-right">
+		            <li><?php echo get_next_posts_link( 'Next Page', $events_query->max_num_pages ); ?></li>
+		            <li><?php echo get_previous_posts_link( 'Previous Page' ); ?></li>
+			        </ul>
 						</div>
 
 					<?php wp_reset_postdata(); // Restore original Post Data

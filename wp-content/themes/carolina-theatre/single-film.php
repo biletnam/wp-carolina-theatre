@@ -211,24 +211,12 @@
           <?php } ?>
       </div>
 
-      <?php //get_template_part( 'template-parts/event', 'external_links' ); ?>
-      <div class="externalLinks">
-			  <?php if (have_rows('external_links')) {
-			    while (have_rows('external_links')) { the_row();
-			      $external_link_icon = get_sub_field('external_link_icon');
-						$external_link_label = get_sub_field('external_link_label');
-						$external_link_url = get_sub_field('external_link_url');
-			    ?>
-			    <p>
-			    	<i class="far <?php echo $external_link_icon; ?>"></i>
-			    	<a href="<?php echo $external_link_url; ?>" target="_blank"><?php echo $external_link_label; ?></a>
-			    </p>
-			    <?php } // end while ?>
-			  <?php } // end if ?>
-			</div>
-
-
+      <?php get_template_part( 'template-parts/event', 'external_links' ); ?>
+      	
+      <?php // TO-DO: Add and implement sidebar link blocks ?>
       <?php get_template_part( 'template-parts/content-blocks/block', 'link_block' ); ?>
+
+      <?php // TO-DO: Add and implement fine print text area ?>
     </div>
   </aside>
 </section>

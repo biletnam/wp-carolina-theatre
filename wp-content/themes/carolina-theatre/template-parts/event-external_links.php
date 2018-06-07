@@ -1,11 +1,14 @@
-<div class="externalLinks">
-  <?php if (have_rows('social_media_link')) {
-    while (have_rows('social_media_link')) { the_row();
-      $icon = get_sub_field('icon');
-      $url = get_sub_field('link_url');
-      $link_text = get_sub_field('link_description');
+<?php if (have_rows('external_links')) { ?>
+	<div class="externalLinks">
+    <?php while (have_rows('external_links')) { the_row();
+      $external_link_icon = get_sub_field('external_link_icon');
+			$external_link_label = get_sub_field('external_link_label');
+			$external_link_url = get_sub_field('external_link_url');
     ?>
-    <p><?php echo $icon; ?> <a href="<?php echo $url; ?>"><?php echo $link_text; ?></a></p>
+    <p>
+    	<i class="far <?php echo $external_link_icon; ?>"></i>
+    	<a href="<?php echo $external_link_url; ?>" target="_blank"><?php echo $external_link_label; ?></a>
+    </p>
     <?php } // end while ?>
-  <?php } // end if ?>
-</div>
+	</div>
+<?php } // end if ?>

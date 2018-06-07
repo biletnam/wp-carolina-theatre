@@ -1890,10 +1890,6 @@ div.wpcf7-validation-errors {
     left: 0;
     color: white; }
 
-.singleEvent__description {
-  max-height: 250px;
-  overflow: hidden; }
-
 .singleEvent__reveal {
   max-height: 100%;
   overflow: auto; }

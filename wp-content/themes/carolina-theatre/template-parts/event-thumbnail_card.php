@@ -1,7 +1,7 @@
 <?php 
 	// array of showdates and showtimes
 	$date_range = get_field('showtimes');
-  if ($date_range != NULL) {
+  // if ($date_range != NULL) {
   	// dates in YYYYMMDD format for easy comparing (ie: 20180130)
     $start_date = get_field('start_date');
     $end_date = get_field('end_date');
@@ -13,7 +13,7 @@
     }
 
     // only construct events if they are in the future
-    if ($end_date >= $today) {
+   // if ($end_date >= $today) {
 		  $event_dates = array();
 		  $event_times = array();
   		if (have_rows('showtimes')) { 
@@ -95,5 +95,5 @@
           <div class="button card__button"><span>Tickets & Info <i class="fas fa-arrow-right"></i></span></div>
         </a>
     	</div>
-		<?php } // endif event is in the future ?>
-	<?php } // endif date range isnt null ?>
+		<?php //} // endif event is in the future ?>
+	<?php //} // endif date range isnt null ?>
