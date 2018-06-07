@@ -1029,6 +1029,13 @@
 		"oAP": "\/template-parts\/slider-upcoming_events.php",
 		"oF": 0
 		},
+	"\/template-single_events.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-single_events.php",
+		"oF": 0
+		},
 	"\/template-styles.php": {
 		"cB": 0,
 		"ft": 8192,
