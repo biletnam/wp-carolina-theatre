@@ -627,7 +627,7 @@
             "key": "field_5b1843b552912",
             "label": "Release Year",
             "name": "release_year",
-            "type": "number",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -640,15 +640,13 @@
             "placeholder": 1990,
             "prepend": "",
             "append": "",
-            "min": 1900,
-            "max": 2030,
-            "step": ""
+            "maxlength": ""
         },
         {
             "key": "field_5b1843bf52913",
-            "label": "Runtime (minutes)",
+            "label": "Runtime (minutes only)",
             "name": "runtime",
-            "type": "number",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -658,12 +656,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": 130,
+            "placeholder": 92,
             "prepend": "",
             "append": "",
-            "min": 0,
-            "max": 300,
-            "step": 1
+            "maxlength": ""
         },
         {
             "key": "field_5b1843c752914",
@@ -691,7 +687,7 @@
             "multiple": 0,
             "ui": 0,
             "ajax": 0,
-            "return_format": "value",
+            "return_format": "label",
             "placeholder": ""
         },
         {
@@ -827,5 +823,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1528400637
+    "modified": 1528471544
 }

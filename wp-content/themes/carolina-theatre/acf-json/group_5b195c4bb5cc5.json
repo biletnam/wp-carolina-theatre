@@ -852,10 +852,9 @@
         "comments",
         "format",
         "featured_image",
-        "categories",
         "tags"
     ],
     "active": 1,
     "description": "",
-    "modified": 1528400610
+    "modified": 1528462479
 }

@@ -45,9 +45,9 @@ function set_custom_edit_film_columns($columns) {
   unset( $columns['tags'] );
   unset( $columns['categories'] );
   unset( $columns['date'] );
-  $columns['upcoming'] = __( 'Upcoming', 'carolinatheatre' );
-  $columns['start_date'] = __( 'Starting', 'carolinatheatre' );
-  $columns['end_date'] = __( 'Ending', 'carolinatheatre' );
+  $columns['upcoming'] = __( 'Upcoming?', 'carolinatheatre' );
+  $columns['start_date'] = __( 'Start Date', 'carolinatheatre' );
+  $columns['end_date'] = __( 'End Date', 'carolinatheatre' );
   $columns['parent_event'] = __( 'Parent Event', 'carolinatheatre' );
   // $columns['thumbnail'] = __( 'Thumbnail', 'carolinatheatre' );
 
@@ -126,7 +126,7 @@ function custom_film_column( $column, $post_id ) {
 add_filter( 'manage_edit-film_sortable_columns', 'sortable_film_columns' );
 function sortable_film_columns( $columns ) {
   $columns['parent_event'] = 'parent_event';
-  $columns['upcoming'] = 'upcoming';
+  // $columns['upcoming'] = 'upcoming';
   $columns['start_date'] = 'start_date';
   $columns['end_date'] = 'end_date';
   return $columns;
@@ -137,14 +137,14 @@ add_action( 'pre_get_posts', 'manage_wp_film_posts_pre_get_posts', 1 );
 function manage_wp_film_posts_pre_get_posts( $query ) {
    if ( $query->is_main_query() && ( $orderby = $query->get( 'orderby' ) ) ) {
       switch( $orderby ) {
-         case 'start_date':
+       	case 'start_date':
             $query->set( 'meta_key', 'start_date' );
-            $query->set( 'orderby', 'meta_value' );      
+            $query->set( 'orderby', 'meta_value_num' );      
             break;
 
         case 'end_date':
             $query->set( 'meta_key', 'end_date' );
-            $query->set( 'orderby', 'meta_value' );      
+            $query->set( 'orderby', 'meta_value_num' );      
             break;
       }
    }
@@ -160,9 +160,9 @@ function set_custom_edit_event_columns($columns) {
   unset( $columns['tags'] );
   unset( $columns['categories'] );
   unset( $columns['date'] );
-  $columns['upcoming'] = __( 'Upcoming', 'carolinatheatre' );
-  $columns['start_date'] = __( 'Starting', 'carolinatheatre' );
-  $columns['end_date'] = __( 'Ending', 'carolinatheatre' );
+  $columns['upcoming'] = __( 'Upcoming?', 'carolinatheatre' );
+  $columns['start_date'] = __( 'Start Date', 'carolinatheatre' );
+  $columns['end_date'] = __( 'End Date', 'carolinatheatre' );
   $columns['parent_event'] = __( 'Parent Event', 'carolinatheatre' );
 
   return $columns;
@@ -226,7 +226,7 @@ function custom_event_column( $column, $post_id ) {
 add_filter( 'manage_edit-event_sortable_columns', 'sortable_event_columns' );
 function sortable_event_columns( $columns ) {
   $columns['parent_event'] = 'parent_event';
-  $columns['upcoming'] = 'upcoming';
+  // $columns['upcoming'] = 'upcoming';
   $columns['start_date'] = 'start_date';
   $columns['end_date'] = 'end_date';
   return $columns;
