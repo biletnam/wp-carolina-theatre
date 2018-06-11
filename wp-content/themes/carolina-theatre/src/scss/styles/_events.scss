@@ -241,6 +241,16 @@
 	}
 }
 
+.singleEvent__relatedPosts {
+	border-top: 1px solid $gray;
+	padding-top: 2em;
+	margin-top: 3em;
+
+	.card__wrapper {
+		margin-top: 10px;
+	}
+}
+
 ///////// NEWS, EVENT, FILM CARDS ////////////
 // sliders on homepage & event dropdown with info cards
 .cardSlider {

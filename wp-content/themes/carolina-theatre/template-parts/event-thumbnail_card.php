@@ -1,4 +1,4 @@
-<?php // TO-DO: Refactor taking into account the new event query
+<?php
 
 /////// DATES 
 $start_date = get_field('start_date'); 		// YYYYMMDD format

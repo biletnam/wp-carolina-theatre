@@ -2045,6 +2045,13 @@ div.wpcf7-validation-errors {
     .sidebar__eventInfo .showInfo__date:first-of-type {
       padding: 0; }
 
+.singleEvent__relatedPosts {
+  border-top: 1px solid #ccc;
+  padding-top: 2em;
+  margin-top: 3em; }
+  .singleEvent__relatedPosts .card__wrapper {
+    margin-top: 10px; }
+
 .cardSlider .slick-track {
   display: -webkit-box;
   display: -ms-flexbox;

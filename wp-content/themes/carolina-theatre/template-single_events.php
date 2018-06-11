@@ -94,14 +94,14 @@
 	} // endif showtimes
 ?>
 
-<div class="mainContent contain <?php echo $post_type; ?>">
+<div class="mainContent contain">
   <section class="mainContent__content">
   	<div class="container">
       <?php if ($associated_event) { ?>
     	<a class="singleEvent__associatedEvent" href="<?php echo get_permalink($associated_event); ?>#films"><?php echo get_the_title($associated_event); ?> ››</a>
       <?php } ?>
 
-      <div class="singleEvent__image">
+      <div class="singleEvent__image <?php echo $post_type; ?>">
        <div class="event__dateBox">
 					<span class="day"><?php echo date("j", strtotime($showtime_soonestDate)); ?></span>
 					<span class="month"><?php echo date("M", strtotime($showtime_soonestDate)); ?></span>
@@ -128,21 +128,38 @@
       <p class="singleEvent__subtitle"><?php echo $event_subheading; ?></p>
       <?php } ?>
 
-
       <div class="singleEvent__description">
 				<?php get_template_part( 'template-parts/content-blocks/content-blocks' ); ?>
 			</div>
 
-      <?php // TO-DO: Related Events/Films ?>
-      <div class="singleEvent__relatedPosts">
-      	<h3>related posts go here</h3>
+    	<?php
+    		// RELATED POSTS
+				$related_query = new WP_Query( array( 
+						'category__in' => wp_get_post_categories($post->ID), 
+						'post_type' => array('film', 'event'), 
+						'posts_per_page' => 2, 
+						'post__not_in' => array($post->ID) 
+					) 
+				);
+			?>
+			<?php if ($related_query->have_posts()) { ?>
+			<div class="singleEvent__relatedPosts">
+    		<h3>Other Events You May Like...</h3>
+        <div class="card__wrapper">
+        <?php while ($related_query->have_posts()) { $related_query->the_post(); ?>
+        	<?php //print_r(wp_get_post_categories($post->ID)); ?>
+					<?php get_template_part('template-parts/event', 'thumbnail_card'); ?>
+				<?php } // end while each ?>
+				<?php wp_reset_postdata(); ?>
+				</div>
       </div>
+			<?php } // end if related posts ?>
+
     </div>
   </section>  
 
   <aside class="mainContent__sidebar">
   	<div class="container">
-  		<?php // TO-DO: Ticket Button functionality ?>
 			<?php 
 				$ticket_link = get_field('ticket_link'); 												// url
 				$ticket_prices = get_field('ticket_prices'); 										// repeater
@@ -182,7 +199,7 @@
       	<?php } // if there's a main ticket link ?>
       	
 
-      	<?php if (get_post_type() == 'film') { ?>
+      	<?php if ($post_type == 'film') { ?>
         <?php 
         	$ticket_string = '';
 					if(have_rows('ticket_prices')){ 
@@ -226,7 +243,7 @@
         <?php } // season pass link ?>
 		
 
-	      <?php if (get_post_type() == 'event') { ?>
+	      <?php if ($post_type == 'event') { ?>
         <div class="sidebar__eventInfo">
 	  			<!-- <h3>Event Info</h3> -->
 	       	<?php // EVENT DATES & TIMES ?>
@@ -295,7 +312,7 @@
   		
 
 
-      <?php if (get_post_type() == 'film') { ?>
+      <?php if ($post_type == 'film') { ?>
       <div class="sidebar__showInfo">
         <h3>Showtimes</h3>
 	      <?php if (!$coming_soon){ ?>
@@ -335,7 +352,7 @@
       </div>
       <?php } // end showtimes for films ?>
 
-      <?php if (get_post_type() == 'film') { ?>
+      <?php if ($post_type == 'film') { ?>
       <div class="sidebar__filmInfo">
         <h3>Movie Info</h3>
         <?php if ($film_director) { ?>
@@ -376,7 +393,6 @@
       <?php // TO-DO: Add and implement sidebar link blocks ?>
       <?php get_template_part( 'template-parts/content-blocks/block', 'link_block' ); ?>
 
-      <?php // TO-DO: Add and implement fine print text area ?>
      	<?php if ($show_sidebar_fineprint) {?> 
      		<div><p class="small"><?php echo $sidebar_fineprint; ?></p></div>
    		<?php } ?>

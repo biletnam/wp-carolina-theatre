@@ -604,16 +604,6 @@
 		"sC": 0,
 		"tS": 0
 		},
-	"\/src\/js\/singleFilmReadMore.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 0,
-		"oA": 1,
-		"oAP": "\/dist\/singleFilmReadMore-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
 	"\/src\/js\/slick-init.js": {
 		"ft": 64,
 		"ma": 0,
@@ -966,13 +956,6 @@
 		"oAP": "\/template-parts\/event-external_links.php",
 		"oF": 0
 		},
-	"\/template-parts\/event-thumbnail_card-originalQuery.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/template-parts\/event-thumbnail_card-originalQuery.php",
-		"oF": 0
-		},
 	"\/template-parts\/event-thumbnail_card.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -1093,20 +1076,14 @@
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/js\/singleFilmReadMore.js",
+			"linkedFileAbbreviatedPath": "\/src\/js\/filmFestivalTabs.js",
 			"position": 6,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/js\/filmFestivalTabs.js",
-			"position": 7,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/src\/js\/slick-init.js",
-			"position": 8,
+			"position": 7,
 			"type": 1
 			}
 		]

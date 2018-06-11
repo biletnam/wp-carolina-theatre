@@ -86,34 +86,6 @@
         ],
         [
             {
-                "param": "post_type",
-                "operator": "==",
-                "value": "page"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "festival"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "event"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "film"
-            }
-        ],
-        [
-            {
                 "param": "page_template",
                 "operator": "==",
                 "value": "template-events.php"
@@ -128,5 +100,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1528227486
+    "modified": 1528739737
 }
