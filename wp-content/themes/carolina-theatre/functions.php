@@ -173,6 +173,17 @@ add_filter( 'single_template', function( $template ) {
     ? get_stylesheet_directory() . '/template-single_events.php'
     : $template;
 } );
+
+/**
+ * Have 'series', 'festival' and 'education' post types share a template
+ */
+add_filter( 'single_template', function( $template ) {
+  $cpt = [ 'series', 'festival', 'education' ];
+  return in_array( get_queried_object()->post_type, $cpt, true )
+    ? get_stylesheet_directory() . '/template-parent_events.php'
+    : $template;
+} );
+
 /**
  * Global Variables
  */

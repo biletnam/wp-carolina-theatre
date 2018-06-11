@@ -1,5 +1,6 @@
 <?php
 /**
+ * Template Name: News & Press
  * The template for displaying archive pages
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
@@ -43,11 +44,18 @@ get_header(); ?>
 			if ($posts_query->have_posts()) { ?>
 	      <div class="card__wrapper">
 					<?php while ($posts_query->have_posts()) { $posts_query->the_post(); ?>
-					  <?php 
-						  echo get_the_date('F j');
-							the_title();
-							the_content();
-						?>
+					  <div class="card newsCard">
+					  	<a href="<?php echo get_page_link(get_the_id()); ?>">
+						  	<div class="card__infoWrapper">
+									<p class="card__subtitle h5"><?php echo get_the_date('F j'); ?></p>
+									<p class="card__title"><?php the_title(); ?></p>
+									<div class="card__info">
+										<p class="card__excerpt small"><?php the_excerpt(); ?></p>	
+									</div>
+			          </div>
+					      <div class="button card__button"><span>Read More <i class="fas fa-arrow-right"></i></span></div>
+					    </a>
+					  </div>
 					  <?php //get_template_part('template-parts/event', 'thumbnail_card'); ?>
 		  		<?php } // endwhile have_posts posts_query ?>
 	 			</div>
@@ -96,7 +104,7 @@ get_header(); ?>
 				<?php wp_reset_postdata(); ?>
 			<?php } else { ?>
 			<div class="card__wrapper">
-			 No posts at this time.
+			 No news at this time.
 			</div>
 			<?php } // endif have_posts posts_query ?>
     </div><!-- .container -->

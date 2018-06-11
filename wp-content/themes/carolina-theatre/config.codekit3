@@ -375,34 +375,6 @@
 		"oAP": "\/sidebar.php",
 		"oF": 0
 		},
-	"\/single-event.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/single-event.php",
-		"oF": 0
-		},
-	"\/single-festival.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/single-festival.php",
-		"oF": 0
-		},
-	"\/single-film-PREVIOUS.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/single-film-PREVIOUS.php",
-		"oF": 0
-		},
-	"\/single-film.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/single-film.php",
-		"oF": 0
-		},
 	"\/single.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -858,6 +830,13 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"\/template-archive_blog.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-archive_blog.php",
+		"oF": 0
+		},
 	"\/template-events.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -891,6 +870,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/template-parent.php",
+		"oF": 0
+		},
+	"\/template-parent_events.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parent_events.php",
 		"oF": 0
 		},
 	"\/template-parts\/content-blocks\/block-accordion.php": {
@@ -975,6 +961,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/template-parts\/part-event_categories.php",
+		"oF": 0
+		},
+	"\/template-parts\/part-event_ticketLowest.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/part-event_ticketLowest.php",
 		"oF": 0
 		},
 	"\/template-parts\/part-page_heading.php": {

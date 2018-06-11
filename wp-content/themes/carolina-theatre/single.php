@@ -12,35 +12,22 @@
 
 get_header(); ?>
 
+<?php while ( have_posts() ) { the_post(); ?>
 
-<section class="mainContent contain">
+<?php // TO-DO: hero image for blog ?>
+
+<section class="mainContent news-press contain">
   <div class="mainContent__content">
     <div class="container">
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
-
-				echo get_the_date('F j');
+		  <?php 
+			  echo get_the_date('F j');
 				the_title();
 				the_content();
-
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
-
-				the_post_navigation( array(
-					'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'carolinatheatre' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Previous', 'carolinatheatre' ) . '</span> <span class="nav-title"><span class="nav-title-icon-wrapper">' . carolinatheatre_get_svg( array( 'icon' => 'arrow-left' ) ) . '</span>%title</span>',
-					'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'carolinatheatre' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Next', 'carolinatheatre' ) . '</span> <span class="nav-title">%title<span class="nav-title-icon-wrapper">' . carolinatheatre_get_svg( array( 'icon' => 'arrow-right' ) ) . '</span></span>',
-				) );
-
-			endwhile; // End of the loop.
 			?>
-		</div>
-	</div>
-	<?php get_sidebar(); ?>
+    </div><!-- .container -->
+  </div><!-- .mainContent__content -->
+  <?php get_sidebar(); ?>
 </section>
-
-	
+<?php } // endwhile; ?>
 
 <?php get_footer();

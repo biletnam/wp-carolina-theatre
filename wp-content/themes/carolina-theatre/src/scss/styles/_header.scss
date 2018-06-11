@@ -188,6 +188,11 @@
 				}
 			}
 
+			// target the last three elements dropdowns align to the right
+			&:nth-last-child(-n+3) > .sub-menu {
+		    right: 0;
+			}
+
 			> .sub-menu { // first sub-menu as a dropdown
 				display: none;
 				position: absolute;

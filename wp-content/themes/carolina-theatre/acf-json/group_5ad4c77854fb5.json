@@ -188,7 +188,7 @@
         },
         {
             "key": "field_5b19778e5fcb4",
-            "label": "Event Details",
+            "label": "Dates",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -254,6 +254,47 @@
             "first_day": 0
         },
         {
+            "key": "field_5b1ece91fc78a",
+            "label": "Tickets",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5b1ecf2efc78c",
+            "label": "Tickets -> Live Event Content",
+            "name": "tickets",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_5b195c4bbdcb1",
+                "field_5b195c4bbdce3",
+                "field_5b195c4bbdcfe",
+                "field_5b195c4bbdd14",
+                "field_5b195c4bbdd70"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
             "key": "field_5b1977a05fcb5",
             "label": "Extras",
             "name": "",
@@ -270,9 +311,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_5ad7536d25169",
-            "label": "'External Links & Resources' -> 'Live Event Content'",
-            "name": "external_links_clone",
+            "key": "field_5b1ecfffab4ec",
+            "label": "Extras -> Live Event Content",
+            "name": "fine_print",
             "type": "clone",
             "instructions": "",
             "required": 0,
@@ -283,7 +324,9 @@
                 "id": ""
             },
             "clone": [
-                "field_5b195c4bbde4d"
+                "field_5b195c4bbde4d",
+                "field_5b19635962449",
+                "field_5b1963646244a"
             ],
             "display": "seamless",
             "layout": "block",
@@ -330,5 +373,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1528399735
+    "modified": 1528746121
 }

@@ -97,9 +97,6 @@
 <div class="mainContent contain">
   <section class="mainContent__content">
   	<div class="container">
-      <?php if ($associated_event) { ?>
-    	<a class="singleEvent__associatedEvent" href="<?php echo get_permalink($associated_event); ?>#films"><?php echo get_the_title($associated_event); ?> ››</a>
-      <?php } ?>
 
       <div class="singleEvent__image <?php echo $post_type; ?>">
        <div class="event__dateBox">
@@ -117,16 +114,18 @@
 				</div>
       </div>
 
-      <?php if (!empty($event_preheading)) { ?>
-      <p class="singleEvent__preheading"><?php echo $event_preheading; ?></p>
-      <?php } ?>
-      <h1 class="singleEvent__title h2"><?php echo $event_title; ?></h1>
-      <?php if (!empty($event_specialguests)) { ?>
-      <p class="singleEvent__specialGuests"><?php echo $event_specialguests; ?></p>
-      <?php } ?>
-      <?php if (!empty($event_subheading)) { ?>
-      <p class="singleEvent__subtitle"><?php echo $event_subheading; ?></p>
-      <?php } ?>
+      <div class="singleEvent__headings">
+	      <?php if (!empty($event_preheading)) { ?>
+	      <p class="singleEvent__preheading h5"><?php echo $event_preheading; ?></p>
+	      <?php } ?>
+	      <h1 class="singleEvent__title h2"><?php echo $event_title; ?></h1>
+	      <?php if (!empty($event_specialguests)) { ?>
+	      <p class="singleEvent__specialGuests h3"><?php echo $event_specialguests; ?></p>
+	      <?php } ?>
+	      <?php if (!empty($event_subheading)) { ?>
+	      <p class="singleEvent__subtitle"><?php echo $event_subheading; ?></p>
+	      <?php } ?>
+	    </div>
 
       <div class="singleEvent__description">
 				<?php get_template_part( 'template-parts/content-blocks/content-blocks' ); ?>
@@ -137,7 +136,7 @@
 				$related_query = new WP_Query( array( 
 						'category__in' => wp_get_post_categories($post->ID), 
 						'post_type' => array('film', 'event'), 
-						'posts_per_page' => 2, 
+						'posts_per_page' => 3, 
 						'post__not_in' => array($post->ID) 
 					) 
 				);
@@ -180,22 +179,22 @@
         <?php if($ticket_link){ ?>
         	<?php if(!$event_soldout){ ?>
         		<?php if($tickets_onsaledate == NULL || $tickets_onsaledate <= $dateTime_now ){ ?>
-		        	<a href="<?php echo $ticket_link; ?>" target="_blank" title="Purchase Tickets to <?php the_title(); ?>" class="button">Buy Tickets</a>
+		        	<a href="<?php echo $ticket_link; ?>" target="_blank" title="Purchase Tickets to <?php the_title(); ?>" class="button"><i class="far fa-ticket-alt"></i> Buy Tickets</a>
 		        <?php } else if($tickets_presaledate != NULL && $tickets_presaledate <= $dateTime_now) { ?>
-		        	<a href="<?php echo $ticket_link; ?>" target="_blank" title="Purchase Presale Tickets to <?php the_title(); ?>" class="button">Presale Tickets</a>
+		        	<a href="<?php echo $ticket_link; ?>" target="_blank" title="Purchase Presale Tickets to <?php the_title(); ?>" class="button"><i class="far fa-ticket-alt"></i> Presale Tickets</a>
 		        	<p class="small"><i><strong>General Tickets</strong> <?php echo date('F j', strtotime($tickets_onsaledate)); ?> at <?php echo date('g:ia', strtotime($tickets_onsaledate)); ?></i></p>
 
 	        	<?php } else if ($tickets_presaledate > $dateTime_now){ ?>
-							<a title="Presale tickets go on sale <?php echo date('l, F j', strtotime($tickets_presaledate)); ?> at <?php echo date('g:ia', strtotime($tickets_presaledate)); ?>" class="button disabled">Presale Begins <?php echo date('n/j', strtotime($tickets_presaledate)); ?></a>
+							<a title="Presale tickets go on sale <?php echo date('l, F j', strtotime($tickets_presaledate)); ?> at <?php echo date('g:ia', strtotime($tickets_presaledate)); ?>" class="button disabled"><i class="far fa-ticket-alt"></i> Presale Begins <?php echo date('n/j', strtotime($tickets_presaledate)); ?></a>
 		        	<p class="small"><i><strong>General Tickets</strong> <?php echo date('F j', strtotime($tickets_onsaledate)); ?> at <?php echo date('g:ia', strtotime($tickets_onsaledate)); ?></i></p>
 	        	<?php } else { ?>
-	        		<a title="Tickets available <?php echo date('l, F j', strtotime($tickets_onsaledate)); ?> at <?php echo date('g:ia', strtotime($tickets_onsaledate)); ?>" class="button disabled">Tickets <?php echo date('n/j', strtotime($tickets_onsaledate)); ?></a>
+	        		<a title="Tickets available <?php echo date('l, F j', strtotime($tickets_onsaledate)); ?> at <?php echo date('g:ia', strtotime($tickets_onsaledate)); ?>" class="button disabled"><i class="far fa-ticket-alt"></i> Tickets <?php echo date('n/j', strtotime($tickets_onsaledate)); ?></a>
 	        	<?php } ?>
         	<?php } else { ?> 
-	        	<a title="Tickets are sold out." class="button disabled">Sold Out</a>
+	        	<a title="Tickets are sold out." class="button disabled"><i class="far fa-ticket-alt"></i> Sold Out</a>
         	<?php } // if event's sold out or not ?>
         <?php } else { ?>
-					<a title="Tickets to be announced." class="button disabled">Tickets TBA</a>
+					<a title="Tickets to be announced." class="button disabled"><i class="far fa-ticket-alt"></i> Tickets TBA</a>
       	<?php } // if there's a main ticket link ?>
       	
 
@@ -283,28 +282,7 @@
 					<p><i class="far fa-map-marker-alt"></i><?php echo $event_location; ?></p>
        		<?php } // end event_location ?>
 	       	
-	       	<?php // EVENT TICKET PRICES ?>
-	        <?php 
-    				$ticket_prices = get_field('ticket_prices'); // repeater 
-  					$ticket_string = 'TBA';
-  					
-  					if($ticket_prices){ 
-							$pricesOrdered = array(); // array to reorder ticket prices
-	    				foreach( $ticket_prices as $i => $price ) { // add each ticket price to the order array
-								$pricesOrdered[ $i ] = $price['ticket_price'];
-							}
-						  sort($pricesOrdered, SORT_NUMERIC);
-
-							if($pricesOrdered[0]['ticket_price']) { // if there is a valid ticket price, start making string
-								$ticket_string = '$';
-								$ticket_string .= $pricesOrdered[0]; // use the lowest price 				
-		    				if($pricesOrdered[1]){  // and if there are more prices, add a plus sign
-			    				$ticket_string .= ' +'; 
-			    			} 
-							}
-    				}
-    			?>
-	        <p><i class="far fa-ticket-alt"></i><?php echo $ticket_string; ?></p>
+	       	<?php get_template_part( 'template-parts/part', 'event_ticketLowest' ); ?>
 		    </div>
 	      <?php } // end show information for live events ?>
   		</div>
@@ -335,7 +313,7 @@
 	                	<?php $time = get_sub_field('time'); ?>
 	               	 	<li>
 	               	 		<span class="time"><?php echo date('g:ia', strtotime($time)); ?></span>
-	               	 		<a href="<?php echo $ticket_link; ?>" target="_blank"><i class="far fa-ticket-alt" aria-hidden="true"></i></a>
+	               	 		<a href="<?php echo $ticket_link; ?>" target="_blank"></a>
 	               	 	</li>
 	                <?php } // endwhile times ?>
 	              </ul>
@@ -387,6 +365,13 @@
         <?php } ?>
       </div>
       <?php } // end if post type is film ?>
+     
+      <?php if ($associated_event) { ?>
+  	 	<div class="associatedEvent">
+		  	<p class="small">This <?php echo $post_type; ?> is a part of the </p>
+		  	<a class="singleEvent__associatedEvent button small gray" href="<?php echo get_permalink($associated_event); ?>#films"><?php echo get_the_title($associated_event); ?> ››</a>
+    	</div>
+    	<?php } //end associated_event ?>
 
       <?php get_template_part( 'template-parts/event', 'external_links' ); ?>
       	
