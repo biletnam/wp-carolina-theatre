@@ -6,27 +6,31 @@ $end_date = get_field('end_date'); 				// YYYYMMDD format
 $today = date("Ymd", strtotime('today')); // YYYYMMDD format
 $showtime_soonestDate = $start_date; 
 $showtime_soonestTime = ''; 
+$upcoming_showtimes = array();
 
 if ($start_date == NULL) { $start_date = $today-1; } // if no start date is given, set it to yesterday (so event doesn't show)
 if($end_date == NULL) {	$end_date = $start_date; } // if a single day event, set end_date 
 
-// construct events' future dates
-// get most recent date for card's datebox & most recent time for card info
+// recreate 'showtimes' array with only upcoming showtimes
 if (have_rows('showtimes')) { 
   if ($end_date >= $today) {
-	  $event_dates = array();
-	  $event_times = array();
+	  $showtimes = get_field('showtimes');
+	  $i = 0;
 
-    while (have_rows('showtimes')) { the_row();
-  		$single_date = get_sub_field('date', false, false);
-  		if ($single_date >= $today) { // if the showtime is today or in the future,
-    		array_push($event_dates, $single_date);	// push date to array
-    		array_push($event_times, get_sub_field('times')[0]['time']);	// push future showtime dates to an array
-  		}
-     } // endwhile showtimes
-    
-    $showtime_soonestDate = $event_dates[0];    // get the date to show in the card as the date square
-    $showtime_soonestTime = $event_times[0]; 
+	  foreach($showtimes as $showtime){
+	  	if ($showtime['date'] >= $today){
+			  $j = 0;
+				$upcoming_showtimes[$i]['date'] = $showtime['date'];
+		  	$times = $showtime['times'];
+		  	
+		  	foreach($times as $time) {
+					$upcoming_showtimes[$i]['time'][$j] = $time;
+				  $j++;
+		  	}
+			  $i++;
+		  }
+		}
+		$showtime_soonestDate = $upcoming_showtimes[0]['date']; 
   }
 } // endif showtimes
 
@@ -35,12 +39,12 @@ $class_names = [];
 if (get_post_type() == 'film') {
 	array_push($class_names, 'film'); 
 
-	if ($start_date <= $today && $today <= $end_date) {
+	if ($showtime_soonestDate == $today) {
 	  array_push($class_names, 'now-playing'); 
 	} else if ($today < $start_date) {
 	  array_push($class_names, 'coming-soon'); 
 	}  
-} 
+}
 if (get_post_type() == 'event') {
   array_push($class_names, 'event'); 
 
@@ -104,41 +108,7 @@ for ($i = 0; $i < count($class_names); $i++) {
 		 	<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>" />
     </div>
     <div class="card__infoWrapper">
-      <p class="card__subtitle card__category">
-      	<?php 
-      	// SHOW YOAST PRIMARY CATEGORY, OR FIRST CATEGORY
-				$category = get_the_category();
-				$useCatLink = false;
-				
-				if ($category){
-					$category_display = '';
-					// Show the post's 'Primary' category, if this Yoast feature is available, & one is set
-					if ( class_exists('WPSEO_Primary_Term') ) {
-						$wpseo_primary_term = new WPSEO_Primary_Term( 'category', get_the_id() );
-						$wpseo_primary_term = $wpseo_primary_term->get_primary_term();
-						$term = get_term( $wpseo_primary_term );
-						if (is_wp_error($term)) {  // Default to first category (not Yoast) if an error is returned
-							$category_display = $category[0]->name;
-						} else {  // Yoast Primary category
-							$category_display = $term->name;
-						}
-					} 
-					else { // Default, display the first category in WP's list of assigned categories
-						$category_display = $category[0]->name;
-					}
-
-					if ( !empty($category_display) ){
-						echo htmlspecialchars($category_display);
-					}
-				} else {
-				 	if (get_post_type() == 'film') {
-	      		echo 'Film';
-	      	} else if (get_post_type() == 'event') {
-      			echo 'Live Event';
-	    		} 
-				}
-  		?>
-      </p>
+      <?php get_template_part('template-parts/part', 'event_categories'); ?>
       <p class="card__title"><?php the_title();?></p>
       <div class="card__info">	
       	<?php $event_location = get_field('eevnt_location'); ?>

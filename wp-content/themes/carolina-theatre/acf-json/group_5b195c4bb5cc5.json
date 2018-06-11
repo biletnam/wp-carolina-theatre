@@ -344,7 +344,7 @@
             "label": "Doors:",
             "name": "event_doorstime",
             "type": "text",
-            "instructions": "When do doors open, relative to the start time?",
+            "instructions": "When do doors open, relative to the start time? Will display as \"Doors ___________\"",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -353,7 +353,7 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "1 hour before",
+            "placeholder": "60min prior",
             "prepend": "",
             "append": "",
             "maxlength": ""
@@ -411,7 +411,7 @@
             "sub_fields": [
                 {
                     "key": "field_5b195c4bf38f6",
-                    "label": "Price",
+                    "label": "Price (no leading $)",
                     "name": "ticket_price",
                     "type": "text",
                     "instructions": "",
@@ -462,7 +462,7 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "d\/m\/Y g:i a",
+            "display_format": "F j, Y g:ia",
             "return_format": "Y-m-d H:i:s",
             "first_day": 0
         },
@@ -479,7 +479,7 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "d\/m\/Y g:i a",
+            "display_format": "F j, Y g:ia",
             "return_format": "Y-m-d H:i:s",
             "first_day": 0
         },
@@ -828,7 +828,7 @@
             "placeholder": "",
             "maxlength": "",
             "rows": 5,
-            "new_lines": ""
+            "new_lines": "br"
         }
     ],
     "location": [
@@ -856,5 +856,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1528462479
+    "modified": 1528739418
 }

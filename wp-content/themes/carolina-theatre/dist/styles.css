@@ -82,12 +82,12 @@
   background-repeat: repeat; }
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .card__subtitle, .h6 {
+.h1, .h2, .h3, .h4, .h5, .event__categories, .h6 {
   font-family: "source-sans-pro", sans-serif;
   margin-top: .25em;
   margin-bottom: .25em; }
   h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child,
-  .h1:first-child, .h2:first-child, .h3:first-child, .h4:first-child, .h5:first-child, .card__subtitle:first-child, .h6:first-child {
+  .h1:first-child, .h2:first-child, .h3:first-child, .h4:first-child, .h5:first-child, .event__categories:first-child, .h6:first-child {
     margin-top: 0; }
 
 h1, .h1 {
@@ -110,7 +110,7 @@ h4, .h4 {
   font-size: 1.5rem;
   font-weight: 600; }
 
-h5, .h5, .card__subtitle {
+h5, .h5, .event__categories {
   font-size: 12px;
   font-size: 0.75rem;
   font-weight: 700;
@@ -1348,9 +1348,9 @@ main {
     padding-right: 20px;
     padding-top: 0; }
     .mainContent__sidebar > .container > * {
-      padding-bottom: 30px;
-      border-bottom: 1px solid #ccc;
-      margin-bottom: 30px; }
+      padding-bottom: 20px;
+      padding-top: 20px;
+      border-bottom: 1px solid #ccc; }
       .mainContent__sidebar > .container > *:last-of-type {
         border-bottom: 0; }
 
@@ -1960,6 +1960,90 @@ div.wpcf7-validation-errors {
   z-index: 1;
   top: 0;
   right: 0; }
+
+.showInfo__showdates {
+  margin: 0;
+  padding: 0; }
+
+.showInfo__date {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+  .showInfo__date .date {
+    width: 140px; }
+  .showInfo__date .past {
+    opacity: .3; }
+
+.showInfo__times {
+  margin: 0;
+  padding: 0;
+  width: 100px; }
+  .showInfo__times li {
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+  .showInfo__times .time {
+    font-weight: 600;
+    margin-bottom: 5px; }
+
+.mainContent__sidebar h3 i {
+  font-size: 20px;
+  margin-right: 10px;
+  position: relative;
+  bottom: 3px; }
+
+.sidebar__tickets p.small .fa-ticket-alt {
+  opacity: .5; }
+
+.sidebar__filmInfo div {
+  margin: 15px 0 1.5em; }
+
+.sidebar__filmInfo p {
+  margin-top: 0; }
+
+.ticket__prices {
+  margin-top: 0.5em;
+  margin-bottom: 1em; }
+  .ticket__prices p {
+    margin: 0; }
+  .ticket__prices .primary {
+    font-size: 20px;
+    font-size: 1.25rem; }
+  .ticket__prices span:not(:last-of-type)::after {
+    content: ' | ';
+    opacity: .5;
+    padding: 0 5px; }
+
+.externalLinks i {
+  width: 25px;
+  margin-right: 5px;
+  text-align: center; }
+
+.externalLinks p a {
+  text-decoration: none; }
+  .externalLinks p a:hover {
+    text-decoration: underline; }
+
+.sidebar__eventInfo {
+  margin-top: 40px; }
+  .sidebar__eventInfo i {
+    width: 25px;
+    margin-right: 5px;
+    text-align: center; }
+  .sidebar__eventInfo .showInfo__date {
+    padding-left: 30px;
+    display: block;
+    margin-bottom: 0; }
+    .sidebar__eventInfo .showInfo__date:first-of-type {
+      padding: 0; }
 
 .cardSlider .slick-track {
   display: -webkit-box;

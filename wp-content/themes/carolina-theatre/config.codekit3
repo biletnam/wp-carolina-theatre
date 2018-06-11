@@ -987,6 +987,13 @@
 		"oAP": "\/template-parts\/part-breadcrumb.php",
 		"oF": 0
 		},
+	"\/template-parts\/part-event_categories.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/part-event_categories.php",
+		"oF": 0
+		},
 	"\/template-parts\/part-page_heading.php": {
 		"cB": 0,
 		"ft": 8192,

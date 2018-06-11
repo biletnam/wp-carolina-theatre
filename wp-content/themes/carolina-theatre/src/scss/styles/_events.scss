@@ -117,6 +117,130 @@
 	right: 0;
 }
 
+// Films sidebar dates
+.showInfo {
+	&__showdates {
+		margin: 0;
+		padding: 0;
+	}
+
+	&__date { // (li element)
+		list-style: none;
+    display: flex;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+
+    .date {
+	  	width: 140px;
+	  }
+		.past {
+	    opacity: .3;
+		}
+	}
+
+	// Films sidebar times
+	&__times {
+		margin: 0;
+		padding: 0;
+    width: 100px;
+
+		li {
+			list-style: none;
+	    display: flex;
+    	justify-content: space-between;
+		}
+
+		.time {
+			font-weight: 600;
+			margin-bottom: 5px;
+		}
+	}
+}
+
+.mainContent__sidebar {
+	h3 {
+		i {
+			font-size: 20px;
+			margin-right: 10px;
+			position: relative;
+			bottom: 3px;
+		}
+	}
+}
+
+.sidebar__tickets {
+	p.small {
+		.fa-ticket-alt {
+			opacity: .5;
+		}
+	}
+}
+
+.sidebar__filmInfo {
+	div {
+		margin: 15px 0 1.5em;
+	}
+	p {
+		margin-top: 0;
+	}
+}
+
+.ticket__prices {
+	margin-top: 0.5em;
+	margin-bottom: 1em;
+
+	p {
+		margin: 0;
+	}
+
+	.primary {
+		@include rem(20);
+	}
+
+	span:not(:last-of-type) {
+		&::after {
+			content: ' | ';
+			opacity: .5;
+			padding: 0 5px;
+		}
+	}
+}
+
+.externalLinks {
+	i {
+	  width: 25px;
+	  margin-right: 5px;
+	  text-align: center;
+	}
+
+	p a {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.sidebar__eventInfo {
+  margin-top: 40px;
+
+	i {
+		width: 25px;
+		margin-right: 5px;
+		text-align: center;
+	}
+	.showInfo__date {
+		padding-left: 30px;
+		display: block;
+		margin-bottom: 0;
+		
+		&:first-of-type {
+			padding: 0;
+		}
+	}
+}
+
 ///////// NEWS, EVENT, FILM CARDS ////////////
 // sliders on homepage & event dropdown with info cards
 .cardSlider {
@@ -235,10 +359,6 @@
 		margin: 0.2em 0;
 	}
 
-	&__subtitle {
-		@extend .h5;
-	}
-
 	&__info {
 		p {
 	    margin: .5em 0;
@@ -264,6 +384,10 @@
 			max-width: 100%;
 		}
 	}
+}
+
+.event__categories {
+	@extend .h5;
 }
 
 .newsCard {

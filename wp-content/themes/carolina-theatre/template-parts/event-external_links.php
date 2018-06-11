@@ -20,10 +20,7 @@
 				$external_link_url = get_sub_field('external_link_file');
 			}
 		?>
-    <p>
-    	<i class="<?php echo $external_link_icon; ?>"></i>
-    	<a href="<?php echo $external_link_url; ?>" target="_blank"><?php echo $external_link_label; ?></a>
-    </p>
+    <p><i class="<?php echo $external_link_icon; ?>"></i><a href="<?php echo $external_link_url; ?>" target="_blank"><?php echo $external_link_label; ?></a></p>
     <?php } // end while ?>
 	</div>
 <?php } // end if ?>

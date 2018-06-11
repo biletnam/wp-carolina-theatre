@@ -392,7 +392,7 @@
             "sub_fields": [
                 {
                     "key": "field_5b18403e59f76",
-                    "label": "Price",
+                    "label": "Price (no leading $)",
                     "name": "ticket_price",
                     "type": "text",
                     "instructions": "",
@@ -443,7 +443,7 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "d\/m\/Y g:i a",
+            "display_format": "F j, Y g:ia",
             "return_format": "Y-m-d H:i:s",
             "first_day": 0
         },
@@ -460,7 +460,7 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "d\/m\/Y g:i a",
+            "display_format": "F j, Y g:ia",
             "return_format": "Y-m-d H:i:s",
             "first_day": 0
         },
@@ -823,5 +823,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1528471544
+    "modified": 1528736622
 }
