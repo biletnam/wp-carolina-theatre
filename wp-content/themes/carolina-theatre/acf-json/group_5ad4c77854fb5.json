@@ -3,6 +3,22 @@
     "title": "Film Series & Festivals",
     "fields": [
         {
+            "key": "field_5b19776e5fcb2",
+            "label": "Hero",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
             "key": "field_5ad4dd488d003",
             "label": "Hero Slider",
             "name": "hero_slider",
@@ -24,11 +40,11 @@
             "prefix_name": 0
         },
         {
-            "key": "field_5b1032809a90b",
-            "label": "Overview, Films and More",
-            "name": "tabbed_content",
-            "type": "group",
-            "instructions": "Add content for each tabbed section here.",
+            "key": "field_5b1977b75fcb6",
+            "label": "Films",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -36,12 +52,121 @@
                 "class": "",
                 "id": ""
             },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5b16abd498713",
+            "label": "Looking for the associated films?",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Associated films to this festival\/series can be found here: <a href=\"http:\/\/wp-carolina-theater.test\/wp-admin\/edit.php?post_type=film\" target=\"_blank\">single Film posts<\/a>.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_5b19777f5fcb3",
+            "label": "Overview",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5af9bc422fa2e",
+            "label": "Overview Tab",
+            "name": "overview",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_5ae0989a7b5cd"
+            ],
+            "display": "group",
             "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_5b1979dc8f846",
+            "label": "Additional Tabs",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5ad76fc84f61a",
+            "label": "Additional Tabs",
+            "name": "tabs",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5ad76fe54f61b",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Tab",
             "sub_fields": [
                 {
-                    "key": "field_5af9bc422fa2e",
-                    "label": "Overview Tab",
-                    "name": "overview",
+                    "key": "field_5ad76fe54f61b",
+                    "label": "Tab Title",
+                    "name": "tab_name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "100",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5ae08f30ed84d",
+                    "label": "Content",
+                    "name": "content",
                     "type": "clone",
                     "instructions": "",
                     "required": 0,
@@ -52,92 +177,47 @@
                         "id": ""
                     },
                     "clone": [
-                        "field_5ae0989a7b5cd"
+                        "group_5ae09890aebfb"
                     ],
-                    "display": "group",
+                    "display": "seamless",
                     "layout": "block",
                     "prefix_label": 0,
                     "prefix_name": 0
-                },
-                {
-                    "key": "field_5b16abd498713",
-                    "label": "Films Tab",
-                    "name": "",
-                    "type": "message",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "You can add associated films to this festival\/series thru the individual <a href=\"http:\/\/wp-carolina-theater.test\/wp-admin\/edit.php?post_type=film\" target=\"_blank\">single Film posts<\/a>.",
-                    "new_lines": "wpautop",
-                    "esc_html": 0
-                },
-                {
-                    "key": "field_5ad76fc84f61a",
-                    "label": "Additional Tabs",
-                    "name": "tabs",
-                    "type": "repeater",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "collapsed": "field_5ad76fe54f61b",
-                    "min": 0,
-                    "max": 0,
-                    "layout": "block",
-                    "button_label": "Add Tab",
-                    "sub_fields": [
-                        {
-                            "key": "field_5ad76fe54f61b",
-                            "label": "Tab Title",
-                            "name": "tab_name",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "100",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_5ae08f30ed84d",
-                            "label": "Content",
-                            "name": "content",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_5ae09890aebfb"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ]
                 }
             ]
+        },
+        {
+            "key": "field_5b19778e5fcb4",
+            "label": "Dates",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5b197d29928ad",
+            "label": "Note",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "If series is indefinite, pick an end date that is years into the future to ensure the series shows at all times.\r\n<b>Start date is required<\/b> to show the festival\/series.",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
             "key": "field_5ad4ed0b4c167",
@@ -153,7 +233,7 @@
                 "id": ""
             },
             "display_format": "F j, Y",
-            "return_format": "F j, Y",
+            "return_format": "Ymd",
             "first_day": 0
         },
         {
@@ -170,14 +250,14 @@
                 "id": ""
             },
             "display_format": "F j, Y",
-            "return_format": "F j, Y",
+            "return_format": "Ymd",
             "first_day": 0
         },
         {
-            "key": "field_5ad4f9c8b6ed0",
-            "label": "Location",
-            "name": "location",
-            "type": "checkbox",
+            "key": "field_5b1ece91fc78a",
+            "label": "Tickets",
+            "name": "",
+            "type": "tab",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -186,24 +266,14 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "Fletcher Hall": "Fletcher Hall",
-                "Cinema One": "Cinema One",
-                "Cinema Two": "Cinema Two",
-                "Carolina Theatre": "Carolina Theatre"
-            },
-            "allow_custom": 0,
-            "save_custom": 0,
-            "default_value": [],
-            "layout": "horizontal",
-            "toggle": 0,
-            "return_format": "value"
+            "placement": "left",
+            "endpoint": 0
         },
         {
-            "key": "field_5ad7536d25169",
-            "label": "Additional Resources",
-            "name": "additional_resources",
-            "type": "repeater",
+            "key": "field_5b1ecf2efc78c",
+            "label": "Tickets -> Live Event Content",
+            "name": "tickets",
+            "type": "clone",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -212,124 +282,56 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "Add Resource",
-            "sub_fields": [
-                {
-                    "key": "field_5ad758535cc2a",
-                    "label": "File Link",
-                    "name": "file_link",
-                    "type": "group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "layout": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5ad7586c5cc2b",
-                            "label": "Add File By",
-                            "name": "add_file_by",
-                            "type": "radio",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "Upload a File": "Upload a File",
-                                "File URL": "File URL"
-                            },
-                            "allow_null": 0,
-                            "other_choice": 0,
-                            "save_other_choice": 0,
-                            "default_value": "",
-                            "layout": "vertical",
-                            "return_format": "value"
-                        },
-                        {
-                            "key": "field_5ad758a25cc2d",
-                            "label": "Upload File",
-                            "name": "upload_file",
-                            "type": "file",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_5ad7586c5cc2b",
-                                        "operator": "==",
-                                        "value": "Upload a File"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "url",
-                            "library": "all",
-                            "min_size": "",
-                            "max_size": "",
-                            "mime_types": ""
-                        },
-                        {
-                            "key": "field_5ad758965cc2c",
-                            "label": "File URL",
-                            "name": "file_url",
-                            "type": "url",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_5ad7586c5cc2b",
-                                        "operator": "==",
-                                        "value": "File URL"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": ""
-                        },
-                        {
-                            "key": "field_5ad75a46fcacf",
-                            "label": "Link Text",
-                            "name": "link_text",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        }
-                    ]
-                }
-            ]
+            "clone": [
+                "field_5b195c4bbdcb1",
+                "field_5b195c4bbdce3",
+                "field_5b195c4bbdcfe",
+                "field_5b195c4bbdd14",
+                "field_5b195c4bbdd70"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_5b1977a05fcb5",
+            "label": "Extras",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5b1ecfffab4ec",
+            "label": "Extras -> Live Event Content",
+            "name": "fine_print",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_5b195c4bbde4d",
+                "field_5b19635962449",
+                "field_5b1963646244a"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         }
     ],
     "location": [
@@ -355,16 +357,21 @@
             }
         ]
     ],
-    "menu_order": 20,
+    "menu_order": 15,
     "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [
         "the_content",
-        "excerpt"
+        "excerpt",
+        "discussion",
+        "comments",
+        "featured_image",
+        "categories",
+        "tags"
     ],
     "active": 1,
     "description": "",
-    "modified": 1528213148
+    "modified": 1528746121
 }

@@ -13,20 +13,61 @@
 .featuredEvent {
 	&__image {
 		width: 66%;
+    position: relative;
 
 		img {
 			width: 100%;
 			display: block;
 		}
+
+		.event__dateBox {
+			left: 0;
+		}
 	}
 
 	&__info {
 		width: 33%;
+    display: flex;
+    align-items: center;
+    
+		h3 {
+			line-height: 1;
+		}
+
+		p i {
+			width: 25px;
+			text-align: center;
+			margin-right: 5px;
+		}
 	}
 
 	&__slideContainer {
 		display: flex;
 		overflow: hidden;
+	}
+
+	&__slide {
+		&.film {
+			.button {
+				background-color: $green;
+
+				&:hover {
+					background-color: $green-med;
+				}
+
+				&.secondary {
+					color: $green;
+					background-color: $white;
+					box-shadow: inset 0 0 0 2px $green;
+
+					&:hover {
+						background-color: $green-med;
+						box-shadow: inset 0 0 0 2px $green-med;
+						color: $white;
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -88,6 +129,15 @@
 			margin-left: 10%;
 		}
 	}
+
+	&__headings {
+		padding-top: 2em;
+		padding-bottom: 1.5em;
+
+		> * {
+			line-height: 1;
+		}
+	}
 }
 
 .event__dateBox {
@@ -115,6 +165,149 @@
 	z-index: 1;
 	top: 0;
 	right: 0;
+}
+
+// Films sidebar dates
+.showInfo {
+	&__showdates {
+		margin: 0;
+		padding: 0;
+	}
+
+	&__date { // (li element)
+		list-style: none;
+    display: flex;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+
+    .date {
+	  	width: 140px;
+	  }
+		.past {
+	    opacity: .3;
+		}
+	}
+
+	// Films sidebar times
+	&__times {
+		margin: 0;
+		padding: 0;
+    width: 100px;
+
+		li {
+			list-style: none;
+	    display: flex;
+    	justify-content: space-between;
+		}
+
+		.time {
+			font-weight: 600;
+			margin-bottom: 5px;
+		}
+	}
+}
+
+.mainContent__sidebar {
+	h3 {
+		i {
+			font-size: 20px;
+			margin-right: 10px;
+			position: relative;
+			bottom: 3px;
+		}
+	}
+}
+
+.sidebar__tickets {
+	p.small {
+		.fa-ticket-alt {
+			opacity: .5;
+		}
+	}
+}
+
+.sidebar__filmInfo {
+	div {
+		margin: 15px 0 1.5em;
+	}
+	p {
+		margin-top: 0;
+	}
+}
+
+.ticket__prices {
+	margin-top: 0.5em;
+	margin-bottom: 1em;
+
+	p {
+		margin: 0;
+	}
+
+	.primary {
+		@include rem(20);
+	}
+
+	span:not(:last-of-type) {
+		&::after {
+			content: ' | ';
+			opacity: .5;
+			padding: 0 5px;
+		}
+	}
+}
+
+.pageHeader,
+.externalLinks,
+.sidebar__eventInfo {
+	i {
+    width: 25px;
+    margin-right: 5px;
+    text-align: center;
+  }
+}
+
+.externalLinks {
+	p a {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.sidebar__eventInfo {
+  margin-top: 40px;
+
+	.showInfo__date {
+		padding-left: 30px;
+		display: block;
+		margin-bottom: 0;
+		
+		&:first-of-type {
+			padding: 0;
+		}
+	}
+}
+
+.pageHeader {
+	.date {
+		margin: 0;
+	}
+
+	h1 {
+		line-height: 1;
+	}
+}
+
+.singleEvent__relatedPosts {
+	border-top: 1px solid $gray;
+	padding-top: 2em;
+	margin-top: 3em;
+
+	.card__wrapper {
+		margin-top: 10px;
+	}
 }
 
 ///////// NEWS, EVENT, FILM CARDS ////////////
@@ -235,10 +428,6 @@
 		margin: 0.2em 0;
 	}
 
-	&__subtitle {
-		@extend .h5;
-	}
-
 	&__info {
 		p {
 	    margin: .5em 0;
@@ -264,6 +453,10 @@
 			max-width: 100%;
 		}
 	}
+}
+
+.event__categories {
+	@extend .h5;
 }
 
 .newsCard {

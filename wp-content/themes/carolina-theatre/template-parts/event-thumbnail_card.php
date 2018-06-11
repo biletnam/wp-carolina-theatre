@@ -1,62 +1,94 @@
-<?php // TO-DO: Refactor taking into account the new event query
-// array of showdates and showtimes
-$date_range = get_field('showtimes');
-// dates in YYYYMMDD format for easy comparing (ie: 20180130)
-$start_date = get_field('start_date');
-$end_date = get_field('end_date');
-$today = date("Ymd", strtotime('today'));
+<?php
 
-// if event is a single day, set end_date
-if($end_date == NULL) {
-	$end_date = $start_date;
+/////// DATES 
+$start_date = get_field('start_date'); 		// YYYYMMDD format
+$end_date = get_field('end_date'); 				// YYYYMMDD format
+$today = date("Ymd", strtotime('today')); // YYYYMMDD format
+$showtime_soonestDate = $start_date; 
+$showtime_soonestTime = ''; 
+$upcoming_showtimes = array();
+
+if ($start_date == NULL) { $start_date = $today-1; } // if no start date is given, set it to yesterday (so event doesn't show)
+if($end_date == NULL) {	$end_date = $start_date; } // if a single day event, set end_date 
+
+// recreate 'showtimes' array with only upcoming showtimes
+if (have_rows('showtimes')) { 
+  if ($end_date >= $today) {
+	  $showtimes = get_field('showtimes');
+	  $i = 0;
+
+	  foreach($showtimes as $showtime){
+	  	if ($showtime['date'] >= $today){
+			  $j = 0;
+				$upcoming_showtimes[$i]['date'] = $showtime['date'];
+		  	$times = $showtime['times'];
+		  	
+		  	foreach($times as $time) {
+					$upcoming_showtimes[$i]['time'][$j] = $time;
+				  $j++;
+		  	}
+			  $i++;
+		  }
+		}
+		$showtime_soonestDate = $upcoming_showtimes[0]['date']; 
+  }
+} // endif showtimes
+
+/////// ASSIGN CLASS NAMES FOR EACH EVENT
+$class_names = [];
+if (get_post_type() == 'film') {
+	array_push($class_names, 'film'); 
+
+	if ($showtime_soonestDate == $today) {
+	  array_push($class_names, 'now-playing'); 
+	} else if ($today < $start_date) {
+	  array_push($class_names, 'coming-soon'); 
+	}  
+}
+if (get_post_type() == 'event') {
+  array_push($class_names, 'event'); 
+
+	$event_categories = get_field('event_categories'); 
+  if($event_categories){ 
+		foreach($event_categories as $event_category) {
+			array_push($class_names, $event_category);
+		}
+  }
 }
 
-// only construct events if they are in the future
-$event_dates = array();
-$event_times = array();
-if (have_rows('showtimes')) { 
-  while (have_rows('showtimes')) { the_row();
-		$showtime = get_sub_field('dates', false, false);
-		if ($showtime >= $today) { // if the showtime is today or in the future,
-  		array_push($event_dates, $showtime);	// push date to array
-  		array_push($event_times, get_sub_field('times')[0]['time']);	// push times to an array
-		}
-   } // endwhile showtimes
-} //endif showtimes 
-
-// the closest upcoming date (to show in the card as the date square)
-$dateToShowInCard = $event_dates[0]; 
-
-// assign correct classes to event depending if it's a film or live event
-$class_names = [];
-if (get_post_type() == "film") {
-  if(get_field('film_type')){ $class_names = get_field('film_type'); }
-  array_push($class_names, "film"); // add 'film' to list of classes for html template below
-} else if (get_post_type() == "event") {
-  if(get_field('single_event_type')){ $class_names = get_field('single_event_type'); }
-  array_push($class_names, "event"); // add 'film' to list of classes for html template below
+// classes for associated (parent) Series and Festivals
+$associated_event = get_field('associated_event'); 
+if($associated_event){ 
+	$title = get_the_title($associated_event);
+	array_push($class_names, $title);
 }
 
 // transform human readable classes to html classes with hyphens
 $class_string = '';
 for ($i = 0; $i < count($class_names); $i++) {
-  $transform_class = strtolower($class_names[$i]);
-  $transform_class = str_replace(' ', '-', $transform_class);
+	// convert each future class name to lowercase
+	$transform_class = strtolower($class_names[$i]);
+
+	// replace all characters except letters, replace with underscore
+  $transform_class = preg_replace('/[^a-z]+/i', '_', $transform_class);
+
+  // trim any leading/trailing underscores
+	$transform_class = preg_replace('/\G_|_(?=_*$)/', '', $transform_class);
+  
+  // replace underscores with dashes
+  $transform_class = str_replace("_", "-", $transform_class);
+
+  // add class to the string
   $class_string .= $transform_class . ' ';
 }
-
-if ($start_date <= $today and $today <= $end_date) {
-  $class_string .= ' now-playing';
-} else if ($today < $start_date) {
-  $class_string .= ' coming-soon';
-}    
 ?>
+
 
 <div class="card eventCard<?php echo ' ' . $class_string; ?>">
    <a href="<?php echo get_page_link(get_the_id()); ?>">
     <div class="event__dateBox">
-			<span class="day"><?php echo date("j", strtotime($dateToShowInCard)); ?></span>
-			<span class="month"><?php echo date("M", strtotime($dateToShowInCard)); ?></span>
+			<span class="day"><?php echo date("j", strtotime($showtime_soonestDate)); ?></span>
+			<span class="month"><?php echo date("M", strtotime($showtime_soonestDate)); ?></span>
     </div>
     <div class="eventCard__image">
     	<?php 
@@ -76,19 +108,39 @@ if ($start_date <= $today and $today <= $end_date) {
 		 	<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>" />
     </div>
     <div class="card__infoWrapper">
-        <p class="card__subtitle"><?php the_field('single_event_type');?></p>
-        <p class="card__title"><?php the_title();?></p>
-        <div class="card__info">	
-        	<?php if (get_post_type() == "film") { ?>
-        		<?php $movie_info = get_field('film_information'); ?>
-        		<p><i class="far fa-clock"></i><?php echo $movie_info["runtime"] . ' min'; ?></p>
-						<p><i class="far fa-film"></i><?php echo $movie_info["director"]; ?>, <?php echo $movie_info["release_year"]; ?></p>
-          <?php } else if (get_post_type() == "event") { ?>
-          	<p><i class="far fa-clock"></i><?php echo $event_times[0]; ?> show</p>
-            <p><i class="far fa-map-marker-alt"></i><?php the_field('location'); ?></p>
-          <?php } ?>
-      		<p><i class="far fa-ticket-alt"></i>$<?php echo get_field('ticket_prices')[0]['price'];if(get_field('ticket_prices')[1]['price']){ echo " +"; } ?></p>
-        </div>
+      <?php get_template_part('template-parts/part', 'event_categories'); ?>
+      <p class="card__title"><?php the_title();?></p>
+      <div class="card__info">	
+      	<?php $event_location = get_field('eevnt_location'); ?>
+      	<?php if (get_post_type() == 'film'){ ?>
+      		<?php 
+						$film_director = get_field('director'); 												// text
+						$film_release_country = get_field('release_country'); 					// text
+						$film_release_year = get_field('release_year'); 								// text
+						$film_runtime = get_field('runtime'); 													// text
+						$film_rating = get_field('rating');															// select
+					?>
+      		<?php if($film_runtime){ ?>
+    			<p><i class="far fa-clock"></i><?php echo $film_runtime . ' min'; ?></p>
+					<?php } ?>
+					<?php if($film_director && $film_release_year){ ?>
+					<p><i class="far fa-film"></i><?php echo $film_director; ?>, <?php echo $film_release_year; ?></p>
+					<?php } else if ($film_director) { ?>
+					<p><i class="far fa-film"></i><?php echo $film_director; ?></p>
+					<?php } else if ($film_release_year) { ?>
+					<p><i class="far fa-film"></i><?php echo $film_release_year; ?></p>
+					<?php } ?>
+        <?php } else if (get_post_type() == 'event'){ ?>
+        	<?php if($showtime_soonestTime){ ?>
+      		<p><i class="far fa-clock"></i><?php echo $showtime_soonestTime; ?></p>
+      		<?php } ?>
+          <?php if($event_location){ ?>
+        	<p><i class="far fa-map-marker-alt"></i><?php echo $event_location; ?></p>
+        	<?php } ?>
+        <?php } ?>
+        
+    		<?php get_template_part( 'template-parts/part', 'event_ticketLowest' ); ?>
+      </div>
     </div>
     <div class="button card__button"><span>Tickets & Info <i class="fas fa-arrow-right"></i></span></div>
   </a>

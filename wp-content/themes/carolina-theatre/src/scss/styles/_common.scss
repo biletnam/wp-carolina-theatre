@@ -335,9 +335,9 @@ main {
 	    padding-top: 0;
 
 	    > * {
-	    	padding-bottom: 30px;
+		    padding-bottom: 20px;
+		    padding-top: 20px;
 	    	border-bottom: 1px solid $gray;
-	    	margin-bottom: 30px;
 
 	    	&:last-of-type {
 	    		border-bottom: 0;

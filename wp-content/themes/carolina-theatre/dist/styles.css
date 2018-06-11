@@ -82,12 +82,12 @@
   background-repeat: repeat; }
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .card__subtitle, .h6 {
+.h1, .h2, .h3, .h4, .h5, .event__categories, .h6 {
   font-family: "source-sans-pro", sans-serif;
   margin-top: .25em;
   margin-bottom: .25em; }
   h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child,
-  .h1:first-child, .h2:first-child, .h3:first-child, .h4:first-child, .h5:first-child, .card__subtitle:first-child, .h6:first-child {
+  .h1:first-child, .h2:first-child, .h3:first-child, .h4:first-child, .h5:first-child, .event__categories:first-child, .h6:first-child {
     margin-top: 0; }
 
 h1, .h1 {
@@ -110,7 +110,7 @@ h4, .h4 {
   font-size: 1.5rem;
   font-weight: 600; }
 
-h5, .h5, .card__subtitle {
+h5, .h5, .event__categories {
   font-size: 12px;
   font-size: 0.75rem;
   font-weight: 700;
@@ -606,6 +606,8 @@ blockquote {
       .header__nav > ul > li.large > a {
         font-size: 24px;
         font-size: 1.5rem; }
+      .header__nav > ul > li:nth-last-child(-n+3) > .sub-menu {
+        right: 0; }
       .header__nav > ul > li > .sub-menu {
         display: none;
         position: absolute;
@@ -1348,9 +1350,9 @@ main {
     padding-right: 20px;
     padding-top: 0; }
     .mainContent__sidebar > .container > * {
-      padding-bottom: 30px;
-      border-bottom: 1px solid #ccc;
-      margin-bottom: 30px; }
+      padding-bottom: 20px;
+      padding-top: 20px;
+      border-bottom: 1px solid #ccc; }
       .mainContent__sidebar > .container > *:last-of-type {
         border-bottom: 0; }
 
@@ -1881,19 +1883,49 @@ div.wpcf7-validation-errors {
   border: 1px solid #ccc; }
 
 .featuredEvent__image {
-  width: 66%; }
+  width: 66%;
+  position: relative; }
   .featuredEvent__image img {
     width: 100%;
     display: block; }
+  .featuredEvent__image .event__dateBox {
+    left: 0; }
 
 .featuredEvent__info {
-  width: 33%; }
+  width: 33%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .featuredEvent__info h3 {
+    line-height: 1; }
+  .featuredEvent__info p i {
+    width: 25px;
+    text-align: center;
+    margin-right: 5px; }
 
 .featuredEvent__slideContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   overflow: hidden; }
+
+.featuredEvent__slide.film .button {
+  background-color: #72bcae; }
+  .featuredEvent__slide.film .button:hover {
+    background-color: #1b7f6b; }
+  .featuredEvent__slide.film .button.secondary {
+    color: #72bcae;
+    background-color: #fff;
+    -webkit-box-shadow: inset 0 0 0 2px #72bcae;
+            box-shadow: inset 0 0 0 2px #72bcae; }
+    .featuredEvent__slide.film .button.secondary:hover {
+      background-color: #1b7f6b;
+      -webkit-box-shadow: inset 0 0 0 2px #1b7f6b;
+              box-shadow: inset 0 0 0 2px #1b7f6b;
+      color: #fff; }
 
 .upcoming-events .filmFilters {
   display: none; }
@@ -1937,6 +1969,12 @@ div.wpcf7-validation-errors {
   .singleEvent__videos p {
     margin-left: 10%; }
 
+.singleEvent__headings {
+  padding-top: 2em;
+  padding-bottom: 1.5em; }
+  .singleEvent__headings > * {
+    line-height: 1; }
+
 .event__dateBox {
   width: 40px;
   padding-top: 8px;
@@ -1960,6 +1998,101 @@ div.wpcf7-validation-errors {
   z-index: 1;
   top: 0;
   right: 0; }
+
+.showInfo__showdates {
+  margin: 0;
+  padding: 0; }
+
+.showInfo__date {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+  .showInfo__date .date {
+    width: 140px; }
+  .showInfo__date .past {
+    opacity: .3; }
+
+.showInfo__times {
+  margin: 0;
+  padding: 0;
+  width: 100px; }
+  .showInfo__times li {
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+  .showInfo__times .time {
+    font-weight: 600;
+    margin-bottom: 5px; }
+
+.mainContent__sidebar h3 i {
+  font-size: 20px;
+  margin-right: 10px;
+  position: relative;
+  bottom: 3px; }
+
+.sidebar__tickets p.small .fa-ticket-alt {
+  opacity: .5; }
+
+.sidebar__filmInfo div {
+  margin: 15px 0 1.5em; }
+
+.sidebar__filmInfo p {
+  margin-top: 0; }
+
+.ticket__prices {
+  margin-top: 0.5em;
+  margin-bottom: 1em; }
+  .ticket__prices p {
+    margin: 0; }
+  .ticket__prices .primary {
+    font-size: 20px;
+    font-size: 1.25rem; }
+  .ticket__prices span:not(:last-of-type)::after {
+    content: ' | ';
+    opacity: .5;
+    padding: 0 5px; }
+
+.pageHeader i,
+.externalLinks i,
+.sidebar__eventInfo i {
+  width: 25px;
+  margin-right: 5px;
+  text-align: center; }
+
+.externalLinks p a {
+  text-decoration: none; }
+  .externalLinks p a:hover {
+    text-decoration: underline; }
+
+.sidebar__eventInfo {
+  margin-top: 40px; }
+  .sidebar__eventInfo .showInfo__date {
+    padding-left: 30px;
+    display: block;
+    margin-bottom: 0; }
+    .sidebar__eventInfo .showInfo__date:first-of-type {
+      padding: 0; }
+
+.pageHeader .date {
+  margin: 0; }
+
+.pageHeader h1 {
+  line-height: 1; }
+
+.singleEvent__relatedPosts {
+  border-top: 1px solid #ccc;
+  padding-top: 2em;
+  margin-top: 3em; }
+  .singleEvent__relatedPosts .card__wrapper {
+    margin-top: 10px; }
 
 .cardSlider .slick-track {
   display: -webkit-box;
