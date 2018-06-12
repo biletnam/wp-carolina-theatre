@@ -165,29 +165,10 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_5b195c4bbdbe3",
-            "label": "Multiday Event?",
-            "name": "event_multipledates",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "20",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_5b195c4bbdbf5",
-            "label": "Start Date",
+            "key": "field_5b1fc25272946",
+            "label": "Start Date (hidden)",
             "name": "start_date",
-            "type": "date_picker",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -196,57 +177,45 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "F j, Y",
-            "return_format": "Ymd",
-            "first_day": 0
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
-            "key": "field_5b195c4bbdc26",
-            "label": "End Date",
+            "key": "field_5b1fc114473dc",
+            "label": "End Date (hidden)",
             "name": "end_date",
-            "type": "date_picker",
+            "type": "text",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5b195c4bbdbe3",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "40",
                 "class": "",
                 "id": ""
             },
-            "display_format": "F j, Y",
-            "return_format": "Ymd",
-            "first_day": 0
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_5b195c4bbdc42",
-            "label": "Showtimes",
+            "label": "Showtimes & Dates",
             "name": "showtimes",
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5b195c4bbdbd1",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "collapsed": "field_5b183e31c902a",
+            "collapsed": "",
             "min": 0,
             "max": 0,
             "layout": "block",
@@ -856,5 +825,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1528739418
+    "modified": 1528811053
 }

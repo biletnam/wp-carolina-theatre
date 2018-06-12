@@ -13,7 +13,7 @@
 <section class="mainContent upcoming-events contain">
   <div class="mainContent__content">
     <div class="container">
-      <h2>Upcoming Events</h2>
+      <h1>Upcoming Events</h1>
 
       <?php
 	      // TO-DO: setup tabbed filters to work across pagination and on page load. 
@@ -82,27 +82,7 @@
         </ul>
       </div>
 
-    	<?php // The Query
-     
-      // // Original Query, & Event Thumb Cards filtering out past dates after in PHP
-			// $events_query_args = array(
-			// 	'post_type' => array('event', 'film'),
-			// 	'post_status' => 'publish',
-			// 	'posts_per_page' => $limit,
-			// 	'paged' => $paged,
-			// 	'meta_query' => array(
-			// 	  'start_clause' => array('key' => 'start_date'),
-			// 	  'end_clause' => array('key' => 'end_date')
-			// 	),
-			// 	'orderby' => array(
-			// 	  'relation' => 'AND',
-			// 	  'start_clause' => 'ASC',
-			// 	  'end_clause' => 'ASC'
-			// 	),
-			// );
-		 	// get_template_part('template-parts/event', 'thumbnail_card-originalQuery');
-    	
-
+    	<?php // The Query     
  			$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
       $limit = 6;
       $today = date("Ymd", strtotime('today'));

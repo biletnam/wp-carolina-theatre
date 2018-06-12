@@ -1,6 +1,6 @@
 {
     "key": "group_5b184e587f2cf",
-    "title": "Film Content",
+    "title": "Film Content (cloned Showtimes)",
     "fields": [
         {
             "key": "field_5b184899ab496",
@@ -19,10 +19,10 @@
             "endpoint": 0
         },
         {
-            "key": "field_5b183875a2c7d",
-            "label": "Preheading",
-            "name": "event_preheading",
-            "type": "text",
+            "key": "field_5b1fbe24f839a",
+            "label": "Page Heading -> Live Event Content",
+            "name": "event_pageheadingclone",
+            "type": "clone",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -31,49 +31,15 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "The Carolina Theatre presents...",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5b18389ca2c7e",
-            "label": "Special Guests",
-            "name": "event_specialguests",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "With special guests...",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5b1838f3a2c7f",
-            "label": "Subheading",
-            "name": "event_subheading",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "Subsubheading...",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "clone": [
+                "field_5b195c4bbdb50",
+                "field_5b195c4bbdb63",
+                "field_5b195c4bbdb76"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         },
         {
             "key": "field_5b18377fa2c7b",
@@ -146,198 +112,29 @@
             "endpoint": 0
         },
         {
-            "key": "field_5b183d95c9028",
-            "label": "",
-            "name": "event_comingsoon",
-            "type": "true_false",
+            "key": "field_5b1fcc7ff421f",
+            "label": "Dates -> Live Event Content",
+            "name": "event_datesclone",
+            "type": "clone",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "message": "Are the specific dates still to be determined?",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_5b183a36a2c83",
-            "label": "Multiday Event?",
-            "name": "event_multipledates",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "20",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_5b183b15a2c85",
-            "label": "Start Date",
-            "name": "start_date",
-            "type": "date_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "40",
-                "class": "",
-                "id": ""
-            },
-            "display_format": "F j, Y",
-            "return_format": "Ymd",
-            "first_day": 0
-        },
-        {
-            "key": "field_5b183b2ea2c86",
-            "label": "End Date",
-            "name": "end_date",
-            "type": "date_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5b183a36a2c83",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "40",
-                "class": "",
-                "id": ""
-            },
-            "display_format": "F j, Y",
-            "return_format": "Ymd",
-            "first_day": 0
-        },
-        {
-            "key": "field_5b183e08c9029",
-            "label": "Showtimes",
-            "name": "showtimes",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5b183d95c9028",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "collapsed": "field_5b183e31c902a",
-            "min": 0,
-            "max": 0,
+            "clone": [
+                "field_5b195c4bbdbd1",
+                "field_5b1fc25272946",
+                "field_5b1fc114473dc",
+                "field_5b195c4bbdc42",
+                "field_5b195cd293dbc"
+            ],
+            "display": "seamless",
             "layout": "block",
-            "button_label": "Add Date",
-            "sub_fields": [
-                {
-                    "key": "field_5b183e31c902a",
-                    "label": "Date",
-                    "name": "date",
-                    "type": "date_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "display_format": "F j, Y",
-                    "return_format": "Ymd",
-                    "first_day": 0
-                },
-                {
-                    "key": "field_5b183e41c902b",
-                    "label": "Times",
-                    "name": "times",
-                    "type": "repeater",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "collapsed": "field_5b183e4f59f6b",
-                    "min": 0,
-                    "max": 0,
-                    "layout": "block",
-                    "button_label": "Add Showtime",
-                    "sub_fields": [
-                        {
-                            "key": "field_5b183e4f59f6b",
-                            "label": "Time",
-                            "name": "time",
-                            "type": "time_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "display_format": "g:i a",
-                            "return_format": "g:i a"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "key": "field_5b195d4e3ff53",
-            "label": "Location",
-            "name": "event_location",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "Cinemas": "Cinemas",
-                "Cinema Lobby": "Cinema Lobby",
-                "Connie Moses Ballroom": "Connie Moses Ballroom",
-                "Fletcher Hall": "Fletcher Hall",
-                "Kirby Lobby": "Kirby Lobby",
-                "Outside Plaza": "Outside Plaza",
-                "Upper Balcony Lobby": "Upper Balcony Lobby",
-                "The Carolina Theatre": "The Carolina Theatre"
-            },
-            "default_value": [],
-            "allow_null": 1,
-            "multiple": 0,
-            "ui": 0,
-            "ajax": 0,
-            "return_format": "value",
-            "placeholder": ""
+            "prefix_label": 0,
+            "prefix_name": 0
         },
         {
             "key": "field_5b183e8959f6c",
@@ -356,10 +153,10 @@
             "endpoint": 0
         },
         {
-            "key": "field_5b183f6559f70",
-            "label": "Main Ticket Link",
-            "name": "ticket_link",
-            "type": "url",
+            "key": "field_5b1fbeca3a2e1",
+            "label": "Tickets -> Live Event Content",
+            "name": "event_ticketsclone",
+            "type": "clone",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -368,206 +165,21 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "http:\/\/ticketmaster.com\/"
-        },
-        {
-            "key": "field_5b18402e59f75",
-            "label": "Ticket Prices",
-            "name": "ticket_prices",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "field_5b18407f59f77",
-            "min": 0,
-            "max": 0,
+            "clone": [
+                "field_5b195c4bbdcb1",
+                "field_5b195c4bbdce3",
+                "field_5b195c4bbdcfe",
+                "field_5b195c4bbdd14",
+                "field_5b195c4bbdd26",
+                "field_5b195c4bbdd38",
+                "field_5b195c4bbdd4d",
+                "field_5b195c4bbdd5e",
+                "field_5b195c4bbdd70"
+            ],
+            "display": "seamless",
             "layout": "block",
-            "button_label": "Add Ticket Price",
-            "sub_fields": [
-                {
-                    "key": "field_5b18403e59f76",
-                    "label": "Price (no leading $)",
-                    "name": "ticket_price",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "ie: 25.99 (no leading $)",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_5b18407f59f77",
-                    "label": "Label",
-                    "name": "ticket_label",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "Adults, Students, Military, Seniors, Children, Members, Presale",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                }
-            ]
-        },
-        {
-            "key": "field_5b183e9859f6d",
-            "label": "When do tickets go on sale?",
-            "name": "tickets_onsaledate",
-            "type": "date_time_picker",
-            "instructions": "If left blank, link to purchase tickets will be live.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "display_format": "F j, Y g:ia",
-            "return_format": "Y-m-d H:i:s",
-            "first_day": 0
-        },
-        {
-            "key": "field_5b183f0a59f6e",
-            "label": "Presale Date",
-            "name": "tickets_presaledate",
-            "type": "date_time_picker",
-            "instructions": "If there's a date when the presale goes live, this will activate the ticket button.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "display_format": "F j, Y g:ia",
-            "return_format": "Y-m-d H:i:s",
-            "first_day": 0
-        },
-        {
-            "key": "field_5b183fb659f72",
-            "label": "Show a button for Member Tickets",
-            "name": "show_member_tickets",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_5b183f8159f71",
-            "label": "Member Ticket Link",
-            "name": "member_ticket_link",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5b183fb659f72",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "http:\/\/ticketmaster.com\/members"
-        },
-        {
-            "key": "field_5b183fe559f73",
-            "label": "Show a link for Season Passes",
-            "name": "show_season_pass",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_5b183ffb59f74",
-            "label": "Season Pass Link",
-            "name": "season_pass_link",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5b183fe559f73",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "http:\/\/ticketmaster.com\/seasonpass"
-        },
-        {
-            "key": "field_5b183f3c59f6f",
-            "label": "Are Tickets Sold Out?",
-            "name": "event_soldout",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "prefix_label": 0,
+            "prefix_name": 0
         },
         {
             "key": "field_5b18430efba3b",
@@ -707,33 +319,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_5b183a61a2c84",
-            "label": "Associated Series \/ Festival",
-            "name": "associated_event",
-            "type": "post_object",
-            "instructions": "Assign this event to a Series or Festival here.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "series",
-                "festival",
-                "education"
-            ],
-            "taxonomy": [],
-            "allow_null": 1,
-            "multiple": 0,
-            "return_format": "id",
-            "ui": 1
-        },
-        {
             "key": "field_5b18446252915",
-            "label": "'External Links & Resources' -> 'Live Event Content'",
-            "name": "external_links_clone",
+            "label": "Extras -> Live Event Content",
+            "name": "event_extrasclone",
             "type": "clone",
             "instructions": "List of icons can be found here: <b><a href=\"https:\/\/fontawesome.com\/cheatsheet\/pro\">Font Awesome<\/a><\/b>. <br>Prepend class name with 'far fa-' for standard icons (<b>far fa-link<\/b>, <b>far fa-file<\/b>), and 'fab fa-' for brands (<b>fab fa-facebook<\/b>, <b>fab fa-twitter<\/b>, <b>fab fa-youtube<\/b>)",
             "required": 0,
@@ -744,58 +332,15 @@
                 "id": ""
             },
             "clone": [
-                "field_5b195c4bbde4d"
+                "field_5b195c4bbde0e",
+                "field_5b195c4bbde4d",
+                "field_5b19635962449",
+                "field_5b1963646244a"
             ],
             "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 0
-        },
-        {
-            "key": "field_5b19630a7a877",
-            "label": "Show sidebar's fine print",
-            "name": "show_sidebar_fineprint",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 1,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_5b1962cc7a876",
-            "label": "Sidebar's Fine Print",
-            "name": "sidebar_fineprint",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5b19630a7a877",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "No Cameras\r\nNo Outside Food or Drink\r\nNo Backpacks\r\nNo Video Recording Devices\r\nNo Weapons",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 5,
-            "new_lines": "br"
         }
     ],
     "location": [
@@ -821,7 +366,7 @@
         "featured_image",
         "tags"
     ],
-    "active": 1,
+    "active": 0,
     "description": "",
-    "modified": 1528736622
+    "modified": 1528814655
 }

@@ -244,7 +244,6 @@
 
 	      <?php if ($post_type == 'event') { ?>
         <div class="sidebar__eventInfo">
-	  			<!-- <h3>Event Info</h3> -->
 	       	<?php // EVENT DATES & TIMES ?>
 		      <?php if (!$coming_soon){ ?>
 		      <?php $i = 0; ?>

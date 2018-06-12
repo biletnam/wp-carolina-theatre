@@ -177,13 +177,13 @@
 	&__date { // (li element)
 		list-style: none;
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     flex-wrap: wrap;
 
     .date {
-	  	width: 140px;
+	  	width: 50%;
 	  }
-		.past {
+		&.past {
 	    opacity: .3;
 		}
 	}
@@ -192,7 +192,7 @@
 	&__times {
 		margin: 0;
 		padding: 0;
-    width: 100px;
+    width: 50%;
 
 		li {
 			list-style: none;

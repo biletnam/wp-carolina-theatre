@@ -184,6 +184,96 @@ add_filter( 'single_template', function( $template ) {
     : $template;
 } );
 
+
+/**
+ * Debugging
+ */
+if(!function_exists('log_it')){
+ function log_it( $message ) {
+   if( WP_DEBUG === true ){
+     if( is_array( $message ) || is_object( $message ) ){
+       error_log( print_r( $message, true ) );
+     } else {
+       error_log( $message );
+     }
+   }
+ }
+}
+
+/**
+ * FOR LIVE EVENT POSTS
+ * ACF - save last 'showtime' repeater's 'date' value as 'end_date'
+ * ACF - save first 'showtime' repeater's 'date' value as 'start_date'
+ */
+function liveevent_showtime_hiddendates_acf_save_post( $post_id ) {
+ 	$hiddenEndDate = 'field_5b1fc114473dc';
+	$hiddenStartDate = 'field_5b1fc25272946';
+ 	$showtimesRepeater = 'field_5b195c4bbdc42';
+ 	$dateField = 'field_5b195c4be0546';
+
+  // bail early if no ACF data
+  if( empty($_POST['acf']) ) {
+    return;
+  }
+
+  if ($_POST['acf'][$showtimesRepeater]){
+  	// Get all the 'showtime' repeater rows using the field key
+    $repeater_rows = $_POST['acf'][$showtimesRepeater];
+    // Find the first row (for start date) and then the 'date' field
+    $first_row = reset( $repeater_rows );
+    $start_date = $first_row[$dateField];
+
+    // Find the last row (for end date) and then the 'date' field
+    $last_row = end( $repeater_rows );
+    $end_date = $last_row[$dateField];
+
+    // Assign the dates to the hidden text fields.
+    $_POST['acf'][$hiddenEndDate] = $end_date;
+    $_POST['acf'][$hiddenStartDate] = $start_date;
+  } else {
+  	return;
+  }
+} add_action('acf/save_post', 'liveevent_showtime_hiddendates_acf_save_post', 1);
+
+/**
+ * FOR FILM POSTS
+ * ACF - save last 'showtime' repeater's 'date' value as 'end_date'
+ * ACF - save first 'showtime' repeater's 'date' value as 'start_date'
+ */
+function films_showtime_hiddendates_acf_save_post( $post_id ) {
+ 	$hiddenEndDate = 'field_5b1fd9a87793e';
+	$hiddenStartDate = 'field_5b1fd9a877928';
+ 	$showtimesRepeater = 'field_5b1fd9a877954';
+ 	$dateField = 'field_5b1fd9a89011c';
+
+  // bail early if no ACF data
+  if( empty($_POST['acf']) ) {
+    return;
+  }
+
+	if ($_POST['acf'][$showtimesRepeater]){
+	  // Get all the 'showtime' repeater rows using the field key
+	  $repeater_rows = $_POST['acf'][$showtimesRepeater];
+	 	log_it('Showtimes array: ' . $repeater_rows);
+
+	  // Find the first row (for start date) and then the 'date' field
+	  $first_row = reset( $repeater_rows );
+	  $start_date = $first_row[$dateField];
+
+	  // Find the last row (for end date) and then the 'date' field
+	  $last_row = end( $repeater_rows );
+	  $end_date = $last_row[$dateField];
+
+	  // Assign the dates to the hidden text fields.
+	  $_POST['acf'][$hiddenEndDate] = $end_date;
+	  $_POST['acf'][$hiddenStartDate] = $start_date;
+	} else {
+  	return;
+  }
+} add_action('acf/save_post', 'films_showtime_hiddendates_acf_save_post', 1);
+
+
+
 /**
  * Global Variables
  */

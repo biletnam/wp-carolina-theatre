@@ -2008,18 +2008,18 @@ div.wpcf7-validation-errors {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
   .showInfo__date .date {
-    width: 140px; }
-  .showInfo__date .past {
+    width: 50%; }
+  .showInfo__date.past {
     opacity: .3; }
 
 .showInfo__times {
   margin: 0;
   padding: 0;
-  width: 100px; }
+  width: 50%; }
   .showInfo__times li {
     list-style: none;
     display: -webkit-box;
