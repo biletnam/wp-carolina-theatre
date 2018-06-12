@@ -206,8 +206,9 @@ if(!function_exists('log_it')){
  * ACF - save first 'showtime' repeater's 'date' value as 'start_date'
  */
 function liveevent_showtime_hiddendates_acf_save_post( $post_id ) {
- 	$hiddenEndDate = 'field_5b1fc114473dc';
-	$hiddenStartDate = 'field_5b1fc25272946';
+	$hidden_StartDate = 'field_5b1fc25272946';
+ 	$hidden_EndDate = 'field_5b1fc114473dc';
+ 	$hidden_SoonestDate = 'field_5b1fe0b09ca96';
  	$showtimesRepeater = 'field_5b195c4bbdc42';
  	$dateField = 'field_5b195c4be0546';
 
@@ -219,6 +220,29 @@ function liveevent_showtime_hiddendates_acf_save_post( $post_id ) {
   if ($_POST['acf'][$showtimesRepeater]){
   	// Get all the 'showtime' repeater rows using the field key
     $repeater_rows = $_POST['acf'][$showtimesRepeater];
+    
+    // Fine the upcoming date, closest to today
+    $today = date("Ymd", strtotime('today'));
+    
+    // default is set to yesterday, so querying ignores this post
+    // if no dates are greater than or equal to today
+    $soonest_date = $today - 1; 
+    foreach($repeater_rows as $row){
+    	// get the date field for each 'showtime' row
+    	$date = $row[$dateField];
+
+    	// check if the date is today, or close to today.
+    	if($date < $today){
+				$soonest_date = $date;
+    	}
+    	if($date >= $today){
+    		$soonest_date = $date;
+    		
+    		// break the loop once we find the closest date
+    		break;
+    	}
+    }
+
     // Find the first row (for start date) and then the 'date' field
     $first_row = reset( $repeater_rows );
     $start_date = $first_row[$dateField];
@@ -228,8 +252,9 @@ function liveevent_showtime_hiddendates_acf_save_post( $post_id ) {
     $end_date = $last_row[$dateField];
 
     // Assign the dates to the hidden text fields.
-    $_POST['acf'][$hiddenEndDate] = $end_date;
-    $_POST['acf'][$hiddenStartDate] = $start_date;
+    $_POST['acf'][$hidden_EndDate] = $end_date;
+    $_POST['acf'][$hidden_StartDate] = $start_date;
+    $_POST['acf'][$hidden_SoonestDate] = $soonest_date;
   } else {
   	return;
   }
@@ -241,8 +266,9 @@ function liveevent_showtime_hiddendates_acf_save_post( $post_id ) {
  * ACF - save first 'showtime' repeater's 'date' value as 'start_date'
  */
 function films_showtime_hiddendates_acf_save_post( $post_id ) {
- 	$hiddenEndDate = 'field_5b1fd9a87793e';
-	$hiddenStartDate = 'field_5b1fd9a877928';
+	$hidden_StartDate = 'field_5b1fd9a877928';
+ 	$hidden_EndDate = 'field_5b1fd9a87793e';
+ 	$hidden_SoonestDate = 'field_5b1fe30bf5482';
  	$showtimesRepeater = 'field_5b1fd9a877954';
  	$dateField = 'field_5b1fd9a89011c';
 
@@ -252,22 +278,44 @@ function films_showtime_hiddendates_acf_save_post( $post_id ) {
   }
 
 	if ($_POST['acf'][$showtimesRepeater]){
-	  // Get all the 'showtime' repeater rows using the field key
-	  $repeater_rows = $_POST['acf'][$showtimesRepeater];
-	 	log_it('Showtimes array: ' . $repeater_rows);
+  	// Get all the 'showtime' repeater rows using the field key
+    $repeater_rows = $_POST['acf'][$showtimesRepeater];
+    
+    // Fine the upcoming date, closest to today
+    $today = date("Ymd", strtotime('today'));
+    
+    // default is set to yesterday, so querying ignores this post
+    // if no dates are greater than or equal to today
+    $soonest_date = $today - 1; 
+    foreach($repeater_rows as $row){
+    	// get the date field for each 'showtime' row
+    	$date = $row[$dateField];
 
-	  // Find the first row (for start date) and then the 'date' field
-	  $first_row = reset( $repeater_rows );
-	  $start_date = $first_row[$dateField];
+    	// check if the date is today, or close to today.
+    	if($date < $today){
+				$soonest_date = $date;
+    	}
+    	if($date >= $today){
+    		$soonest_date = $date;
+    		
+    		// break the loop once we find the closest date
+    		break;
+    	}
+    }
 
-	  // Find the last row (for end date) and then the 'date' field
-	  $last_row = end( $repeater_rows );
-	  $end_date = $last_row[$dateField];
+    // Find the first row (for start date) and then the 'date' field
+    $first_row = reset( $repeater_rows );
+    $start_date = $first_row[$dateField];
 
-	  // Assign the dates to the hidden text fields.
-	  $_POST['acf'][$hiddenEndDate] = $end_date;
-	  $_POST['acf'][$hiddenStartDate] = $start_date;
-	} else {
+    // Find the last row (for end date) and then the 'date' field
+    $last_row = end( $repeater_rows );
+    $end_date = $last_row[$dateField];
+
+    // Assign the dates to the hidden text fields.
+    $_POST['acf'][$hidden_EndDate] = $end_date;
+    $_POST['acf'][$hidden_StartDate] = $start_date;
+    $_POST['acf'][$hidden_SoonestDate] = $soonest_date;
+  } else {
   	return;
   }
 } add_action('acf/save_post', 'films_showtime_hiddendates_acf_save_post', 1);

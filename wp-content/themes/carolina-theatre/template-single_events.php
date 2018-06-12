@@ -59,39 +59,11 @@
 ?>
 
 <?php
-	/////// DATES 
-	$start_date = get_field('start_date'); 		// YYYYMMDD format
-	$end_date = get_field('end_date'); 				// YYYYMMDD format
-	$today = date("Ymd", strtotime('today')); // YYYYMMDD format
-	$showtime_soonestDate = $start_date; 
-	$showtime_soonestTime = ''; 
-  $upcoming_showtimes = array();
-
-	if ($start_date == NULL) { $start_date = $today-1; } // if no start date is given, set it to yesterday (so event doesn't show)
-	if($end_date == NULL) {	$end_date = $start_date; } // if a single day event, set end_date 
-
-	// recreate 'showtimes' array with only upcoming showtimes
-	if (have_rows('showtimes')) { 
-	  if ($end_date >= $today) {
-		  $showtimes = get_field('showtimes');
-		  $i = 0;
-
-		  foreach($showtimes as $showtime){
-		  	if ($showtime['date'] >= $today){
-				  $j = 0;
-					$upcoming_showtimes[$i]['date'] = $showtime['date'];
-			  	$times = $showtime['times'];
-			  	
-			  	foreach($times as $time) {
-						$upcoming_showtimes[$i]['time'][$j] = $time;
-					  $j++;
-			  	}
-				  $i++;
-			  }
-			}
-			$showtime_soonestDate = $upcoming_showtimes[0]['date']; 
-	  }
-	} // endif showtimes
+	/////// DATES in YYYYMMDD format
+	$start_date = get_field('start_date'); 		
+	$end_date = get_field('end_date'); 				
+	$showtime_soonestDate = get_field('soonest_date'); 
+	$today = date("Ymd", strtotime('today')); 
 ?>
 
 <div class="mainContent contain">
@@ -258,15 +230,15 @@
 								$classes = ' past';
 							} 
 						?>
-
+					  <li class="showInfo__date<?php echo $classes; ?>">
+							<?php if ($i == 0) { ?><i class="far fa-calendar-alt"></i><?php } ?><?php echo date('D, F j', strtotime($date)); ?>
 		      	<?php if (have_rows('times')) { // output all times for a given date ?>
 						<?php while (have_rows('times')) { the_row(); ?>
-					  <li class="showInfo__date<?php echo $classes; ?>">
-							<?php if ($i == 0) { ?><i class="far fa-calendar-alt"></i><?php } ?><?php echo date('D, F j', strtotime($date)); ?> at <?php echo date('g:ia', strtotime(get_sub_field('time'))); ?>
-					  	<?php $i++; ?>
-					  </li>
+							 at <?php echo date('g:ia', strtotime(get_sub_field('time'))); ?>
 						<?php } // endwhile times ?>
 						<?php } // endif times ?>
+						<?php $i++; ?>
+					  </li>
 		     	<?php } // endwhile showtimes ?>
 		      <?php } //endif showtimes ?>
 		    	<?php } // endif showtimes are available ?>   

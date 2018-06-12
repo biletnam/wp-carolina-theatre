@@ -1,38 +1,10 @@
 <?php
 
-/////// DATES 
-$start_date = get_field('start_date'); 		// YYYYMMDD format
-$end_date = get_field('end_date'); 				// YYYYMMDD format
-$today = date("Ymd", strtotime('today')); // YYYYMMDD format
-$showtime_soonestDate = $start_date; 
-$showtime_soonestTime = ''; 
-$upcoming_showtimes = array();
-
-if ($start_date == NULL) { $start_date = $today-1; } // if no start date is given, set it to yesterday (so event doesn't show)
-if($end_date == NULL) {	$end_date = $start_date; } // if a single day event, set end_date 
-
-// recreate 'showtimes' array with only upcoming showtimes
-if (have_rows('showtimes')) { 
-  if ($end_date >= $today) {
-	  $showtimes = get_field('showtimes');
-	  $i = 0;
-
-	  foreach($showtimes as $showtime){
-	  	if ($showtime['date'] >= $today){
-			  $j = 0;
-				$upcoming_showtimes[$i]['date'] = $showtime['date'];
-		  	$times = $showtime['times'];
-		  	
-		  	foreach($times as $time) {
-					$upcoming_showtimes[$i]['time'][$j] = $time;
-				  $j++;
-		  	}
-			  $i++;
-		  }
-		}
-		$showtime_soonestDate = $upcoming_showtimes[0]['date']; 
-  }
-} // endif showtimes
+/////// DATES in YYYYMMDD format
+$start_date = get_field('start_date'); 		
+$end_date = get_field('end_date'); 				
+$showtime_soonestDate = get_field('soonest_date'); 
+$today = date("Ymd", strtotime('today')); 
 
 /////// ASSIGN CLASS NAMES FOR EACH EVENT
 $class_names = [];
@@ -131,9 +103,6 @@ for ($i = 0; $i < count($class_names); $i++) {
 					<p><i class="far fa-film"></i><?php echo $film_release_year; ?></p>
 					<?php } ?>
         <?php } else if (get_post_type() == 'event'){ ?>
-        	<?php if($showtime_soonestTime){ ?>
-      		<p><i class="far fa-clock"></i><?php echo $showtime_soonestTime; ?></p>
-      		<?php } ?>
           <?php if($event_location){ ?>
         	<p><i class="far fa-map-marker-alt"></i><?php echo $event_location; ?></p>
         	<?php } ?>

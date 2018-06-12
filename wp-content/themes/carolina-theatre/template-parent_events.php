@@ -7,10 +7,11 @@
 <?php } ?>
 
 <?php
-	/////// DATES 
-	$start_date = get_field('start_date'); 		// YYYYMMDD format
-	$end_date = get_field('end_date'); 				// YYYYMMDD format
-	$today = date("Ymd", strtotime('today')); // YYYYMMDD format
+	/////// DATES in YYYYMMDD format 
+	$start_date = get_field('start_date'); 		
+	$end_date = get_field('end_date'); 				
+	$today = date("Ymd", strtotime('today')); 
+
 	$show_sidebar_fineprint = get_field('show_sidebar_fineprint'); 	// boolean
 	$sidebar_fineprint = get_field('sidebar_fineprint'); 						// text area
 	$event_location = get_field('event_location');									// Select (array)

@@ -174,7 +174,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "40",
-                "class": "",
+                "class": "hidden",
                 "id": ""
             },
             "default_value": "",
@@ -187,6 +187,25 @@
             "key": "field_5b1fc114473dc",
             "label": "End Date (hidden)",
             "name": "end_date",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "hidden",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5b1fe0b09ca96",
+            "label": "Soonest Date (hidden)",
+            "name": "soonest_date",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -825,5 +844,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1528811053
+    "modified": 1528815817
 }

@@ -2,13 +2,11 @@
   <?php $featured = get_field('featured_events'); ?>
   <?php foreach($featured as $feature_obj) { $featured_ID = $feature_obj->ID; ?>
     <?php 
-    /////// DATES 
-		$start_date = get_field('start_date', $featured_ID); 		// YYYYMMDD format
-		$end_date = get_field('end_date', $featured_ID); 				// YYYYMMDD format
-		$today = date("Ymd", strtotime('today')); // YYYYMMDD format
-		$showtime_soonestDate = $start_date; 
-		$showtime_soonestTime = ''; 
-		$upcoming_showtimes = array();
+    /////// DATES in YYYYMMDD format
+		$start_date = get_field('start_date', $featured_ID); 	
+		$end_date = get_field('end_date', $featured_ID); 			
+		$showtime_soonestDate = get_field('soonest_date', $featured_ID); 
+		$today = date("Ymd", strtotime('today'));
 
 		$dateString = '';
 		if($start_date && $end_date){
@@ -26,32 +24,6 @@
 			$dateString .= date('F j, Y', strtotime($start_date));	
 		}
 
-		if ($start_date == NULL) { $start_date = $today-1; } // if no start date is given, set it to yesterday (so event doesn't show)
-		if($end_date == NULL) {	$end_date = $start_date; } // if a single day event, set end_date 
-
-		// recreate 'showtimes' array with only upcoming showtimes
-		if (have_rows('showtimes', $featured_ID)) { 
-		  if ($end_date >= $today) {
-			  $showtimes = get_field('showtimes', $featured_ID);
-			  $i = 0;
-
-			  foreach($showtimes as $showtime){
-			  	if ($showtime['date'] >= $today){
-					  $j = 0;
-						$upcoming_showtimes[$i]['date'] = $showtime['date'];
-				  	$times = $showtime['times'];
-				  	
-				  	foreach($times as $time) {
-							$upcoming_showtimes[$i]['time'][$j] = $time;
-						  $j++;
-				  	}
-					  $i++;
-				  }
-				}
-				$showtime_soonestDate = $upcoming_showtimes[0]['date']; 
-		  }
-		} // endif showtimes
-   	
    	$class_names = 'event';
 		if (get_post_type($featured_ID) == 'film') {
 			$class_names = 'film';
