@@ -7,7 +7,7 @@
 		$end_date = get_field('end_date', $featured_ID); 			
 		$showtime_soonestDate = get_field('soonest_date', $featured_ID); 
 		$today = date("Ymd", strtotime('today'));
-
+		
 		$dateString = '';
 		if($start_date && $end_date){
 			$dateString = date('M j', strtotime($start_date));

@@ -4,12 +4,15 @@
 ?>
 <?php while ( have_posts() ) { the_post(); ?>
 
+<?php if(get_field('featured_events')){ ?>
 <section class="featuredEvent_carousel">
   <div class="container contain">
   	<h2>Featured Events</h2>
     <?php get_template_part('template-parts/slider', 'featured_events'); ?>
   </div>
 </section>
+<?php } //end if any featured events ?>
+
 <section class="mainContent upcoming-events contain">
   <div class="mainContent__content">
     <div class="container">
@@ -86,7 +89,7 @@
  			$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
       $limit = 6;
       $today = date("Ymd", strtotime('today'));
-      
+
       // 'soonest_date' (assigned in functions.php) stores the events 
       // closest date to today. If it's < today, don't show the event
 			$events_query_args = array(

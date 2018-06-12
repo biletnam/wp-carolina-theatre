@@ -24,13 +24,13 @@ if (get_post_type() == 'film') {
 }
 if (get_post_type() == 'event') {
   array_push($class_names, 'event'); 
-
-	$event_categories = get_field('event_categories'); 
-  if($event_categories){ 
-		foreach($event_categories as $event_category) {
-			array_push($class_names, $event_category);
-		}
-  }
+ 
+	// get the 'event_category' custom taxonomy for filtering
+	$terms = get_the_terms( $post->ID , array( 'event_categories') );
+	foreach ( $terms as $term ) {
+		$term_link = get_term_link( $term, array( 'event_categories') );
+		array_push($class_names, $term->name);
+	}
 }
 
 // classes for associated (parent) Series and Festivals

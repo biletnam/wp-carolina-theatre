@@ -119,6 +119,31 @@ function carolinatheatre_widgets_init() {
 add_action( 'widgets_init', 'carolinatheatre_widgets_init' );
 
 /**
+ * Register custom taxonomies
+ */
+function carolinatheatre_custom_taxonomies() {  
+  register_taxonomy(  
+    'event_categories',  //The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces). 
+    'event',        // post type name
+    array(  
+      'hierarchical' => true,  
+      'label' => 'Event Filters',  //Display name
+      'query_var' => true,
+    )  
+  ); 
+  register_taxonomy(  
+    'film_categories',  //The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces). 
+    'film',        // post type name
+    array(  
+      'hierarchical' => true,  
+      'label' => 'Film Categories',  //Display name
+      'query_var' => true,
+    )  
+  ); 
+}  
+add_action( 'init', 'carolinatheatre_custom_taxonomies');
+
+/**
  * Handles JavaScript detection.
  *
  * Adds a `js` class to the root `<html>` element when JavaScript is detected.
@@ -320,6 +345,29 @@ function films_showtime_hiddendates_acf_save_post( $post_id ) {
   }
 } add_action('acf/save_post', 'films_showtime_hiddendates_acf_save_post', 1);
 
+/**
+ * Load Link Block defaults from options page into the selector for Link Block Content Types
+ */
+function acf_load_linkBlockDefault_field_choices($field){
+  $field['choices'] = array();
+
+  if(have_rows('lbd_repeater', 'option')){
+    while(have_rows('lbd_repeater', 'option')){ the_row();
+      $label = get_sub_field('title');
+
+      // convert each future class name to lowercase
+			$value = strtolower($label);
+			// replace all characters except letters, replace with dash
+		  $value = preg_replace('/[^a-z]+/i', '-', $value);
+
+      // append to choices
+      $field['choices'][ $value ] = $label;
+    }
+  }
+  $field['choices']['custom'] = 'Custom';
+  return $field;
+}
+add_filter('acf/load_field/name=link_block_select', 'acf_load_linkBlockDefault_field_choices');
 
 /**
  * Global Variables

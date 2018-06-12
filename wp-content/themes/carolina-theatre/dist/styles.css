@@ -1248,6 +1248,9 @@ main {
   .breadcrumbs a:hover {
     opacity: 1; }
 
+.breadcrumbs > .container {
+  padding-bottom: 10px; }
+
 .breadcrumb_last {
   font-weight: 600; }
 
@@ -1329,39 +1332,38 @@ main {
 .tabbedContent__content.hide-tab-content {
   display: none; }
 
-.mainContent:not(.mainContent__noSidebar) {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
-
-.mainContent__content {
-  width: 65%; }
-  .mainContent__content > .container {
-    padding-top: 0; }
-
-.mainContent__sidebar {
-  width: 100%;
-  min-width: 300px;
-  max-width: 400px;
-  padding-left: 20px;
-  border-left: 1px solid #ccc; }
-  .mainContent__sidebar > .container {
+.mainContent {
+  padding-top: 30px; }
+  .mainContent:not(.mainContent__noSidebar) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+  .mainContent__content {
+    width: 65%; }
+    .mainContent__content > .container {
+      padding-top: 0; }
+  .mainContent__sidebar {
+    width: 100%;
+    min-width: 300px;
+    max-width: 400px;
     padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 0; }
-    .mainContent__sidebar > .container > * {
-      padding-bottom: 20px;
-      padding-top: 20px;
-      border-bottom: 1px solid #ccc; }
-      .mainContent__sidebar > .container > *:last-of-type {
-        border-bottom: 0; }
-
-.mainContent__noSidebar .block__default,
-.mainContent__noSidebar .accordion,
-.mainContent__noSidebar .block__slider,
-.mainContent__noSidebar .block__gallery {
-  max-width: 960px;
-  margin: 0 auto; }
+    border-left: 1px solid #ccc; }
+    .mainContent__sidebar > .container {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 0; }
+      .mainContent__sidebar > .container > * {
+        padding-bottom: 30px;
+        padding-top: 30px;
+        border-bottom: 1px solid #ccc; }
+        .mainContent__sidebar > .container > *:last-of-type {
+          border-bottom: 0; }
+  .mainContent__noSidebar .block__default,
+  .mainContent__noSidebar .accordion,
+  .mainContent__noSidebar .block__slider,
+  .mainContent__noSidebar .block__gallery {
+    max-width: 960px;
+    margin: 0 auto; }
 
 .block__fullImage img {
   width: 100%;
@@ -1474,6 +1476,9 @@ main {
   margin-right: 0;
   padding: 20px 20px 20px 30px; }
 
+.sidebar__menu:not(:last-of-type) {
+  margin-bottom: 30px; }
+
 .sidebar__menu ul {
   padding: 0;
   margin: 0;
@@ -1487,7 +1492,10 @@ main {
 
 .sidebar__menu .current_page_item,
 .sidebar__menu .current_page_parent,
-.sidebar__menu .current_page_ancestor {
+.sidebar__menu .current_page_ancestor,
+.sidebar__menu .current-page-item,
+.sidebar__menu .current-page-parent,
+.sidebar__menu .current-page-ancestor {
   font-weight: 700; }
 
 .sidebar__menu a:hover {

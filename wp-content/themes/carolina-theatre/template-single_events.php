@@ -46,7 +46,7 @@
 		$post_type = 'event';
 	}
 
-	// LVIE EVENT FIELDS
+	// LIVE EVENT FIELDS
 	$event_doorstime = get_field('event_doorstime'); 								// text
 
 	// FILM FIELDS
@@ -56,6 +56,12 @@
 	$film_runtime = get_field('runtime'); 													// text
 	$film_rating = get_field('rating');															// select
 
+	// CUSTOM TAXONOMY CATEGORY
+	$custom_taxonomy = 'event_categories';
+	if($post_type === 'film'){
+		$custom_taxonomy = 'film_categories';
+	}
+	$terms = get_the_terms( $post->ID , $custom_taxonomy );
 ?>
 
 <?php
@@ -69,7 +75,19 @@
 <div class="mainContent contain">
   <section class="mainContent__content">
   	<div class="container">
-
+  		<?php 
+	  		// get the 'event_category' custom taxonomy for filtering
+				if($terms){
+					$categories_string = '';
+					$i = 1;
+					foreach ( $terms as $term ) {
+						$categories_string .= $term->name;
+						$categories_string .= ($i < count($terms))? ", " : "";
+						$i++;
+					}
+		  		echo '<h5>' . $categories_string . '</h5>';
+				}
+  		?>
       <div class="singleEvent__image <?php echo $post_type; ?>">
        <div class="event__dateBox">
 					<span class="day"><?php echo date("j", strtotime($showtime_soonestDate)); ?></span>
@@ -105,8 +123,19 @@
 
     	<?php
     		// RELATED POSTS
+    		// TO-DO: fix this to use the correct custom taxonomies
+    		$relatedCategories = array();
+				foreach ( $terms as $term ) {
+					array_push($relatedCategories, $term->name);
+				}
 				$related_query = new WP_Query( array( 
-						'category__in' => wp_get_post_categories($post->ID), 
+						'tax_query' => array(
+						  array( 
+						  	'taxonomy' => $custom_taxonomy, 
+						  	'field' => 'slug', 
+						  	'terms' => $relatedCategories
+						  )
+						),
 						'post_type' => array('film', 'event'), 
 						'posts_per_page' => 3, 
 						'post__not_in' => array($post->ID),
@@ -136,7 +165,7 @@
 				<?php wp_reset_postdata(); ?>
 				</div>
       </div>
-			<?php } // end if related posts ?>
+			<?php } else { echo 'no related posts'; } // end if related posts ?>
 
     </div>
   </section>  

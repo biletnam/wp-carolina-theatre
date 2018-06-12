@@ -593,34 +593,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_5b195d929811f",
-            "label": "Event Categories",
-            "name": "event_categories",
-            "type": "select",
-            "instructions": "Assign this event to a filter.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "Music": "Music",
-                "Comedy": "Comedy",
-                "Discussion": "Discussion",
-                "Dance": "Dance",
-                "Theater": "Theater"
-            },
-            "default_value": [],
-            "allow_null": 1,
-            "multiple": 1,
-            "ui": 0,
-            "ajax": 0,
-            "return_format": "value",
-            "placeholder": ""
-        },
-        {
             "key": "field_5b195c4bbde0e",
             "label": "Associated Series \/ Festival",
             "name": "associated_event",
@@ -840,9 +812,10 @@
         "comments",
         "format",
         "featured_image",
+        "categories",
         "tags"
     ],
     "active": 1,
     "description": "",
-    "modified": 1528819018
+    "modified": 1528831978
 }

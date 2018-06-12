@@ -22,19 +22,59 @@
             "button_label": "Add Link Block",
             "sub_fields": [
                 {
+                    "key": "field_5b1ff2890557b",
+                    "label": "Select the content",
+                    "name": "link_block_select",
+                    "type": "select",
+                    "instructions": "Select a default link block, or add your own. Defaults can be edited in the <a href=\"http:\/\/wp-carolina-theater.test\/wp-admin\/admin.php?page=acf-options-theme-settings\" target=\"_blank\">Theme Options<\/a> page.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "plan-your-visit": "Plan Your Visit",
+                        "become-a-member": "Become a Member",
+                        "the-history-of-ctd": "The History of CTD",
+                        "rent-the-carolina": "Rent the Carolina",
+                        "gift-cards": "Gift Cards",
+                        "seating-chart": "Seating Chart",
+                        "custom": "Custom"
+                    },
+                    "default_value": [
+                        "custom"
+                    ],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "return_format": "label",
+                    "placeholder": ""
+                },
+                {
                     "key": "field_5ae0924906d7a",
                     "label": "Title",
                     "name": "title",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5b1ff2890557b",
+                                "operator": "==",
+                                "value": "custom"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "30",
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "Plan Your Visit",
+                    "default_value": "",
                     "placeholder": "Plan Your Visit",
                     "prepend": "",
                     "append": "",
@@ -47,16 +87,24 @@
                     "type": "textarea",
                     "instructions": "180 character limit.",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5b1ff2890557b",
+                                "operator": "==",
+                                "value": "custom"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "50",
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "What to bring, where to eat, where to stay, where to park, and more. Whether it’s your first time visiting or your hundredth, there’s more to explore.",
+                    "default_value": "",
                     "placeholder": "What to bring, where to eat, where to stay, where to park, and more. Whether it’s your first time visiting or your hundredth, there’s more to explore.",
                     "maxlength": 180,
-                    "rows": 2,
+                    "rows": 3,
                     "new_lines": ""
                 },
                 {
@@ -66,7 +114,15 @@
                     "type": "link",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5b1ff2890557b",
+                                "operator": "==",
+                                "value": "custom"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "20",
                         "class": "",
@@ -94,5 +150,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1527783135
+    "modified": 1528822826
 }

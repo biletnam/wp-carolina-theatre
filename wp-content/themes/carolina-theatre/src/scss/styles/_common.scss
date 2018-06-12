@@ -195,6 +195,10 @@ main {
 			opacity: 1;
 		}
 	}
+
+	> .container {
+		padding-bottom: 10px;
+	}
 }
 .breadcrumb_last {
 	font-weight: 600;
@@ -311,6 +315,8 @@ main {
 
 // wrapper for content/sidebar on templates
 .mainContent {
+  padding-top: 30px;
+
 	&:not(.mainContent__noSidebar){
 		display: flex;
 	}
@@ -335,8 +341,8 @@ main {
 	    padding-top: 0;
 
 	    > * {
-		    padding-bottom: 20px;
-		    padding-top: 20px;
+		    padding-bottom: 30px;
+		    padding-top: 30px;
 	    	border-bottom: 1px solid $gray;
 
 	    	&:last-of-type {
@@ -502,6 +508,10 @@ main {
 }
 
 .sidebar__menu {
+  &:not(:last-of-type) {
+	  margin-bottom: 30px;
+  }
+
 	ul {
 		padding: 0;
 		margin: 0;
@@ -518,7 +528,10 @@ main {
 
 	.current_page_item,
 	.current_page_parent,
-	.current_page_ancestor {
+	.current_page_ancestor,
+	.current-page-item,
+	.current-page-parent,
+	.current-page-ancestor {
 		font-weight: 700;
 	}
 

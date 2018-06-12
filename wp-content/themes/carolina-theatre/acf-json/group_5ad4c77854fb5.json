@@ -57,7 +57,7 @@
         },
         {
             "key": "field_5b16abd498713",
-            "label": "Looking for the associated films?",
+            "label": "Looking for the associated films and events?",
             "name": "",
             "type": "message",
             "instructions": "",
@@ -68,7 +68,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Associated films to this festival\/series can be found here: <a href=\"http:\/\/wp-carolina-theater.test\/wp-admin\/edit.php?post_type=film\" target=\"_blank\">single Film posts<\/a>.",
+            "message": "Associated films to this festival\/series can be found here: <a href=\"http:\/\/wp-carolina-theater.test\/wp-admin\/edit.php?post_type=film\" target=\"_blank\">single Film posts<\/a>. \r\nAnd events here: <a href=\"http:\/\/wp-carolina-theater.test\/wp-admin\/edit.php?post_type=event\" target=\"_blank\">single Live Event posts<\/a>.",
             "new_lines": "wpautop",
             "esc_html": 0
         },
@@ -215,7 +215,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "If series is indefinite, pick an end date that is years into the future to ensure the series shows at all times.\r\n<b>Start date is required<\/b> to show the festival\/series.",
+            "message": "If series has no end date, pick an end date that's years into the future to ensure the series shows at all times. <b>Start date is required<\/b> to show the festival\/series.",
             "new_lines": "wpautop",
             "esc_html": 0
         },
@@ -373,5 +373,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1528746121
+    "modified": 1528819770
 }

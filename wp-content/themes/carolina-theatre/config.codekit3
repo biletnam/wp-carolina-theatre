@@ -40,30 +40,6 @@
 		"oO": 0,
 		"oS": 1
 		},
-	"\/acf-json\/group_5ab90bc7911a3.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/acf-json\/group_5ab90bc7911a3-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/acf-json\/group_5ab90bc79a251.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/acf-json\/group_5ab90bc79a251-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/acf-json\/group_5ab9233d9fcff.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/acf-json\/group_5ab9233d9fcff-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
 	"\/acf-json\/group_5acb83f7d2dca.json": {
 		"ft": 524288,
 		"oA": 1,
@@ -144,14 +120,6 @@
 		"oO": 0,
 		"oS": 1
 		},
-	"\/acf-json\/group_5ae09b5f476a2.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/acf-json\/group_5ae09b5f476a2-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
 	"\/acf-json\/group_5b02f87a1abc1.json": {
 		"ft": 524288,
 		"oA": 1,
@@ -192,14 +160,6 @@
 		"oO": 0,
 		"oS": 1
 		},
-	"\/acf-json\/group_5b184e587f2cf.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/acf-json\/group_5b184e587f2cf-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
 	"\/acf-json\/group_5b195c4bb5cc5.json": {
 		"ft": 524288,
 		"oA": 1,
@@ -212,6 +172,14 @@
 		"ft": 524288,
 		"oA": 1,
 		"oAP": "\/acf-json\/group_5b1fd9a8713f8-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/acf-json\/group_5b1ff60f7dce2.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/acf-json\/group_5b1ff60f7dce2-min.json",
 		"oF": 0,
 		"oO": 0,
 		"oS": 1
