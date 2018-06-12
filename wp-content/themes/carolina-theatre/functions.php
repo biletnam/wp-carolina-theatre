@@ -321,7 +321,6 @@ function films_showtime_hiddendates_acf_save_post( $post_id ) {
 } add_action('acf/save_post', 'films_showtime_hiddendates_acf_save_post', 1);
 
 
-
 /**
  * Global Variables
  */
@@ -354,5 +353,4 @@ require get_template_directory() . '/inc/custom_walker-icon.php';
  * Extra buttons, styles, and styling of TinyMCE WYSIWYG
  */
 require get_template_directory() . '/inc/tinymce.php';
-
 

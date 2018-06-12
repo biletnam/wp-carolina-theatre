@@ -109,7 +109,19 @@
 						'category__in' => wp_get_post_categories($post->ID), 
 						'post_type' => array('film', 'event'), 
 						'posts_per_page' => 3, 
-						'post__not_in' => array($post->ID) 
+						'post__not_in' => array($post->ID),
+						'meta_query'	=> array(
+							array( 	// make sure event has not passed
+								'sorting_clause' => array( // if event hasn't ended yet
+									'key'		=> 'soonest_date',
+									'compare'	=> '>=',
+									'value'		=> $today,
+								),
+							),
+						),
+						'orderby' => array(
+						  'sorting_clause' => 'ASC',
+						),
 					) 
 				);
 			?>

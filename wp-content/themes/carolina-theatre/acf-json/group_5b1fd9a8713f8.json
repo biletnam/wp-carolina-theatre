@@ -255,8 +255,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "display_format": "g:i a",
-                            "return_format": "g:i a"
+                            "display_format": "g:ia",
+                            "return_format": "g:ia"
                         }
                     ]
                 }
@@ -515,5 +515,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1528817136
+    "modified": 1528819006
 }

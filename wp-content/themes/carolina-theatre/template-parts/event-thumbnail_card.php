@@ -1,10 +1,15 @@
 <?php
-
 /////// DATES in YYYYMMDD format
 $start_date = get_field('start_date'); 		
 $end_date = get_field('end_date'); 				
 $showtime_soonestDate = get_field('soonest_date'); 
 $today = date("Ymd", strtotime('today')); 
+
+// get closest date's earliest time
+$showtimes = get_field('showtimes');
+$si = array_search($showtime_soonestDate, array_column($showtimes, 'date'));
+$showtime_soonestTime = $showtimes[$si]['times'][0]['time'];
+
 
 /////// ASSIGN CLASS NAMES FOR EACH EVENT
 $class_names = [];
@@ -83,7 +88,7 @@ for ($i = 0; $i < count($class_names); $i++) {
       <?php get_template_part('template-parts/part', 'event_categories'); ?>
       <p class="card__title"><?php the_title();?></p>
       <div class="card__info">	
-      	<?php $event_location = get_field('eevnt_location'); ?>
+      	<?php $event_location = get_field('event_location'); ?>
       	<?php if (get_post_type() == 'film'){ ?>
       		<?php 
 						$film_director = get_field('director'); 												// text
@@ -103,6 +108,9 @@ for ($i = 0; $i < count($class_names); $i++) {
 					<p><i class="far fa-film"></i><?php echo $film_release_year; ?></p>
 					<?php } ?>
         <?php } else if (get_post_type() == 'event'){ ?>
+        	<?php if($showtime_soonestTime){ ?>
+      		<p><i class="far fa-clock"></i><?php echo $showtime_soonestTime; ?></p>
+      		<?php } ?>
           <?php if($event_location){ ?>
         	<p><i class="far fa-map-marker-alt"></i><?php echo $event_location; ?></p>
         	<?php } ?>

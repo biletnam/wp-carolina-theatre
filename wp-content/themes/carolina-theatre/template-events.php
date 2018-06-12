@@ -86,31 +86,21 @@
  			$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
       $limit = 6;
       $today = date("Ymd", strtotime('today'));
+      
+      // 'soonest_date' (assigned in functions.php) stores the events 
+      // closest date to today. If it's < today, don't show the event
 			$events_query_args = array(
 				'post_type' => array('event', 'film'),
 				'post_status' => 'publish',
 				'posts_per_page' => $limit,
 				'paged' => $paged,
 				'meta_query'	=> array(
-			  	'relation'		=> 'AND', // both arrays below must be TRUE
 					array( 	// make sure event has not passed
-						'relation' => 'OR',
-						'start_clause' => array( // if event hasn't started yet
-							'key'		=> 'start_date', 
+						'sorting_clause' => array( // if event hasn't ended yet
+							'key'		=> 'soonest_date',
 							'compare'	=> '>=',
 							'value'		=> $today,
 						),
-						'end_clause' => array( // if event hasn't ended yet
-							'key'		=> 'end_date',
-							'compare'	=> '>=',
-							'value'		=> $today,
-						),
-					),
-					array ( 	// make sure event has start date and use to order query
-						'sorting_clause' => array(
-	            'key'     => 'start_date',
-	            'compare' => 'EXISTS',
-		        ),
 					),
 				),
 				'orderby' => array(
