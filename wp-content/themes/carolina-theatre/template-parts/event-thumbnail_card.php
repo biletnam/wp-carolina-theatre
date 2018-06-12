@@ -12,56 +12,45 @@ $showtime_soonestTime = $showtimes[$si]['times'][0]['time'];
 
 
 /////// ASSIGN CLASS NAMES FOR EACH EVENT
-$class_names = [];
+$filters = [];
 if (get_post_type() == 'film') {
-	array_push($class_names, 'film'); 
+	$class_name = 'film'; 
+	array_push($filters, 'film'); 
 
 	if ($showtime_soonestDate == $today) {
-	  array_push($class_names, 'now-playing'); 
+	  array_push($filters, 'now-playing'); 
 	} else if ($today < $start_date) {
-	  array_push($class_names, 'coming-soon'); 
+	  array_push($filters, 'coming-soon'); 
 	}  
 }
 if (get_post_type() == 'event') {
-  array_push($class_names, 'event'); 
+  $class_name = 'event';  
+  array_push($filters, 'event'); 
  
 	// get the 'event_category' custom taxonomy for filtering
-	$terms = get_the_terms( $post->ID , array( 'event_categories') );
+	$terms = get_the_terms( $post->ID , 'event_categories');
 	foreach ( $terms as $term ) {
-		$term_link = get_term_link( $term, array( 'event_categories') );
-		array_push($class_names, $term->name);
+		$term_link = get_term_link( $term, 'event_categories');
+		array_push($filters, $term->slug);
 	}
 }
 
 // classes for associated (parent) Series and Festivals
 $associated_event = get_field('associated_event'); 
 if($associated_event){ 
-	$title = get_the_title($associated_event);
-	array_push($class_names, $title);
+	$slug = get_post_field( 'post_name', $associated_event );
+	array_push($filters, $slug);
 }
 
-// transform human readable classes to html classes with hyphens
-$class_string = '';
-for ($i = 0; $i < count($class_names); $i++) {
-	// convert each future class name to lowercase
-	$transform_class = strtolower($class_names[$i]);
-
-	// replace all characters except letters, replace with underscore
-  $transform_class = preg_replace('/[^a-z]+/i', '_', $transform_class);
-
-  // trim any leading/trailing underscores
-	$transform_class = preg_replace('/\G_|_(?=_*$)/', '', $transform_class);
-  
-  // replace underscores with dashes
-  $transform_class = str_replace("_", "-", $transform_class);
-
-  // add class to the string
-  $class_string .= $transform_class . ' ';
+// create string from array to use for filters
+$filters_string = '';
+for ($i = 0; $i < count($filters); $i++) {
+	$filters_string .= $filters[$i] . ' ';
 }
 ?>
 
 
-<div class="card eventCard<?php echo ' ' . $class_string; ?>">
+<div class="card eventCard <?php echo $class_name; ?>" data-filterme="<?php echo $filters_string; ?>">
    <a href="<?php echo get_page_link(get_the_id()); ?>">
     <div class="event__dateBox">
 			<span class="day"><?php echo date("j", strtotime($showtime_soonestDate)); ?></span>

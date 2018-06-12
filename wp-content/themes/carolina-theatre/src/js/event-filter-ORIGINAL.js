@@ -7,32 +7,36 @@ jQuery(function($) {
 			}
 		}
 	}
-	// TO-DO: GET THIS ALL CLEANED UP & WORKING WITH $_GET
 	$(document).ready(function() {
 		var upcomingEvent = "all";
 		$(".upcoming-events__type li").on("click", function() {
 			// remove active class from type and filter elements
 			removeActiveFilter(".upcoming-events__type");
 			removeActiveFilter(".upcoming-events__type--secondary");
-			
 			// add active class to event type that was clicked on
 			$(this).addClass("active-link");
 
 			// reset event filter to any when event type is changed
-			// var subfilter = $(".upcoming-events__type--secondary").children()[0];
-			// $(subfilter).addClass("active-link");
+			var subfilter = $(".upcoming-events__type--secondary").children()[0];
+			$(subfilter).addClass("active-link");
 
-			var filter = $(this).data('filter');;
+			var filter = $(this)
+				.text()
+				.toLowerCase()
+				.split(" ")
+				.join("-");
 			upcomingEvent = filter;
 
 			if (filter === "all") {
-				$(".events").show();
-			} else {
-				num_events = $(".events").children().length;
-				for (var i = 0; i < num_events; i++) {
+				for (var i = 0; i < $(".events").children().length; i++) {
 					var target = $(".events").children()[i];
-					var targets_filters = $(target).data('filterme')
-					if (targets_filters.indexOf(filter) != -1) {
+					$(target).show();
+				}
+			} else {
+				for (var i = 0; i < $(".events").children().length; i++) {
+					var target = $(".events").children()[i];
+
+					if ($(target).hasClass(filter)) {
 						$(target).show();
 					} else {
 						$(target).hide();
@@ -50,12 +54,16 @@ jQuery(function($) {
 
 
 		$(".upcoming-events__type--secondary li").on("click", function() {
-			// var filter = $(this).data('filter');
-			// removeActiveFilter(".upcoming-events__type--secondary");
-			// $(this).addClass("active-link");
+			var filter = $(this)
+				.text()
+				.toLowerCase()
+				.split(" ")
+				.join("-");
+			removeActiveFilter(".upcoming-events__type--secondary");
+			$(this).addClass("active-link");
 
-			var num_events = $(".events").children().length;
-			for (var i = 0; i < num_events; i++) {
+			var numEvents = $(".events").children().length;
+			for (var i = 0; i < numEvents; i++) {
 				var target = $(".events").children()[i];
 
 				if (upcomingEvent === "all" && filter === "any") {

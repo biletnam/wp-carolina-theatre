@@ -1,6 +1,7 @@
 <?php
 	// Template name: Events Template
 	get_header();
+  $today = date("Ymd", strtotime('today'));
 ?>
 <?php while ( have_posts() ) { the_post(); ?>
 
@@ -18,6 +19,74 @@
     <div class="container">
       <h1>Upcoming Events</h1>
 
+      <?php // query to get all filters
+			$filters_args = array(
+				'post_type' => array('event', 'film'),
+				'post_status' => 'publish',
+				'posts_per_page' => -1,
+				'meta_query'	=> array(
+					array( 	// make sure event has not passed
+						'sorting_clause' => array( // if event hasn't ended yet
+							'key'		=> 'soonest_date',
+							'compare'	=> '>=',
+							'value'		=> $today,
+						),
+					),
+				),
+			);
+			?>
+		
+			<?php 
+			function unique_multidim_array($array, $key) { 
+			    $temp_array = array(); 
+			    $i = 0; 
+			    $key_array = array(); 
+			    
+			    foreach($array as $val) { 
+			        if (!in_array($val[$key], $key_array)) { 
+			            $key_array[$i] = $val[$key]; 
+			            $temp_array[$i] = $val; 
+			        } 
+			        $i++; 
+			    } 
+			    return $temp_array; 
+			} 
+			?>
+			<?php 
+				$filters_query = new WP_Query($filters_args);
+				$event_filters = array();
+				$film_filters = array();
+				$event_filters_unique = array();
+				$film_filters_unique = array();
+				$j = 0;
+				$k = 0;
+
+				if ($filters_query->have_posts()) {
+					while ($filters_query->have_posts()) { $filters_query->the_post();
+						// get filters based on event categories
+						if (get_post_type() == 'event') {
+							$terms = get_the_terms( $post->ID , 'event_categories');
+							for ($i = 0; $i < count($terms); $i++ ) {
+								$event_filters[$j]['name'] = $terms[$i]->name;
+								$event_filters[$j]['slug'] = $terms[$i]->slug;
+								$j++;
+							}
+						} 
+						// get filters for associated events
+						$associated_event = get_field('associated_event'); 
+						if($associated_event){ 
+							$film_filters[$k]['name'] = get_the_title($associated_event);
+							$film_filters[$k]['slug'] = get_post_field( 'post_name', $associated_event );
+							$k++;
+						}
+					}
+				}
+				// remove duplicate filters
+				$event_filters_unique = unique_multidim_array($event_filters, 'slug');
+				$film_filters_unique = unique_multidim_array($film_filters, 'slug');
+			?>
+
+
       <?php
 	      // TO-DO: setup tabbed filters to work across pagination and on page load. 
 	      // Dynamic $_GET parameters
@@ -25,70 +94,27 @@
       ?>
       <div class="tabbedContent__tabs">
         <ul class="upcoming-events__type">
-          <li class="tabbedContent__tab active-link">All</li>
-          <li class="tabbedContent__tab">Film</li>
-          <?php // TO-DO: Make tabs dynamic based on event types ?>
-          <li class="tabbedContent__tab">Music</li>
-          <li class="tabbedContent__tab">Comedy</li>
-          <li class="tabbedContent__tab">Theater</li>
-          <li class="tabbedContent__tab">Discussion</li>
-          <li class="tabbedContent__tab">Dance</li>
-          <li class="tabbedContent__tab">Family Saturday</li>
-          <?php 
-          $standard_events = array("Music", "Comedy", "Theater", "Discussion", "Dance", "Family Saturday");
-          $custom_events = array();
-
-          // filter events only to check for custom event types
-          $filter_query_args = array(
-              'post_type' => 'event');
-          
-          $filter_query = new WP_Query($filter_query_args);
-          
-          if ($filter_query->have_posts()) {
-            while ($filter_query->have_posts()) { $filter_query->the_post();
-              // assumes 'End Date' and last 'Showtime' are the same in the dashboard
-              $last_date = get_field('end_date');
-
-              // if event is playing or will be in the future, append custom
-              // event type to array
-              if (strtotime($last_date) >= strtotime('today')) {
-                $event_types = get_field("single_event_type");
-                // loop thru all event types associated with post,
-                // check if they are in $standard_events and $custom_events, if not
-                // in either add to $custom_events
-                foreach($event_types as $et) {
-                  if (!in_array($et, $standard_events) && !in_array($et, $custom_events)) {
-                    array_push($custom_events, $et);
-                  }
-                }
-              }  
-            }
-          }
-          // append $custom_events to filter list of standard events
-          if (count($custom_events) > 0) {
-            foreach($custom_events as $ce) { ?>
-              <li class="tabbedContent__tab"><?php echo $ce; ?></li>
-            <?php } // end for each ?>
-          <?php } // end if ?>
-        <?php wp_reset_postdata(); ?>
+          <li class="tabbedContent__tab active-link" data-filter="all">All</li>
+          <li class="tabbedContent__tab" data-filter="film">Film</li>
+          <?php // add filters based on active event types
+          foreach($event_filters_unique as $filter){
+						echo '<li class="tabbedContent__tab" data-filter="'.$filter['slug'].'">' . $filter['name'] . '</li>';
+          } ?>
         </ul>
-        <ul class="upcoming-events__type--secondary filmFilters">
-          <li class="tabbedContent__tab default active-link">All Films</li>
-          <li class="tabbedContent__tab default">Now Playing</li>
-          <li class="tabbedContent__tab default">Coming Soon</li>
-	        <?php // TO-DO: Make these dynamically pulled in based on current film series/festivals ?>
-          <li class="tabbedContent__tab">Retro Epics</li>
-          <li class="tabbedContent__tab">Anime-Magic</li>
-          <li class="tabbedContent__tab">SplatterFlix</li>
-          <li class="tabbedContent__tab">Realistic Realm</li>
-          <li class="tabbedContent__tab">Retro Art House</li>
+        <ul class="upcoming-events__type upcoming-events__type--secondary filmFilters">
+          <li class="tabbedContent__tab default active-link" data-filter="film">All Films</li>
+          <li class="tabbedContent__tab default" data-filter="now-playing">Now Playing</li>
+          <li class="tabbedContent__tab default" data-filter="coming-soon">Coming Soon</li>
+          <?php // add filters based on active film festival/series types
+          foreach($film_filters_unique as $filter){
+          	echo '<li class="tabbedContent__tab" data-filter="'.$filter['slug'].'">' . $filter['name'] . '</li>';
+          } ?>
         </ul>
       </div>
-
-    	<?php // The Query     
+			    	
+			<?php  // The Query     
  			$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
-      $limit = 6;
-      $today = date("Ymd", strtotime('today'));
+      $limit = 10;
 
       // 'soonest_date' (assigned in functions.php) stores the events 
       // closest date to today. If it's < today, don't show the event
@@ -110,7 +136,7 @@
 				  'sorting_clause' => 'ASC',
 				),
 			);
-
+			
 			// The Loop
 			$events_query = new WP_Query($events_query_args);
 			if ($events_query->have_posts()) { ?>
