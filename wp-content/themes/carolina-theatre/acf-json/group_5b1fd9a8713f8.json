@@ -485,6 +485,30 @@
             "endpoint": 0
         },
         {
+            "key": "field_5b2152924ece6",
+            "label": "Associated Series \/ Festival",
+            "name": "associated_event",
+            "type": "post_object",
+            "instructions": "Assign this event to a Series or Festival here.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "series",
+                "festival",
+                "education"
+            ],
+            "taxonomy": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
+        },
+        {
             "key": "field_5b1fd9a877a59",
             "label": "Extras -> Live Event Content",
             "name": "event_extrasclone",
@@ -498,7 +522,6 @@
                 "id": ""
             },
             "clone": [
-                "field_5b195c4bbde0e",
                 "field_5b195c4bbde4d",
                 "field_5b19635962449",
                 "field_5b1963646244a"
@@ -507,6 +530,65 @@
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 0
+        },
+        {
+            "key": "field_5b21522123429",
+            "label": "Event Filters (hidden)",
+            "name": "event_filters",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5b2152332342b",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5b2152292342a",
+                    "label": "Slug",
+                    "name": "slug",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5b2152332342b",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -535,5 +617,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1528855881
+    "modified": 1528910534
 }

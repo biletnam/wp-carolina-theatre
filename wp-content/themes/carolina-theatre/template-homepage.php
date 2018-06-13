@@ -1,8 +1,8 @@
 <?php
 // Template name: Homepage Template
 get_header();
-
 ?>
+
 <?php while ( have_posts() ) { the_post(); ?>
 <div class="hero--homepage">
 	<section class="heroSlider heroSlider--homepage">
@@ -61,6 +61,4 @@ get_header();
 	</div>
 </section>
 <?php } // endwhile; ?>
-<?php
-get_footer();
-?>
+<?php get_footer(); ?>

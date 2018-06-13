@@ -235,8 +235,7 @@ function liveevent_showtime_hiddendates_acf_save_post( $post_id ) {
  	$hidden_pastEvent = 'field_5b20715304d4b';
  	$showtimesRepeater = 'field_5b195c4bbdc42';
  	$dateField = 'field_5b195c4be0546';
-	
-	// TO-DO: get hidden_pastEvent working  
+
   // bail early if no ACF data
   if( empty($_POST['acf']) ) {
     return;
@@ -297,6 +296,108 @@ function liveevent_showtime_hiddendates_acf_save_post( $post_id ) {
   	return;
   }
 } add_action('acf/save_post', 'liveevent_showtime_hiddendates_acf_save_post', 1);
+
+
+/**
+ * FOR LIVE EVENT POSTS
+ * ACF - save event categories and associated event as filters
+ * for the template-events.php page
+ */
+function liveevent_filters_acf_save_post( $post_id ) {
+  $associated_event_key = 'field_5b195c4bbde0e';
+ 	$repeater = 'event_filters'; // repeater
+ 	$repeater_key = 'field_5b21353324ed5'; // repeater
+  $event_categories = get_the_terms( $post_id , 'event_categories'); // custom taxonomy
+
+	// bail early if no ACF data
+  if( empty($_POST['acf']) ) {
+    return;
+  }
+
+  if (isset($_POST['acf'][$repeater_key])){
+	  // Delete all rows, so repeater is empty
+	  $repeater_rows = $_POST['acf'][$repeater_key]; 
+	  $rows_count = 0;
+	  if($repeater_rows != null){
+		  $rows_count = count($repeater_rows);
+			
+			for ($i = $rows_count; $i >= 0; $i--) {
+				delete_row( $repeater_key, $i, $post_id );
+		  }
+	  }
+	  add_action('acf/save_post', 'liveevent_filters_acf_save_post');
+
+		// Add new rows for each event category 
+	  if($event_categories != null){
+		  $cat_count = count($event_categories);
+
+		  for ($j = 0; $j < $cat_count; $j++) {
+			  $row = array(
+					'slug'	=> $event_categories[$j]->slug,
+					'name'	=> $event_categories[$j]->name
+				);
+			  add_row( $repeater_key, $row, $post_id);
+		  }
+		}
+	  add_action('acf/save_post', 'liveevent_filters_acf_save_post');
+
+		// Add a new row if there's an associated event. 
+	  $associated_event = $_POST['acf'][$associated_event_key];
+	 	if($associated_event != null){
+		  $row = array(
+				'slug'	=> get_post_field( 'post_name', $associated_event ),
+				'name'	=> get_the_title($associated_event)
+			);
+		  add_row( $repeater_key, $row, $post_id);
+		}
+	  add_action('acf/save_post', 'liveevent_filters_acf_save_post');
+	}
+}
+add_action('acf/save_post', 'liveevent_filters_acf_save_post', 1);
+
+/**
+ * FOR FILM POSTS
+ * ACF - save associated event as filter
+ * for the template-events.php page
+ */
+function film_filters_acf_save_post( $post_id ) {
+  $associated_event_key = 'field_5b2152924ece6';
+ 	$repeater = 'event_filters'; // repeater
+ 	$repeater_key = 'field_5b21522123429'; // repeater
+	
+	// bail early if no ACF data
+  if( empty($_POST['acf']) ) {
+    return;
+  }
+
+  if (isset($_POST['acf'][$repeater_key])){
+	  // Delete all rows, so repeater is empty
+	  // Delete all rows, so repeater is empty
+	  $repeater_rows = $_POST['acf'][$repeater_key]; 
+	  $rows_count = 0;
+	  if($repeater_rows != null){
+		  $rows_count = count($repeater_rows);
+			
+			for ($i = $rows_count; $i >= 0; $i--) {
+				delete_row( $repeater_key, $i, $post_id );
+		  }
+	  }
+	  add_action('acf/save_post', 'film_filters_acf_save_post');
+
+		// Add a new row if there's an associated event. 
+	  $associated_event = $_POST['acf'][$associated_event_key];
+	 	if($associated_event != null){
+		  $row = array(
+				'slug'	=> get_post_field( 'post_name', $associated_event ),
+				'name'	=> get_the_title($associated_event)
+			);
+		  add_row( $repeater_key, $row, $post_id);
+		}
+	  add_action('acf/save_post', 'film_filters_acf_save_post');
+	}
+}
+add_action('acf/save_post', 'film_filters_acf_save_post', 1);
+
 
 /**
  * FOR FILM POSTS
@@ -401,12 +502,15 @@ add_filter('acf/load_field/name=link_block_select', 'acf_load_linkBlockDefault_f
  * Clear Transient Cache when a new 'film or 'event' post is added
  */
 function ctdEvent_delete_query_transient( $post_id, $post ) {
-  delete_transient( 'event_slider_query_cache' ); // Deletes the transient when a new post is published
+  delete_transient( 'event_slider_query_cache' ); // Upcoming Events Slider cache
+  delete_transient( 'event_filters_query_cache' ); // Event Template Filters cache
 } add_action( 'publish_event', 'ctdEvent_delete_query_transient', 10, 2 );
 
 function ctdFilm_delete_query_transient( $post_id, $post ) {
-  delete_transient( 'event_slider_query_cache' ); // Deletes the transient when a new post is published
+  delete_transient( 'event_slider_query_cache' ); // Upcoming Events Slider cache
+  delete_transient( 'event_filters_query_cache' ); // Event Template Filters cache
 } add_action( 'publish_film', 'ctdFilm_delete_query_transient', 10, 2 );
+
 
 /**
  * Global Variables
