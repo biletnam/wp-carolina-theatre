@@ -23,7 +23,7 @@
 
 			<?php  // The Query     
  			$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
-      $limit = 10;
+      $limit = -1;
 
       // 'soonest_date' (assigned in functions.php) stores the events closest date to today.
 			$events_query_args = array(

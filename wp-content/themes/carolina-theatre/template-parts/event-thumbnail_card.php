@@ -11,47 +11,30 @@ $today = date("Ymd", strtotime('today'));
 include(locate_template('template-parts/event-get_soonest_date.php', false, true));
 
 /////// ASSIGN CLASS NAMES FOR EACH EVENT
-$filters = [];
+$filters = '';
+$class_name = '';
 if (get_post_type() == 'film') {
-	$class_name = 'film'; 
-	array_push($filters, 'film'); 
+	$class_name .= ' film'; 
+	$filters .= ' film'; 
 
 	if ($showtime_soonestDate == $today) {
-	  array_push($filters, 'now-playing'); 
+	  $filters .= ' now-playing'; 
 	} else if ($today < $start_date) {
-	  array_push($filters, 'coming-soon'); 
+	  $filters .= ' coming-soon'; 
 	}  
-}
-if (get_post_type() == 'event') {
-  $class_name = 'event';  
-  array_push($filters, 'event'); 
- 
-	// get the 'event_category' custom taxonomy for filtering
-	$terms = get_the_terms( $post->ID , 'event_categories');
-	if(is_array($terms) || is_object($terms)){
-		foreach ( $terms as $term ) {
-			$term_link = get_term_link( $term, 'event_categories');
-			array_push($filters, $term->slug);
-		}
-	}
+} else if (get_post_type() == 'event') {
+	$class_name .= ' event'; 
+	$filters .= ' event'; 
 }
 
-// classes for associated (parent) Series and Festivals
-$associated_event = get_field('associated_event'); 
-if($associated_event){ 
-	$slug = get_post_field( 'post_name', $associated_event );
-	array_push($filters, $slug);
-}
-
-// create string from array to use for filters
-$filters_string = '';
-for ($i = 0; $i < count($filters); $i++) {
-	$filters_string .= $filters[$i] . ' ';
+if(have_rows('event_filters')){
+	while(have_rows('event_filters')){ the_row();
+		$filters .= ' '.get_sub_field('slug');
+	}	
 }
 ?>
 
-
-<div class="card eventCard <?php echo $class_name; ?>" data-filterme="<?php echo $filters_string; ?>">
+<div class="card eventCard <?php echo $class_name; ?>" data-filterme="<?php echo $filters; ?>">
    <a href="<?php echo get_page_link(get_the_id()); ?>">
     <div class="event__dateBox">
 			<span class="day"><?php echo date("j", strtotime($showtime_soonestDate)); ?></span>

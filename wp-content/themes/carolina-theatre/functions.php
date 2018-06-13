@@ -372,7 +372,6 @@ function film_filters_acf_save_post( $post_id ) {
 
   if (isset($_POST['acf'][$repeater_key])){
 	  // Delete all rows, so repeater is empty
-	  // Delete all rows, so repeater is empty
 	  $repeater_rows = $_POST['acf'][$repeater_key]; 
 	  $rows_count = 0;
 	  if($repeater_rows != null){

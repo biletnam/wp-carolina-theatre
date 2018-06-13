@@ -1,77 +1,36 @@
 jQuery(function($) {
-	function removeActiveFilter(className) {
-		for (var i = 0; i < $(className).children().length; i++) {
-			var target = $(className).children()[i];
-			if ($(target).hasClass("active-link")) {
-				$(target).removeClass("active-link");
-			}
-		}
-	}
+	
 	// TO-DO: GET THIS ALL CLEANED UP & WORKING WITH $_GET
-	$(document).ready(function() {
-		var upcomingEvent = "all";
-		$(".upcoming-events__type li").on("click", function() {
-			// remove active class from type and filter elements
-			removeActiveFilter(".upcoming-events__type");
-			removeActiveFilter(".upcoming-events__type--secondary");
-			
-			// add active class to event type that was clicked on
-			$(this).addClass("active-link");
-
-			// reset event filter to any when event type is changed
-			// var subfilter = $(".upcoming-events__type--secondary").children()[0];
-			// $(subfilter).addClass("active-link");
-
-			var filter = $(this).data('filter');;
-			upcomingEvent = filter;
-
-			if (filter === "all") {
-				$(".events").show();
+	function filterCards(filterObj){
+		var filter = filterObj.data('filter');
+		var eventCard = '.events .eventCard';
+		// console.log(filter);
+		
+		$(eventCard).each(function(i){
+      var filterMe = $(this).data('filterme');                
+			if (filterMe.indexOf(filter) != -1) {
+				$(this).show();
 			} else {
-				num_events = $(".events").children().length;
-				for (var i = 0; i < num_events; i++) {
-					var target = $(".events").children()[i];
-					var targets_filters = $(target).data('filterme')
-					if (targets_filters.indexOf(filter) != -1) {
-						$(target).show();
-					} else {
-						$(target).hide();
-					}
-				}
+				$(this).hide();
 			}
+		});
+	}
 
-			// show secondary row of filters if main level 'Film' is active
-			if (filter === "film") {
+	$(document).ready(function() {
+		$(".upcoming-events__type li").on("click touch", function(clicked) {
+			filterCards($(this));
+			
+			if ($(this).data('filter') === "film") {
 				$(".filmFilters").css("display", "block");
 			} else {
 				$(".filmFilters").css("display", "none");
 			}
 		});
 
-
-		$(".upcoming-events__type--secondary li").on("click", function() {
-			// var filter = $(this).data('filter');
-			// removeActiveFilter(".upcoming-events__type--secondary");
-			// $(this).addClass("active-link");
-
-			var num_events = $(".events").children().length;
-			for (var i = 0; i < num_events; i++) {
-				var target = $(".events").children()[i];
-
-				if (upcomingEvent === "all" && filter === "any") {
-					$(target).show();
-				} else if (upcomingEvent === "film" && filter === "all-films" && $(target).hasClass('film')) {
-					$(target).show();
-				} else if (upcomingEvent === "all" && $(target).hasClass(filter)) {
-					$(target).show();
-				} else if (filter === "any" && $(target).hasClass(upcomingEvent)) {
-					$(target).show();
-				} else if ( $(target).hasClass(upcomingEvent) && $(target).hasClass(filter) ) {
-					$(target).show();
-				} else {
-					$(target).hide();
-				}
-			}
+		$(".filmFilters li").on("click touch", function(clicked) {
+			filterCards($(this));
+			$(".filmFilters").css("display", "block");
+			$(".upcoming-events__type > .tabbedContent__tab[data-filter='film']").addClass('active-link');
 		});
 	});
 });

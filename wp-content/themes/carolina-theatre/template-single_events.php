@@ -392,7 +392,7 @@
      
       <?php if ($associated_event) { ?>
   	 	<div class="associatedEvent">
-		  	<p class="small">This <?php echo $post_type; ?> is a part of the </p>
+		  	<p class="small">This <?php echo $post_type; ?> is a part of </p>
 		  	<a class="singleEvent__associatedEvent button small gray" href="<?php echo get_permalink($associated_event); ?>#films"><?php echo get_the_title($associated_event); ?> ››</a>
     	</div>
     	<?php } //end associated_event ?>

@@ -1063,19 +1063,19 @@
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/js\/event-filter.js",
+			"linkedFileAbbreviatedPath": "\/src\/js\/filmFestivalTabs.js",
 			"position": 5,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/js\/filmFestivalTabs.js",
+			"linkedFileAbbreviatedPath": "\/src\/js\/slick-init.js",
 			"position": 6,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/js\/slick-init.js",
+			"linkedFileAbbreviatedPath": "\/src\/js\/event-filter.js",
 			"position": 7,
 			"type": 1
 			}
