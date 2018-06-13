@@ -14,6 +14,6 @@
    	<div>
    		<h3>Categories</h3>
    	</div>
-   	<?php get_template_part( 'template-parts/content-blocks/block', 'link_block' ); ?>
+		<?php get_template_part( 'template-parts/content-blocks/block', 'link_block' ); ?>
 	</div>
 </aside>

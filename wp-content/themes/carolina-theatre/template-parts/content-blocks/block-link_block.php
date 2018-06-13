@@ -1,6 +1,17 @@
-<?php if (have_rows("link_blocks")) { ?>
+<?php 
+	$page_id = $post->ID;
+
+	if ( is_singular( 'film' ) || is_singular('event')) {
+		$page_id = 4;
+	} else if ( is_singular( 'post' )){
+		$page_id = 579;
+	}
+?>
+
+
+<?php if (have_rows("link_blocks", $page_id)) { ?>
 <div class="block__ctas">
-	<?php while (have_rows("link_blocks")) { the_row(); ?>
+	<?php while (have_rows("link_blocks", $page_id)) { the_row(); ?>
   <?php
 		$type = get_sub_field('link_block_select'); // returns the Label (ie. 'Plan Your Visit' or 'Custom')
 		$link = get_sub_field('link'); 

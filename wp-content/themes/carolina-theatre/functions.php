@@ -187,26 +187,6 @@ function carolinatheatre_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'carolinatheatre_scripts' );
 
-/**
- * Have 'event' and 'film' post types share a template
- */
-add_filter( 'single_template', function( $template ) {
-  $cpt = [ 'event', 'film' ];
-  return in_array( get_queried_object()->post_type, $cpt, true )
-    ? get_stylesheet_directory() . '/template-single_events.php'
-    : $template;
-} );
-
-/**
- * Have 'series', 'festival' and 'education' post types share a template
- */
-add_filter( 'single_template', function( $template ) {
-  $cpt = [ 'series', 'festival', 'education' ];
-  return in_array( get_queried_object()->post_type, $cpt, true )
-    ? get_stylesheet_directory() . '/template-parent_events.php'
-    : $template;
-} );
-
 
 /**
  * Debugging
@@ -544,24 +524,3 @@ require get_template_directory() . '/inc/custom_walker-icon.php';
  */
 require get_template_directory() . '/inc/tinymce.php';
 
-
-/**
- * Conditionally Override Yoast SEO Breadcrumb Trail for custom post types 'event' and 'film'
- * http://plugins.svn.wordpress.org/wordpress-seo/trunk/frontend/class-breadcrumbs.php
- * -----------------------------------------------------------------------------------
- */
-add_filter( 'wpseo_breadcrumb_links', 'carolinatheatre_override_yoast_breadcrumb_trail' );
-function carolinatheatre_override_yoast_breadcrumb_trail( $links ) {
-  global $post;
-
-  if ( is_singular( 'film' ) || is_singular('event') ) {
-    $breadcrumb[] = array(
-      'url' => get_permalink(4),
-      'text' => 'Events',
-    );
-
-    array_splice( $links, 1, -2, $breadcrumb );
-  }
-
-  return $links;
-}

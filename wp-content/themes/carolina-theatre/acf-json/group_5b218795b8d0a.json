@@ -1,11 +1,11 @@
 {
-    "key": "group_5acb83f7d2dca",
-    "title": "Events",
+    "key": "group_5b218795b8d0a",
+    "title": "News & Press",
     "fields": [
         {
-            "key": "field_5acb842805d56",
-            "label": "Featured Events",
-            "name": "featured_events",
+            "key": "field_5b218795bcf49",
+            "label": "Featured Post",
+            "name": "featured_post",
             "type": "post_object",
             "instructions": "",
             "required": 0,
@@ -16,17 +16,16 @@
                 "id": ""
             },
             "post_type": [
-                "event",
-                "film"
+                "post"
             ],
             "taxonomy": [],
             "allow_null": 0,
-            "multiple": 1,
+            "multiple": 0,
             "return_format": "object",
             "ui": 1
         },
         {
-            "key": "field_5b2185dfbce1c",
+            "key": "field_5b218795bcf5f",
             "label": "Sidebar Link Blocks",
             "name": "events_sidebar_link_blocks",
             "type": "clone",
@@ -52,7 +51,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "template-events.php"
+                "value": "template-archive_blog.php"
             }
         ]
     ],
@@ -62,17 +61,11 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [
-        "the_content",
-        "excerpt",
         "discussion",
         "comments",
-        "author",
-        "format",
-        "featured_image",
-        "categories",
-        "tags"
+        "format"
     ],
     "active": 1,
     "description": "",
-    "modified": 1528923915
+    "modified": 1528924142
 }

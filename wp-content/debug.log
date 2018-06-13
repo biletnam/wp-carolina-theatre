@@ -1,0 +1,11 @@
+[13-Jun-2018 17:32:06 America/New_York] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/part-featured_news.php on line 35
+[13-Jun-2018 17:35:41 America/New_York] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Post as array in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/part-featured_news.php:3
+Stack trace:
+#0 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/template.php(690): require()
+#1 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/template.php(647): load_template('/Users/joeycart...', false)
+#2 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/general-template.php(155): locate_template(Array, true, false)
+#3 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-archive_blog.php(22): get_template_part('template-parts/...', 'featured_news')
+#4 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/template-loader.php(74): include('/Users/joeycart...')
+#5 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-blog-header.php(19): require_once('/Users/joeycart...')
+#6 /Users/joeycarty/Desktop/wp-carolina-theatre/index.php(17): require('/Users/joeycart...')
+#7 {main} in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/part-featured_news.php on line 3

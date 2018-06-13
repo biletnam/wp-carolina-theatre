@@ -1372,7 +1372,7 @@ main {
           padding-top: 0; } }
     @media screen and (min-width: 1100px) {
       .mainContent__sidebar {
-        width: 360px; } }
+        width: 420px; } }
     @media screen and (min-width: 1680px) {
       .mainContent__sidebar {
         width: 480px; } }
@@ -2479,3 +2479,6 @@ div.wpcf7-validation-errors {
 
 .blogPost__image {
   margin-bottom: 3em; }
+
+.featuredPost {
+  border: 1px solid #ccc; }

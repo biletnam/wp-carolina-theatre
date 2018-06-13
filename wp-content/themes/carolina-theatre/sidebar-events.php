@@ -44,7 +44,7 @@
 				<ul>
 					<?php while ($festival_query->have_posts()) { $festival_query->the_post(); ?>
           <li><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></li>
-          <?php } // end while ?>
+          <?php } wp_reset_postdata();// end while ?>
         </ul>
       </div>
       <?php } // end if festivals ?>
@@ -78,12 +78,12 @@
 				<ul>
 					<?php while ($filmseries_query->have_posts()) { $filmseries_query->the_post(); ?>
           <li><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></li>
-          <?php } // end while ?>
+          <?php } wp_reset_postdata(); // end while ?>
         </ul>
       </div>
       <?php } // end if film series ?>
     </div>
-    
-    <?php get_template_part( 'template-parts/content-blocks/block', 'link_block' ); ?>
+
+		<?php get_template_part( 'template-parts/content-blocks/block', 'link_block' ); ?>
 	</div>
 </aside>

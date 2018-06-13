@@ -184,6 +184,14 @@
 		"oO": 0,
 		"oS": 1
 		},
+	"\/acf-json\/group_5b218795b8d0a.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/acf-json\/group_5b218795b8d0a-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
 	"\/acf-json\/index.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -981,6 +989,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/template-parts\/part-event_ticketLowest.php",
+		"oF": 0
+		},
+	"\/template-parts\/part-featured_news.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/part-featured_news.php",
 		"oF": 0
 		},
 	"\/template-parts\/part-page_heading.php": {
