@@ -10,6 +10,7 @@
       <input type="text" placeholder="Search..." />
       <button>Search Events</button>
     </div>
+    
     <?php // TO-DO: Get sidebars setup ?>
 
     <div class="sidebar__menus">

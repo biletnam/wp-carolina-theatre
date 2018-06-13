@@ -11,13 +11,21 @@
 	}
 }
 .featuredEvent {
+	&__slideContainer {
+		display: flex;
+		overflow: hidden;
+	}
+
 	&__image {
 		width: 66%;
     position: relative;
+    background-size: cover;
+    background-position: relative;
 
 		img {
 			width: 100%;
 			display: block;
+			opacity: 0;
 		}
 
 		.event__dateBox {
@@ -41,10 +49,21 @@
 		}
 	}
 
-	&__slideContainer {
-		display: flex;
-		overflow: hidden;
-	}
+	@include breakpoint($sizeTablet){
+		&__slideContainer {
+			display: block;
+		}
+		&__image {
+			width: 100%;
+			
+			img {
+				opacity: 1;
+			}
+		}
+		&__info {
+			width: 100%;
+		}
+	}	
 
 	&__slide {
 		&.film {
@@ -384,8 +403,14 @@
 	vertical-align: top;
 	max-width: 250px;
 	width: 100%;
-	margin-right: 30px;
-	margin-bottom: 30px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+
+  @include breakpoint-min($sizeLarge){
+		margin-right: 30px;
+		margin-bottom: 30px;
+  }
+
 	border: 1px solid $gray;
 	overflow: hidden;
 	transition: $transition;

@@ -8,7 +8,9 @@ jQuery(function($) {
 		
 		$(eventCard).each(function(i){
       var filterMe = $(this).data('filterme');                
-			if (filterMe.indexOf(filter) != -1) {
+			if(filter === 'all'){
+				$(this).show();
+			} else if (filterMe.indexOf(filter) != -1) {
 				$(this).show();
 			} else {
 				$(this).hide();

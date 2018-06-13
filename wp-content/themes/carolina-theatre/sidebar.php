@@ -20,7 +20,11 @@
    	<?php if($sidebar_menu){ ?>
     <div class="sidebar__menus">
 			<div class="sidebar__menu">
+				<?php if ($sidebar_menu_title){ ?>
 				<p class="h3"><?php echo $sidebar_menu_title; ?></p>
+				<?php } else { ?>
+				<p class="h3"><?php echo get_the_title($parent); ?></p>
+				<?php } //endif ?>				
 				<?php echo $sidebar_menu; ?>
 			</div>
 		</div>
