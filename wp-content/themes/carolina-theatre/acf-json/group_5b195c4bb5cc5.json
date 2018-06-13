@@ -222,6 +222,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_5b20715304d4b",
+            "label": "Past Event? (hidden)",
+            "name": "past_event",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "hidden",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5b195c4bbdc42",
             "label": "Showtimes & Dates",
             "name": "showtimes",
@@ -817,5 +836,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1528831978
+    "modified": 1528855868
 }

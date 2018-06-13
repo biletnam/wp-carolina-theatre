@@ -1,6 +1,7 @@
 <?php
 	// Template name: Events Template
 	get_header();
+  date_default_timezone_set('America/New_York');
   $today = date("Ymd", strtotime('today'));
 ?>
 <?php while ( have_posts() ) { the_post(); ?>
@@ -20,17 +21,30 @@
       <h1>Upcoming Events</h1>
 
       <?php // query to get all filters
+			// $filters_args = array(
+			// 	'post_type' => array('event', 'film'),
+			// 	'post_status' => 'publish',
+			// 	'posts_per_page' => -1,
+			// 	'meta_query'	=> array(
+			// 		array (
+			// 			'show_clause' => array( // if event hasn't ended yet
+			// 				'key'		=> 'past_event',
+			// 				'compare'	=> '==',
+			// 				'value'		=> false,
+			// 			),
+			// 		)
+			// 	),
+			// );
+
 			$filters_args = array(
 				'post_type' => array('event', 'film'),
 				'post_status' => 'publish',
 				'posts_per_page' => -1,
 				'meta_query'	=> array(
-					array( 	// make sure event has not passed
-						'sorting_clause' => array( // if event hasn't ended yet
-							'key'		=> 'soonest_date',
-							'compare'	=> '>=',
-							'value'		=> $today,
-						),
+					array (
+						'key'		=> 'end_date', // double check that end date hasnt happened yet
+						'compare'	=> '>=',
+						'value'		=> $today,
 					),
 				),
 			);
@@ -116,25 +130,28 @@
  			$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
       $limit = 10;
 
-      // 'soonest_date' (assigned in functions.php) stores the events 
-      // closest date to today. If it's < today, don't show the event
+      // 'soonest_date' (assigned in functions.php) stores the events closest date to today.
 			$events_query_args = array(
 				'post_type' => array('event', 'film'),
 				'post_status' => 'publish',
 				'posts_per_page' => $limit,
 				'paged' => $paged,
 				'meta_query'	=> array(
-					array( 	// make sure event has not passed
-						'sorting_clause' => array( // if event hasn't ended yet
-							'key'		=> 'soonest_date',
-							'compare'	=> '>=',
-							'value'		=> $today,
-						),
+					'relation' => 'AND',
+					array (
+						'key'		=> 'past_event', // if event hasn't ended yet
+						'compare'	=> '==', 
+						'value'		=> false,
+					),
+					array (
+						'key'		=> 'end_date', // double check that end date hasnt happened yet
+						'compare'	=> '>=',
+						'value'		=> $today,
 					),
 				),
-				'orderby' => array(
-				  'sorting_clause' => 'ASC',
-				),
+				'meta_key' => 'soonest_date', // order by the soonest date (may not be most recent, but close enough)
+	      'orderby' => 'meta_value_num', // 'soonest_date' is a number (ie 20180704)
+	      'order' => 'ASC',
 			);
 			
 			// The Loop

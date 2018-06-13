@@ -5,28 +5,56 @@
     /////// DATES in YYYYMMDD format
 		$start_date = get_field('start_date', $featured_ID); 	
 		$end_date = get_field('end_date', $featured_ID); 			
-		$showtime_soonestDate = get_field('soonest_date', $featured_ID); 
+	  date_default_timezone_set('America/New_York');
 		$today = date("Ymd", strtotime('today'));
 		
 		$dateString = '';
 		if($start_date && $end_date){
 			$dateString = date('M j', strtotime($start_date));
 			$dateString .= ' - ';
-
-			if(date('M', strtotime($start_date)) === date('M', strtotime($end_date))) {
+			
+			if($start_date == $end_date) {
+				$dateString = date('F j, Y', strtotime($start_date));	
+			} else if(date('M', strtotime($start_date)) === date('M', strtotime($end_date))) {
 				$dateString .= date('j, Y', strtotime($end_date));			
 			} else {
 				$dateString .= date('M j, Y', strtotime($end_date));			
 			}
-		} else if($start_date && $end_date == NULL) {
-			$dateString .= date('F j, Y', strtotime($start_date));	
-		} else if($end_date && $start_date == NULL) {
-			$dateString .= date('F j, Y', strtotime($start_date));	
 		}
 
    	$class_names = 'event';
 		if (get_post_type($featured_ID) == 'film') {
 			$class_names = 'film';
+		}
+
+		// Get soonest date
+		$showtime_soonestDate = $start_date; 	
+		$showtime_soonestTime = ''; 
+		$upcoming_showtimes = array();
+		$showtimes = get_field('showtimes');
+
+		if(is_array($showtimes) || is_object($showtimes)){
+			$i = 0;
+			foreach($showtimes as $showtime){	
+				if ($showtime['date'] >= $today){	
+				  $j = 0;	
+					$upcoming_showtimes[$i]['date'] = $showtime['date'];	
+			  	$times = $showtime['times'];	
+			  	
+			  	if(is_array($times) || is_object($times)){
+				  	foreach($times as $time) {	
+							$upcoming_showtimes[$i]['times'][$j] = $time;	
+						  $j++;	
+				  	}	
+				  }
+				  $i++;	
+			  }	
+			}
+			$showtime_soonestDate = $upcoming_showtimes[0]['date']; 	
+			
+			if($showtime_soonestTime != NULL){
+				$showtime_soonestTime = $upcoming_showtimes[0]['times'][0]['time']; 	
+			}
 		}
 
    	?>
@@ -112,11 +140,14 @@
 							if($ticket_prices){ 
 								$pricesOrdered = array(); // array to reorder ticket prices
 								foreach( $ticket_prices as $i => $price ) { // add each ticket price to the order array
-									$pricesOrdered[ $i ] = $price['ticket_price'];
+									$pricesOrdered[$i] = $price['ticket_price'];
 								}
+
+								// put prices in order, low to high
 							  sort($pricesOrdered, SORT_NUMERIC);
 
-								if($pricesOrdered[0]['ticket_price']) { // if there is a valid ticket price, start making string
+							  // if a valid ticket price, make string
+							  if(is_array($pricesOrdered) || is_object($pricesOrdered)){
 									$ticket_string = '$';
 									$ticket_string .= $pricesOrdered[0]; // use the lowest price 				
 									if($pricesOrdered[1]){  // and if there are more prices, add a plus sign

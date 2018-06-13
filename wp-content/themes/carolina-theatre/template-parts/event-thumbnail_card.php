@@ -2,14 +2,13 @@
 /////// DATES in YYYYMMDD format
 $start_date = get_field('start_date'); 		
 $end_date = get_field('end_date'); 				
-$showtime_soonestDate = get_field('soonest_date'); 
+date_default_timezone_set('America/New_York');
 $today = date("Ymd", strtotime('today')); 
 
 // get closest date's earliest time
-$showtimes = get_field('showtimes');
-$si = array_search($showtime_soonestDate, array_column($showtimes, 'date'));
-$showtime_soonestTime = $showtimes[$si]['times'][0]['time'];
-
+// $showtime_soonestDate (Ymd - 20180704)
+// $showtime_soonestTime (g:ia - 7:30pm or empty string)
+include(locate_template('template-parts/event-get_soonest_date.php', false, true));
 
 /////// ASSIGN CLASS NAMES FOR EACH EVENT
 $filters = [];
@@ -29,9 +28,11 @@ if (get_post_type() == 'event') {
  
 	// get the 'event_category' custom taxonomy for filtering
 	$terms = get_the_terms( $post->ID , 'event_categories');
-	foreach ( $terms as $term ) {
-		$term_link = get_term_link( $term, 'event_categories');
-		array_push($filters, $term->slug);
+	if(is_array($terms) || is_object($terms)){
+		foreach ( $terms as $term ) {
+			$term_link = get_term_link( $term, 'event_categories');
+			array_push($filters, $term->slug);
+		}
 	}
 }
 

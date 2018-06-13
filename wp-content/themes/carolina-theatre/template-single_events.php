@@ -68,8 +68,12 @@
 	/////// DATES in YYYYMMDD format
 	$start_date = get_field('start_date'); 		
 	$end_date = get_field('end_date'); 				
-	$showtime_soonestDate = get_field('soonest_date'); 
-	$today = date("Ymd", strtotime('today')); 
+	date_default_timezone_set('America/New_York');
+  $today = date("Ymd", strtotime('today'));
+	// get closest date's earliest time
+	// $showtime_soonestDate (Ymd - 20180704)
+	// $showtime_soonestTime (g:ia - 7:30pm or empty string)
+	include(locate_template('template-parts/event-get_soonest_date.php', false, true));
 ?>
 
 <div class="mainContent contain">
@@ -140,16 +144,11 @@
 						'posts_per_page' => 3, 
 						'post__not_in' => array($post->ID),
 						'meta_query'	=> array(
-							array( 	// make sure event has not passed
-								'sorting_clause' => array( // if event hasn't ended yet
-									'key'		=> 'soonest_date',
-									'compare'	=> '>=',
-									'value'		=> $today,
-								),
+							array (
+								'key'		=> 'end_date', // double check that end date hasnt happened yet
+								'compare'	=> '>=',
+								'value'		=> $today,
 							),
-						),
-						'orderby' => array(
-						  'sorting_clause' => 'ASC',
 						),
 					) 
 				);
@@ -257,32 +256,45 @@
 
 	      <?php if ($post_type == 'event') { ?>
         <div class="sidebar__eventInfo">
-	       	<?php // EVENT DATES & TIMES ?>
-		      <?php if (!$coming_soon){ ?>
-		      <?php $i = 0; ?>
-		    	<?php if (have_rows('showtimes')) { // output all dates for a show ?>
-		      <?php while (have_rows('showtimes')) { the_row(); ?>
-		      	<?php 
-		        	$date = get_sub_field('date');
-							$times = get_sub_field('times');
-							$classes = '';
-							
-							if($date < $today){
-								$classes = ' past';
-							} 
-						?>
-					  <li class="showInfo__date<?php echo $classes; ?>">
-							<?php if ($i == 0) { ?><i class="far fa-calendar-alt"></i><?php } ?><?php echo date('D, F j', strtotime($date)); ?>
-		      	<?php if (have_rows('times')) { // output all times for a given date ?>
-						<?php while (have_rows('times')) { the_row(); ?>
-							 at <?php echo date('g:ia', strtotime(get_sub_field('time'))); ?>
-						<?php } // endwhile times ?>
-						<?php } // endif times ?>
-						<?php $i++; ?>
-					  </li>
-		     	<?php } // endwhile showtimes ?>
-		      <?php } //endif showtimes ?>
-		    	<?php } // endif showtimes are available ?>   
+	       	<?php // EVENT DATES & TIMES
+		      if (!$coming_soon){
+		      	$i = 0;
+			    	if (have_rows('showtimes')) { // output all dates for a show
+				      while (have_rows('showtimes')) { the_row();
+				        	$date = get_sub_field('date');
+									$times = get_sub_field('times');
+									$classes = '';
+									
+									if($date < $today){
+										$classes = ' past';
+									} 
+								?>
+							  <li class="showInfo__date<?php echo $classes; ?>">
+									<?php 
+									if($i == 0){ 
+										echo '<i class="far fa-calendar-alt"></i>';
+									} 
+									
+									echo date('D, F j', strtotime($date));
+ 
+				      	  if (have_rows('times')) { // output all times for a given date
+										$num_times = count($times);
+										$j = 0;
+										while (have_rows('times')) { the_row(); 
+											if($j == 0){ echo ' at '; }
+											echo date('g:ia', strtotime(get_sub_field('time')));
+											if($j < $num_times - 1){ echo ', '; }
+											$j++;
+										} // endwhile times
+									} // endif times
+									$i++; 
+									?>
+							  </li>
+						  <?php 
+				     	} // endwhile showtimes
+			      } //endif showtimes
+		    	} // endif showtimes are available 
+		    	?>   
 		    	
 		    	<?php // DOORS TIME ?>
 	       	<?php if($event_doorstime != null){ ?>

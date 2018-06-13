@@ -8,12 +8,14 @@
 		foreach( $ticket_prices as $i => $price ) { // add each ticket price to the order array
 			$pricesOrdered[ $i ] = $price['ticket_price'];
 		}
+  	// put prices in order, low to high
 	  sort($pricesOrdered, SORT_NUMERIC);
 
-		if($pricesOrdered[0]['ticket_price']) { // if there is a valid ticket price, start making string
+	  // if a valid ticket price, make string
+	  if(is_array($pricesOrdered) || is_object($pricesOrdered)){
 			$ticket_string = '$';
 			$ticket_string .= $pricesOrdered[0]; // use the lowest price 				
-			if($pricesOrdered[1]){  // and if there are more prices, add a plus sign
+			if(count($pricesOrdered) > 1){  // and if there are more prices, add a plus sign
 				$ticket_string .= '+'; 
 			} 
 		}

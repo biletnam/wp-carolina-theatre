@@ -928,6 +928,13 @@
 		"oAP": "\/template-parts\/event-external_links.php",
 		"oF": 0
 		},
+	"\/template-parts\/event-get_soonest_date.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/event-get_soonest_date.php",
+		"oF": 0
+		},
 	"\/template-parts\/event-thumbnail_card.php": {
 		"cB": 0,
 		"ft": 8192,
