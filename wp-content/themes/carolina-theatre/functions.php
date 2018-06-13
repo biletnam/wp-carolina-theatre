@@ -544,3 +544,24 @@ require get_template_directory() . '/inc/custom_walker-icon.php';
  */
 require get_template_directory() . '/inc/tinymce.php';
 
+
+/**
+ * Conditionally Override Yoast SEO Breadcrumb Trail for custom post types 'event' and 'film'
+ * http://plugins.svn.wordpress.org/wordpress-seo/trunk/frontend/class-breadcrumbs.php
+ * -----------------------------------------------------------------------------------
+ */
+add_filter( 'wpseo_breadcrumb_links', 'carolinatheatre_override_yoast_breadcrumb_trail' );
+function carolinatheatre_override_yoast_breadcrumb_trail( $links ) {
+  global $post;
+
+  if ( is_singular( 'film' ) || is_singular('event') ) {
+    $breadcrumb[] = array(
+      'url' => get_permalink(4),
+      'text' => 'Events',
+    );
+
+    array_splice( $links, 1, -2, $breadcrumb );
+  }
+
+  return $links;
+}

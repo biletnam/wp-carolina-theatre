@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: News & Press
- * The template for displaying archive pages
+ * The template for displaying archived blog pages
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *

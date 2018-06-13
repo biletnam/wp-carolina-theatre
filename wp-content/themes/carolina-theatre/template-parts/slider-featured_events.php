@@ -27,6 +27,7 @@
 			$class_names = 'film';
 		}
 
+
 		// Get soonest date
 		$showtime_soonestDate = $start_date; 	
 		$showtime_soonestTime = ''; 
@@ -181,4 +182,5 @@
       </div> 
     </div> 
   <?php } // end foreach ?>
+  <?php wp_reset_postdata(); ?>
 </div> <!-- .carousel -->

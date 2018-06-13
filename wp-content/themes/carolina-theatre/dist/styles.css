@@ -1080,6 +1080,10 @@ blockquote {
   font-size: 0.75rem;
   line-height: 1.15;
   margin-bottom: 2em; }
+  .footer__contact p a {
+    text-decoration: none; }
+    .footer__contact p a:hover {
+      text-decoration: underline; }
 
 .footer__copyright p {
   font-size: 10px;
@@ -2472,3 +2476,6 @@ div.wpcf7-validation-errors {
   background: #fff;
   -webkit-transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
   transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); }
+
+.blogPost__image {
+  margin-bottom: 3em; }

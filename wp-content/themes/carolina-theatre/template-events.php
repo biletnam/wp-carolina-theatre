@@ -9,7 +9,7 @@
 <?php if(get_field('featured_events')){ ?>
 <section class="featuredEvent_carousel">
   <div class="container contain">
-  	<h2>Featured Events</h2>
+  	<h1>Featured Events</h1>
     <?php get_template_part('template-parts/slider', 'featured_events'); ?>
   </div>
 </section>

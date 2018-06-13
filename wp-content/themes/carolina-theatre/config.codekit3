@@ -344,6 +344,13 @@
 		"oAP": "\/sidebar-events.php",
 		"oF": 0
 		},
+	"\/sidebar-news.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/sidebar-news.php",
+		"oF": 0
+		},
 	"\/sidebar.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -676,6 +683,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/src\/scss\/styles\/_blog.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/src\/scss\/styles\/_blog.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/src\/scss\/styles\/_colors.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -842,13 +862,6 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/template-homepage.php",
-		"oF": 0
-		},
-	"\/template-news.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/template-news.php",
 		"oF": 0
 		},
 	"\/template-parent.php": {
