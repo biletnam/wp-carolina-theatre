@@ -12,51 +12,33 @@
 
 get_header(); ?>
 
-<div class="wrap">
+<section class="pageHeading contain searchHeader">
+	<div class="container">
+		<h1 class="pageTitle">Search Results</h1>
+		<?php if ( have_posts() ) { ?>
+			<p>Search results for "<span><?php echo get_search_query(); ?></span>"</p>
+		<?php } else { ?>
+			<p>No results for "<span><?php echo get_search_query(); ?></span>"</p>
+		<?php } // endif; ?>
+	</div>
+</section>
 
-	<header class="page-header">
-		<?php if ( have_posts() ) : ?>
-			<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'carolinatheatre' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-		<?php else : ?>
-			<h1 class="page-title"><?php _e( 'Nothing Found', 'carolinatheatre' ); ?></h1>
-		<?php endif; ?>
-	</header><!-- .page-header -->
+<div class="mainContent contain">
+  <section class="mainContent__content">
+  	<div class="container">
+		
+		<?php if(have_posts()){ ?>
+			<?php while(have_posts()){ the_post(); ?>
+				<div class="searchResult">
+					<h4><a href="<?php echo the_permalink(); ?>"><?php the_title(); ?></h4></a>			
+				</div>
+			<?php } wp_reset_postdata(); // End of the loop. ?>
+		<?php } else { ?>
+			
+		<?php } //endif; ?>
+   </div>
+  </section>  
+	<?php get_sidebar('events'); ?>
+</div>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
-		<?php
-		if ( have_posts() ) :
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
-
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/post/content', 'excerpt' );
-
-			endwhile; // End of the loop.
-
-			the_posts_pagination( array(
-				'prev_text' => carolinatheatre_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'carolinatheatre' ) . '</span>',
-				'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'carolinatheatre' ) . '</span>' . carolinatheatre_get_svg( array( 'icon' => 'arrow-right' ) ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'carolinatheatre' ) . ' </span>',
-			) );
-
-		else : ?>
-
-			<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'carolinatheatre' ); ?></p>
-			<?php
-				get_search_form();
-
-		endif;
-		?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-	<?php get_sidebar(); ?>
-</div><!-- .wrap -->
-
-<?php get_footer();
+<?php get_footer(); ?>

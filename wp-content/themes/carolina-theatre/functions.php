@@ -524,3 +524,8 @@ require get_template_directory() . '/inc/custom_walker-icon.php';
  */
 require get_template_directory() . '/inc/tinymce.php';
 
+/**
+ * Extend default searching to include taxonomies (for events/films)
+ */
+// require get_template_directory() . '/inc/search.php';
+

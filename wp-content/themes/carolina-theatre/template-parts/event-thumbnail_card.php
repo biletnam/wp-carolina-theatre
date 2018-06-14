@@ -32,8 +32,9 @@ if (get_post_type() == 'film') {
 }
 
 if(have_rows('event_filters')){
+	$filters .= ' ';
 	while(have_rows('event_filters')){ the_row();
-		$filters .= ' '.get_sub_field('slug');
+		$filters .= get_sub_field('slug') . ' ';
 	}	
 }
 ?>

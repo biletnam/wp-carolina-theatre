@@ -621,5 +621,20 @@ $sidebarLargest: 480px;
 	}
 }
 
+.searchResult {
+	border-top: 1px solid $gray;
+	padding: 20px 0;
 
+	a {
+		&:hover {
+			color: $green;
+		}
+	}
+}
+
+.searchHeader {
+	span {
+
+	}
+}
 

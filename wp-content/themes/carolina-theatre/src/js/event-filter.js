@@ -1,21 +1,25 @@
 jQuery(function($) {
 	
-	// TO-DO: GET THIS ALL CLEANED UP & WORKING WITH $_GET
+	// TO-DO: GET THIS WORKING WITH $_GET
 	function filterCards(filterObj){
 		var filter = filterObj.data('filter');
 		var eventCard = '.events .eventCard';
 		// console.log(filter);
-		
-		$(eventCard).each(function(i){
-      var filterMe = $(this).data('filterme');                
-			if(filter === 'all'){
+		if(filter === 'all'){
+			$(eventCard).each(function(i){
 				$(this).show();
-			} else if (filterMe.indexOf(filter) != -1) {
-				$(this).show();
-			} else {
-				$(this).hide();
-			}
-		});
+			});
+		} else {
+			filter = ' '+filter+' ';	// so events with tag 'anime-magic' dont get included with filter 'magic'
+			matchingCards = $(eventCard + '[data-filterme*="'+filter+'"]');
+			
+			$(eventCard).each(function(i){
+				$(this).hide(); // hide all cards
+			});
+			matchingCards.each(function(i){
+				$(this).show(); // show all cards with matching filter
+			});
+		}
 	}
 
 	$(document).ready(function() {

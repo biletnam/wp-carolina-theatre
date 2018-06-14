@@ -6,9 +6,11 @@
 <aside class="mainContent__sidebar">
 	<div class="container">
     <?php // TO-DO: Get search setup ?>
+		
+
+
     <div class="upcoming-events__sidebar--search">
-      <input type="text" placeholder="Search..." />
-      <button>Search Events</button>
+			<?php get_search_form(); ?>
     </div>
     
     <?php // TO-DO: Get sidebars setup ?>

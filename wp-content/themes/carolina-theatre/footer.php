@@ -41,9 +41,9 @@
 </section>
 <?php } //end if $show_social_feed ?>
 
-<?php if(have_rows('social_media_accounts', 'options')){ ?>
+<?php if(have_rows('social_media_accounts', 'option')){ ?>
 <section class="socialmedia__bar">
-	<?php while(have_rows('social_media_accounts', 'options')){ the_row(); ?>
+	<?php while(have_rows('social_media_accounts', 'option')){ the_row(); ?>
 	<div class="socialmedia__bar--icon">
 		<?php 
 			$platform = get_sub_field('platform');
@@ -79,10 +79,10 @@
 	  </div>
 	<?php } //endif newsletter ?>
 
-	<?php if(have_rows('footer_sitemap', 'options')){ ?>
+	<?php if(have_rows('footer_sitemap', 'option')){ ?>
 	<div class="footer__sitemap">
 		<div class="container contain">
-			<?php while(have_rows('footer_sitemap', 'options')){ the_row(); ?>
+			<?php while(have_rows('footer_sitemap', 'option')){ the_row(); ?>
 			<div class="footer__sitemap-column">
 				<?php 
 					$title = get_sub_field('column_title');
@@ -104,7 +104,7 @@
 
 	<div class="footer__logo">
 		<?php
-			$footer_logo = get_field('footer_logo', 'options');
+			$footer_logo = get_field('footer_logo', 'option');
 			if($footer_logo){
 				echo file_get_contents($footer_logo);
 			} else {

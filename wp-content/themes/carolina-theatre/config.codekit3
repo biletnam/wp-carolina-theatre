@@ -292,6 +292,13 @@
 		"oAP": "\/inc\/custom_walker-icon.php",
 		"oF": 0
 		},
+	"\/inc\/search.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/inc\/search.php",
+		"oF": 0
+		},
 	"\/inc\/tinymce.php": {
 		"cB": 0,
 		"ft": 8192,

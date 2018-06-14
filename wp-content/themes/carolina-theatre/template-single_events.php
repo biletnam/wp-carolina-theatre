@@ -88,8 +88,15 @@
 	      <p class="singleEvent__specialGuests h3"><?php echo $event_specialguests; ?></p>
 	      <?php } ?>
 	      <?php if (!empty($event_subheading)) { ?>
-	      <p class="singleEvent__subtitle"><?php echo $event_subheading; ?></p>
+	      <p class="singleEvent__subtitle small"><?php echo $event_subheading; ?></p>
 	      <?php } ?>
+	    </div>
+
+	    <div class="singleEvent__soonestShowtime">
+	    	<i class="far fa-calendar-alt"></i> <?php echo date('l, F j', strtotime($showtime_soonestDate)); ?><?php if($showtime_soonestTime){ echo ' at '. date('g:ia', strtotime($showtime_soonestTime)); } ?>
+	    	<?php if(count(get_field('showtimes')) > 1){
+	    		// echo '+';
+	    	} ?>
 	    </div>
 
 	    <div class="singleEvent__tickets--mobile">

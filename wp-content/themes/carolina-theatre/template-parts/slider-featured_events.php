@@ -10,15 +10,15 @@
 		
 		$dateString = '';
 		if($start_date && $end_date){
-			$dateString = date('M j', strtotime($start_date));
+			$dateString = date('F j', strtotime($start_date));
 			$dateString .= ' - ';
 			
 			if($start_date == $end_date) {
-				$dateString = date('F j, Y', strtotime($start_date));	
+				$dateString = date('l, F j', strtotime($start_date));	
 			} else if(date('M', strtotime($start_date)) === date('M', strtotime($end_date))) {
-				$dateString .= date('j, Y', strtotime($end_date));			
+				$dateString .= date('j', strtotime($end_date));			
 			} else {
-				$dateString .= date('M j, Y', strtotime($end_date));			
+				$dateString .= date('F j', strtotime($end_date));			
 			}
 		}
 

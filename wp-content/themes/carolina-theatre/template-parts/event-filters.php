@@ -71,10 +71,17 @@ if(!$html = get_transient($cache_key)){
 	// remove any duplicated filters from the arrays
 	$event_filters_unique = unique_multidim_array($event_filters, 'slug');
 	$film_filters_unique = unique_multidim_array($film_filters, 'slug');
+
+	// sort filters alphabetically
+	function cmp($a, $b){
+    return strcmp($a['name'], $b['name']);
+	} 
+	usort($event_filters_unique, "cmp");
+	usort($film_filters_unique, "cmp");
  	?>
 
 	<ul class="upcoming-events__type">
-    <li class="tabbedContent__tab active-link" data-filter="all">All</li>
+    <li class="tabbedContent__tab active-link" data-filter="all">All Events</li>
     <li class="tabbedContent__tab" data-filter="film">Film</li>
     <?php // add filters based on active event types
     foreach($event_filters_unique as $filter){
