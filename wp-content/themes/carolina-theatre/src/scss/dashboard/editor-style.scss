@@ -13,9 +13,8 @@ $transition: all .5s ease;
 /**
  * Typography
  */
-body {
-	padding-left: 20px;
-	padding-right: 20px;
+body#tinymce {
+  margin: 20px;
 }
 
 body,
@@ -200,7 +199,7 @@ hr {
 ul,
 ol {
 	margin: 0 0 1.5em;
-	padding: 0;
+	padding-left: 2em;
 }
 
 ul {

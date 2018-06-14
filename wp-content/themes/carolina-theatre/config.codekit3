@@ -1012,6 +1012,13 @@
 		"oAP": "\/template-parts\/film-ticket_prices.php",
 		"oF": 0
 		},
+	"\/template-parts\/news-thumbnail_card.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/news-thumbnail_card.php",
+		"oF": 0
+		},
 	"\/template-parts\/part-breadcrumb.php": {
 		"cB": 0,
 		"ft": 8192,

@@ -31,26 +31,7 @@ get_header(); ?>
 			if (have_posts()) { ?>
 	      <div class="card__wrapper">
 					<?php while (have_posts()) { the_post(); ?>
-					  <div class="card newsCard">
-					  	<a href="<?php echo get_page_link(get_the_id()); ?>">
-						  	<div class="card__infoWrapper">
-									<p class="card__subtitle h5"><?php echo get_the_date('F j'); ?></p>
-									<p class="card__title"><?php the_title(); ?></p>
-									<div class="card__info">
-										<div class="card__excerpt small"><?php the_excerpt(); ?></div>	
-									</div>
-									<?php if(get_the_category()){ ?>
-									<div class="card__categories">
-									<i class="far fa-tag"></i>
-									<?php foreach((get_the_category()) as $category){
-						        echo '<em>'.$category->name.'</em>';
-					        } ?>
-									</div>
-					        <?php } ?>
-			          </div>
-					      <div class="button card__button"><span>Read More <i class="fas fa-arrow-right"></i></span></div>
-					    </a>
-					  </div>
+					  <?php get_template_part('template-parts/news', 'thumbnail_card'); ?>
 		  		<?php } // endwhile have_posts posts_query ?>
 	 			</div>
 				<?php wp_reset_postdata(); ?>
