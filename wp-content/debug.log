@@ -1,11 +1,66 @@
-[13-Jun-2018 17:32:06 America/New_York] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/part-featured_news.php on line 35
-[13-Jun-2018 17:35:41 America/New_York] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Post as array in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/part-featured_news.php:3
+[14-Jun-2018 12:52:12 UTC] PHP Fatal error:  Uncaught Error: [] operator not supported for strings in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/social-share-button/includes/functions.php:93
 Stack trace:
-#0 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/template.php(690): require()
-#1 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/template.php(647): load_template('/Users/joeycart...', false)
-#2 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/general-template.php(155): locate_template(Array, true, false)
-#3 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-archive_blog.php(22): get_template_part('template-parts/...', 'featured_news')
-#4 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/template-loader.php(74): include('/Users/joeycart...')
-#5 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-blog-header.php(19): require_once('/Users/joeycart...')
-#6 /Users/joeycarty/Desktop/wp-carolina-theatre/index.php(17): require('/Users/joeycart...')
-#7 {main} in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/part-featured_news.php on line 3
+#0 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/class-wp-hook.php(286): social_share_button_filter_the_content('<p>Curabitur vu...')
+#1 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/plugin.php(203): WP_Hook->apply_filters('<p>Curabitur vu...', Array)
+#2 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/formatting.php(3313): apply_filters('the_content', 'Curabitur vulpu...')
+#3 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/class-wp-hook.php(288): wp_trim_excerpt('Curabitur vulpu...')
+#4 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/plugin.php(203): WP_Hook->apply_filters('', Array)
+#5 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/post-template.php(397): apply_filters('get_the_excerpt', '', Object(WP_Post))
+#6 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/social-share-button/includes/functions.php on line 93
+[14-Jun-2018 12:52:13 UTC] PHP Fatal error:  Uncaught Error: [] operator not supported for strings in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/social-share-button/includes/functions.php:93
+Stack trace:
+#0 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/class-wp-hook.php(286): social_share_button_filter_the_content('<p>Curabitur vu...')
+#1 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/plugin.php(203): WP_Hook->apply_filters('<p>Curabitur vu...', Array)
+#2 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/formatting.php(3313): apply_filters('the_content', 'Curabitur vulpu...')
+#3 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/class-wp-hook.php(288): wp_trim_excerpt('Curabitur vulpu...')
+#4 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/plugin.php(203): WP_Hook->apply_filters('', Array)
+#5 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-includes/post-template.php(397): apply_filters('get_the_excerpt', '', Object(WP_Post))
+#6 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/social-share-button/includes/functions.php on line 93
+[14-Jun-2018 12:56:24 UTC] PHP Notice:  Undefined index: social_share_button_display in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/social-share-button/includes/menu/settings.php on line 73
+[14-Jun-2018 12:56:24 UTC] PHP Warning:  Invalid argument supplied for foreach() in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/social-share-button/includes/menu/settings.php on line 75
+[14-Jun-2018 12:56:24 UTC] PHP Notice:  Undefined variable: social_share_button_display_array in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/social-share-button/includes/menu/settings.php on line 85
+[14-Jun-2018 12:57:15 UTC] PHP Warning:  Illegal string offset 'facebook' in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/social-share-button/includes/functions.php on line 230
+[14-Jun-2018 12:57:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/social-share-button/includes/functions.php on line 230
+[14-Jun-2018 12:57:15 UTC] PHP Warning:  Illegal string offset 'twitter' in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/social-share-button/includes/functions.php on line 234
+[14-Jun-2018 12:57:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/social-share-button/includes/functions.php on line 234
+[14-Jun-2018 12:57:15 UTC] PHP Warning:  Illegal string offset 'google-plus' in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/social-share-button/includes/functions.php on line 234
+[14-Jun-2018 12:57:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/social-share-button/includes/functions.php on line 234
+[14-Jun-2018 12:57:15 UTC] PHP Warning:  Illegal string offset 'reddit' in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/social-share-button/includes/functions.php on line 234
+[14-Jun-2018 12:57:15 UTC] PHP Notice:  Uninitialized string offset: 0 in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/social-share-button/includes/functions.php on line 234
+[14-Jun-2018 09:41:18 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:42:45 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:43:17 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:43:45 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:43:49 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:44:07 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:44:14 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:45:16 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:45:36 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:47:01 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:48:22 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:48:57 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:49:11 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:49:36 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:49:52 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:50:16 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:51:17 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:52:48 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:53:03 America/New_York] PHP Notice:  Undefined variable: image_cap in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/slider-image_video.php on line 32
+[14-Jun-2018 09:57:32 America/New_York] PHP Notice:  Undefined variable: events_query in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/archive.php on line 59
+[14-Jun-2018 09:57:32 America/New_York] PHP Notice:  Trying to get property of non-object in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/archive.php on line 59
+[14-Jun-2018 09:57:32 America/New_York] PHP Notice:  Undefined variable: events_query in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/archive.php on line 78
+[14-Jun-2018 09:57:32 America/New_York] PHP Notice:  Trying to get property of non-object in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/archive.php on line 78
+[14-Jun-2018 09:57:32 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/archive.php on line 82
+[14-Jun-2018 09:57:55 America/New_York] PHP Notice:  Undefined variable: events_query in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/archive.php on line 59
+[14-Jun-2018 09:57:55 America/New_York] PHP Notice:  Trying to get property of non-object in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/archive.php on line 59
+[14-Jun-2018 09:57:55 America/New_York] PHP Notice:  Undefined variable: events_query in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/archive.php on line 78
+[14-Jun-2018 09:57:55 America/New_York] PHP Notice:  Trying to get property of non-object in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/archive.php on line 78
+[14-Jun-2018 09:57:55 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/archive.php on line 82
+[14-Jun-2018 13:59:38 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/archive.php on line 107
+[14-Jun-2018 14:00:03 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/archive.php on line 107
+[14-Jun-2018 14:00:05 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/archive.php on line 107
+[14-Jun-2018 10:43:14 America/New_York] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/sidebar-news.php on line 26
+[14-Jun-2018 10:43:38 America/New_York] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/sidebar-news.php on line 26
+[14-Jun-2018 10:43:55 America/New_York] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/sidebar-news.php on line 27
+[14-Jun-2018 10:43:59 America/New_York] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/sidebar-news.php on line 26
+[14-Jun-2018 10:44:01 America/New_York] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/sidebar-news.php on line 26

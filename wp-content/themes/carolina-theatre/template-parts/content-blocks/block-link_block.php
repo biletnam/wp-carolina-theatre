@@ -3,7 +3,7 @@
 
 	if ( is_singular( 'film' ) || is_singular('event')) {
 		$page_id = 4;
-	} else if ( is_singular( 'post' )){
+	} else if ( is_singular( 'post' ) || is_category() || is_archive()){
 		$page_id = 579;
 	}
 ?>

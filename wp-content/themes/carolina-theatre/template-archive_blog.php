@@ -48,13 +48,20 @@ get_header(); ?>
 									<p class="card__subtitle h5"><?php echo get_the_date('F j'); ?></p>
 									<p class="card__title"><?php the_title(); ?></p>
 									<div class="card__info">
-										<p class="card__excerpt small"><?php the_excerpt(); ?></p>	
+										<div class="card__excerpt small"><?php the_excerpt(); ?></div>	
 									</div>
+									<?php if(get_the_category()){ ?>
+									<div class="card__categories">
+									<i class="far fa-tag"></i>
+									<?php foreach((get_the_category()) as $category){
+						        echo '<em>'.$category->name.'</em>';
+					        } ?>
+									</div>
+					        <?php } ?>
 			          </div>
 					      <div class="button card__button"><span>Read More <i class="fas fa-arrow-right"></i></span></div>
 					    </a>
 					  </div>
-					  <?php //get_template_part('template-parts/event', 'thumbnail_card'); ?>
 		  		<?php } // endwhile have_posts posts_query ?>
 	 			</div>
 

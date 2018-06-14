@@ -2477,8 +2477,84 @@ div.wpcf7-validation-errors {
   -webkit-transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
   transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); }
 
+.card__excerpt p {
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical; }
+
+.card__categories {
+  margin-top: 10px;
+  font-size: 12px;
+  font-size: 0.75rem; }
+  .card__categories i {
+    opacity: .6; }
+
+.blogPost__categories {
+  position: relative;
+  margin-top: 20px;
+  padding-left: 30px; }
+  .blogPost__categories i {
+    position: absolute;
+    left: 0px;
+    top: 4px;
+    opacity: .6; }
+
 .blogPost__image {
   margin-bottom: 3em; }
 
 .featuredPost {
   border: 1px solid #ccc; }
+
+.socialShare {
+  padding-top: 2em;
+  margin-top: 3em; }
+  .socialShare__link {
+    position: relative;
+    min-width: 60px;
+    display: inline-block;
+    background-color: #72bcae;
+    color: #fff;
+    margin-right: 10px;
+    border-radius: 3px;
+    padding: 2px 10px 0;
+    font-size: 14px;
+    font-size: 0.875rem;
+    text-align: center;
+    opacity: .6; }
+    .socialShare__link::after {
+      content: 'share on';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+              transform: translateX(-50%);
+      opacity: 0;
+      font-weight: 600;
+      width: 100%;
+      height: 100%;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-size: 0.75rem;
+      letter-spacing: .06em;
+      -webkit-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+      color: #333; }
+    .socialShare__link:hover {
+      opacity: 1; }
+      .socialShare__link:hover::after {
+        top: -100%;
+        opacity: 1; }
+  .socialShare--facebook {
+    background-color: #3b5998; }
+  .socialShare--twitter {
+    background-color: #1da1f2; }
+  .socialShare--googleplus {
+    background-color: #db4437; }
+  .socialShare--linkedin {
+    background-color: #007bb5; }
+  .socialShare--pinterest {
+    background-color: #bd081c; }
+  .socialShare--reddit {
+    background-color: #ff5700; }

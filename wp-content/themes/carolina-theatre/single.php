@@ -49,7 +49,6 @@ get_header(); ?>
 }
 </script>
 
-<?php // TO-DO: style blog ?>
 <?php get_template_part( 'template-parts/part', 'breadcrumb' ); ?>
 <header class="blogPost__header contain container">
 	<h1><?php the_title(); ?></h1>
@@ -64,11 +63,14 @@ get_header(); ?>
 		  </div>
 		  <?php } ?>
 			<main class="blogPost__content">
-				<?php the_content(); ?>		
+				<?php the_content(); ?>	
+
 			</main>
 			<footer class="blogPost__footer">
-				<?php // TO-DO: social share button plugin ?>
-				
+				<?php // TO-DO: check that social share works on remote server ?>
+				<div class="socialShare">
+					<?php get_template_part('template-parts/part', 'social_sharing'); ?>						
+				</div>
 
 				<div class="blogPost__categories">
 				<?php if(get_the_category()){ echo '<i class="far fa-tag"></i> <em><span class="small">'; the_category( ', ' ); echo '</span></em>'; } ?>

@@ -345,7 +345,7 @@ function carolinatheatre_override_yoast_breadcrumb_trail( $links ) {
     array_splice( $links, 1, -2, $breadcrumb );
   }
 
-  if ( is_singular( 'post' ) ){
+  if ( is_singular( 'post' ) || is_archive() || is_category() ){
     $breadcrumb[] = array(
       'url' => get_permalink(579),
       'text' => 'News & Press',

@@ -125,6 +125,10 @@
 				<?php get_template_part( 'template-parts/content-blocks/content-blocks' ); ?>
 			</div>
 
+			<div class="socialShare">
+				<?php get_template_part('template-parts/part', 'social_sharing'); ?>						
+			</div>
+
     	<?php
     		// RELATED POSTS
     		// TO-DO: fix this to use the correct custom taxonomies

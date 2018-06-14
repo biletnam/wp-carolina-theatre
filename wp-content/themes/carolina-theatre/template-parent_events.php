@@ -129,8 +129,11 @@
         	</div>
 	    	<?php } // end while have_rows for tabs ?>
 	    	<?php } // end if have_rows for tabs ?>
-
 	  	</div>
+
+	  	<div class="socialShare">
+				<?php get_template_part('template-parts/part', 'social_sharing'); ?>						
+			</div>
 	  </div>
   </section> <!-- Main Content Content end -->
   <aside class="mainContent__sidebar">
