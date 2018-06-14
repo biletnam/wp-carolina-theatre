@@ -17,15 +17,15 @@ if(is_array($showtimes) || is_object($showtimes)){
 	  	if(is_array($times) || is_object($times)){
 		  	foreach($times as $time) {	
 					$upcoming_showtimes[$i]['times'][$j] = $time;	
-				  $j++;	
+				  $j++;
 		  	}	
 		  }
 		  $i++;	
 	  }	
 	}
 	$showtime_soonestDate = $upcoming_showtimes[0]['date']; 	
-	
-	if($showtime_soonestTime != NULL){
+
+	if($showtime_soonestDate != NULL){
 		$showtime_soonestTime = $upcoming_showtimes[0]['times'][0]['time']; 	
 	}
 }

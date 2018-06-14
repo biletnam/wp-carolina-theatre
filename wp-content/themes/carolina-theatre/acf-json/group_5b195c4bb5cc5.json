@@ -819,7 +819,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "hidden",
                 "id": ""
             },
             "collapsed": "field_5b2136c0a9edb",
@@ -895,5 +895,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1528903396
+    "modified": 1529002223
 }
