@@ -73,7 +73,7 @@ get_header(); ?>
 				</div>
 
 				<div class="blogPost__categories">
-				<?php if(get_the_category()){ echo '<i class="far fa-tag"></i> <em><span class="small">'; the_category( ', ' ); echo '</span></em>'; } ?>
+				<?php if(get_the_category()){ echo '<i class="far fa-tag"></i> <em>'; the_category( ', ' ); echo '</em>'; } ?>
 				</div>
 			</footer>
     </div><!-- .container -->

@@ -64,3 +64,4 @@ Stack trace:
 [14-Jun-2018 10:43:55 America/New_York] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/sidebar-news.php on line 27
 [14-Jun-2018 10:43:59 America/New_York] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/sidebar-news.php on line 26
 [14-Jun-2018 10:44:01 America/New_York] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/sidebar-news.php on line 26
+[14-Jun-2018 10:48:19 America/New_York] PHP Parse error:  syntax error, unexpected '$image_url' (T_VARIABLE), expecting ',' or ';' in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/themes/carolina-theatre/template-parts/part-featured_news.php on line 11
