@@ -19,6 +19,9 @@ if(!$ids = get_transient($cache_key)){
 				'value'		=> $today,
 			),
 		),
+		'meta_key' => 'soonest_date', // order by the soonest date (may not be most recent, but close enough)
+    'orderby' => 'meta_value_num', // 'soonest_date' is a number (ie 20180704)
+    'order' => 'ASC',
 	);
 	$eventSlider_IDs = new WP_Query($eventSlider_query_args);
 
@@ -32,9 +35,6 @@ if(!$ids = get_transient($cache_key)){
 	$eventSlider_query = new WP_Query(array(
     'post_type' => array('event', 'film'),
     'post__in' => $ids,
-    'meta_key' => 'soonest_date', // order by the soonest date (may not be most recent, but close enough)
-    'orderby' => 'meta_value_num', // 'soonest_date' is a number (ie 20180704)
-    'order' => 'ASC',
 	));
 		if ($eventSlider_query->have_posts()) {
 			while ($eventSlider_query->have_posts()) { $eventSlider_query->the_post();
