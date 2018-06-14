@@ -142,6 +142,9 @@ p, .p {
     p a:hover, .p a:hover {
       color: #72bcae; }
 
+ul {
+  padding-left: 2em; }
+
 small, .small {
   font-size: 87.5%;
   margin-top: .5em;
@@ -752,6 +755,7 @@ blockquote {
     text-decoration: underline; }
   .sub-menu a:not([href]) {
     font-family: "industry", sans-serif;
+    font-weight: 700;
     text-transform: uppercase;
     font-size: 12px;
     font-size: 0.75rem;
@@ -1343,13 +1347,16 @@ main {
     .mainContent:not(.mainContent__noSidebar) {
       display: -webkit-box;
       display: -ms-flexbox;
-      display: flex; } }
+      display: flex;
+      width: 100%; } }
   .mainContent__content {
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
-            flex-grow: 1; }
+            flex-grow: 1;
+    overflow: hidden; }
     .mainContent__content > .container {
-      padding-top: 0; }
+      padding-top: 0;
+      width: 100%; }
   .mainContent__sidebar {
     background-color: #f9f7f0;
     background-image: url("../src/img/patterns/pattern-white.png");
@@ -1379,6 +1386,10 @@ main {
     .mainContent__sidebar > .container {
       padding-left: 30px;
       padding-right: 30px; }
+      @media screen and (max-width: 940px) {
+        .mainContent__sidebar > .container {
+          padding-left: 20px;
+          padding-right: 20px; } }
       .mainContent__sidebar > .container > * {
         padding-bottom: 30px;
         padding-top: 30px;
@@ -1694,6 +1705,7 @@ textarea {
   min-height: 50px; }
 
 select {
+  -moz-appearance: none;
   -webkit-appearance: listbox;
   font-size: 14px;
   font-size: 0.875rem;
@@ -1889,6 +1901,7 @@ div.wpcf7-validation-errors {
 
 .stat_value {
   font-family: "industry", sans-serif;
+  font-weight: 700;
   font-size: 40px;
   font-size: 2.5rem;
   line-height: .8; }
@@ -1908,6 +1921,7 @@ div.wpcf7-validation-errors {
 .stat_link {
   width: 100%;
   font-family: "industry", sans-serif;
+  font-weight: 700;
   font-size: 14px;
   font-size: 0.875rem;
   text-transform: uppercase; }
@@ -2024,13 +2038,36 @@ div.wpcf7-validation-errors {
   .singleEvent__videos p {
     margin-left: 10%; }
 
-.singleEvent__headings {
+.singleEvent__headings > * {
+  line-height: 1; }
+
+.singleEvent__tickets--mobile {
+  display: none; }
+  @media screen and (max-width: 940px) {
+    .singleEvent__tickets--mobile {
+      display: block; } }
+
+.singleEvent__relatedPosts {
+  border-top: 1px solid #ccc;
   padding-top: 2em;
-  padding-bottom: 1.5em; }
-  .singleEvent__headings > * {
-    line-height: 1; }
+  margin-top: 3em; }
+  .singleEvent__relatedPosts .card__wrapper {
+    margin-top: 2em; }
+
+.singleEvent__tickets--mobile, .singleEvent__headings, .singleEvent__description {
+  margin-top: 2em;
+  margin-bottom: 1.5em; }
+
+@media screen and (max-width: 640px) {
+  .singleEvent__relatedPosts,
+  .socialShare {
+    display: none; } }
 
 .event__dateBox {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  right: 0;
   width: 40px;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -2042,17 +2079,12 @@ div.wpcf7-validation-errors {
   .event__dateBox .day {
     font-size: 22px;
     font-size: 1.375rem;
-    font-family: "industry", sans-serif; }
+    font-family: "industry", sans-serif;
+    font-weight: 700; }
   .event__dateBox .month {
     font-size: 10px;
     font-size: 0.625rem;
     text-transform: uppercase; }
-
-.event__dateBox {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  right: 0; }
 
 .showInfo__showdates {
   margin: 0;
@@ -2141,13 +2173,6 @@ div.wpcf7-validation-errors {
 
 .pageHeader h1 {
   line-height: 1; }
-
-.singleEvent__relatedPosts {
-  border-top: 1px solid #ccc;
-  padding-top: 2em;
-  margin-top: 3em; }
-  .singleEvent__relatedPosts .card__wrapper {
-    margin-top: 10px; }
 
 .cardSlider .slick-track {
   display: -webkit-box;

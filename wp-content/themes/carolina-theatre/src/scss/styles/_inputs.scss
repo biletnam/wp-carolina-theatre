@@ -155,6 +155,7 @@ textarea {
 }
 
 select {
+	-moz-appearance: none; // removes defualt styles in Firefox
 	-webkit-appearance: listbox; // removes defualt styles in Safari
 	@include rem(14);
 	height: 40px;

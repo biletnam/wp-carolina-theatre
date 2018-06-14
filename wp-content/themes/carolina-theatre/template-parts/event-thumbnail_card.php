@@ -5,10 +5,14 @@ $end_date = get_field('end_date');
 date_default_timezone_set('America/New_York');
 $today = date("Ymd", strtotime('today')); 
 
-// get closest date's earliest time
-// $showtime_soonestDate (Ymd - 20180704)
-// $showtime_soonestTime (g:ia - 7:30pm or empty string)
-include(locate_template('template-parts/event-get_soonest_date.php', false, true));
+if($end_date < $today) {
+	$showtime_soonestDate = $end_date;
+} else {
+	// get closest date's earliest time
+	// $showtime_soonestDate (Ymd - 20180704)
+	// $showtime_soonestTime (g:ia - 7:30pm or empty string)
+	include(locate_template('template-parts/event-get_soonest_date.php', false, true));
+}
 
 /////// ASSIGN CLASS NAMES FOR EACH EVENT
 $filters = '';
@@ -89,7 +93,7 @@ if(have_rows('event_filters')){
         	<?php } ?>
         <?php } ?>
         
-    		<?php get_template_part( 'template-parts/part', 'event_ticketLowest' ); ?>
+    		<?php get_template_part( 'template-parts/event', 'ticket_prices' ); ?>
       </div>
     </div>
     <div class="button card__button"><span>Tickets & Info <i class="fas fa-arrow-right"></i></span></div>

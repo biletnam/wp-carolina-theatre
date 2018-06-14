@@ -84,23 +84,19 @@
 	      <div class="tabbedContent__content films card__wrapper hide-tab-content">
 	        <?php // get associated films with this festival
 					$associatedFilms_query_args = array(
-						'post_type' 			=> array('film'),
-						'post_status' 		=> 'publish',
-						'posts_per_page' 	=> -1,
-						'meta_query' 			=> array ( 
+						'post_type' => array('event', 'film'),
+						'post_status' => 'publish',
+						'posts_per_page' => -1,
+						'meta_query'	=> array(
 							array(
 	              'key'     				=> 'associated_event',
 	              'value'   				=> get_the_id(),
 	              'compare' 				=> '=',
-	              'start_clause' 		=> array('key' => 'start_date'),
-							  'end_clause' 			=> array('key' => 'end_date')
               )
-            ),
-						'orderby' 				=> array(
-						  'relation' 				=> 'AND',
-						  'start_clause'		=> 'ASC',
-						  'end_clause' 			=> 'ASC'
 						),
+						'meta_key' => 'start_date', // order by the soonest date (may not be most recent, but close enough)
+			      'orderby' => 'meta_value_num', // 'soonest_date' is a number (ie 20180704)
+			      'order' => 'ASC',
 					);
 
 					// The Loop
@@ -181,7 +177,7 @@
 					<p><i class="far fa-map-marker-alt"></i><?php echo $event_location; ?></p>
        		<?php } // end event_location ?>
 	       	
-	       	<?php get_template_part( 'template-parts/part', 'event_ticketLowest' ); ?>
+	       	<?php get_template_part( 'template-parts/event', 'ticket_prices' ); ?>
 		    </div>
   		</div>
    	

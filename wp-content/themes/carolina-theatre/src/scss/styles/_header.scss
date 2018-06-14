@@ -429,6 +429,7 @@
 		// for titles in menu that are not linked
 		&:not([href]) {
 			font-family: $header;
+			font-weight: 700;
 	    text-transform: uppercase;
 	    @include rem(12);
 	    opacity: .8;

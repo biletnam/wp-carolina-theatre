@@ -131,6 +131,7 @@
 
 .stat_value {
 	font-family: $header;
+	font-weight: 700;
 	@include rem(40);
   line-height: .8;
 
@@ -148,6 +149,7 @@
 .stat_link {
   width: 100%;
   font-family: $header;
+  font-weight: 700;
   @include rem(14);
   text-transform: uppercase;
 

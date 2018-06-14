@@ -150,16 +150,49 @@
 	}
 
 	&__headings {
-		padding-top: 2em;
-		padding-bottom: 1.5em;
-
 		> * {
 			line-height: 1;
 		}
 	}
+
+	&__tickets--mobile {
+		display: none;
+
+		@include breakpoint($sizeSidebarWrap) {
+			display: block;
+		}
+	}
+
+	&__relatedPosts {
+		border-top: 1px solid $gray;
+		padding-top: 2em;
+		margin-top: 3em;
+
+		.card__wrapper {
+			margin-top: 2em;
+		}
+	}
+
+	&__tickets--mobile,
+	&__headings,
+	&__description {
+		margin-top: 2em;
+		margin-bottom: 1.5em;
+	}
+}
+
+.singleEvent__relatedPosts, 
+.socialShare {
+	@include breakpoint($sizeMobile) {
+		display: none;
+	}
 }
 
 .event__dateBox {
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	right: 0;
 	width: 40px;
 	padding-top: 8px;
 	padding-bottom: 8px;
@@ -173,17 +206,12 @@
 	.day {
 		@include rem(22);
 		font-family: $header;
+		font-weight: 700;
 	}
 	.month {
 		@include rem(10);
 		text-transform: uppercase;
 	}
-}
-.event__dateBox {
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	right: 0;
 }
 
 // Films sidebar dates
@@ -316,16 +344,6 @@
 
 	h1 {
 		line-height: 1;
-	}
-}
-
-.singleEvent__relatedPosts {
-	border-top: 1px solid $gray;
-	padding-top: 2em;
-	margin-top: 3em;
-
-	.card__wrapper {
-		margin-top: 10px;
 	}
 }
 
