@@ -6,16 +6,14 @@ jQuery(function($){
     // If list item is clicked, trigger input change and add css class
     $('#event-filter li').on('click touch', function(){
         var input = $(this).find('input');
- 
+ 				
+ 				// clear all filters
+        $('#event-filter li').removeClass('active-link').find('input').prop('checked',false);
+
         // determine what filter was clicked
         if ( $(this).data('filter') === 'all' ){
-          $('#event-filter li').removeClass('active-link').find('input').prop('checked',false); // all filters
           event_get_posts(); // load all posts
           $(this).addClass('active-link');
-        }
-        else if (input.is(':checked')){
-          input.prop('checked', false);
-          $(this).removeClass('active-link');
         } else {
           input.prop('checked', true);
           $(this).addClass('active-link');
@@ -27,8 +25,7 @@ jQuery(function($){
 					$(this).addClass('active-link');
 				} else if ($(this).hasClass('filmFilter')) {
 					$(".filmFilters").css("display", "block");
-					$("li[data-filter='film']").addClass('active-link');
-					console.log('activelinkme');
+					$("#event-filter").find("li[data-filter='film']").addClass('active-link');
 				} else {
 					$(".filmFilters").css("display", "none");
 				}
@@ -38,7 +35,7 @@ jQuery(function($){
  
     // If input is changed, load posts
     $('#event-filter input').on('change', function(){
-        event_get_posts(); //Load Posts
+        event_get_posts(); // Load Posts
     });
  
     // Find Selected Events
@@ -48,8 +45,6 @@ jQuery(function($){
         $("#event-filter li input:checked").each(function() {
             allEvents = $(this).val();
         });
-
-        console.log(allEvents);
 
         return allEvents; //Return all of the selected Events in an array
     }
@@ -71,6 +66,8 @@ jQuery(function($){
         var paged_value = paged; //Store the paged value if it's being sent through when the function is called
 	      var ajax_url = ajax_event_params.ajax_url; //Get ajax url (added through wp_localize_script)
 
+	      console.log('selections: ' + getSelectedEvents());
+
         $.ajax({
             type: 'GET',
             url: ajax_url,
@@ -80,17 +77,14 @@ jQuery(function($){
                 // search: getSearchValue(), //Retrieve search value using function
                 paged: paged_value //If paged value is being sent through with function call, store here
             },
-            beforeSend: function ()
-            {
+            beforeSend: function() {
                 //You could show a loader here
             },
-            success: function(data)
-            {
+            success: function(data) {
                 //Hide loader here
                 $('#event-results').html(data);
             },
-            error: function()
-            {
+            error: function() {
                 //If an ajax error has occured, do something here...
                 $("#event-results").html('<p>There has been an error</p>');
             }

@@ -5,20 +5,20 @@
 ?>
 
 <?php 
-function unique_multidim_array($array, $key) { 
-  $temp_array = array(); 
-  $i = 0; 
-  $key_array = array(); 
+// function unique_multidim_array($array, $key) { 
+//   $temp_array = array(); 
+//   $i = 0; 
+//   $key_array = array(); 
   
-  foreach($array as $val) { 
-    if (!in_array($val[$key], $key_array)) { 
-      $key_array[$i] = $val[$key]; 
-      $temp_array[$i] = $val; 
-    } 
-    $i++; 
-  } 
-  return $temp_array; 
-} 
+//   foreach($array as $val) { 
+//     if (!in_array($val[$key], $key_array)) { 
+//       $key_array[$i] = $val[$key]; 
+//       $temp_array[$i] = $val; 
+//     } 
+//     $i++; 
+//   } 
+//   return $temp_array; 
+// } 
 
 $cache_key = 'event_filters_query_cache';
 if(!$html = get_transient($cache_key)){
@@ -72,10 +72,10 @@ if(!$html = get_transient($cache_key)){
 	$event_filters_unique = unique_multidim_array($event_filters, 'slug');
 	$film_filters_unique = unique_multidim_array($film_filters, 'slug');
 
-	// sort filters alphabetically
-	function cmp($a, $b){
-    return strcmp($a['name'], $b['name']);
-	} 
+	// // sort filters alphabetically
+	// function cmp($a, $b){
+ //    return strcmp($a['name'], $b['name']);
+	// } 
 	usort($event_filters_unique, "cmp");
 	usort($film_filters_unique, "cmp");
  	?>

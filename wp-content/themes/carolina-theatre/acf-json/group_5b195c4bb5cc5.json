@@ -174,7 +174,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "40",
-                "class": "hidden",
+                "class": "",
                 "id": ""
             },
             "default_value": "",
@@ -193,7 +193,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "40",
-                "class": "hidden",
+                "class": "",
                 "id": ""
             },
             "default_value": "",
@@ -212,7 +212,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "40",
-                "class": "hidden",
+                "class": "",
                 "id": ""
             },
             "default_value": "",
@@ -231,7 +231,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "40",
-                "class": "hidden",
+                "class": "",
                 "id": ""
             },
             "message": "",
@@ -914,5 +914,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1529082982
+    "modified": 1529093273
 }
