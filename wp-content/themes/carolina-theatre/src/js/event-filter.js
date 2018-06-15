@@ -1,85 +1,42 @@
 jQuery(function($) {
-	function removeActiveFilter(className) {
-		for (var i = 0; i < $(className).children().length; i++) {
-			var target = $(className).children()[i];
-			if ($(target).hasClass("active-link")) {
-				$(target).removeClass("active-link");
-			}
+	
+	// TO-DO: GET THIS WORKING WITH $_GET
+	function filterCards(filterObj){
+		var filter = filterObj.data('filter');
+		var eventCard = '.events .eventCard';
+		// console.log(filter);
+		if(filter === 'all'){
+			$(eventCard).each(function(i){
+				$(this).show();
+			});
+		} else {
+			filter = ' '+filter+' ';	// so events with tag 'anime-magic' dont get included with filter 'magic'
+			matchingCards = $(eventCard + '[data-filterme*="'+filter+'"]');
+			
+			$(eventCard).each(function(i){
+				$(this).hide(); // hide all cards
+			});
+			matchingCards.each(function(i){
+				$(this).show(); // show all cards with matching filter
+			});
 		}
 	}
+
 	$(document).ready(function() {
-		var upcomingEvent = "all";
-		$(".upcoming-events__type li").on("click", function() {
-			// remove active class from type and filter elements
-			removeActiveFilter(".upcoming-events__type");
-			removeActiveFilter(".upcoming-events__type--secondary");
-			// add active class to event type that was clicked on
-			$(this).addClass("active-link");
-
-			// reset event filter to any when event type is changed
-			var subfilter = $(".upcoming-events__type--secondary").children()[0];
-			$(subfilter).addClass("active-link");
-
-			var filter = $(this)
-				.text()
-				.toLowerCase()
-				.split(" ")
-				.join("-");
-			upcomingEvent = filter;
-
-			if (filter === "all") {
-				for (var i = 0; i < $(".events").children().length; i++) {
-					var target = $(".events").children()[i];
-					$(target).show();
-				}
-			} else {
-				for (var i = 0; i < $(".events").children().length; i++) {
-					var target = $(".events").children()[i];
-
-					if ($(target).hasClass(filter)) {
-						$(target).show();
-					} else {
-						$(target).hide();
-					}
-				}
-			}
-
-			// show secondary row of filters if main level 'Film' is active
-			if (filter === "film") {
+		$(".upcoming-events__type li").on("click touch", function(clicked) {
+			filterCards($(this));
+			
+			if ($(this).data('filter') === "film") {
 				$(".filmFilters").css("display", "block");
 			} else {
 				$(".filmFilters").css("display", "none");
 			}
 		});
 
-
-		$(".upcoming-events__type--secondary li").on("click", function() {
-			var filter = $(this)
-				.text()
-				.toLowerCase()
-				.split(" ")
-				.join("-");
-			removeActiveFilter(".upcoming-events__type--secondary");
-			$(this).addClass("active-link");
-
-			var numEvents = $(".events").children().length;
-			for (var i = 0; i < numEvents; i++) {
-				var target = $(".events").children()[i];
-
-				if (upcomingEvent === "all" && filter === "any") {
-					$(target).show();
-				} else if (upcomingEvent === "film" && filter === "all-films" && $(target).hasClass('film')) {
-					$(target).show();
-				} else if (upcomingEvent === "all" && $(target).hasClass(filter)) {
-					$(target).show();
-				} else if (filter === "any" && $(target).hasClass(upcomingEvent)) {
-					$(target).show();
-				} else if ( $(target).hasClass(upcomingEvent) && $(target).hasClass(filter) ) {
-					$(target).show();
-				} else {
-					$(target).hide();
-				}
-			}
+		$(".filmFilters li").on("click touch", function(clicked) {
+			filterCards($(this));
+			$(".filmFilters").css("display", "block");
+			$(".upcoming-events__type > .tabbedContent__tab[data-filter='film']").addClass('active-link');
 		});
 	});
 });

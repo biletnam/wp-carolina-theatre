@@ -187,7 +187,7 @@ $GLOBALS["location_directionlink"] = get_field('google_map_link', 'option');
 		  <div class="header__logo">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="Back to Homepage">
 				<?php
-					$header_logo = get_field('header_logo', 'options');
+					$header_logo = get_field('header_logo', 'option');
 
 					if($header_logo){
 						echo file_get_contents($header_logo);

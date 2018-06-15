@@ -165,16 +165,73 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_5b195c4bbdbe3",
-            "label": "Multiday Event?",
-            "name": "event_multipledates",
+            "key": "field_5b1fc25272946",
+            "label": "Start Date (hidden)",
+            "name": "start_date",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "hidden",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5b1fc114473dc",
+            "label": "End Date (hidden)",
+            "name": "end_date",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "hidden",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5b1fe0b09ca96",
+            "label": "Soonest Date (hidden)",
+            "name": "soonest_date",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "hidden",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5b20715304d4b",
+            "label": "Past Event? (hidden)",
+            "name": "past_event",
             "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "20",
-                "class": "",
+                "width": "40",
+                "class": "hidden",
                 "id": ""
             },
             "message": "",
@@ -184,69 +241,19 @@
             "ui_off_text": ""
         },
         {
-            "key": "field_5b195c4bbdbf5",
-            "label": "Start Date",
-            "name": "start_date",
-            "type": "date_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "40",
-                "class": "",
-                "id": ""
-            },
-            "display_format": "F j, Y",
-            "return_format": "Ymd",
-            "first_day": 0
-        },
-        {
-            "key": "field_5b195c4bbdc26",
-            "label": "End Date",
-            "name": "end_date",
-            "type": "date_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5b195c4bbdbe3",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "40",
-                "class": "",
-                "id": ""
-            },
-            "display_format": "F j, Y",
-            "return_format": "Ymd",
-            "first_day": 0
-        },
-        {
             "key": "field_5b195c4bbdc42",
-            "label": "Showtimes",
+            "label": "Showtimes & Dates",
             "name": "showtimes",
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5b195c4bbdbd1",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "collapsed": "field_5b183e31c902a",
+            "collapsed": "",
             "min": 0,
             "max": 0,
             "layout": "block",
@@ -301,8 +308,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "display_format": "g:i a",
-                            "return_format": "g:i a"
+                            "display_format": "g:ia",
+                            "return_format": "g:ia"
                         }
                     ]
                 }
@@ -605,34 +612,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_5b195d929811f",
-            "label": "Event Categories",
-            "name": "event_categories",
-            "type": "select",
-            "instructions": "Assign this event to a filter.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "100",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "Music": "Music",
-                "Comedy": "Comedy",
-                "Discussion": "Discussion",
-                "Dance": "Dance",
-                "Theater": "Theater"
-            },
-            "default_value": [],
-            "allow_null": 1,
-            "multiple": 1,
-            "ui": 0,
-            "ajax": 0,
-            "return_format": "value",
-            "placeholder": ""
-        },
-        {
             "key": "field_5b195c4bbde0e",
             "label": "Associated Series \/ Festival",
             "name": "associated_event",
@@ -829,6 +808,65 @@
             "maxlength": "",
             "rows": 5,
             "new_lines": "br"
+        },
+        {
+            "key": "field_5b21353324ed5",
+            "label": "Event Filters (hidden)",
+            "name": "event_filters",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "hidden",
+                "id": ""
+            },
+            "collapsed": "field_5b2136c0a9edb",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5b2136c0a9edb",
+                    "label": "Slug",
+                    "name": "slug",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5b2136c9a9edc",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -852,9 +890,10 @@
         "comments",
         "format",
         "featured_image",
+        "categories",
         "tags"
     ],
     "active": 1,
     "description": "",
-    "modified": 1528739418
+    "modified": 1529002223
 }

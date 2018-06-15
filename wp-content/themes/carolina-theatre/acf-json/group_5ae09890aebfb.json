@@ -238,6 +238,13 @@
                 "operator": "==",
                 "value": "event"
             }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-fullwidth.php"
+            }
         ]
     ],
     "menu_order": 20,
@@ -250,5 +257,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1528394980
+    "modified": 1528826287
 }

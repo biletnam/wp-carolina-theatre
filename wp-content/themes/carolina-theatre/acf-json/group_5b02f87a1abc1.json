@@ -81,8 +81,17 @@
     "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "discussion",
+        "comments",
+        "format",
+        "featured_image",
+        "categories",
+        "tags"
+    ],
     "active": 1,
     "description": "",
-    "modified": 1528208605
+    "modified": 1528827746
 }

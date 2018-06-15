@@ -50,6 +50,13 @@
                 "operator": "==",
                 "value": "default"
             }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-fullwidth.php"
+            }
         ]
     ],
     "menu_order": 10,
@@ -57,8 +64,15 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content",
+        "discussion",
+        "comments",
+        "format",
+        "page_attributes",
+        "featured_image"
+    ],
     "active": 1,
     "description": "",
-    "modified": 1528292429
+    "modified": 1528826268
 }

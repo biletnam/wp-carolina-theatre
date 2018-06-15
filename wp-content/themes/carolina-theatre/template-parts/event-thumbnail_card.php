@@ -1,90 +1,45 @@
 <?php
+/////// DATES in YYYYMMDD format
+$start_date = get_field('start_date'); 		
+$end_date = get_field('end_date'); 				
+date_default_timezone_set('America/New_York');
+$today = date("Ymd", strtotime('today')); 
 
-/////// DATES 
-$start_date = get_field('start_date'); 		// YYYYMMDD format
-$end_date = get_field('end_date'); 				// YYYYMMDD format
-$today = date("Ymd", strtotime('today')); // YYYYMMDD format
-$showtime_soonestDate = $start_date; 
-$showtime_soonestTime = ''; 
-$upcoming_showtimes = array();
-
-if ($start_date == NULL) { $start_date = $today-1; } // if no start date is given, set it to yesterday (so event doesn't show)
-if($end_date == NULL) {	$end_date = $start_date; } // if a single day event, set end_date 
-
-// recreate 'showtimes' array with only upcoming showtimes
-if (have_rows('showtimes')) { 
-  if ($end_date >= $today) {
-	  $showtimes = get_field('showtimes');
-	  $i = 0;
-
-	  foreach($showtimes as $showtime){
-	  	if ($showtime['date'] >= $today){
-			  $j = 0;
-				$upcoming_showtimes[$i]['date'] = $showtime['date'];
-		  	$times = $showtime['times'];
-		  	
-		  	foreach($times as $time) {
-					$upcoming_showtimes[$i]['time'][$j] = $time;
-				  $j++;
-		  	}
-			  $i++;
-		  }
-		}
-		$showtime_soonestDate = $upcoming_showtimes[0]['date']; 
-  }
-} // endif showtimes
+if($end_date < $today) {
+	$showtime_soonestDate = $end_date;
+} else {
+	// get closest date's earliest time
+	// $showtime_soonestDate (Ymd - 20180704)
+	// $showtime_soonestTime (g:ia - 7:30pm or empty string)
+	include(locate_template('template-parts/event-get_soonest_date.php', false, true));
+}
 
 /////// ASSIGN CLASS NAMES FOR EACH EVENT
-$class_names = [];
+$filters = '';
+$class_name = '';
 if (get_post_type() == 'film') {
-	array_push($class_names, 'film'); 
+	$class_name .= ' film'; 
+	$filters .= ' film'; 
 
 	if ($showtime_soonestDate == $today) {
-	  array_push($class_names, 'now-playing'); 
+	  $filters .= ' now-playing'; 
 	} else if ($today < $start_date) {
-	  array_push($class_names, 'coming-soon'); 
+	  $filters .= ' coming-soon'; 
 	}  
-}
-if (get_post_type() == 'event') {
-  array_push($class_names, 'event'); 
-
-	$event_categories = get_field('event_categories'); 
-  if($event_categories){ 
-		foreach($event_categories as $event_category) {
-			array_push($class_names, $event_category);
-		}
-  }
+} else if (get_post_type() == 'event') {
+	$class_name .= ' event'; 
+	$filters .= ' event'; 
 }
 
-// classes for associated (parent) Series and Festivals
-$associated_event = get_field('associated_event'); 
-if($associated_event){ 
-	$title = get_the_title($associated_event);
-	array_push($class_names, $title);
-}
-
-// transform human readable classes to html classes with hyphens
-$class_string = '';
-for ($i = 0; $i < count($class_names); $i++) {
-	// convert each future class name to lowercase
-	$transform_class = strtolower($class_names[$i]);
-
-	// replace all characters except letters, replace with underscore
-  $transform_class = preg_replace('/[^a-z]+/i', '_', $transform_class);
-
-  // trim any leading/trailing underscores
-	$transform_class = preg_replace('/\G_|_(?=_*$)/', '', $transform_class);
-  
-  // replace underscores with dashes
-  $transform_class = str_replace("_", "-", $transform_class);
-
-  // add class to the string
-  $class_string .= $transform_class . ' ';
+if(have_rows('event_filters')){
+	$filters .= ' ';
+	while(have_rows('event_filters')){ the_row();
+		$filters .= get_sub_field('slug') . ' ';
+	}	
 }
 ?>
 
-
-<div class="card eventCard<?php echo ' ' . $class_string; ?>">
+<div class="card eventCard <?php echo $class_name; ?>" data-filterme="<?php echo $filters; ?>">
    <a href="<?php echo get_page_link(get_the_id()); ?>">
     <div class="event__dateBox">
 			<span class="day"><?php echo date("j", strtotime($showtime_soonestDate)); ?></span>
@@ -111,7 +66,7 @@ for ($i = 0; $i < count($class_names); $i++) {
       <?php get_template_part('template-parts/part', 'event_categories'); ?>
       <p class="card__title"><?php the_title();?></p>
       <div class="card__info">	
-      	<?php $event_location = get_field('eevnt_location'); ?>
+      	<?php $event_location = get_field('event_location'); ?>
       	<?php if (get_post_type() == 'film'){ ?>
       		<?php 
 						$film_director = get_field('director'); 												// text
@@ -139,7 +94,7 @@ for ($i = 0; $i < count($class_names); $i++) {
         	<?php } ?>
         <?php } ?>
         
-    		<?php get_template_part( 'template-parts/part', 'event_ticketLowest' ); ?>
+    		<?php get_template_part( 'template-parts/event', 'ticket_prices' ); ?>
       </div>
     </div>
     <div class="button card__button"><span>Tickets & Info <i class="fas fa-arrow-right"></i></span></div>

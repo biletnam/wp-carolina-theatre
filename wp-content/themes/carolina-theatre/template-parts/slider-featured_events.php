@@ -2,86 +2,88 @@
   <?php $featured = get_field('featured_events'); ?>
   <?php foreach($featured as $feature_obj) { $featured_ID = $feature_obj->ID; ?>
     <?php 
-    /////// DATES 
-		$start_date = get_field('start_date', $featured_ID); 		// YYYYMMDD format
-		$end_date = get_field('end_date', $featured_ID); 				// YYYYMMDD format
-		$today = date("Ymd", strtotime('today')); // YYYYMMDD format
-		$showtime_soonestDate = $start_date; 
-		$showtime_soonestTime = ''; 
-		$upcoming_showtimes = array();
-
+    /////// DATES in YYYYMMDD format
+		$start_date = get_field('start_date', $featured_ID); 	
+		$end_date = get_field('end_date', $featured_ID); 			
+	  date_default_timezone_set('America/New_York');
+		$today = date("Ymd", strtotime('today'));
+		
 		$dateString = '';
 		if($start_date && $end_date){
-			$dateString = date('M j', strtotime($start_date));
+			$dateString = date('F j', strtotime($start_date));
 			$dateString .= ' - ';
-
-			if(date('M', strtotime($start_date)) === date('M', strtotime($end_date))) {
-				$dateString .= date('j, Y', strtotime($end_date));			
+			
+			if($start_date == $end_date) {
+				$dateString = date('l, F j', strtotime($start_date));	
+			} else if(date('M', strtotime($start_date)) === date('M', strtotime($end_date))) {
+				$dateString .= date('j', strtotime($end_date));			
 			} else {
-				$dateString .= date('M j, Y', strtotime($end_date));			
+				$dateString .= date('F j', strtotime($end_date));			
 			}
-		} else if($start_date && $end_date == NULL) {
-			$dateString .= date('F j, Y', strtotime($start_date));	
-		} else if($end_date && $start_date == NULL) {
-			$dateString .= date('F j, Y', strtotime($start_date));	
 		}
 
-		if ($start_date == NULL) { $start_date = $today-1; } // if no start date is given, set it to yesterday (so event doesn't show)
-		if($end_date == NULL) {	$end_date = $start_date; } // if a single day event, set end_date 
-
-		// recreate 'showtimes' array with only upcoming showtimes
-		if (have_rows('showtimes', $featured_ID)) { 
-		  if ($end_date >= $today) {
-			  $showtimes = get_field('showtimes', $featured_ID);
-			  $i = 0;
-
-			  foreach($showtimes as $showtime){
-			  	if ($showtime['date'] >= $today){
-					  $j = 0;
-						$upcoming_showtimes[$i]['date'] = $showtime['date'];
-				  	$times = $showtime['times'];
-				  	
-				  	foreach($times as $time) {
-							$upcoming_showtimes[$i]['time'][$j] = $time;
-						  $j++;
-				  	}
-					  $i++;
-				  }
-				}
-				$showtime_soonestDate = $upcoming_showtimes[0]['date']; 
-		  }
-		} // endif showtimes
-   	
    	$class_names = 'event';
 		if (get_post_type($featured_ID) == 'film') {
 			$class_names = 'film';
+		}
+
+
+		// Get soonest date
+		$showtime_soonestDate = $start_date; 	
+		$showtime_soonestTime = ''; 
+		$upcoming_showtimes = array();
+		$showtimes = get_field('showtimes');
+
+		if(is_array($showtimes) || is_object($showtimes)){
+			$i = 0;
+			foreach($showtimes as $showtime){	
+				if ($showtime['date'] >= $today){	
+				  $j = 0;	
+					$upcoming_showtimes[$i]['date'] = $showtime['date'];	
+			  	$times = $showtime['times'];	
+			  	
+			  	if(is_array($times) || is_object($times)){
+				  	foreach($times as $time) {	
+							$upcoming_showtimes[$i]['times'][$j] = $time;	
+						  $j++;	
+				  	}	
+				  }
+				  $i++;	
+			  }	
+			}
+			$showtime_soonestDate = $upcoming_showtimes[0]['date']; 	
+			
+			if($showtime_soonestTime != NULL){
+				$showtime_soonestTime = $upcoming_showtimes[0]['times'][0]['time']; 	
+			}
 		}
 
    	?>
 
     <div class="featuredEvent__slide <?php echo $class_names; ?>">
     	<div class="featuredEvent__slideContainer">
-    		<div class="featuredEvent__image">
+    		<?php 
+    			$haveRows = get_field('event_hero', $featured_ID);
+    			$image_url = get_stylesheet_directory_uri().'/src/img/no-event-image-full.jpg';
+					$image_alt = 'No Event Image to Show'; 
+  				
+  				if ($haveRows){
+						$slideRepeater = get_field('panel_content', $featured_ID);
+						$image = $slideRepeater[0]['image'];
+				 	 	
+				 	 	if($image){ 
+           		$image_url = $image['sizes']['hero-small'];
+           		$image_alt = $image['alt'];
+            } //endif 
+          ?>
+    		<div class="featuredEvent__image" style="background-image:url(<?php echo $image_url; ?>)">
     			<div class="event__dateBox">
 						<span class="day"><?php echo date("j", strtotime($showtime_soonestDate)); ?></span>
 						<span class="month"><?php echo date("M", strtotime($showtime_soonestDate)); ?></span>
 			    </div>
-    			<?php 
-      			$haveRows = get_field('event_hero', $featured_ID);
-      			$image_url = get_stylesheet_directory_uri().'/src/img/no-event-image-full.jpg';
-						$image_alt = 'No Event Image to Show'; 
-    				
-    				if ($haveRows){
-							$slideRepeater = get_field('panel_content', $featured_ID);
-							$image = $slideRepeater[0]['image'];
-					 	 	
-					 	 	if($image){ 
-	           		$image_url = $image['sizes']['hero-small'];
-	           		$image_alt = $image['alt'];
-	            } //endif 
-            ?>
+    			
 					<?php } //endif haveRows ?>
-				 	<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>" />	
+			 		<img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>" />	
         </div>
         <div class="featuredEvent__info">
           <div class="container">
@@ -140,11 +142,14 @@
 							if($ticket_prices){ 
 								$pricesOrdered = array(); // array to reorder ticket prices
 								foreach( $ticket_prices as $i => $price ) { // add each ticket price to the order array
-									$pricesOrdered[ $i ] = $price['ticket_price'];
+									$pricesOrdered[$i] = $price['ticket_price'];
 								}
+
+								// put prices in order, low to high
 							  sort($pricesOrdered, SORT_NUMERIC);
 
-								if($pricesOrdered[0]['ticket_price']) { // if there is a valid ticket price, start making string
+							  // if a valid ticket price, make string
+							  if(is_array($pricesOrdered) || is_object($pricesOrdered)){
 									$ticket_string = '$';
 									$ticket_string .= $pricesOrdered[0]; // use the lowest price 				
 									if($pricesOrdered[1]){  // and if there are more prices, add a plus sign
@@ -177,4 +182,5 @@
       </div> 
     </div> 
   <?php } // end foreach ?>
+  <?php wp_reset_postdata(); ?>
 </div> <!-- .carousel -->

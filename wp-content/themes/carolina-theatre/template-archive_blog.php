@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: News & Press
- * The template for displaying archive pages
+ * The template for displaying archived blog pages
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -17,9 +17,8 @@ get_header(); ?>
 
 <section class="featuredEvent_carousel">
   <div class="container contain">
-  	<h2>News & Press</h2>
-    <?php // TO-DO: set up featured blog posts ?>
-    <?php //get_template_part('template-parts/slider', 'featured_news'); ?>
+  	<h1>News & Press</h1>
+    <?php get_template_part('template-parts/part', 'featured_news'); ?>
   </div>
 </section>
 <section class="mainContent upcoming-events contain">
@@ -28,8 +27,7 @@ get_header(); ?>
 
     	<?php // The Query
  			$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
-      $limit = 6;
-      $today = date("Ymd", strtotime('today'));
+      $limit = 9;
 			$post_query_args = array(
 				'post_type' => 'post',
 				'post_status' => 'publish',
@@ -44,19 +42,7 @@ get_header(); ?>
 			if ($posts_query->have_posts()) { ?>
 	      <div class="card__wrapper">
 					<?php while ($posts_query->have_posts()) { $posts_query->the_post(); ?>
-					  <div class="card newsCard">
-					  	<a href="<?php echo get_page_link(get_the_id()); ?>">
-						  	<div class="card__infoWrapper">
-									<p class="card__subtitle h5"><?php echo get_the_date('F j'); ?></p>
-									<p class="card__title"><?php the_title(); ?></p>
-									<div class="card__info">
-										<p class="card__excerpt small"><?php the_excerpt(); ?></p>	
-									</div>
-			          </div>
-					      <div class="button card__button"><span>Read More <i class="fas fa-arrow-right"></i></span></div>
-					    </a>
-					  </div>
-					  <?php //get_template_part('template-parts/event', 'thumbnail_card'); ?>
+					  <?php get_template_part('template-parts/news', 'thumbnail_card'); ?>
 		  		<?php } // endwhile have_posts posts_query ?>
 	 			</div>
 
@@ -64,7 +50,7 @@ get_header(); ?>
 			    <?php 
 		        $paginate_links = paginate_links( array(
 	            'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
-	            'total'        => $events_query->max_num_pages,
+	            'total'        => $posts_query->max_num_pages,
 	            'current'      => max( 1, get_query_var( 'paged' ) ),
 	            'format'       => '?paged=%#%',
 	            'show_all'     => false,
@@ -83,8 +69,8 @@ get_header(); ?>
 						$paginate_prev       = '';
 						$paginate_pages			 = '1';
 
-						if($events_query->max_num_pages != 0) {
-							$paginate_pages = $events_query->max_num_pages;
+						if($posts_query->max_num_pages != 0) {
+							$paginate_pages = $posts_query->max_num_pages;
 						}
 
 						foreach( $paginate_links as $link ) {           
@@ -109,7 +95,7 @@ get_header(); ?>
 			<?php } // endif have_posts posts_query ?>
     </div><!-- .container -->
   </div><!-- .mainContent__content -->
-  <?php get_sidebar(); ?>
+  <?php get_sidebar('news'); ?>
 </section>
 <?php } // endwhile; ?>
 

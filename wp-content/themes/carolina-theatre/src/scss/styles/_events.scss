@@ -11,13 +11,21 @@
 	}
 }
 .featuredEvent {
+	&__slideContainer {
+		display: flex;
+		overflow: hidden;
+	}
+
 	&__image {
 		width: 66%;
     position: relative;
+    background-size: cover;
+    background-position: relative;
 
 		img {
 			width: 100%;
 			display: block;
+			opacity: 0;
 		}
 
 		.event__dateBox {
@@ -41,10 +49,21 @@
 		}
 	}
 
-	&__slideContainer {
-		display: flex;
-		overflow: hidden;
-	}
+	@include breakpoint($sizeTablet){
+		&__slideContainer {
+			display: block;
+		}
+		&__image {
+			width: 100%;
+			
+			img {
+				opacity: 1;
+			}
+		}
+		&__info {
+			width: 100%;
+		}
+	}	
 
 	&__slide {
 		&.film {
@@ -131,16 +150,49 @@
 	}
 
 	&__headings {
-		padding-top: 2em;
-		padding-bottom: 1.5em;
-
 		> * {
 			line-height: 1;
 		}
 	}
+
+	&__tickets--mobile {
+		display: none;
+
+		@include breakpoint($sizeSidebarWrap) {
+			display: block;
+		}
+	}
+
+	&__relatedPosts {
+		border-top: 1px solid $gray;
+		padding-top: 2em;
+		margin-top: 3em;
+
+		.card__wrapper {
+			margin-top: 2em;
+		}
+	}
+
+	&__tickets--mobile,
+	&__headings,
+	&__description {
+		margin-top: 2em;
+		margin-bottom: 1.5em;
+	}
+}
+
+.singleEvent__relatedPosts, 
+.socialShare {
+	@include breakpoint($sizeMobile) {
+		display: none;
+	}
 }
 
 .event__dateBox {
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	right: 0;
 	width: 40px;
 	padding-top: 8px;
 	padding-bottom: 8px;
@@ -154,17 +206,12 @@
 	.day {
 		@include rem(22);
 		font-family: $header;
+		font-weight: 700;
 	}
 	.month {
 		@include rem(10);
 		text-transform: uppercase;
 	}
-}
-.event__dateBox {
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	right: 0;
 }
 
 // Films sidebar dates
@@ -177,13 +224,13 @@
 	&__date { // (li element)
 		list-style: none;
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     flex-wrap: wrap;
 
     .date {
-	  	width: 140px;
+	  	width: 50%;
 	  }
-		.past {
+		&.past {
 	    opacity: .3;
 		}
 	}
@@ -192,7 +239,7 @@
 	&__times {
 		margin: 0;
 		padding: 0;
-    width: 100px;
+    width: 50%;
 
 		li {
 			list-style: none;
@@ -300,16 +347,6 @@
 	}
 }
 
-.singleEvent__relatedPosts {
-	border-top: 1px solid $gray;
-	padding-top: 2em;
-	margin-top: 3em;
-
-	.card__wrapper {
-		margin-top: 10px;
-	}
-}
-
 ///////// NEWS, EVENT, FILM CARDS ////////////
 // sliders on homepage & event dropdown with info cards
 .cardSlider {
@@ -384,8 +421,14 @@
 	vertical-align: top;
 	max-width: 250px;
 	width: 100%;
-	margin-right: 30px;
-	margin-bottom: 30px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+
+  @include breakpoint-min($sizeLarge){
+		margin-right: 30px;
+		margin-bottom: 30px;
+  }
+
 	border: 1px solid $gray;
 	overflow: hidden;
 	transition: $transition;
@@ -426,6 +469,7 @@
 		@include rem(18);
 		font-weight: 700;
 		margin: 0.2em 0;
+    line-height: 1.35;
 	}
 
 	&__info {

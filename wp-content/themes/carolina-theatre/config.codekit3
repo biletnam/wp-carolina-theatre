@@ -40,30 +40,6 @@
 		"oO": 0,
 		"oS": 1
 		},
-	"\/acf-json\/group_5ab90bc7911a3.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/acf-json\/group_5ab90bc7911a3-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/acf-json\/group_5ab90bc79a251.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/acf-json\/group_5ab90bc79a251-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
-	"\/acf-json\/group_5ab9233d9fcff.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/acf-json\/group_5ab9233d9fcff-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
 	"\/acf-json\/group_5acb83f7d2dca.json": {
 		"ft": 524288,
 		"oA": 1,
@@ -144,14 +120,6 @@
 		"oO": 0,
 		"oS": 1
 		},
-	"\/acf-json\/group_5ae09b5f476a2.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/acf-json\/group_5ae09b5f476a2-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
 	"\/acf-json\/group_5b02f87a1abc1.json": {
 		"ft": 524288,
 		"oA": 1,
@@ -192,18 +160,34 @@
 		"oO": 0,
 		"oS": 1
 		},
-	"\/acf-json\/group_5b184e587f2cf.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/acf-json\/group_5b184e587f2cf-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
 	"\/acf-json\/group_5b195c4bb5cc5.json": {
 		"ft": 524288,
 		"oA": 1,
 		"oAP": "\/acf-json\/group_5b195c4bb5cc5-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/acf-json\/group_5b1fd9a8713f8.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/acf-json\/group_5b1fd9a8713f8-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/acf-json\/group_5b1ff60f7dce2.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/acf-json\/group_5b1ff60f7dce2-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"\/acf-json\/group_5b218795b8d0a.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/acf-json\/group_5b218795b8d0a-min.json",
 		"oF": 0,
 		"oO": 0,
 		"oS": 1
@@ -308,6 +292,13 @@
 		"oAP": "\/inc\/custom_walker-icon.php",
 		"oF": 0
 		},
+	"\/inc\/search.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/inc\/search.php",
+		"oF": 0
+		},
 	"\/inc\/tinymce.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -366,6 +357,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/sidebar-events.php",
+		"oF": 0
+		},
+	"\/sidebar-news.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/sidebar-news.php",
 		"oF": 0
 		},
 	"\/sidebar.php": {
@@ -496,6 +494,16 @@
 		"sC": 0,
 		"tS": 0
 		},
+	"\/src\/js\/event-filter-ORIGINAL.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/dist\/event-filter-ORIGINAL-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"\/src\/js\/event-filter.js": {
 		"ft": 64,
 		"ma": 0,
@@ -569,7 +577,7 @@
 	"\/src\/js\/scripts.js": {
 		"ft": 64,
 		"ma": 0,
-		"mi": 0,
+		"mi": 1,
 		"oA": 0,
 		"oAP": "\/dist\/scripts-min.js",
 		"oF": 0,
@@ -686,6 +694,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/src\/scss\/styles\/_accordion.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/src\/scss\/styles\/_blog.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/src\/scss\/styles\/_blog.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -858,13 +879,6 @@
 		"oAP": "\/template-homepage.php",
 		"oF": 0
 		},
-	"\/template-news.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/template-news.php",
-		"oF": 0
-		},
 	"\/template-parent.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -935,6 +949,13 @@
 		"oAP": "\/template-parts\/content-blocks\/content-blocks.php",
 		"oF": 0
 		},
+	"\/template-parts\/event-dates_times.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/event-dates_times.php",
+		"oF": 0
+		},
 	"\/template-parts\/event-external_links.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -942,11 +963,67 @@
 		"oAP": "\/template-parts\/event-external_links.php",
 		"oF": 0
 		},
+	"\/template-parts\/event-filters.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/event-filters.php",
+		"oF": 0
+		},
+	"\/template-parts\/event-get_soonest_date.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/event-get_soonest_date.php",
+		"oF": 0
+		},
 	"\/template-parts\/event-thumbnail_card.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/template-parts\/event-thumbnail_card.php",
+		"oF": 0
+		},
+	"\/template-parts\/event-ticket_buttons.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/event-ticket_buttons.php",
+		"oF": 0
+		},
+	"\/template-parts\/event-ticket_prices.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/event-ticket_prices.php",
+		"oF": 0
+		},
+	"\/template-parts\/film-movie_info.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/film-movie_info.php",
+		"oF": 0
+		},
+	"\/template-parts\/film-showtimes.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/film-showtimes.php",
+		"oF": 0
+		},
+	"\/template-parts\/film-ticket_prices.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/film-ticket_prices.php",
+		"oF": 0
+		},
+	"\/template-parts\/news-thumbnail_card.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/news-thumbnail_card.php",
 		"oF": 0
 		},
 	"\/template-parts\/part-breadcrumb.php": {
@@ -963,11 +1040,11 @@
 		"oAP": "\/template-parts\/part-event_categories.php",
 		"oF": 0
 		},
-	"\/template-parts\/part-event_ticketLowest.php": {
+	"\/template-parts\/part-featured_news.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-parts\/part-event_ticketLowest.php",
+		"oAP": "\/template-parts\/part-featured_news.php",
 		"oF": 0
 		},
 	"\/template-parts\/part-page_heading.php": {
@@ -975,6 +1052,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/template-parts\/part-page_heading.php",
+		"oF": 0
+		},
+	"\/template-parts\/part-social_sharing.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/part-social_sharing.php",
 		"oF": 0
 		},
 	"\/template-parts\/slider-featured_events.php": {
@@ -1063,19 +1147,19 @@
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/js\/event-filter.js",
+			"linkedFileAbbreviatedPath": "\/src\/js\/filmFestivalTabs.js",
 			"position": 5,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/js\/filmFestivalTabs.js",
+			"linkedFileAbbreviatedPath": "\/src\/js\/slick-init.js",
 			"position": 6,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/js\/slick-init.js",
+			"linkedFileAbbreviatedPath": "\/src\/js\/event-filter.js",
 			"position": 7,
 			"type": 1
 			}

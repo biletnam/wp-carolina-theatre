@@ -21,10 +21,11 @@ function festival_create_post_type() {
 	$args = array(
 		'labels' => $labels,
 		'public' => true,
-		'has_archive' => true,
+		'has_archive' => false,
 		'publicly_queryable' => true,
 		'query_var' => true,
-		'rewrite' => true,
+		// 'rewrite' => true,
+		'rewrite'  => array( 'slug' => 'festival', 'with_front' => false ),
 		'capability_type' => 'post',
 		'show_in_nav_menus' => true,
 		'hierarchical' => false,
@@ -71,10 +72,11 @@ function series_create_post_type() {
 	$args = array(
 		'labels' => $labels,
 		'public' => true,
-		'has_archive' => true,
+		'has_archive' => false,
 		'publicly_queryable' => true,
 		'query_var' => true,
-		'rewrite' => true,
+		// 'rewrite' => true,
+		'rewrite'  => array( 'slug' => 'series', 'with_front' => false ),
 		'capability_type' => 'post',
 		'show_in_nav_menus' => true,
 		'hierarchical' => false,
@@ -121,10 +123,11 @@ function education_create_post_type() {
 	$args = array(
 		'labels' => $labels,
 		'public' => true,
-		'has_archive' => true,
+		'has_archive' => false,
 		'publicly_queryable' => true,
 		'query_var' => true,
-		'rewrite' => true,
+		// 'rewrite' => true,
+		'rewrite'  => array( 'slug' => 'education-series', 'with_front' => false ),
 		'capability_type' => 'post',
 		'show_in_nav_menus' => true,
 		'hierarchical' => false,
@@ -172,10 +175,11 @@ function event_create_post_type() {
 	$args = array(
 		'labels' => $labels,
 		'public' => true,
-		'has_archive' => true,
+		'has_archive' => false,
 		'publicly_queryable' => true,
 		'query_var' => true,
-		'rewrite' => true,
+		// 'rewrite' => true,
+		'rewrite'  => array( 'slug' => 'events/live-event', 'with_front' => false ),
 		'capability_type' => 'post',
 		'show_in_nav_menus' => true,
 		'hierarchical' => false,
@@ -222,10 +226,11 @@ function film_create_post_type() {
 	$args = array(
 		'labels' => $labels,
 		'public' => true,
-		'has_archive' => true,
+		'has_archive' => false,
 		'publicly_queryable' => true,
 		'query_var' => true,
-		'rewrite' => true,
+		// 'rewrite' => true,
+		'rewrite'  => array( 'slug' => 'events/film', 'with_front' => false ),
 		'capability_type' => 'post',
 		'show_in_nav_menus' => true,
 		'hierarchical' => false,
@@ -276,6 +281,7 @@ function alertbanner_create_post_type() {
 		'publicly_queryable' => false,
 		'query_var' => true,
 		'rewrite' => true,
+		// 'rewrite'  => array( 'slug' => 'alert', 'with_front' => false ),
 		'capability_type' => 'post',
 		'show_in_nav_menus' => false,
 		'hierarchical' => false,
@@ -299,3 +305,55 @@ function alertbanner_create_post_type() {
 	);
 	register_post_type( 'alertbanner', $args );
 } add_action( 'init', 'alertbanner_create_post_type', 0 );
+
+
+/**
+ * Have 'event' and 'film' post types share a template
+ */
+add_filter( 'single_template', function( $template ) {
+  $cpt = [ 'event', 'film' ];
+  return in_array( get_queried_object()->post_type, $cpt, true )
+    ? get_stylesheet_directory() . '/template-single_events.php'
+    : $template;
+} );
+
+/**
+ * Have 'series', 'festival' and 'education' post types share a template
+ */
+add_filter( 'single_template', function( $template ) {
+  $cpt = [ 'series', 'festival', 'education' ];
+  return in_array( get_queried_object()->post_type, $cpt, true )
+    ? get_stylesheet_directory() . '/template-parent_events.php'
+    : $template;
+} );
+
+/**
+ * Conditionally Override Yoast SEO Breadcrumb Trail for custom post types 'event' and 'film'
+ * http://plugins.svn.wordpress.org/wordpress-seo/trunk/frontend/class-breadcrumbs.php
+ * -----------------------------------------------------------------------------------
+ */
+add_filter( 'wpseo_breadcrumb_links', 'carolinatheatre_override_yoast_breadcrumb_trail' );
+function carolinatheatre_override_yoast_breadcrumb_trail( $links ) {
+  global $post;
+
+  if ( is_singular( 'film' ) || is_singular('event') || is_singular('series') || is_singular('festival') || is_singular('education-series') ) {
+    $breadcrumb[] = array(
+      'url' => get_permalink(4),
+      'text' => 'Events',
+    );
+
+    array_splice( $links, 1, -2, $breadcrumb );
+  }
+
+  if ( is_singular( 'post' ) || is_archive() || is_category() ){
+    $breadcrumb[] = array(
+      'url' => get_permalink(579),
+      'text' => 'News & Press',
+    );
+
+    array_splice( $links, 1, -2, $breadcrumb );
+  }
+
+
+  return $links;
+}

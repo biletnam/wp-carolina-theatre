@@ -195,6 +195,10 @@ main {
 			opacity: 1;
 		}
 	}
+
+	> .container {
+		padding-bottom: 10px;
+	}
 }
 .breadcrumb_last {
 	font-weight: 600;
@@ -310,34 +314,82 @@ main {
 
 
 // wrapper for content/sidebar on templates
-.mainContent {
-	&:not(.mainContent__noSidebar){
-		display: flex;
-	}
+$sidebarSmallest: 320px;
+$sidebarMedium: 420px;
+$sidebarLargest: 480px;
 
+.mainContent {
+  padding-top: 30px;
+
+  @include breakpoint-min($sizeSidebarWrap){
+		&:not(.mainContent__noSidebar){
+			display: flex;
+			width: 100%;
+		}
+	}
+	
 	&__content {
-		width: 65%;
+		flex-grow: 1;
+    overflow: hidden;
 
 		> .container {
 			padding-top: 0;
+			width: 100%;
 		}
 	}
 	&__sidebar {
-    width: 100%;
-    min-width: 300px;
-    max-width: 400px;
-    padding-left: 20px;
-		border-left: 1px solid $gray;
+		background-color: $off-white;
+		background-image: url('../src/img/patterns/pattern-white.png');
+		background-size: 147px 147px;
+		background-repeat: repeat;
+		background-color: $gray-lt;
+		border-top: 1px solid $gray;
+		border-bottom: 1px solid $gray;
+		flex-shrink: 0;
+
+		@include breakpoint-min($sizeSidebarWrap){
+			background-image: none;
+			background-color: $white;
+			border-top: 0;
+			border-bottom: 0;
+			border-left: 1px solid $gray;
+			width: $sidebarSmallest;
+
+			> .container {
+		    padding-top: 0;
+		  }
+		}
+
+		// @include breakpoint-min(1100px){
+		// 	width: $sidebarSmallest;
+		// }
+
+		@include breakpoint-min(1100px){
+			width: $sidebarMedium;
+		}
+
+		@include breakpoint-min($maxWidth){
+			width: $sidebarLargest;
+		}
 
 		> .container {
-	    padding-left: 20px;
-	    padding-right: 20px;
-	    padding-top: 0;
+	    padding-left: 30px;
+	    padding-right: 30px;
+
+	    @include breakpoint($sizeSidebarWrap){
+			  padding-left: 20px;
+			  padding-right: 20px;
+			}
 
 	    > * {
-		    padding-bottom: 20px;
-		    padding-top: 20px;
+		    padding-bottom: 30px;
+		    padding-top: 30px;
 	    	border-bottom: 1px solid $gray;
+
+	    	@include breakpoint($sizeMobile){
+					padding-bottom: 15px;
+		    	padding-top: 15px;
+				}
 
 	    	&:last-of-type {
 	    		border-bottom: 0;
@@ -461,8 +513,10 @@ main {
 	width: 100%;
 	max-width: 350px;
 	border: 1px solid $gray;
+	background-color: $white;
 
 	.h3 {
+		line-height: 1;
 		&::after {
 			content: ' ››';
 		}
@@ -502,6 +556,10 @@ main {
 }
 
 .sidebar__menu {
+  &:not(:last-of-type) {
+	  margin-bottom: 30px;
+  }
+
 	ul {
 		padding: 0;
 		margin: 0;
@@ -518,7 +576,10 @@ main {
 
 	.current_page_item,
 	.current_page_parent,
-	.current_page_ancestor {
+	.current_page_ancestor,
+	.current-page-item,
+	.current-page-parent,
+	.current-page-ancestor {
 		font-weight: 700;
 	}
 
@@ -560,5 +621,20 @@ main {
 	}
 }
 
+.searchResult {
+	border-top: 1px solid $gray;
+	padding: 20px 0;
 
+	a {
+		&:hover {
+			color: $green;
+		}
+	}
+}
+
+.searchHeader {
+	span {
+
+	}
+}
 
