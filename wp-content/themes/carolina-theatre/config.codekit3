@@ -230,6 +230,16 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"\/dist\/event-filter-ajax-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 0,
+		"oA": 0,
+		"oAP": "\/dist\/event-filter-ajax-min-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"\/dist\/scripts-min.js": {
 		"ft": 64,
 		"ma": 0,
@@ -292,11 +302,11 @@
 		"oAP": "\/inc\/custom_walker-icon.php",
 		"oF": 0
 		},
-	"\/inc\/search.php": {
+	"\/inc\/filter-events.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/inc\/search.php",
+		"oAP": "\/inc\/filter-events.php",
 		"oF": 0
 		},
 	"\/inc\/tinymce.php": {
@@ -345,6 +355,13 @@
 		"oAP": "\/search.php",
 		"oF": 0
 		},
+	"\/searchform-events.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/searchform-events.php",
+		"oF": 0
+		},
 	"\/searchform.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -364,6 +381,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/sidebar-news.php",
+		"oF": 0
+		},
+	"\/sidebar-search.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/sidebar-search.php",
 		"oF": 0
 		},
 	"\/sidebar.php": {
@@ -494,12 +518,12 @@
 		"sC": 0,
 		"tS": 0
 		},
-	"\/src\/js\/event-filter-ORIGINAL.js": {
+	"\/src\/js\/event-filter-ajax.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/dist\/event-filter-ORIGINAL-min.js",
+		"oAP": "\/dist\/event-filter-ajax-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
@@ -828,6 +852,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/src\/scss\/styles\/_search.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/src\/scss\/styles\/_search.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/src\/scss\/styles\/_type.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -856,6 +893,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/template-archive_blog.php",
+		"oF": 0
+		},
+	"\/template-events-ajax.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-events-ajax.php",
 		"oF": 0
 		},
 	"\/template-events.php": {

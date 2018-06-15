@@ -15,6 +15,8 @@
 </section>
 <?php } //end if any featured events ?>
 
+
+
 <section class="mainContent upcoming-events contain">
   <div class="mainContent__content">
     <div class="container">
@@ -97,9 +99,9 @@
 							}
 						}
 			    ?>
-			    <div class="paginate__prev"><?php echo $paginate_prev; ?></div>
+			    <div class="paginate__prev link"><?php echo $paginate_prev; ?></div>
 			    <div class="paginate__current"><?php echo 'Page '. $paginate_current . ' of '. $paginate_pages; ?></div>
-			    <div class="paginate__next"><?php echo $paginate_next; ?></div>
+			    <div class="paginate__next link"><?php echo $paginate_next; ?></div>
 				</div>
 				<?php wp_reset_postdata(); ?>
 			<?php } else { ?>

@@ -1337,6 +1337,8 @@ main {
     border-bottom-color: #72bcae; }
   .tabbedContent__tab:hover {
     border-bottom-color: #72bcae; }
+  .tabbedContent__tab input.hidden {
+    display: none; }
 
 .tabbedContent__content.hide-tab-content {
   display: none; }
@@ -1572,12 +1574,6 @@ main {
     font-size: 14px;
     font-size: 0.875rem; }
 
-.searchResult {
-  border-top: 1px solid #ccc;
-  padding: 20px 0; }
-  .searchResult a:hover {
-    color: #72bcae; }
-
 .button,
 input[type="submit"] {
   display: inline-block;
@@ -1740,7 +1736,7 @@ textarea,
 select {
   font-family: "source-sans-pro", sans-serif;
   border: 1px solid #ccc;
-  padding: 12px 13px 8px;
+  padding: 11px 13px 10px;
   background-color: #fff;
   border-radius: 3px;
   color: #333; }
@@ -2583,3 +2579,70 @@ div.wpcf7-validation-errors {
     background-color: #bd081c; }
   .socialShare--reddit {
     background-color: #ff5700; }
+
+.header__searchBtn {
+  cursor: pointer; }
+
+.headerSearch {
+  position: fixed;
+  display: none;
+  z-index: 10001;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(255, 188, 66, 0.9); }
+  .headerSearch__wrapper {
+    text-align: center;
+    padding-top: 100px; }
+  .headerSearch .search-form {
+    width: 80%;
+    max-width: 100%;
+    margin: 3em auto; }
+    .headerSearch .search-form button {
+      font-size: 24px;
+      font-size: 1.5rem; }
+    .headerSearch .search-form input {
+      font-weight: 300;
+      font-size: 32px;
+      font-size: 2rem; }
+
+.close_search {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  padding: 20px;
+  cursor: pointer; }
+  .close_search:hover {
+    opacity: .6; }
+
+.searchResult {
+  border-top: 1px solid #ccc;
+  padding: 20px 0; }
+  .searchResult a:hover {
+    color: #72bcae; }
+
+.search-form {
+  position: relative;
+  max-width: 320px; }
+  .search-form label {
+    display: block; }
+  .search-form input[type="search"] {
+    padding-right: 50px !important; }
+  .search-form button {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    outline: none;
+    border: 0;
+    font-size: 16px;
+    font-size: 1rem;
+    padding: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease; }
+    .search-form button:hover {
+      color: #72bcae; }

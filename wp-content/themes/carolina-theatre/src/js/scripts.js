@@ -27,6 +27,11 @@
 	var stickyMenuCtrl = new ScrollMagic.Controller(); 
 
 	$(document).ready(function() {
+		// close mobile menu using the X button
+		$mobileMenuClose.on('click touch', function(){
+			closeMobileMenu();
+		});
+
 		// make .header-menu sticky on scroll
 		var stickyHeaderMenuScene = new ScrollMagic.Scene({
 				triggerElement: '#header__main',
@@ -80,21 +85,35 @@
 		
 			// 1 - enter trigger = show dropdown
 			$edTrigger.on('mouseover touch', function(e) {
-			  $ed.addClass('show');	
+			  // $ed.addClass('show');	
+			  $ed.slideDown(600);
 			  $edTrigger.addClass('hover');
 			});
 			// 2 - leave trigger, enter dropdown = show dropdown
 			$edTrigger.on('mouseleave touch', function(e) {
 				// e.relatedTarget – is the new under-the-pointer element (that mouse left for).
 				if (!$ed.is(e.relatedTarget) && $ed.has(e.relatedTarget).length === 0) {
-				  $ed.removeClass('show');
+				  // $ed.removeClass('show');
+				  $ed.slideUp(600);
 				  $edTrigger.removeClass('hover');
 				}
 			});
 			// 3 - leave dropdown = hide dropdown
 			$ed.on('mouseleave', function(e) {
-			  $ed.removeClass('show');
+			  // $ed.removeClass('show');
+			  $ed.slideUp(600);
 			  $edTrigger.removeClass('hover');	
+			});
+
+			//// Header Search Box
+			$('.header__searchBtn').on('click touch', function(){
+				// $('.headerSearch').addClass('show');
+				$('.headerSearch').slideDown(600);
+
+			});
+			$('#close_search').on('click touch', function(){
+				// $('.headerSearch').removeClass('show');
+				$('.headerSearch').slideUp(600);
 			});
 
 			// gallery featherlight init

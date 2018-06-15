@@ -289,6 +289,10 @@ function liveevent_filters_acf_save_post( $post_id ) {
  	$repeater_key = 'field_5b21353324ed5'; // repeater
   $event_categories = get_the_terms( $post_id , 'event_categories'); // custom taxonomy
 
+  // create string of filters for AJAX query
+	$filters_string = ',event,';
+	$filter_key = 'field_5b23f28123e0b'; // event_filter_string
+
 	// bail early if no ACF data
   if( empty($_POST['acf']) ) {
     return;
@@ -298,6 +302,7 @@ function liveevent_filters_acf_save_post( $post_id ) {
 	  // Delete all rows, so repeater is empty
 	  $repeater_rows = $_POST['acf'][$repeater_key]; 
 	  $rows_count = 0;
+
 	  if($repeater_rows != null){
 		  $rows_count = count($repeater_rows);
 			
@@ -312,6 +317,8 @@ function liveevent_filters_acf_save_post( $post_id ) {
 		  $cat_count = count($event_categories);
 
 		  for ($j = 0; $j < $cat_count; $j++) {
+			  $filters_string .= $event_categories[$j]->slug . ',';
+
 			  $row = array(
 					'slug'	=> $event_categories[$j]->slug,
 					'name'	=> $event_categories[$j]->name
@@ -324,6 +331,8 @@ function liveevent_filters_acf_save_post( $post_id ) {
 		// Add a new row if there's an associated event. 
 	  $associated_event = $_POST['acf'][$associated_event_key];
 	 	if($associated_event != null){
+		  $filters_string .= get_post_field( 'post_name', $associated_event ) . ',';
+
 		  $row = array(
 				'slug'	=> get_post_field( 'post_name', $associated_event ),
 				'name'	=> get_the_title($associated_event)
@@ -331,6 +340,9 @@ function liveevent_filters_acf_save_post( $post_id ) {
 		  add_row( $repeater_key, $row, $post_id);
 		}
 	  add_action('acf/save_post', 'liveevent_filters_acf_save_post');
+
+	  // update the filters with the new string
+	  update_field($filter_key, $filters_string, $post_id);
 	}
 }
 add_action('acf/save_post', 'liveevent_filters_acf_save_post', 1);
@@ -345,6 +357,10 @@ function film_filters_acf_save_post( $post_id ) {
  	$repeater = 'event_filters'; // repeater
  	$repeater_key = 'field_5b21522123429'; // repeater
 	
+	// create string of filters for AJAX query
+	$filters_string = ',film,';
+	$filter_key = 'field_5b23f33f8cd1e'; // event_filter_string
+
 	// bail early if no ACF data
   if( empty($_POST['acf']) ) {
     return;
@@ -366,6 +382,8 @@ function film_filters_acf_save_post( $post_id ) {
 		// Add a new row if there's an associated event. 
 	  $associated_event = $_POST['acf'][$associated_event_key];
 	 	if($associated_event != null){
+		  $filters_string .= get_post_field( 'post_name', $associated_event ) . ',';
+
 		  $row = array(
 				'slug'	=> get_post_field( 'post_name', $associated_event ),
 				'name'	=> get_the_title($associated_event)
@@ -373,6 +391,9 @@ function film_filters_acf_save_post( $post_id ) {
 		  add_row( $repeater_key, $row, $post_id);
 		}
 	  add_action('acf/save_post', 'film_filters_acf_save_post');
+
+	  // update the filters with the new string
+	  update_field($filter_key, $filters_string, $post_id);
 	}
 }
 add_action('acf/save_post', 'film_filters_acf_save_post', 1);
@@ -525,7 +546,7 @@ require get_template_directory() . '/inc/custom_walker-icon.php';
 require get_template_directory() . '/inc/tinymce.php';
 
 /**
- * Extend default searching to include taxonomies (for events/films)
+ * Filtering Upcoming Events/Films using AJAX
  */
-// require get_template_directory() . '/inc/search.php';
+require get_template_directory() . '/inc/filter-events.php';
 

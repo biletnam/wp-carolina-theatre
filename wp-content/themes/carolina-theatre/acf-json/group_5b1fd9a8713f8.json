@@ -589,6 +589,25 @@
                     "maxlength": ""
                 }
             ]
+        },
+        {
+            "key": "field_5b23f33f8cd1e",
+            "label": "Event Filter String (hidden)",
+            "name": "event_filter_string",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "hidden",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -617,5 +636,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1529002214
+    "modified": 1529082974
 }

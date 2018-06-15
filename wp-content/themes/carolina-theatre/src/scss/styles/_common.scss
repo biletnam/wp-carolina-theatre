@@ -303,6 +303,10 @@ main {
 	&:hover {
 		border-bottom-color: $green;
 	}
+
+	input.hidden {
+		display: none;
+	}
 }
 
 // hide content in tabs that aren't active
@@ -620,21 +624,3 @@ $sidebarLargest: 480px;
 		@include rem(14);
 	}
 }
-
-.searchResult {
-	border-top: 1px solid $gray;
-	padding: 20px 0;
-
-	a {
-		&:hover {
-			color: $green;
-		}
-	}
-}
-
-.searchHeader {
-	span {
-
-	}
-}
-
