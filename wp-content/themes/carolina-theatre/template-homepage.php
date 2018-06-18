@@ -43,7 +43,8 @@ get_header();
     </aside>
 	<?php } // end if ?>
 </div>
-<section class="hp-upcoming">
+
+<section>
   <div class="container contain">
   	<h2>Upcoming Events</h2>
     <?php get_template_part( 'template-parts/slider', 'upcoming_events' ); ?>
@@ -54,11 +55,12 @@ get_header();
 		<?php get_template_part( 'template-parts/content-blocks/block', 'link_block' ); ?>
 	</div>
 </section>
-<section class="hp-news">
+<section>
 	<div class="container contain">
 		<h2>New &amp; Press</h2>
     <?php get_template_part( 'template-parts/slider', 'latest_news' ); ?>
 	</div>
 </section>
+
 <?php } // endwhile; ?>
 <?php get_footer(); ?>

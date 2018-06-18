@@ -25,7 +25,6 @@ function cmp($a, $b){
   return strcmp($a['name'], $b['name']);
 } 
 
-
 /* 
  * Get all filters for the events
  * films - associated event, coming soon, now playing
@@ -67,12 +66,12 @@ function get_event_filters(){
 			while ($filters_query->have_posts()) { $filters_query->the_post();
 				// get filters based on event categories
 				if (get_post_type() == 'event') {
-					$terms = get_the_terms( $post->ID , 'event_categories');
+					$terms = get_the_terms( get_the_ID(), 'event_categories');
 					for ($i = 0; $i < count($terms); $i++ ) {
 						$event_filters[$j]['name'] = $terms[$i]->name;
 						$event_filters[$j]['slug'] = $terms[$i]->slug;
 						$j++;
-					}
+					}	
 				} 
 				// get filters for associated events
 				$associated_event = get_field('associated_event'); 
@@ -95,7 +94,8 @@ function get_event_filters(){
 	 	?>
 	 	<div class="tabbedContent__tabs" id="event-filter">
 			<ul class="upcoming-events__type">
-		    <li class="tabbedContent__tab active-link" data-filter="all">All Events</li>
+		    <li class="tabbedContent__tab active-link" data-filter="all">All</li>
+		    <li class="tabbedContent__tab " data-filter="event">Live Events</li>
 		    <li class="tabbedContent__tab" data-filter="film">Film<input type="radio" name="filter_event[]" value="film" class="hidden"></li>
 		    <?php // add filters based on active event types
 		    foreach($event_filters_unique as $filter){
@@ -128,7 +128,7 @@ function get_event_filters(){
  * Enqueue Ajax Scripts
  */
 function enqueue_event_ajax_scripts() {
-  wp_register_script( 'event-ajax-js', get_bloginfo('template_url') . '/dist/event-filter-ajax-min.js', array( 'jquery' ), '', true );
+  wp_register_script( 'event-ajax-js', get_bloginfo('template_url') . '/dist/event-filter-min.js', array( 'jquery' ), '', true );
   wp_localize_script( 'event-ajax-js', 'ajax_event_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
   wp_enqueue_script( 'event-ajax-js' );
 }
@@ -153,13 +153,15 @@ function ajax_event_filter(){
   
   $cache_key = 'upcoming_event_query_cache';
 	
+	// TO-DO: setup transient cache for all upcoming events. Store only the IDs. Then use that query's array of ids in 'posts__in' for another query for upcoming events slider, and here for filter queries.
+
 	// setup the cache so query isn't run every time page is loaded
 	// if(!$html = get_transient($cache_key)){
 	  date_default_timezone_set('America/New_York');
 	  $today = date("Ymd", strtotime('today'));  
 
 	  $meta_query = false;
-	  if($event_term === "coming-soon" || $event_term === "now-playing") {
+	  if($event_term === "now-playing") {
 		  $meta_query = array(
 				'relation' => 'AND',
 				array (
@@ -173,7 +175,36 @@ function ajax_event_filter(){
 					'compare'	=> 'LIKE',
 				)
 			);
-	  } else if($event_term){
+	  } else if($event_term === "coming-soon") {
+		  $meta_query = array(
+				'relation' => 'AND',
+				array (
+					'key'		=> 'start_date', // if film has not yet started playing
+					'compare'	=> '>',
+					'value'		=> $today,
+				),
+				array (
+					'key'		=> 'event_filter_string', // see if event has filter 
+					'value'		=> ',film,',
+					'compare'	=> 'LIKE',
+				)
+			);
+	  } else if($event_term === "event") {
+		  $meta_query = array(
+				'relation' => 'AND',
+				array (
+					'key'		=> 'start_date', // if film has not yet started playing
+					'compare'	=> '>',
+					'value'		=> $today,
+				),
+				array (
+					'key'		=> 'event_filter_string', // see if event has filter 
+					'value'		=> ',event,',
+					'compare'	=> 'LIKE',
+				)
+			);
+	  } 
+	  else if($event_term){
 			$meta_query = array(
 				'relation' => 'AND',
 				array (

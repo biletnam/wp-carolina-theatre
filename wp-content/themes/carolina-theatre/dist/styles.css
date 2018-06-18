@@ -141,6 +141,8 @@ p, .p {
       text-decoration: none; }
     p a:hover, .p a:hover {
       color: #72bcae; }
+  p .h3, p.h3, .p .h3, .p.h3 {
+    line-height: 1.45; }
 
 ul {
   padding-left: 2em; }
@@ -2358,7 +2360,6 @@ div.wpcf7-validation-errors {
 
 .heroSlider {
   position: relative;
-  min-height: 50vw;
   max-height: 900px; }
   .heroSlider .slick-list,
   .heroSlider .slick-track {
@@ -2439,6 +2440,9 @@ div.wpcf7-validation-errors {
     margin-bottom: 0; }
 
 /* Accordion Styles */
+.accordion {
+  margin: 1.5em 0; }
+
 .accordion__panel {
   position: relative;
   width: 100%;

@@ -1,9 +1,3 @@
-<?php
-  // TO-DO: setup tabbed filters to work across pagination and on page load. 
-  // Dynamic $_GET parameters
-  // https://www.advancedcustomfields.com/resources/query-posts-custom-fields/  
-?>
-
 <?php 
 // function unique_multidim_array($array, $key) { 
 //   $temp_array = array(); 
@@ -52,16 +46,16 @@ if(!$html = get_transient($cache_key)){
 		while ($filters_query->have_posts()) { $filters_query->the_post();
 			// get filters based on event categories
 			if (get_post_type() == 'event') {
-				$terms = get_the_terms( $post->ID , 'event_categories');
+				$terms = get_the_terms( get_the_ID(), 'event_categories');
 				for ($i = 0; $i < count($terms); $i++ ) {
 					$event_filters[$j]['name'] = $terms[$i]->name;
 					$event_filters[$j]['slug'] = $terms[$i]->slug;
 					$j++;
-				}
+				}	
 			} 
 			// get filters for associated events
 			$associated_event = get_field('associated_event'); 
-			if($associated_event){ 
+			if(isset($associated_event)){ 
 				$film_filters[$k]['name'] = get_the_title($associated_event);
 				$film_filters[$k]['slug'] = get_post_field( 'post_name', $associated_event );
 				$k++;

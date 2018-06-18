@@ -9,8 +9,7 @@
 			<?php get_template_part('/searchform', 'events'); ?>
     </div>
     
-    <?php // TO-DO: Get sidebars setup ?>
-
+    <?php // TO-DO: Should we allow users to put events in sidebar? Or keep it auto updating? ?>
     <div class="sidebar__menus">
       <?php $today = date("Ymd", strtotime('today')); ?>
       <?php 

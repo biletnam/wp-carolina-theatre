@@ -80,6 +80,11 @@ p, .p {
 	  	color: $green; 
 	  }
   }
+
+  // Page Intro Styling
+  .h3, &.h3 {
+    line-height: 1.45;
+  }
 }
 
 ul {

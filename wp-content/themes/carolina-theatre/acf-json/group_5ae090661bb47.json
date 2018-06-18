@@ -53,7 +53,7 @@
                     "label": "Image",
                     "name": "image",
                     "type": "image",
-                    "instructions": "Best results: <strong>1440px<\/strong> x <strong>810px<\/strong>\r\nMin width: 1280px",
+                    "instructions": "Best results: <strong>1440px<\/strong> x <strong>810px<\/strong>\r\nMin width: 1000px",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -64,7 +64,7 @@
                     "return_format": "array",
                     "preview_size": "hero-small",
                     "library": "all",
-                    "min_width": 700,
+                    "min_width": 1000,
                     "min_height": "",
                     "min_size": "",
                     "max_width": "",
@@ -119,5 +119,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1528306826
+    "modified": 1529327081
 }

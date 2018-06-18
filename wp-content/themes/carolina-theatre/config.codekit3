@@ -230,12 +230,12 @@
 		"oF": 0,
 		"oS": 3
 		},
-	"\/dist\/event-filter-ajax-min.js": {
+	"\/dist\/event-filter-min.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 0,
-		"oAP": "\/dist\/event-filter-ajax-min-min.js",
+		"oAP": "\/dist\/event-filter-min-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
@@ -518,21 +518,11 @@
 		"sC": 0,
 		"tS": 0
 		},
-	"\/src\/js\/event-filter-ajax.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 0,
-		"oA": 0,
-		"oAP": "\/dist\/event-filter-ajax-min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
 	"\/src\/js\/event-filter.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
-		"oA": 1,
+		"oA": 0,
 		"oAP": "\/dist\/event-filter-min.js",
 		"oF": 0,
 		"sC": 0,
@@ -895,11 +885,11 @@
 		"oAP": "\/template-archive_blog.php",
 		"oF": 0
 		},
-	"\/template-events-ajax.php": {
+	"\/template-events-old.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/template-events-ajax.php",
+		"oAP": "\/template-events-old.php",
 		"oF": 0
 		},
 	"\/template-events.php": {
@@ -1199,12 +1189,6 @@
 			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/src\/js\/slick-init.js",
 			"position": 6,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/js\/event-filter.js",
-			"position": 7,
 			"type": 1
 			}
 		]

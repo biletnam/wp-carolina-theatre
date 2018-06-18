@@ -73,14 +73,16 @@ get_header(); ?>
 							$paginate_pages = $posts_query->max_num_pages;
 						}
 
-						foreach( $paginate_links as $link ) {           
-					    if( false !== strpos( $link, 'prev ' ) ){
-				        $paginate_prev = $link;
-					    } else if( false !== strpos( $link, ' current' ) ){
-				        $paginate_current = $link;       
-					    } else if( false !== strpos( $link, 'next ' ) ){
-				        $paginate_next = $link;
-					    }
+						if(isset($paginate_links)){
+							foreach( $paginate_links as $link ) {           
+						    if( false !== strpos( $link, 'prev ' ) ){
+					        $paginate_prev = $link;
+						    } else if( false !== strpos( $link, ' current' ) ){
+					        $paginate_current = $link;       
+						    } else if( false !== strpos( $link, 'next ' ) ){
+					        $paginate_next = $link;
+						    }
+							}
 						}
 			    ?>
 			    <div class="paginate__prev"><?php echo $paginate_prev; ?></div>

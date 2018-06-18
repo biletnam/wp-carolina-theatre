@@ -152,7 +152,7 @@
 							  if(is_array($pricesOrdered) || is_object($pricesOrdered)){
 									$ticket_string = '$';
 									$ticket_string .= $pricesOrdered[0]; // use the lowest price 				
-									if($pricesOrdered[1]){  // and if there are more prices, add a plus sign
+									if(isset($pricesOrdered[1])){  // and if there are more prices, add a plus sign
 										$ticket_string .= '+'; 
 									} 
 								}

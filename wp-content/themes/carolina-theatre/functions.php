@@ -204,7 +204,8 @@ if(!function_exists('log_it')){
 }
 
 /**
- * SAVE SHOWTIME DATES into hidden fields for querying
+ * Update 'start_date' and 'end_date' on updating the post
+ * Fields are used for querying posts efficiently
  * ACF - save last 'showtime' repeater's 'date' value as 'end_date'
  * ACF - save first 'showtime' repeater's 'date' value as 'start_date'
  */
@@ -293,89 +294,90 @@ function showtime_hiddendates_acf_save_post( $post_id ) {
 } add_action('acf/save_post', 'showtime_hiddendates_acf_save_post', 1);
 
 
-/**
- * Everyday at midnight, update the soonest_date acf for Events/Films
- */
-if (!wp_next_scheduled('updated_soonest_date')) {
-	date_default_timezone_set('America/New_York');
-	log_it('---- Should be updating shortly. ---');
-	wp_schedule_event( strtotime('00:10:00'), 'daily', 'updated_soonest_date' );
-} else {
-	// log_it('already scheduled for ' . date('Ymd g:ia', wp_next_scheduled('updated_soonest_date')));
-}
-add_action ( 'updated_soonest_date', 'update_events_soonest_date_acf' );
+// /**
+//  * Everyday at midnight, update the soonest_date acf for Events/Films
+//  */
+// if (!wp_next_scheduled('updated_soonest_date')) {
+// 	date_default_timezone_set('America/New_York');
+// 	log_it('---- Should be updating shortly. ---');
+// 	wp_schedule_event( strtotime('00:10:00'), 'daily', 'updated_soonest_date' );
+// } else {
+// 	// log_it('already scheduled for ' . date('Ymd g:ia', wp_next_scheduled('updated_soonest_date')));
+// }
+// add_action ( 'updated_soonest_date', 'update_events_soonest_date_acf' );
 
-function update_events_soonest_date_acf() {
-  log_it('--------------------- UPDATING SOONEST DATES ---------------------');
-  date_default_timezone_set('America/New_York');
-  $today = date("Ymd", strtotime('today'));
- 	$hidden_SoonestDate = false;
- 	$hidden_pastEvent = false;
- 	$showtimesRepeater = false;
- 	$dateField = false;
- 	$soonest_date = '';
+// function update_events_soonest_date_acf() {
+//   log_it('--------------------- UPDATING SOONEST DATES ---------------------');
+//   date_default_timezone_set('America/New_York');
+//   $today = date("Ymd", strtotime('today'));
+//  	$hidden_SoonestDate = false;
+//  	$hidden_pastEvent = false;
+//  	$showtimesRepeater = false;
+//  	$dateField = false;
+//  	$soonest_date = '';
 
- 	// get all posts of type film/event that aren't past events
-	$set_soonest_date_args = array(
-		'post_type' => array('event', 'film'),
-		'post_status' => 'publish',
-		'posts_per_page' => -1,
-		'meta_query'	=> array(
-			array (
-				'key'		=> 'past_event', // if event hasn't ended yet
-				'compare'	=> '==', 
-				'value'		=> false,
-			)
-		)
-	);
+//  	// get all posts of type film/event that aren't past events
+// 	$set_soonest_date_args = array(
+// 		'post_type' => array('event', 'film'),
+// 		'post_status' => 'publish',
+// 		'posts_per_page' => -1,
+// 		'meta_query'	=> array(
+// 			array (
+// 				'key'		=> 'past_event', // if event hasn't ended yet
+// 				'compare'	=> '==', 
+// 				'value'		=> false,
+// 			)
+// 		)
+// 	);
 
-	$soonest_date_query = new WP_Query($set_soonest_date_args);
+// 	$soonest_date_query = new WP_Query($set_soonest_date_args);
 
-	if ($soonest_date_query->have_posts()) {
-		while ($soonest_date_query->have_posts()) { $soonest_date_query->the_post(); 
-		 	$posts_id = get_the_ID();
-			$showtimes = get_field('showtimes');
-			$soonestdate_original = get_field('soonest_date');
-			$soonestdate = get_field('soonest_date');
+// 	if ($soonest_date_query->have_posts()) {
+// 		while ($soonest_date_query->have_posts()) { $soonest_date_query->the_post(); 
+// 		 	$posts_id = get_the_ID();
+// 			$showtimes = get_field('showtimes');
+// 			$soonestdate_original = get_field('soonest_date');
+// 			$soonestdate = get_field('soonest_date');
 
-			if (have_rows('showtimes')){    
-				// Find the upcoming date, closest to today
-		    date_default_timezone_set('America/New_York');
-		    $today = date("Ymd", strtotime('today'));
-		    $last_row = end( $showtimes );
-		    $end_date = $last_row['date'];
+// 			if (have_rows('showtimes')){    
+// 				// Find the upcoming date, closest to today
+// 		    date_default_timezone_set('America/New_York');
+// 		    $today = date("Ymd", strtotime('today'));
+// 		    $last_row = end( $showtimes );
+// 		    $end_date = $last_row['date'];
 				
-				if($end_date < $today) { // event is in the past
-		    	$soonest_date = $end_date; 
-		    } else {
-		    	while (have_rows('showtimes')) { the_row();
-		    	// get the date field for each 'showtime' row
-		    	$date = get_sub_field('date');
+// 				if($end_date < $today) { // event is in the past
+// 		    	$soonest_date = $end_date; 
+// 		    } else {
+// 		    	while (have_rows('showtimes')) { the_row();
+// 		    	// get the date field for each 'showtime' row
+// 		    	$date = get_sub_field('date');
 
-		    	// check if the date is today, or close to today.
-		    	if($date < $today){
-						$soonest_date = $date;
-		    	}
-		    	if($date >= $today){
-		    		$soonest_date = $date;
+// 		    	// check if the date is today, or close to today.
+// 		    	if($date < $today){
+// 						$soonest_date = $date;
+// 		    	}
+// 		    	if($date >= $today){
+// 		    		$soonest_date = $date;
 		    		
-		    		// break the loop once we find the closest date
-		    		break;
-		    	}
-			    // update the filters with the new string
-		  		update_field($hidden_SoonestDate, $soonest_date, $posts_id);
-		  		log_it($posts_id .' updated soonestdate from: '.$soonestdate_original.' -> ' .$soonestdate);
-		    	}
-		    }
-			}
-		}
-	}
-} 
+// 		    		// break the loop once we find the closest date
+// 		    		break;
+// 		    	}
+// 			    // update the filters with the new string
+// 		  		update_field($hidden_SoonestDate, $soonest_date, $posts_id);
+// 		  		log_it($posts_id .' updated soonestdate from: '.$soonestdate_original.' -> ' .$soonestdate);
+// 		    	}
+// 		    }
+// 			}
+// 		}
+// 	}
+// } 
 
 
 /**
- * ACF - save event categories and associated event as filters
- * for the template-events.php page
+ * ACF - save event categories and associated event into a repeater
+ * allowing for easy access to display active filters on the Event's page.
+ * (template-events.php)
  */
 function event_filters_acf_save_post( $post_id ) {
 	$associated_event_key = false;
@@ -459,8 +461,10 @@ function event_filters_acf_save_post( $post_id ) {
 add_action('acf/save_post', 'event_filters_acf_save_post', 1);
 
 /**
- * Automatically update ACF 'past_event' field.
- * Creates a cron job to run the day after an event happens or ends
+ * Creates a cron job (an automatic update) to run the 
+ * day after 'end_date' (when an event ends), that
+ * automatically updates the ACF 'past_event' boolean field.
+ * Allows for events to easily be ignored in querying all event posts.
  */
 function set_expiry_date( $post_id ) {
  	// Find the upcoming date, closest to today
@@ -480,9 +484,11 @@ function set_expiry_date( $post_id ) {
 
  	// if no dates have been given, set past_event to false and return
  	if(isset($_POST['acf'][$hidden_EndDate]) == null){
-  	if($_POST['acf'][$hidden_pastEvent] == true) {
-  		update_field($hidden_pastEvent, false, $post_id); 	
-  		return;
+  	if(isset($_POST['acf'][$hidden_pastEvent]) == true) {
+  		if($_POST['acf'][$hidden_pastEvent] == true) {
+	  		update_field($hidden_pastEvent, false, $post_id); 	
+	  		return;
+	  	}
   	}
  	}
 
@@ -556,6 +562,7 @@ add_filter('acf/load_field/name=link_block_select', 'acf_load_linkBlockDefault_f
 
 /**
  * Clear Transient Cache when a new 'film or 'event' post is added
+ * This allows for the query of relevant posts/filters to be updated.
  */
 function ctdEvent_delete_query_transient( $post_id, $post ) {
   delete_transient( 'event_slider_query_cache' ); // Upcoming Events Slider cache

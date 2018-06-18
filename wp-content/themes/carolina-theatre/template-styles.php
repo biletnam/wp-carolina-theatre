@@ -20,6 +20,156 @@ get_header(); ?>
 
 <div class="container contain">
 	<section>
+		<?php 
+		// CACHE THE EVENT DROPDOWN / HOMEPAGE EVENT SLIDER FOR 6 HOURS
+		// This speeds up page load tremendously
+
+		// $cache_key = 'event_slider_query_cache';
+		// if(!$ids = get_transient($cache_key)){
+		  date_default_timezone_set('America/New_York');
+		  $today = date("Ymd", strtotime('today'));
+			$upcoming_event_args = array(
+				'fields' => 'ids',
+				'post_type' => array('event', 'film'),
+				'post_status' => 'publish',
+				'posts_per_page' => -1,
+				'meta_query'	=> array(
+					array (
+						'key'		=> 'end_date', // double check that end date hasnt happened yet
+						'compare'	=> '>=',
+						'value'		=> $today,
+					),
+				),
+				'meta_key' => 'soonest_date', // order by the soonest date (may not be most recent, but close enough)
+		    'orderby' => 'meta_value_num', // 'soonest_date' is a number (ie 20180704)
+		    'order' => 'ASC',
+			);
+			$upcoming_event_IDs = new WP_Query($upcoming_event_args);
+
+		  $ids = $upcoming_event_IDs->posts;
+		  // set_transient( $cache_key, $ids, 60*60*1 ); // 6 hours = 60*60*6
+		// }
+		?>
+
+			<?php
+				date_default_timezone_set('America/New_York');
+			  $today = date("Ymd", strtotime('today'));  
+			  $event_term = false;
+			  $meta_query = false;
+			  if($event_term === "coming-soon" || $event_term === "now-playing") {
+				  $meta_query = array(
+						'relation' => 'AND',
+						array (
+							'key'		=> 'end_date', // double check that end date hasnt happened yet
+							'compare'	=> '>=',
+							'value'		=> $today,
+						),
+						array (
+							'key'		=> 'event_filter_string', // see if event has filter 
+							'value'		=> ',film,',
+							'compare'	=> 'LIKE',
+						)
+					);
+			  } else if($event_term){
+					$meta_query = array(
+						'relation' => 'AND',
+						array (
+							'key'		=> 'end_date', // double check that end date hasnt happened yet
+							'compare'	=> '>=',
+							'value'		=> $today,
+						),
+						array (
+							'key'		=> 'event_filter_string', // see if event has filter 
+							'value'		=> ','.$event_term.',',
+							'compare'	=> 'LIKE',
+						)
+					);
+			  } else {
+				  $meta_query = array( 
+				  	array (
+							'key'		=> 'end_date', // double check that end date hasnt happened yet
+							'compare'	=> '>=',
+							'value'		=> $today,
+						) 
+				  );
+				}
+
+				$upcoming_event_query = new WP_Query(array(
+					'post_type' => array('event', 'film'),
+					'post__in' => $ids,
+					'post_status' => 'publish',
+					'posts_per_page' => 10,
+					'meta_query'	=> $meta_query,
+					'meta_key' => 'soonest_date', // order by the soonest date (may not be most recent, but close enough)
+			    'orderby' => 'meta_value_num', // 'soonest_date' is a number (ie 20180704)
+			    'order' => 'ASC',
+					'paged' => $paged,
+				)); 
+
+				if ($upcoming_event_query->have_posts()) { ?>
+					<div class="card__wrapper events">
+
+					<?php while ($upcoming_event_query->have_posts()) { $upcoming_event_query->the_post();
+						$this_post_id = get_the_ID();
+
+						get_template_part('template-parts/event', 'thumbnail_card');
+		  		} // endwhile have_posts upcoming_event_query
+		  		?>
+		  		</div>
+		  		<div class="paginate" id="event-filter-navigation">
+			    <?php 
+		        $paginate_links = paginate_links( array(
+		          'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+		          'total' 			 => $upcoming_event_query->max_num_pages,
+		          'current' 		 => max( 1, $paged ),
+		          'format'       => '?paged=%#%',
+		          'show_all'     => false,
+		          'type'         => 'array',
+		          'end_size'     => 1,
+		          'mid_size'     => 0,
+		          'prev_next'    => true,
+		          'prev_text'    => '<i class="fas fa-chevron-left"></i>',
+		          'next_text'    => '<i class="fas fa-chevron-right"></i>',
+		          'add_args'     => false,
+		          'add_fragment' => '',
+		        ) );
+
+		        $paginate_next       = '';
+						$paginate_current    = '1';
+						$paginate_prev       = '';
+						$paginate_pages			 = '1';
+
+						if($upcoming_event_query->max_num_pages != 0) {
+							$paginate_pages = $upcoming_event_query->max_num_pages;
+						}
+
+						if (is_array($paginate_links) || is_object($paginate_links)){
+							foreach( $paginate_links as $link ) {           
+						    if( false !== strpos( $link, 'prev ' ) ){
+					        $paginate_prev = $link;
+						    } else if( false !== strpos( $link, ' current' ) ){
+					        $paginate_current = $link;       
+						    } else if( false !== strpos( $link, 'next ' ) ){
+					        $paginate_next = $link;
+						    }
+							}
+						}
+			    ?>
+			    <div class="paginate__prev change-page"><?php echo $paginate_prev; ?></div>
+			    <div class="paginate__current"><?php echo 'Page '. $paginate_current . ' of '. $paginate_pages; ?></div>
+			    <div class="paginate__next change-page"><?php echo $paginate_next; ?></div>
+				</div>
+				<?php
+				} else {
+					echo 'No events at this time';
+				} // endif have_posts upcoming_event_query
+				wp_reset_postdata();
+			?>
+		</div>
+	</section>
+
+
+	<section>
 		<div class="contain">
 			<?php the_content(); ?>
 		</div>

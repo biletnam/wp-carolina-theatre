@@ -5,6 +5,9 @@
 $ac-padleft: 32px;
 
 /* Accordion Styles */
+.accordion {
+  margin: 1.5em 0;
+}
 .accordion__panel {
 	position: relative;
 	width: 100%;

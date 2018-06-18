@@ -1,5 +1,4 @@
 <?php 
-// TO-DO: get this fixed and pulling in the corect data
 	$featured = get_field('featured_post');
 	$featured_ID = $featured->ID; 
 ?>
@@ -7,8 +6,6 @@
 <div class="featuredPost event">
 	<div class="featuredEvent__slideContainer">
 		<?php 
-			// $image = get_the_post_thumbnail( $featured_ID, 'hero-small' );
-
 			$image_url = get_the_post_thumbnail_url($featured_ID, 'hero-small');
 			if($image_url == null){
   			$image_url = get_stylesheet_directory_uri().'/src/img/no-event-image-full.jpg';

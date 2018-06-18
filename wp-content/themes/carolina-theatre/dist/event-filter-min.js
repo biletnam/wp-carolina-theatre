@@ -1,3 +1,5 @@
+// TO-DO: setup filtering to occur on page load, so when ctd.org/events&filter=films is loaded, the films are filtered.
+
 //Event Ajax Filtering
 jQuery(function($){
     //Load posts on document ready

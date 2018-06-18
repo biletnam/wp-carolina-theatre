@@ -31,7 +31,7 @@ if (have_rows('content_block_type')) {
     }  
   }
 } else {
-  echo "No Content Found";  
+  // echo "No Content Found";  
 }
 
 wp_reset_postdata();
