@@ -4,16 +4,13 @@
 	$tickets_onsaledate = get_field('tickets_onsaledate'); 					// 2018-06-06 20:55:09  |  Y-m-d H:i:s
 	$tickets_presaledate = get_field('tickets_presaledate'); 				// 2018-06-06 20:55:09  |  Y-m-d H:i:s
 
-	$end_date = get_field('end_date', $featured_ID); 			
-  date_default_timezone_set('America/New_York');
-	$today = date("Ymd", strtotime('today'));
-
+	$past_event = get_field('past_event'); 			
 	date_default_timezone_set('America/New_York');
 	$dateTime_now = date('Y-m-d H:i:s');
 
 	$event_soldout = get_field('event_soldout');
 ?>
-<?php if($end_date >= $today){ ?>
+<?php if(!$past_event){ ?>
 	<?php if(!$event_soldout){ ?>
 		<?php 
 		if ($tickets_presaledate > $dateTime_now){ ?>
