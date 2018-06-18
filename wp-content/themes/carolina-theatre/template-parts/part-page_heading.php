@@ -17,6 +17,14 @@ function if_community_education_page($parent){
  		} wp_reset_postdata();
 	}
 }
+
+function if_events_page($parent){
+	$event_id = 4;
+	if (is_page($event_id) || $parent == $event_id){ ?>	
+	<li class="page_item"><a href="<?php echo get_the_permalink($event_id); ?>">All Events</a></li>
+	<?php
+	}
+}
 ?>
 
 <section class="pageHeading contain">
@@ -33,6 +41,7 @@ function if_community_education_page($parent){
 		<h1 class="pageTitle"><?php echo get_the_title(); ?></h1>
 		<div class="tabbedContent__tabs relatedPages children">
 			<ul>
+				<?php if_events_page($parent); ?>
 				<?php // show children of current page
 					wp_list_pages(array(
 				    'child_of' => $post->ID,
@@ -48,6 +57,7 @@ function if_community_education_page($parent){
 		<h1 class="pageTitle"><?php echo get_the_title($parent); ?></h1>
 		<div class="tabbedContent__tabs relatedPages siblings">
 			<ul>
+				<?php if_events_page($parent); ?>
 				<?php // if current post has no children, show siblings
 					wp_list_pages(array(
 				    'child_of' => $post->post_parent,
