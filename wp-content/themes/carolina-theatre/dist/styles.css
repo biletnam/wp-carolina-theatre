@@ -1996,10 +1996,10 @@ div.wpcf7-validation-errors {
 .upcoming-events .filmFilters {
   display: none; }
 
-.filmFilters .default {
+.tabbedContent__tab.default {
   position: relative;
   margin-right: 26px; }
-  .filmFilters .default::after {
+  .tabbedContent__tab.default::after {
     position: absolute;
     content: "|";
     font-weight: 400;

@@ -86,7 +86,7 @@
 			// 1 - enter trigger = show dropdown
 			$edTrigger.on('mouseover touch', function(e) {
 			  // $ed.addClass('show');	
-			  $ed.slideDown(600);
+			  $ed.slideDown(300);
 			  $edTrigger.addClass('hover');
 			});
 			// 2 - leave trigger, enter dropdown = show dropdown
@@ -94,14 +94,14 @@
 				// e.relatedTarget – is the new under-the-pointer element (that mouse left for).
 				if (!$ed.is(e.relatedTarget) && $ed.has(e.relatedTarget).length === 0) {
 				  // $ed.removeClass('show');
-				  $ed.slideUp(600);
+				  $ed.slideUp(300);
 				  $edTrigger.removeClass('hover');
 				}
 			});
 			// 3 - leave dropdown = hide dropdown
 			$ed.on('mouseleave', function(e) {
 			  // $ed.removeClass('show');
-			  $ed.slideUp(600);
+			  $ed.slideUp(300);
 			  $edTrigger.removeClass('hover');	
 			});
 

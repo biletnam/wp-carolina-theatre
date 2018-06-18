@@ -1,3 +1,24 @@
+<?php // for Community & Education pages, show Education Series pages
+function if_community_education_page($parent){
+	$communityeducation_id = 575;
+	if(is_page($communityeducation_id) || $parent == $communityeducation_id){
+		$educationseries_args = array(
+			'post_type' => array('education'),
+			'post_status' => 'publish',
+			'posts_per_page' => -1,
+	    'order' => 'ASC',
+		);
+
+		$educationseries_loop = new WP_Query($educationseries_args);
+	  if( $educationseries_loop->have_posts() ) { ?>
+	    <?php while( $educationseries_loop->have_posts() ){ $educationseries_loop->the_post(); ?>
+    	<li class="page_item"><a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a></li>
+	    <?php } // endwhile;
+ 		} wp_reset_postdata();
+	}
+}
+?>
+
 <section class="pageHeading contain">
 	<div class="container">
 		<?php 
@@ -20,6 +41,7 @@
 				    'depth' => 1
 					));
 				?>
+				<?php if_community_education_page($parent); ?>
 			</ul>
 		</div>
 		<?php } else if($parent){ ?>
@@ -34,6 +56,7 @@
 				    'depth' => 1
 					));
 				?>
+				<?php if_community_education_page($parent); ?>
 			</ul>
 		</div>
 		<?php } else { ?>

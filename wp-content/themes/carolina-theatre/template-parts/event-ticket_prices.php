@@ -1,7 +1,7 @@
 <?php // EVENT TICKET PRICES ?>
 <?php 
 	$ticket_prices = get_field('ticket_prices'); // repeater 
-	$ticket_string = 'TBA';
+	$ticket_string = '';
 	
 	if($ticket_prices){ 
 		$pricesOrdered = array(); // array to reorder ticket prices
@@ -21,4 +21,4 @@
 		}
 	}
 ?>
-<p><i class="far fa-ticket-alt"></i><?php echo $ticket_string; ?></p>
+<?php if($ticket_string){ ?><p><i class="far fa-ticket-alt"></i><?php echo $ticket_string; ?></p><?php } ?>

@@ -8,6 +8,7 @@
 
 	$event_soldout = get_field('event_soldout');
 ?>
+
 <?php if($ticket_link){ ?>
 	<?php if(!$event_soldout){ ?>
 		<?php if($tickets_onsaledate == NULL || $tickets_onsaledate <= $dateTime_now ){ ?>
