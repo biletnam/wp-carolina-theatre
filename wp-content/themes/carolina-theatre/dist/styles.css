@@ -143,6 +143,14 @@ p, .p {
       color: #72bcae; }
   p .h3, p.h3, .p .h3, .p.h3 {
     line-height: 1.45; }
+  p i.far,
+  p i.fab,
+  p i.fas, .p i.far,
+  .p i.fab,
+  .p i.fas {
+    width: 25px;
+    text-align: center;
+    margin-right: 5px; }
 
 ul {
   padding-left: 2em; }
@@ -2231,7 +2239,7 @@ div.wpcf7-validation-errors {
   background-color: #fff;
   vertical-align: top;
   max-width: 250px;
-  width: 100%;
+  width: 250px;
   margin-right: 20px;
   margin-bottom: 20px;
   border: 1px solid #ccc;

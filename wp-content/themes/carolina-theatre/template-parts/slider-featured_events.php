@@ -3,13 +3,14 @@
 <?php foreach($featured as $feature_obj) { $featured_ID = $feature_obj->ID; ?>
   <?php 
   /////// DATES in YYYYMMDD format
+	$past_event = get_field('past_event', $featured_ID);
 	$start_date = get_field('start_date', $featured_ID); 	
 	$end_date = get_field('end_date', $featured_ID); 			
   date_default_timezone_set('America/New_York');
 	$today = date("Ymd", strtotime('today'));
 	
 	// Before doing anything, see if the event is upcoming
-	if($end_date >= $today){
+	if(!$past_event){
 
 		$dateString = '';
 		if($start_date && $end_date){

@@ -85,6 +85,14 @@ p, .p {
   .h3, &.h3 {
     line-height: 1.45;
   }
+
+  i.far,
+  i.fab, 
+  i.fas {
+  	width: 25px;
+  	text-align: center;
+    margin-right: 5px;
+  }
 }
 
 ul {
