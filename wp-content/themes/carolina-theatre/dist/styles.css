@@ -456,6 +456,7 @@ blockquote {
     z-index: 1000;
     top: 50%;
     cursor: pointer;
+    padding: 20px;
     /* preventing text selection */
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -479,9 +480,9 @@ blockquote {
       .featherlight-previous span:hover {
         opacity: 1; }
   .featherlight-next {
-    right: 10px; }
+    right: 0; }
   .featherlight-previous {
-    left: 10px; }
+    left: 0; }
   /* Hide navigation while loading */
   .featherlight-loading .featherlight-previous,
   .featherlight-loading .featherlight-next {
@@ -561,7 +562,7 @@ blockquote {
       padding: 5px 0; }
       .header__main.sticky .header__logo svg {
         height: 100%;
-        width: auto; }
+        width: 100%; }
     .header__main.sticky .header__mainMenu > li {
       padding-top: 10px;
       padding-bottom: 18px; }
@@ -870,7 +871,8 @@ blockquote {
   .alertBanner__closeBtn {
     position: absolute;
     top: 50%;
-    right: 20px;
+    right: 0;
+    padding: 20px;
     color: #8c6c33;
     cursor: pointer;
     -webkit-transform: translateY(-50%);

@@ -107,7 +107,7 @@
 
     	svg {
     		height: 100%;
-	    	width: auto;
+	    	width: 100%;
     	}
     }
 
@@ -589,7 +589,8 @@
 	&__closeBtn {
 		position: absolute;
 		top: 50%;
-		right: 20px;
+		right: 0;
+		padding: 20px;
 		color: $gold-dk;
 		cursor: pointer;
 		transform: translateY(-50%);
