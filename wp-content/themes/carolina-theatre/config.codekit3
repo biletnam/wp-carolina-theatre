@@ -885,13 +885,6 @@
 		"oAP": "\/template-archive_blog.php",
 		"oF": 0
 		},
-	"\/template-events-old.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/template-events-old.php",
-		"oF": 0
-		},
 	"\/template-events.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -995,13 +988,6 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/template-parts\/event-external_links.php",
-		"oF": 0
-		},
-	"\/template-parts\/event-filters.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/template-parts\/event-filters.php",
 		"oF": 0
 		},
 	"\/template-parts\/event-get_soonest_date.php": {

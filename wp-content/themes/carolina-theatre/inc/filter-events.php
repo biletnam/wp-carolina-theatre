@@ -95,7 +95,7 @@ function get_event_filters(){
 	 	<div class="tabbedContent__tabs" id="event-filter">
 			<ul class="upcoming-events__type">
 		    <li class="tabbedContent__tab active-link" data-filter="all">All</li>
-		    <li class="tabbedContent__tab " data-filter="event">Live Events</li>
+		    <li class="tabbedContent__tab" data-filter="event">Live Events<input type="radio" name="filter_event[]" value="event" class="hidden"></li>
 		    <li class="tabbedContent__tab" data-filter="film">Film<input type="radio" name="filter_event[]" value="film" class="hidden"></li>
 		    <?php // add filters based on active event types
 		    foreach($event_filters_unique as $filter){
@@ -161,7 +161,7 @@ function ajax_event_filter(){
 	  $today = date("Ymd", strtotime('today'));  
 
 	  $meta_query = false;
-	  if($event_term === "now-playing") {
+	  if($event_term === "now-playing") { // TO-DO: get this working. show all films, no pagination, hide all films without 'now-playing' data-filterme 
 		  $meta_query = array(
 				'relation' => 'AND',
 				array (
@@ -189,22 +189,7 @@ function ajax_event_filter(){
 					'compare'	=> 'LIKE',
 				)
 			);
-	  } else if($event_term === "event") {
-		  $meta_query = array(
-				'relation' => 'AND',
-				array (
-					'key'		=> 'start_date', // if film has not yet started playing
-					'compare'	=> '>',
-					'value'		=> $today,
-				),
-				array (
-					'key'		=> 'event_filter_string', // see if event has filter 
-					'value'		=> ',event,',
-					'compare'	=> 'LIKE',
-				)
-			);
-	  } 
-	  else if($event_term){
+	  } else if($event_term){
 			$meta_query = array(
 				'relation' => 'AND',
 				array (
