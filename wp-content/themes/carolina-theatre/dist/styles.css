@@ -1540,11 +1540,7 @@ main {
     padding-left: 4px; }
 
 .sidebar__menu .current_page_item,
-.sidebar__menu .current_page_parent,
-.sidebar__menu .current_page_ancestor,
-.sidebar__menu .current-page-item,
-.sidebar__menu .current-page-parent,
-.sidebar__menu .current-page-ancestor {
+.sidebar__menu .current-page-item {
   font-weight: 700; }
 
 .sidebar__menu a:hover {

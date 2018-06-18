@@ -82,29 +82,38 @@
 		//// Desktop Event Calendar Dropdown
 		var $edTrigger = $('.header__mainMenu .header__event__trigger');
 		var $ed = $('#eventsDropdown');
-		
-			// 1 - enter trigger = show dropdown
-			$edTrigger.on('mouseover touch', function(e) {
-			  // $ed.addClass('show');	
-			  $ed.slideDown(300);
-			  $edTrigger.addClass('hover');
-			});
-			// 2 - leave trigger, enter dropdown = show dropdown
-			$edTrigger.on('mouseleave touch', function(e) {
+		var timer;
+
+		// 1 - enter trigger = show dropdown
+		$edTrigger.on('mouseenter touch', function(e) {
+		  timer = setTimeout(function(){
+        $ed.slideDown(600);
+		  	$edTrigger.addClass('hover');
+		  	$ed.addClass('showing');
+	    }, 600);
+		});
+		// 2 - leave trigger, enter dropdown = showing dropdown
+		$edTrigger.on('mouseleave touch', function(e) {
+			clearTimeout(timer);
+			if($ed.hasClass('showing')) {
 				// e.relatedTarget – is the new under-the-pointer element (that mouse left for).
 				if (!$ed.is(e.relatedTarget) && $ed.has(e.relatedTarget).length === 0) {
-				  // $ed.removeClass('show');
 				  $ed.slideUp(300);
 				  $edTrigger.removeClass('hover');
+				  $ed.removeClass('showing');
 				}
-			});
-			// 3 - leave dropdown = hide dropdown
-			$ed.on('mouseleave', function(e) {
-			  // $ed.removeClass('show');
+			}
+		});
+		// 3 - leave dropdown = hide dropdown
+		$ed.on('mouseleave', function(e) {
+		  clearTimeout(timer);
+		  if($ed.hasClass('showing')) {
 			  $ed.slideUp(300);
+			  $ed.removeClass('showing');
 			  $edTrigger.removeClass('hover');	
-			});
-
+			}
+		});
+			
 			//// Header Search Box
 			$('.header__searchBtn').on('click touch', function(){
 				// $('.headerSearch').addClass('show');
