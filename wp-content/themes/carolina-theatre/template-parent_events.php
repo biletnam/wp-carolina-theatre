@@ -103,65 +103,63 @@ if ($post_type == 'education') {
 	);
 	$associatedShows_query = new WP_Query($associatedShows_query_args);
 }
-
 ?>
 
 <section class="pageHeader contain">
 	<div class="container">
 	  <?php if($dateString){ ?><p class="date"><i class="far fa-calendar-alt"></i><?php echo $dateString; ?></p> <?php } ?>
 	  <h1><?php the_title(); ?></h1>
+	  <div class="tabbedContent__tabs">
+       <ul>
+        	<?php if($post_type == 'education'){ ?>
+	          <?php if ($associatedShows_query->have_posts()) { ?>
+		          <li data-tab="shows" class="tabbedContent__tab default">
+		          	<a href="#shows">Shows</a>
+		        	</li>
+	        	<?php } ?>
+        	<?php } ?>
+
+        	<?php if($post_type == 'series' || $post_type == 'festival') { ?>
+	          <?php if ($associatedFilms_query->have_posts()) { ?>
+	          <li data-tab="films" class="tabbedContent__tab default">
+	          	<a href="#films">Films</a>
+	        	</li>
+	        	<?php } ?>
+        	<?php } ?>
+
+        	<?php if($post_type == 'festival') { ?>
+        		<?php if ($associatedEvents_query->have_posts()) { ?>
+	          <li data-tab="events" class="tabbedContent__tab default">
+	          	<a href="#events">Events</a>
+	        	</li>
+	        	<?php } ?>
+        	<?php } ?>
+
+         	<li data-tab="overview" class="tabbedContent__tab active-link">
+          	<a href="#overview">Overview</a>
+        	</li>
+          <?php if( have_rows('tabs') ) { ?>
+         	<?php while ( have_rows('tabs') ) { the_row(); ?>
+          <?php
+            $tab_name = get_sub_field('tab_name');
+            $id_name = str_replace(' ', '-', $tab_name);
+            $id_name = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '', $id_name));
+  				?>          
+          <li data-tab="<?php echo $id_name; ?>" class="tabbedContent__tab">
+          	<a href="#<?php echo $id_name;?>">
+              <?php echo $tab_name; ?>
+          	</a>
+        	</li>
+  				<?php } //end while tabs ?>
+          <?php } // end if tabs ?>
+       </ul> 
+    </div>
   </div>
 </section>
 
 <div class="mainContent contain">
   <section class="mainContent__content">
   	<div class="container">
-	    <div class="tabbedContent__tabs">
-	       <ul>
-	        	<?php if($post_type == 'education'){ ?>
-		          <?php if ($associatedShows_query->have_posts()) { ?>
-			          <li data-tab="shows" class="tabbedContent__tab default">
-			          	<a href="#shows">Shows</a>
-			        	</li>
-		        	<?php } ?>
-	        	<?php } ?>
-
-	        	<?php if($post_type == 'series' || $post_type == 'festival') { ?>
-		          <?php if ($associatedFilms_query->have_posts()) { ?>
-		          <li data-tab="films" class="tabbedContent__tab default">
-		          	<a href="#films">Films</a>
-		        	</li>
-		        	<?php } ?>
-	        	<?php } ?>
-
-	        	<?php if($post_type == 'festival') { ?>
-	        		<?php if ($associatedEvents_query->have_posts()) { ?>
-		          <li data-tab="events" class="tabbedContent__tab default">
-		          	<a href="#events">Events</a>
-		        	</li>
-		        	<?php } ?>
-	        	<?php } ?>
-
-	         	<li data-tab="overview" class="tabbedContent__tab active-link">
-	          	<a href="#overview">Overview</a>
-	        	</li>
-	          <?php if( have_rows('tabs') ) { ?>
-           	<?php while ( have_rows('tabs') ) { the_row(); ?>
-            <?php
-              $tab_name = get_sub_field('tab_name');
-              $id_name = str_replace(' ', '-', $tab_name);
-              $id_name = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '', $id_name));
-    				?>          
-            <li data-tab="<?php echo $id_name; ?>" class="tabbedContent__tab">
-            	<a href="#<?php echo $id_name;?>">
-                <?php echo $tab_name; ?>
-            	</a>
-          	</li>
-    				<?php } //end while tabs ?>
-            <?php } // end if tabs ?>
-	       </ul> 
-	    </div>
-	    <!-- Generate content for all tabs -->
 	    <div class="tabbedContent_contentWrapper">
 	      <div class="tabbedContent__content overview">
 	        <?php if( have_rows('overview') ) { ?>
@@ -233,9 +231,7 @@ if ($post_type == 'education') {
   <aside class="mainContent__sidebar">
   	<div class="container">
   		<div class="sidebar__tickets">
-	  		<?php if (get_field('event_areticketsbeingsold')){ ?>
-	        <?php get_template_part('template-parts/event', 'ticket_buttons'); ?>
-	  		<?php } ?>
+        <?php get_template_part('template-parts/event', 'ticket_buttons'); ?>
       
         <div class="sidebar__eventInfo">
 				  <?php if($dateString){ ?>
