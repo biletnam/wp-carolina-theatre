@@ -1,22 +1,4 @@
-// Pulling in all javascript files and being minified with Codekit
-
-// smooth scroll to just above anchor points
-// (function($){
-// 	$(function(){
-// 		$('a[href*="#"]:not([href="#"]):not([href*="popup"])').click(function() {
-// 			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-// 				var target = $(this.hash);
-// 				target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-// 				if (target.length) {
-// 					$('html, body').animate({
-// 						scrollTop: target.offset().top
-// 					}, 1000);
-// 					return false;
-// 				}
-// 			}
-// 		});
-// 	});
-// })(jQuery);
+// Pulling in all javascript files and being minified with Codekit, along with the scripts below.
 
 (function($){
 	var $ww = $(window).width();

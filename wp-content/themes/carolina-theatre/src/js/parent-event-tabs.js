@@ -22,7 +22,7 @@ jQuery(function($) {
     }
 
     // change active link onclick, show content for active link only
-		$(".tabbedContent__tab").on("click", function() {
+		$(".tabbedContent__tab:not(.filmFilter)").on("click", function() {
 	    $(".tabbedContent__tab").removeClass("active-link");
 	    $(this).addClass("active-link");
 

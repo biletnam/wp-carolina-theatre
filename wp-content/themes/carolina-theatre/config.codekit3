@@ -303,11 +303,11 @@
 		"oAP": "\/inc\/custom_walker-icon.php",
 		"oF": 0
 		},
-	"\/inc\/filter-events.php": {
+	"\/inc\/event-filtering-and-querying.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/inc\/filter-events.php",
+		"oAP": "\/inc\/event-filtering-and-querying.php",
 		"oF": 0
 		},
 	"\/inc\/tinymce.php": {
@@ -675,12 +675,12 @@
 		"oT": 1,
 		"q": 100
 		},
-	"\/src\/js\/alertBanner.js": {
+	"\/src\/js\/alert-banner.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/dist\/alertBanner-min.js",
+		"oAP": "\/dist\/alert-banner-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
@@ -695,12 +695,12 @@
 		"sC": 0,
 		"tS": 0
 		},
-	"\/src\/js\/filmFestivalTabs.js": {
+	"\/src\/js\/parent-event-tabs.js": {
 		"ft": 64,
 		"ma": 0,
 		"mi": 0,
 		"oA": 1,
-		"oAP": "\/dist\/filmFestivalTabs-min.js",
+		"oAP": "\/dist\/parent-event-tabs-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
@@ -1335,19 +1335,19 @@
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/js\/alertBanner.js",
+			"linkedFileAbbreviatedPath": "\/src\/js\/alert-banner.js",
 			"position": 4,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/js\/filmFestivalTabs.js",
+			"linkedFileAbbreviatedPath": "\/src\/js\/slick-init.js",
 			"position": 5,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/src\/js\/slick-init.js",
+			"linkedFileAbbreviatedPath": "\/src\/js\/parent-event-tabs.js",
 			"position": 6,
 			"type": 1
 			}

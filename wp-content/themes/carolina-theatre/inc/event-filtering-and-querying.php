@@ -21,7 +21,7 @@ function unique_multidim_array($array, $key) {
 } 
 
 /* 
- *  sort filter array alphabetically
+ * sort filter array alphabetically
  */
 function cmp($a, $b){
   return strcmp($a['name'], $b['name']);
@@ -157,9 +157,8 @@ function ajax_event_filter(){
   $paged = (isset($query_data['paged']) ) ? intval($query_data['paged']) : 1;
   
   // default argument variables for query
-  $limit = 10;
+  $limit = 12;
   $meta_query = false;
-
   // Determine what meta-query to use, based on the filter clicked
   if($event_term === "now-playing") {
 	  // show all films, and use jquery (after success in event_get_posts() to hide none now-playing cards)
@@ -204,6 +203,7 @@ function ajax_event_filter(){
 		'post_type' 			=> array('event', 'film'),
 		'post_status' 		=> 'publish',
 		'posts_per_page'	=> $limit,
+		'ignore_sticky_posts'  => true,
 		'meta_query'			=> $meta_query,
 		'meta_key' 				=> 'soonest_date', 		// order by the soonest date (may not be most recent, but close enough)
 		'orderby' 				=> 'meta_value_num', 	// 'soonest_date' is a number (ie 20180704)

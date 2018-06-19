@@ -5,7 +5,7 @@
 
 jQuery(function($){
     //Load posts on document ready
-    event_get_posts();
+		filter_events_on_page_load();
 
     // If list item is clicked, trigger input change and add css class
     $('#event-filter li').on('click touch', function(){
@@ -52,6 +52,35 @@ jQuery(function($){
 
         return allEvents; //Return all of the selected Events in an array
     }
+
+    // Query correct events when page is loaded based on url anchor
+    // Example: /events/#film querys all Films
+		function filter_events_on_page_load(){
+			// on page load check for url urlFilter
+	    urlFilter = window.location.href.match(/[#].*/);
+	    if(urlFilter !== null) { // check if there is a hash
+				urlFilter = urlFilter[0].replace(/#/, '');
+
+				// create array of all tabbed content names
+				var tabIds = [];
+				$('#event-filter .tabbedContent__tab').each( function(i,e) {
+				    tabIds.push($(e).data('filter'));
+				});
+
+				if ($.inArray(urlFilter, tabIds) > -1) { // check if the url anchor matches any of the tabb content
+				  $('#event-filter .tabbedContent__tab').removeClass('active-link'); // remove all active tab styling
+				  $('#event-filter li[data-filter="'+urlFilter+'"]').addClass("active-link"); // add active styling to active tab
+					$('#event-filter li[data-filter="'+urlFilter+'"]').find('input').prop('checked',true).trigger("change"); // make filter active
+					
+					// show film's secondary filters if necessary
+					if($('#event-filter li[data-filter="'+urlFilter+'"]').hasClass('filmFilter') || $('#event-filter li[data-filter="film"]')){
+						$('#event-filter li[data-filter="film"]').addClass("active-link");
+						$(".filmFilters").css("display", "block");
+					}
+				}
+	    }
+	    event_get_posts();
+		}
  
     // If pagination is clicked, load correct posts
     $('#event-results').on('click touch', '#event-filter-navigation a', function(e){
@@ -71,13 +100,14 @@ jQuery(function($){
 	      var ajax_url = ajax_event_params.ajax_url; //Get ajax url (added through wp_localize_script)
 
 	      $filterClicked = getSelectedEvents();
+	      console.log($filterClicked);
 
         $.ajax({
             type: 'GET',
             url: ajax_url,
             data: {
                 action: 'event_filter',
-                events: $filterClicked, //Get values from previous function
+                events: $filterClicked, // Get values from previous function
                 paged: paged_value //If paged value is being sent through with function call, store here
             },
             beforeSend: function() {
@@ -97,9 +127,8 @@ jQuery(function($){
             },
             error: function() {
                 //If an ajax error has occured, do something here...
-                $("#event-results").html('<p>There has been an error</p>');
+                $("#event-results").html('<p>There has been an error. Please refresh and try again.</p>');
             }
         });
     }
- 
 });

@@ -83,12 +83,11 @@ add_action( 'after_setup_theme', 'carolinatheatre_setup' );
  * Allow SVG file uploads to Media Library
  */
 function add_file_types_to_uploads($file_types){
+  $new_filetypes = array();
+  $new_filetypes['svg'] = 'image/svg+xml';
+  $file_types = array_merge($file_types, $new_filetypes );
 
-    $new_filetypes = array();
-    $new_filetypes['svg'] = 'image/svg+xml';
-    $file_types = array_merge($file_types, $new_filetypes );
-
-    return $file_types;
+  return $file_types;
 }
 add_action('upload_mimes', 'add_file_types_to_uploads');
 
@@ -205,7 +204,11 @@ add_action( 'wp_enqueue_scripts', 'carolinatheatre_scripts' );
 
 
 /**
- * Debugging
+ * Debugging function, prints errors to the debug.log file
+ * Works with below settings in wp-config.php
+ *		define( 'WP_DEBUG',          true ); 
+ *		define( 'WP_DEBUG_DISPLAY',  false );
+ *		define( 'WP_DEBUG_LOG',      true ); 
  */
 if(!function_exists('log_it')){
  function log_it( $message ) {
@@ -535,7 +538,7 @@ function set_expiry_date( $post_id ) {
 } 
 add_action( 'acf/save_post', 'set_expiry_date', 20 );
 
-// Create a function that updates 'past_event' boolean field
+// Create a function that updates 'past_event' boolean field, hooked into by above function, set_expiry_date()
 function set_past_event_field( $post_id ){
 	$hidden_pastEvent = false;
  	if(get_post_type($post_id) === 'film'){
@@ -548,7 +551,6 @@ function set_past_event_field( $post_id ){
   update_field($hidden_pastEvent, true, $post_id); 	
 } 
 add_action( 'make_past_event', 'set_past_event_field' );
-
 
 
 /**
@@ -582,15 +584,11 @@ add_filter('acf/load_field/name=link_block_select', 'acf_load_linkBlockDefault_f
  */
 function ctdEvent_delete_query_transient( $post_id, $post ) {
   delete_transient( 'upcoming_event_ids_query_cache' ); // Upcoming Events Slider cache
-  log_it('update event');
-	// delete_transient( 'event_slider_query_cache' ); // Upcoming Events Slider cache
   delete_transient( 'event_filtering_html_cache' ); // Event Template Filters cache
 } add_action( 'publish_event', 'ctdEvent_delete_query_transient', 10, 2 );
 
 function ctdFilm_delete_query_transient( $post_id, $post ) {
   delete_transient( 'upcoming_event_ids_query_cache' ); // Upcoming Events Slider cache
-  log_it('update film');
-  // delete_transient( 'event_slider_query_cache' ); // Upcoming Events Slider cache
   delete_transient( 'event_filtering_html_cache' ); // Event Template Filters cache
 } add_action( 'publish_film', 'ctdFilm_delete_query_transient', 10, 2 );
 
@@ -606,7 +604,10 @@ function ctdFilm_delete_query_transient( $post_id, $post ) {
  * thru the ctdEvent_delete_query_transient and ctdFilm_delete_query_transient functions.
  */
 function getUpcomingEventIDs(){
+	// create a cache-key to use later when we set the transient cache
 	$cache_key = 'upcoming_event_ids_query_cache';
+
+	// check to see if the key has been set yet.
 	if(!$upcomingEventIDs = get_transient($cache_key)){  
 	  date_default_timezone_set('America/New_York');
 	  $today = date("Ymd", strtotime('today'));
@@ -616,6 +617,7 @@ function getUpcomingEventIDs(){
 			'post_type' => array('event', 'film'),
 			'post_status' => 'publish',
 			'posts_per_page' => -1,
+			'ignore_sticky_posts'  => true,
 			'meta_query'	=> array(
 				array (
 					'key'		=> 'end_date', // double check that end date hasnt happened yet
@@ -629,8 +631,8 @@ function getUpcomingEventIDs(){
 		);
 		$upcomingEventIDs_query = new WP_Query($upcoming_event_args);
 	  $upcomingEventIDs = $upcomingEventIDs_query->posts;
-	  // log_it('upcomingEventIDs:');
-	  // log_it($upcomingEventIDs);
+
+	  // set the cache
 	  set_transient( $cache_key, $upcomingEventIDs, 60*60*12 ); // 6 hours = 60*60*6
 	  wp_reset_postdata();
 		
@@ -662,7 +664,7 @@ require get_template_directory() . '/inc/tinymce.php';
 /**
  * Filtering Upcoming Events/Films using AJAX
  */
-require get_template_directory() . '/inc/filter-events.php';
+require get_template_directory() . '/inc/event-filtering-and-querying.php';
 
 
 
