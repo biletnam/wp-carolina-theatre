@@ -2623,21 +2623,27 @@ div.wpcf7-validation-errors {
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: rgba(255, 188, 66, 0.9); }
+  background-color: rgba(255, 188, 66, 0.9);
+  overflow: auto; }
+  .headerSearch .search-form {
+    margin: 1em auto; }
   .headerSearch__wrapper {
     text-align: center;
     padding-top: 100px; }
-  .headerSearch .search-form {
-    width: 80%;
-    max-width: 100%;
-    margin: 3em auto; }
-    .headerSearch .search-form button {
-      font-size: 24px;
-      font-size: 1.5rem; }
-    .headerSearch .search-form input {
-      font-weight: 300;
-      font-size: 32px;
-      font-size: 2rem; }
+
+.search--sitewide .search-form {
+  width: 80%;
+  max-width: 100%; }
+  .search--sitewide .search-form button {
+    font-size: 24px;
+    font-size: 1.5rem; }
+  .search--sitewide .search-form input {
+    font-weight: 300;
+    font-size: 32px;
+    font-size: 2rem; }
+
+.search--events {
+  margin-top: 3em; }
 
 .close_search {
   position: absolute;

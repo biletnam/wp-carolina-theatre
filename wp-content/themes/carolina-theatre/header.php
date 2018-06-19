@@ -67,8 +67,14 @@ $GLOBALS["location_directionlink"] = get_field('google_map_link', 'option');
 	<div class="contain container">
 		<a id="close_search" class="close_search"><i class="fas fa-times" ><span class="screen-reader-text">Close Search</span></i></a>
 		<div class="headerSearch__wrapper">
-			<h3 class="h1">Search Sitewide</h3>
-			<?php get_template_part('/searchform'); ?>
+			<div class="search--sitewide">
+				<h3 class="h1">Search Sitewide</h3>
+				<?php get_template_part('/searchform'); ?>
+			</div>
+			<div class="search--events">
+				<h3 class="h3">Search Events</h3>
+				<?php get_template_part('/searchform', 'events'); ?>
+			</div>	
 		</div>
 	</div>
 </div>

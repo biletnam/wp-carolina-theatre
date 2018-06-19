@@ -10,30 +10,38 @@
 	top: 0;
 	bottom: 0;
 	background-color: rgba($gold, .9);
+	overflow: auto;
 
-	&.show {
-		// overflow: visible;
+	.search-form {
+		margin: 1em auto;
 	}
 
 	&__wrapper {
 		text-align: center;
 		padding-top: 100px;
 	}
+}
 
-	.search-form {
-		width: 80%;
-  	max-width: 100%;
-    margin: 3em auto;
+.search {
+	&--sitewide {
+		.search-form {
+			width: 80%;
+	  	max-width: 100%;
 
-    button {
-    	@include rem(24);
-    }
-    input {
-    	font-weight: 300;
-    	@include rem(32);
-    }
+	    button {
+	    	@include rem(24);
+	    }
+	    input {
+	    	font-weight: 300;
+	    	@include rem(32);
+	    }
+		}
+	}
+	&--events {
+		margin-top: 3em;
 	}
 }
+
 .close_search {
 	position: absolute;
 	right: 20px;
