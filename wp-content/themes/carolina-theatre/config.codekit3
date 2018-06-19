@@ -1122,6 +1122,13 @@
 		"oAP": "\/template-parts\/content-blocks\/block-section_divide.php",
 		"oF": 0
 		},
+	"\/template-parts\/content-blocks\/block-section_padding.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/content-blocks\/block-section_padding.php",
+		"oF": 0
+		},
 	"\/template-parts\/content-blocks\/block-slider.php": {
 		"cB": 0,
 		"ft": 8192,

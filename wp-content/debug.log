@@ -1,10 +1,5 @@
-[19-Jun-2018 11:21:08 America/New_York] 1
-[19-Jun-2018 11:21:15 America/New_York] 1
-[19-Jun-2018 11:21:50 America/New_York] 1
-[19-Jun-2018 11:21:59 America/New_York] 1
-[19-Jun-2018 11:22:05 America/New_York] 1
-[19-Jun-2018 11:22:11 America/New_York] 1
-[19-Jun-2018 11:22:15 America/New_York] 2
-[19-Jun-2018 11:22:24 America/New_York] 1
-[19-Jun-2018 11:22:27 America/New_York] 1
-[19-Jun-2018 11:22:29 America/New_York] 1
+[19-Jun-2018 15:28:10 UTC] PHP Fatal error:  Uncaught UnexpectedValueException: RecursiveDirectoryIterator::__construct(/Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/all-in-one-wp-migration/storage/ufgu5ybxyh4x): failed to open dir: No such file or directory in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/all-in-one-wp-migration/lib/vendor/servmask/iterator/class-ai1wm-recursive-directory-iterator.php:31
+Stack trace:
+#0 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/all-in-one-wp-migration/lib/vendor/servmask/iterator/class-ai1wm-recursive-directory-iterator.php(31): RecursiveDirectoryIterator->__construct('/Users/joeycart...')
+#1 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/all-in-one-wp-migration/lib/vendor/servmask/filesystem/class-ai1wm-directory.php(39): Ai1wm_Recursive_Directory_Iterator->__construct('/Users/joeycart...')
+#2 /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/all-in-one-wp-migration/lib/controller/class-ai1wm-export-controller.php(86): Ai1wm_Direc in /Users/joeycarty/Desktop/wp-carolina-theatre/wp-content/plugins/all-in-one-wp-migration/lib/vendor/servmask/iterator/class-ai1wm-recursive-directory-iterator.php on line 31

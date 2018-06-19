@@ -205,7 +205,16 @@
                 "5b1557ec6c41a": {
                     "key": "5b1557ec6c41a",
                     "name": "section_divide",
-                    "label": "Section Divide",
+                    "label": "Horizontal Rule between Blocks",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "5b292960b0d15": {
+                    "key": "5b292960b0d15",
+                    "name": "section_padding",
+                    "label": "Empty Padding between Blocks",
                     "display": "block",
                     "sub_fields": [],
                     "min": "",
@@ -257,5 +266,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1529115443
+    "modified": 1529424250
 }

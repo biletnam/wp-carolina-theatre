@@ -1,2 +1,2 @@
 <?php //$divide_height = get_field('divide_height'); ?>
-<div class="divide"></div>
+<div class="divide"><hr/></div>

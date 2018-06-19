@@ -1146,7 +1146,7 @@ hr {
   background-color: #ccc;
   height: 1px;
   width: 50%;
-  margin: 2em auto;
+  margin: 20px auto;
   border: 0; }
 
 img, figure {
@@ -1227,11 +1227,22 @@ main {
     display: table; }
 
 .divide {
-  height: 40px;
+  height: 50px;
   width: 100%; }
   @media screen and (max-width: 640px) {
     .divide {
       height: 20px; } }
+  .divide hr {
+    background-color: #ccc;
+    height: 1px;
+    width: 50%;
+    top: 50%;
+    position: relative;
+    margin: 20px auto;
+    border: 0; }
+    @media screen and (max-width: 640px) {
+      .divide hr {
+        margin: 10px auto; } }
 
 .mainWrapper {
   position: relative;
@@ -1253,7 +1264,7 @@ main {
     display: table; }
 
 .contain {
-  max-width: 1680px;
+  max-width: 1440px;
   margin-left: auto;
   margin-right: auto; }
   .contain::after {
@@ -1372,6 +1383,9 @@ main {
     .mainContent__content > .container {
       padding-top: 0;
       width: 100%; }
+      @media screen and (min-width: 940px) {
+        .mainContent__content > .container {
+          padding-right: 10%; } }
   .mainContent__sidebar {
     background-color: #f9f7f0;
     background-image: url("../src/img/patterns/pattern-white.png");
@@ -1395,7 +1409,7 @@ main {
     @media screen and (min-width: 1100px) {
       .mainContent__sidebar {
         width: 420px; } }
-    @media screen and (min-width: 1680px) {
+    @media screen and (min-width: 1440px) {
       .mainContent__sidebar {
         width: 480px; } }
     .mainContent__sidebar > .container {
@@ -1715,8 +1729,7 @@ select {
   -moz-appearance: none;
   -webkit-appearance: listbox;
   font-size: 14px;
-  font-size: 0.875rem;
-  height: 40px; }
+  font-size: 0.875rem; }
 
 label {
   display: inline-block;
@@ -2003,6 +2016,9 @@ div.wpcf7-validation-errors {
 .upcoming-events .filmFilters {
   display: none; }
 
+.upcoming-events .mainContent__content > .container {
+  padding-right: 20px; }
+
 .tabbedContent__tab.default {
   position: relative;
   margin-right: 50px; }
@@ -2253,10 +2269,6 @@ div.wpcf7-validation-errors {
   overflow: hidden;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease; }
-  @media screen and (min-width: 1400px) {
-    .card {
-      margin-right: 30px;
-      margin-bottom: 30px; } }
   .card__button {
     position: absolute;
     z-index: 10;
