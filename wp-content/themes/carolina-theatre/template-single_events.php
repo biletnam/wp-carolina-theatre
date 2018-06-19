@@ -148,8 +148,7 @@
 				<?php wp_reset_postdata(); ?>
 				</div>
       </div>
-			<?php } else { echo 'no related posts'; } // end if related posts ?>
-
+			<?php } // end if related posts ?>
     </div>
   </section>  
 

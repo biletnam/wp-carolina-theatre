@@ -212,6 +212,7 @@
 	text-align: center;
 	color: $white;
 	line-height: 1;
+	-webkit-backface-visibility: hidden;
 
 	span {
 		display: block;

@@ -1229,20 +1229,14 @@ main {
 .divide {
   height: 50px;
   width: 100%; }
-  @media screen and (max-width: 640px) {
-    .divide {
-      height: 20px; } }
   .divide hr {
     background-color: #ccc;
     height: 1px;
     width: 50%;
-    top: 50%;
+    top: 40%;
     position: relative;
     margin: 20px auto;
     border: 0; }
-    @media screen and (max-width: 640px) {
-      .divide hr {
-        margin: 10px auto; } }
 
 .mainWrapper {
   position: relative;
@@ -2099,7 +2093,8 @@ div.wpcf7-validation-errors {
   padding-bottom: 8px;
   text-align: center;
   color: #fff;
-  line-height: 1; }
+  line-height: 1;
+  -webkit-backface-visibility: hidden; }
   .event__dateBox span {
     display: block; }
   .event__dateBox .day {

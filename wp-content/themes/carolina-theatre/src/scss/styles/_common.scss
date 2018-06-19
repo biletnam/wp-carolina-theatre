@@ -144,22 +144,14 @@ main {
 	height: 50px;
 	width: 100%;
 
-	@include breakpoint($sizeMobile) {
-		height: 20px;
-	}
-
 	hr {
 		background-color: $gray;
 		height: 1px;
 		width: 50%;
-		top: 50%;
+		top: 40%;
 		position: relative;
 		margin: 20px auto;
 		border: 0;
-
-		@include breakpoint($sizeMobile) {
-			margin: 10px auto;
-		}
 	}
 }
 
