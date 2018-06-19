@@ -288,11 +288,15 @@ main {
 // individual tabbed items
 .tabbedContent__tab {
 	display: inline-block;
-	margin-right: 10px;
+	margin-right: 25px;
 	cursor: pointer;
 	border-bottom: 3px solid $white;
 	@include rem(16);
 	transition: $transition;
+
+	@include breakpoint($sizeMobile){
+		margin-right: 12px;
+	}
 
 	// highlights filter on-click
 	&.active-link {

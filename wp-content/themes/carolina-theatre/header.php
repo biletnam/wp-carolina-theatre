@@ -18,10 +18,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<?php $favicon_code = get_field('favicon_code', 'option'); ?>
-	<?php if ($favicon_code){ ?>
-		<?php echo $favicon_code; ?>
-	<?php } // endif ?>
+	<?php get_template_part('template-parts/part', 'favicon');?>
 
 	<?php wp_head(); ?>
 

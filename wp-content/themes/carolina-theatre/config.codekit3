@@ -16,6 +16,14 @@
 		"oAP": "\/404.php",
 		"oF": 0
 		},
+	"\/acf-json\/group_5970f6ee902f0.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "\/acf-json\/group_5970f6ee902f0-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
 	"\/acf-json\/group_5976448e54cc6.json": {
 		"ft": 524288,
 		"oA": 1,
@@ -213,13 +221,6 @@
 		"oAP": "\/comments.php",
 		"oF": 0
 		},
-	"\/db\/index.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/db\/index.php",
-		"oF": 0
-		},
 	"\/dist\/editor-style.css": {
 		"aP": 1,
 		"bl": 0,
@@ -343,8 +344,8 @@
 		"oA": 0,
 		"oAP": "\/screenshot.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -402,6 +403,172 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/single.php",
+		"oF": 0
+		},
+	"\/src\/img\/ajax-loader.gif": {
+		"ft": 4194304,
+		"iS": 3208,
+		"oA": 0,
+		"oAP": "\/src\/img\/ajax-loader.gif",
+		"oF": 0,
+		"opt": 0
+		},
+	"\/src\/img\/favicon\/android-chrome-192x192.png": {
+		"ft": 32768,
+		"iS": 2223,
+		"oA": 0,
+		"oAP": "\/src\/img\/favicon\/android-chrome-192x192.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/src\/img\/favicon\/android-chrome-512x512.png": {
+		"ft": 32768,
+		"iS": 6266,
+		"oA": 0,
+		"oAP": "\/src\/img\/favicon\/android-chrome-512x512.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/src\/img\/favicon\/apple-touch-icon.png": {
+		"ft": 32768,
+		"iS": 2103,
+		"oA": 0,
+		"oAP": "\/src\/img\/favicon\/apple-touch-icon.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/src\/img\/favicon\/browserconfig.xml": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/src\/img\/favicon\/browserconfig.xml",
+		"oF": 0
+		},
+	"\/src\/img\/favicon\/ctd-favicon.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/src\/img\/favicon\/ctd-favicon.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/src\/img\/favicon\/favicon-16x16.png": {
+		"ft": 32768,
+		"iS": 703,
+		"oA": 0,
+		"oAP": "\/src\/img\/favicon\/favicon-16x16.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/src\/img\/favicon\/favicon-32x32.png": {
+		"ft": 32768,
+		"iS": 984,
+		"oA": 0,
+		"oAP": "\/src\/img\/favicon\/favicon-32x32.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/src\/img\/favicon\/favicon.ico": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/src\/img\/favicon\/favicon.ico",
+		"oF": 0
+		},
+	"\/src\/img\/favicon\/favicon_package_v0.16.zip": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/src\/img\/favicon\/favicon_package_v0.16.zip",
+		"oF": 0
+		},
+	"\/src\/img\/favicon\/mstile-144x144.png": {
+		"ft": 32768,
+		"iS": 2279,
+		"oA": 0,
+		"oAP": "\/src\/img\/favicon\/mstile-144x144.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/src\/img\/favicon\/mstile-150x150.png": {
+		"ft": 32768,
+		"iS": 2462,
+		"oA": 0,
+		"oAP": "\/src\/img\/favicon\/mstile-150x150.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/src\/img\/favicon\/mstile-310x150.png": {
+		"ft": 32768,
+		"iS": 2684,
+		"oA": 0,
+		"oAP": "\/src\/img\/favicon\/mstile-310x150.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/src\/img\/favicon\/mstile-310x310.png": {
+		"ft": 32768,
+		"iS": 4476,
+		"oA": 0,
+		"oAP": "\/src\/img\/favicon\/mstile-310x310.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/src\/img\/favicon\/mstile-70x70.png": {
+		"ft": 32768,
+		"iS": 1868,
+		"oA": 0,
+		"oAP": "\/src\/img\/favicon\/mstile-70x70.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/src\/img\/favicon\/safari-pinned-tab.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/src\/img\/favicon\/safari-pinned-tab.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/src\/img\/favicon\/site.webmanifest": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/src\/img\/favicon\/site.webmanifest",
 		"oF": 0
 		},
 	"\/src\/img\/logos\/ctd-logo-new.svg": {
@@ -1058,6 +1225,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/template-parts\/part-event_categories.php",
+		"oF": 0
+		},
+	"\/template-parts\/part-favicon.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/template-parts\/part-favicon.php",
 		"oF": 0
 		},
 	"\/template-parts\/part-featured_news.php": {

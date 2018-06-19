@@ -1,6 +1,8 @@
 // TO-DO: setup filtering to occur on page load, so when ctd.org/events&filter=films is loaded, the films are filtered.
 
-//Event Ajax Filtering
+// AJAX Functions for getting the filters and upcoming events for template-events.php
+// This file ties into event-filter.js, functions.php, and template-events.php
+
 jQuery(function($){
     //Load posts on document ready
     event_get_posts();
@@ -51,7 +53,7 @@ jQuery(function($){
         return allEvents; //Return all of the selected Events in an array
     }
  
-    //If pagination is clicked, load correct posts
+    // If pagination is clicked, load correct posts
     $('#event-results').on('click touch', '#event-filter-navigation a', function(e){
         e.preventDefault();
 
@@ -68,23 +70,30 @@ jQuery(function($){
         var paged_value = paged; //Store the paged value if it's being sent through when the function is called
 	      var ajax_url = ajax_event_params.ajax_url; //Get ajax url (added through wp_localize_script)
 
-	      console.log('selections: ' + getSelectedEvents());
+	      $filterClicked = getSelectedEvents();
 
         $.ajax({
             type: 'GET',
             url: ajax_url,
             data: {
                 action: 'event_filter',
-                events: getSelectedEvents(), //Get array of values from previous function
-                // search: getSearchValue(), //Retrieve search value using function
+                events: $filterClicked, //Get values from previous function
                 paged: paged_value //If paged value is being sent through with function call, store here
             },
             beforeSend: function() {
-                //You could show a loader here
+                $("#loader").show();
             },
             success: function(data) {
-                //Hide loader here
                 $('#event-results').html(data);
+                
+                // hide not 'now-playing' films if filter is clicked
+                if($filterClicked === 'now-playing'){
+									$("#event-results .eventCard").hide();
+									$("#event-results .eventCard[data-filterme*='now-playing']").show();
+                }
+            },
+            complete: function() {
+            		$("#loader").hide();//Hide loader here
             },
             error: function() {
                 //If an ajax error has occured, do something here...

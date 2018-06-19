@@ -57,7 +57,7 @@
 	.left { 
 		float: left;
 
-		a {
+		a:hover {
 			text-decoration: underline; 
 		}
 	}
@@ -317,9 +317,6 @@
 		li {
 			display: inline-block;
 			padding-right: 10px;
-		}
-		a {
-			text-decoration: underline;
 		}
 	}
 	.btn__close {

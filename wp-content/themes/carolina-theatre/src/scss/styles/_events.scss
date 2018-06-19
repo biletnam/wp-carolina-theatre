@@ -99,14 +99,22 @@
 .tabbedContent__tab {
 	&.default {
 		position: relative;
-    margin-right: 26px;
+    margin-right: 50px;
+
+    @include breakpoint($sizeMobile){
+    	margin-right: 25px;
+    }
 
 		&::after {
 			position: absolute;
 			content: "|";
 			font-weight: 400;
-			right: -16px;
+			right: -25px;
 			color: $gray;
+
+			@include breakpoint($sizeMobile){
+	    	right: -12.5px;
+	    }
 		}
 	}
 }
@@ -540,3 +548,8 @@
 	}
 }
 
+.loader {
+	display: none;
+	text-align: center;
+	margin: 2em;
+}

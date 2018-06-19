@@ -10,6 +10,22 @@
  */
 
 /**
+ * Global Variables
+ */
+global $upcomingEventIDs;
+$upcomingEventIDs = false;
+
+global $accordionCount;
+$accordionCount = 0;
+
+global $galleryCount;
+$galleryCount = 0;
+
+global $sliderCount;
+$sliderCount = 0;
+
+
+/**
  * Set up theme defaults and register support for various WordPress features.
  */
 function carolinatheatre_setup() {
@@ -565,27 +581,62 @@ add_filter('acf/load_field/name=link_block_select', 'acf_load_linkBlockDefault_f
  * This allows for the query of relevant posts/filters to be updated.
  */
 function ctdEvent_delete_query_transient( $post_id, $post ) {
-  delete_transient( 'event_slider_query_cache' ); // Upcoming Events Slider cache
-  delete_transient( 'event_filters_query_cache' ); // Event Template Filters cache
+  delete_transient( 'upcoming_event_ids_query_cache' ); // Upcoming Events Slider cache
+  log_it('update event');
+	// delete_transient( 'event_slider_query_cache' ); // Upcoming Events Slider cache
+  delete_transient( 'event_filtering_html_cache' ); // Event Template Filters cache
 } add_action( 'publish_event', 'ctdEvent_delete_query_transient', 10, 2 );
 
 function ctdFilm_delete_query_transient( $post_id, $post ) {
-  delete_transient( 'event_slider_query_cache' ); // Upcoming Events Slider cache
-  delete_transient( 'event_filters_query_cache' ); // Event Template Filters cache
+  delete_transient( 'upcoming_event_ids_query_cache' ); // Upcoming Events Slider cache
+  log_it('update film');
+  // delete_transient( 'event_slider_query_cache' ); // Upcoming Events Slider cache
+  delete_transient( 'event_filtering_html_cache' ); // Event Template Filters cache
 } add_action( 'publish_film', 'ctdFilm_delete_query_transient', 10, 2 );
 
 
 /**
- * Global Variables
+ * CACHE THE IDs OF ALL UPCOMING EVENTS 
+ * This speeds up page load tremendously
+ *
+ * Used for the menu dropdown, homepage slider, and events main page
+ * The cache is cleared when an 'event' or 'film' post is added or updated
+ * 
+ * functions.php clears the cache when a post is added/updated
+ * thru the ctdEvent_delete_query_transient and ctdFilm_delete_query_transient functions.
  */
-global $accordionCount;
-$accordionCount = 0;
+function getUpcomingEventIDs(){
+	$cache_key = 'upcoming_event_ids_query_cache';
+	if(!$upcomingEventIDs = get_transient($cache_key)){  
+	  date_default_timezone_set('America/New_York');
+	  $today = date("Ymd", strtotime('today'));
 
-global $galleryCount;
-$galleryCount = 0;
-
-global $sliderCount;
-$sliderCount = 0;
+		$upcoming_event_args = array(
+			'fields' => 'ids',
+			'post_type' => array('event', 'film'),
+			'post_status' => 'publish',
+			'posts_per_page' => -1,
+			'meta_query'	=> array(
+				array (
+					'key'		=> 'end_date', // double check that end date hasnt happened yet
+					'compare'	=> '>=',
+					'value'		=> $today,  
+				),
+			),
+			'meta_key' => 'soonest_date', // order by the soonest date (may not be most recent, but close enough)
+	    'orderby' => 'meta_value_num', // 'soonest_date' is a number (ie 20180704)
+	    'order' => 'ASC',
+		);
+		$upcomingEventIDs_query = new WP_Query($upcoming_event_args);
+	  $upcomingEventIDs = $upcomingEventIDs_query->posts;
+	  // log_it('upcomingEventIDs:');
+	  // log_it($upcomingEventIDs);
+	  set_transient( $cache_key, $upcomingEventIDs, 60*60*12 ); // 6 hours = 60*60*6
+	  wp_reset_postdata();
+		
+	}
+	return $upcomingEventIDs;
+}
 
 /**
  * 1 - Reorder Menu Items in WordPress Dashboard
