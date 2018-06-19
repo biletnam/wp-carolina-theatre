@@ -14,6 +14,8 @@ get_header(); ?>
 
 <?php // determine what to show based on search's hidden input field
 $searchType = 'Sitewide';
+$type = false;
+
 if(isset($_GET['search-type'])) {
 
   $type = $_GET['search-type'];

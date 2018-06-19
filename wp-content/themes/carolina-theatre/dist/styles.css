@@ -1946,6 +1946,9 @@ div.wpcf7-validation-errors {
           transform: translateY(-50%);
   width: 100%; }
 
+.hp-ctaCards > .contain {
+  padding-top: 20px; }
+
 .featuredEvent_carousel .carousel {
   border: 1px solid #ccc; }
 
