@@ -428,6 +428,10 @@
 	align-content: top;
 	flex-wrap: wrap;
 	margin-top: 30px;
+
+	.card {
+    flex: 0 1 auto;
+	}
 }
 .card {
 	position: relative;
@@ -446,6 +450,10 @@
 	border: 1px solid $gray;
 	overflow: hidden;
 	transition: $transition;
+
+	&.past-event {
+		opacity: .4;
+	}
 
 	&__button {
 		position: absolute;

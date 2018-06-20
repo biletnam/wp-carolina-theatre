@@ -17,27 +17,42 @@
 }
 
 // page hero slider
+.pageHero {
+	// > .contain {
+	// 	padding-top: 20px;
+	// }
+	margin-bottom: 20px;
+}
+
 .heroSlider {
 	position: relative;
-	// min-height: 50vw;
 	max-height: 900px;
-
+  
+	&:not(&--homepage){
+		box-shadow: 0 0 40px 0 $black;	
+	}
+  
 	.slick-list,
 	.slick-track {
-		height: 100%;
+    height: 100%;
 	}
 
-	&__slide {
-		min-height: 50vw;
-		max-height: 900px;
-		height: 100%;
-		overflow: hidden;
-		background-color: $off-black;
-		background-size: cover;
-		background-position: center center;
+	.slick-slide {
+		height: auto;
+	}
 
-		@include breakpoint($sizeMobile){
-			min-height: 320px;
+	&--homepage {
+		.slick-slide {
+			max-height: 900px;
+			height: 50vw;
+			overflow: hidden;
+			background-color: $off-black;
+			background-size: cover;
+			background-position: center center;
+
+			@include breakpoint($sizeMobile){
+				min-height: 320px;
+			}
 		}
 	}
 
@@ -100,7 +115,9 @@
 				}
 
 				&:hover {
-					@include box-shadow;
+					@include breakpoint-min($sizeMobile + 1px){
+						@include box-shadow;
+					}
 
 					&::before {
 						background-color: $green;

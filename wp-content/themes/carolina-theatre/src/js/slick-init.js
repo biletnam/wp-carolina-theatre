@@ -1,5 +1,12 @@
 jQuery(function($) {
+
+
 	$(document).ready(function() {
+		$(window).on('resize orientationchange', function() {
+		  $('.heroSlider')[0].slick.refresh();
+		  console.log('resize');
+		});
+
 		// generic content-blocks-slider.php & other sliders
 		$(".carousel").slick({
 				infinite: false,	
@@ -34,7 +41,7 @@ jQuery(function($) {
     
 
 		// fancy slider for homepage
-		$(".heroSlider").slick({
+		$(".hero--homepage .heroSlider").slick({
 			dots: true,
       arrows: false,
       rows: 0, // removes extra 'div'
@@ -42,6 +49,24 @@ jQuery(function($) {
 			autoplaySpeed: 3000,
 			speed: 800,
 			pauseOnHover: true,
+			adaptiveHeight: true,
+      customPaging : function(slider, i) {
+      	var $slide = $(slider.$slides[i]);
+	      var thumb = $slide.data('thumb');
+	      return '<button class="thumbnail"><img src="'+thumb+'"></button>';
+    	}
+		});
+
+		// page slider for internal pages
+		$(".pageHero .heroSlider").slick({
+			dots: true,
+      arrows: false,
+      rows: 0, // removes extra 'div'
+			autoplay: false,
+			// autoplaySpeed: 3000,
+			speed: 800,
+			// pauseOnHover: true,
+			adaptiveHeight: true,
       customPaging : function(slider, i) {
       	var $slide = $(slider.$slides[i]);
 	      var thumb = $slide.data('thumb');

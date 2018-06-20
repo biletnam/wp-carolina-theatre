@@ -20,6 +20,7 @@
 	}
 
 	.statistics {
+		background-color: $off-black;
 		display: inline-block;
 		width: 100%;
 		@include clearfix;

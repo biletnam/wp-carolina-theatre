@@ -107,7 +107,7 @@
 
     	svg {
     		height: 100%;
-	    	width: 100%;
+	    	// width: 100%;
     	}
     }
 
@@ -137,14 +137,15 @@
 }
 
 .header__logo {
+	flex: 0 1 auto;
   padding-top: 20px;
   padding-bottom: 20px;
   transition: $transition;
 
 	a {
 		img, svg {
-			height: 75px;
-			width: auto;
+			max-height: 75px;
+			max-width: 160px;
 		}
 
 		&:hover {
@@ -159,6 +160,7 @@
 
 // Desktop Menu Styling
 .header__nav {
+	flex: 0 1 auto;
 	width: 100%;
   text-align: right; // justifies menu to the right
   align-self: flex-end; // positions menu at bottom of header
@@ -501,6 +503,7 @@
 // hamburger button styling for opening the mobile menu
 // that is way more complicated than it should be haha
 .mobileNavTrigger { // link "a" element
+	flex: 0 1 auto;
 	display: none;
   position: relative;
   transition: .5s ease-in-out;

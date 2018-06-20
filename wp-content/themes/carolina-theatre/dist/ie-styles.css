@@ -1,0 +1,77 @@
+.header__main > .container::before, .header__main > .container::after {
+  content: '';
+  display: table; }
+
+.header__main > .container::after {
+  clear: both; }
+
+.header__logo {
+  display: inline-block;
+  vertical-align: bottom;
+  width: auto;
+  margin-right: 20px; }
+
+.header__nav {
+  display: inline-block;
+  vertical-align: bottom;
+  width: auto; }
+
+.hero--homepage {
+  display: block; }
+  .hero--homepage .heroSlider--homepage {
+    width: 100%;
+    min-height: 320px; }
+  .hero--homepage .statistics {
+    display: none; }
+
+.heroSlider__slideContent {
+  position: relative; }
+
+.alertBanner__closeBtn {
+  top: 0; }
+
+.block__ctas {
+  display: block; }
+
+.cta__card {
+  display: inline-block;
+  vertical-align: top; }
+
+.footer__sitemap-column {
+  display: inline-block;
+  vertical-align: top; }
+
+.footer__sitemap .container {
+  display: block; }
+
+.mainContent__content {
+  width: 66%;
+  display: inline-block;
+  vertical-align: top; }
+
+.mainContent__sidebar {
+  width: 33%;
+  display: inline-block;
+  vertical-align: top; }
+
+.card__wrapper {
+  display: block; }
+
+.card {
+  display: inline-block;
+  vertical-align: top; }
+
+.featuredEvent__image {
+  width: 100%; }
+
+.featuredEvent__info {
+  width: 100%;
+  display: block; }
+
+.search-form button {
+  top: 0; }
+
+.block__gallery .fas, .block__slider .fas {
+  text-align: center; }
+  .block__gallery .fas::before, .block__slider .fas::before {
+    position: absolute; }

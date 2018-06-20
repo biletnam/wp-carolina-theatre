@@ -177,6 +177,9 @@ function carolinatheatre_scripts() {
 	// Theme stylesheet.
 	wp_enqueue_style( 'main-styles', get_template_directory_uri() . '/dist/styles.css', array(), null);
 	
+	// IE 9 and below styles
+	wp_enqueue_style( 'ie-styles', get_stylesheet_directory_uri() . "/dist/ie-styles.css", array( 'main-styles' ) );
+	wp_style_add_data( 'ie-styles', 'conditional', 'IE' );
 	// All being pulled into and minified to 'scripts-min.js' thru Codekit
 	// wp_enqueue_script( 'events-script', get_template_directory_uri() . '/src/js/event-filter.js', array('jquery'
 	// ), null, true );

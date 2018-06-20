@@ -24,10 +24,11 @@
           	<i class="fas fa-play"></i>
 		      	<img src="<?php echo $image_full; ?>" alt="<?php echo $image_alt; ?>" />
 		      </div>
+		      <div class="gallery-content <?php echo 'sliderContent-' . $sliderCount; ?>">
+			      <div class="video"><?php echo $embedCode; ?></div>
+			    </div>
 		    </a>
-		    <div class="gallery-content <?php echo 'sliderContent-' . $sliderCount; ?>">
-		      <div class="video"><?php echo $embedCode; ?></div>
-		    </div>
+		    
 		  <?php } // end if image or video ?>
       </div>
 		<?php } else { ?>

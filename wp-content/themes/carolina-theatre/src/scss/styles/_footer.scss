@@ -3,9 +3,9 @@
 ////
 
 .socialmedia__feed {
-	// @include breakpoint($sizeMobile){
-	// 	display: none;
-	// }
+	@include breakpoint($sizeSidebarWrap){
+		displaY: none;
+	}
 
   &::after {
 		content: "";
@@ -15,46 +15,47 @@
     right: 0;
     left: 0;
     width: 100%;
-    height: 30px;
-    background: linear-gradient(to top, $white, rgba($white,0));
+    height: 40px;
+    // background: linear-gradient(to top, $white, rgba($white,0));
+    background: linear-gradient(to top, #edebe5, rgba(#edebe5,0));
 	}
 
-	&--title {
-		position: relative;
-		text-align: center;
+	// &--title {
+	// 	position: relative;
+	// 	text-align: center;
 
-		&::before {
-			content: " ";
-			position: absolute;
-			z-index: 1;
-			top: 50%;
-			left: 0;
-			height: 1px;
-			width: 100%;
-			background-color: $gray;
-		}
+	// 	&::before {
+	// 		content: " ";
+	// 		position: absolute;
+	// 		z-index: 1;
+	// 		top: 50%;
+	// 		left: 0;
+	// 		height: 1px;
+	// 		width: 100%;
+	// 		background-color: $gray;
+	// 	}
 
-		&::after {
-			content: "";
-	    position: absolute;
-	    z-index: 105;
-	    bottom: -30px;
-	    right: 0;
-	    left: 0;
-	    width: 100%;
-	    height: 30px;
-	    background: linear-gradient(to bottom, $white, rgba($white,0));
-		}
+	// 	&::after {
+	// 		content: "";
+	//     position: absolute;
+	//     z-index: 105;
+	//     bottom: -30px;
+	//     right: 0;
+	//     left: 0;
+	//     width: 100%;
+	//     height: 30px;
+	//     background: linear-gradient(to bottom, $white, rgba($white,0));
+	// 	}
 
-		h3 {
-			position: relative;
-			z-index: 2;
-			background-color: $white;
-			padding: 0 20px;
-			display: inline-block;
-			margin: 0 auto;
-		}
-	}
+	// 	h3 {
+	// 		position: relative;
+	// 		z-index: 2;
+	// 		background-color: $white;
+	// 		padding: 0 20px;
+	// 		display: inline-block;
+	// 		margin: 0 auto;
+	// 	}
+	// }
 
 	&--posts {
 		max-height: 300px;
@@ -75,9 +76,23 @@
 
 .socialmedia__bar {
 	@extend .bg-green;
+	border-top: 1px solid rgba($green-med, .7);
+	border-bottom: 1px solid rgba($green-med, .7);
 	text-align: center;
 	padding: 15px;
 	
+	&--title {
+		display: inline-block;
+		margin: 0 25px 0;
+		@include rem(20);
+		color: $green-dk;
+		vertical-align: middle;
+
+		@include breakpoint($sizeMobile){
+			display: none;
+		}
+	}
+
 	&--icon {
 		@include rem(18);
 		padding-left: 25px;
