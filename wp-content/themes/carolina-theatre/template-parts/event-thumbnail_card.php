@@ -4,9 +4,11 @@ $start_date = get_field('start_date');
 $end_date = get_field('end_date'); 				
 date_default_timezone_set('America/New_York');
 $today = date("Ymd", strtotime('today')); 
+$past_event = false;
 
 if($end_date < $today) {
 	$showtime_soonestDate = $end_date;
+	$past_event = true;
 } else {
 	// get closest date's earliest time
 	// $showtime_soonestDate (Ymd - 20180704)
@@ -39,7 +41,7 @@ if(have_rows('event_filters')){
 }
 ?>
 
-<div class="card eventCard <?php echo $class_name; ?>" data-filterme="<?php echo $filters; ?>">
+<div class="card eventCard <?php echo $class_name; ?><?php if($past_event){ echo ' past-event'; } ?>" data-filterme="<?php echo $filters; ?>">
    <a href="<?php echo get_page_link(get_the_id()); ?>">
     <div class="event__dateBox">
 			<span class="day"><?php echo date("j", strtotime($showtime_soonestDate)); ?></span>

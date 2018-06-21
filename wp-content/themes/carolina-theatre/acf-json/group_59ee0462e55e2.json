@@ -1,23 +1,6 @@
 {
     "key": "group_59ee0462e55e2",
     "title": "Theme - Footer Email Signup",
-    "location": [
-        [
-            {
-                "param": "options_page",
-                "operator": "==",
-                "value": "acf-options-theme-settings"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": 1,
-    "description": "",
     "fields": [
         {
             "key": "field_59ee0498225ca",
@@ -93,5 +76,22 @@
             "maxlength": ""
         }
     ],
-    "modified": 1526911070
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-page-footer"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1529593285
 }

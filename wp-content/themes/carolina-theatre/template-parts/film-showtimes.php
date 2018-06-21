@@ -21,7 +21,6 @@
         	<?php $time = get_sub_field('time'); ?>
        	 	<li>
        	 		<span class="time"><?php echo date('g:ia', strtotime($time)); ?></span>
-       	 		<a href="<?php echo $ticket_link; ?>" target="_blank"></a>
        	 	</li>
         <?php } // endwhile times ?>
       </ul>

@@ -1,5 +1,5 @@
 <?php if ( function_exists('yoast_breadcrumb') ) { ?>
-<section class="breadcrumbs">
+<section class="breadcrumbs bg-white">
 	<div class="contain container">
 		<p class="small">
 			<?php yoast_breadcrumb(); ?>

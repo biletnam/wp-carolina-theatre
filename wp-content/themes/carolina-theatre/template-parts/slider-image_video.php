@@ -12,29 +12,23 @@
 				$image_full = $image['sizes']['hero-small'];
 				$image_thumb = $image['sizes']['thumbnail'];
 				$image_alt = $image['alt'];
-				// $image_cap = $image['caption'];
 		  ?>
 		  <div data-thumb="<?php echo $image_thumb; ?>">
 		  <?php if ($media_type == 'image') { ?>
 	     	<div class="image_wrapper">
 	      	<img src="<?php echo $image_full; ?>" alt="<?php echo $image_alt; ?>" />
 	      </div>
-	      <?php //if($image_cap) { ?>
-	      	<!-- <figcaption class="small caption"><?php echo $image_cap; ?></figcaption> -->
-	      <?php //} ?>
 		  <?php } else if ($media_type == 'video') { ?>
 		    <a href="<?php echo '.sliderContent-' . $sliderCount; ?>" data-featherlight>
           <div class="image_wrapper">
           	<i class="fas fa-play"></i>
 		      	<img src="<?php echo $image_full; ?>" alt="<?php echo $image_alt; ?>" />
 		      </div>
-		      <?php //if($image_cap) { ?>
-		      	<!-- <figcaption class="small caption"><?php echo $image_cap; ?></figcaption> -->
-		      <?php //} ?>
+		      <div class="gallery-content <?php echo 'sliderContent-' . $sliderCount; ?>">
+			      <div class="video"><?php echo $embedCode; ?></div>
+			    </div>
 		    </a>
-		    <div class="gallery-content <?php echo 'sliderContent-' . $sliderCount; ?>">
-		      <div class="video"><?php echo $embedCode; ?></div>
-		    </div>
+		    
 		  <?php } // end if image or video ?>
       </div>
 		<?php } else { ?>

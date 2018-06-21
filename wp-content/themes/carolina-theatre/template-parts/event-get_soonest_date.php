@@ -25,7 +25,7 @@ if(is_array($showtimes) || is_object($showtimes)){
 	}
 	$showtime_soonestDate = $upcoming_showtimes[0]['date']; 	
 
-	if($showtime_soonestDate != NULL){
+	if($showtime_soonestDate != NULL && isset($upcoming_showtimes[0]['times'])){
 		$showtime_soonestTime = $upcoming_showtimes[0]['times'][0]['time']; 	
 	}
 }

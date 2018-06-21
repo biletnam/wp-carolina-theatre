@@ -12,7 +12,8 @@
     z-index: 1000;
 		top: 50%;
 		cursor: pointer;
-
+		padding: 20px;
+		
 		/* preventing text selection */
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;
@@ -42,11 +43,11 @@
 	}
 	
 	.featherlight-next {
-		right: 10px;
+		right: 0;
 	}
 
 	.featherlight-previous {
-		left: 10px;
+		left: 0;
 	}
 
 

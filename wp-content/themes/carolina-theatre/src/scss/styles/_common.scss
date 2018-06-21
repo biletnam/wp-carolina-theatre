@@ -39,16 +39,18 @@ hr {
 	background-color: $gray;
 	height: 1px;
 	width: 50%;
-	margin: 2em auto;
+	margin: 20px auto;
   border: 0;
 }
 
 img, figure {
   height: auto;
   max-width: 100%;
-  // &.size-medium {
-  // 	width: 50%;
-  // }
+
+  &[src$=".svg"] {
+    width: auto;
+    height: auto;
+	}
 
 	&.alignright {
 		float:right; 
@@ -133,6 +135,10 @@ article {
 main {
 	padding-bottom: 40px;
 
+	@include breakpoint($sizeSidebarWrap){
+		padding-bottom: 0;
+	}
+
 	&::after {
     content: " ";
     clear: both;
@@ -141,11 +147,17 @@ main {
 }
 
 .divide {
-	height: 40px;
+	height: 50px;
 	width: 100%;
 
-	@include breakpoint($sizeMobile) {
-		height: 20px;
+	hr {
+		background-color: $gray;
+		height: 1px;
+		width: 50%;
+		top: 40%;
+		position: relative;
+		margin: 20px auto;
+		border: 0;
 	}
 }
 
@@ -187,6 +199,8 @@ main {
 }
 
 .breadcrumbs {
+	border-bottom: 1px solid $gray;
+
 	a {
 		text-decoration: none;
 		opacity: .5;
@@ -197,7 +211,8 @@ main {
 	}
 
 	> .container {
-		padding-bottom: 10px;
+    padding-bottom: 15px;
+    padding-top: 15px;
 	}
 }
 .breadcrumb_last {
@@ -288,11 +303,15 @@ main {
 // individual tabbed items
 .tabbedContent__tab {
 	display: inline-block;
-	margin-right: 10px;
+	margin-right: 25px;
 	cursor: pointer;
 	border-bottom: 3px solid $white;
 	@include rem(16);
 	transition: $transition;
+
+	@include breakpoint($sizeMobile){
+		margin-right: 12px;
+	}
 
 	// highlights filter on-click
 	&.active-link {
@@ -302,6 +321,10 @@ main {
 
 	&:hover {
 		border-bottom-color: $green;
+	}
+
+	input.hidden {
+		display: none;
 	}
 }
 
@@ -329,15 +352,21 @@ $sidebarLargest: 480px;
 	}
 	
 	&__content {
-		flex-grow: 1;
+		flex: 1 1 auto;
     overflow: hidden;
+    margin-bottom: 40px;
 
 		> .container {
 			padding-top: 0;
 			width: 100%;
+
+			@include breakpoint-min($sizeSidebarWrap){
+				padding-right: 10%;
+			}
 		}
 	}
 	&__sidebar {
+		flex: 0 1 auto;
 		background-color: $off-white;
 		background-image: url('../src/img/patterns/pattern-white.png');
 		background-size: 147px 147px;
@@ -575,11 +604,7 @@ $sidebarLargest: 480px;
 	}
 
 	.current_page_item,
-	.current_page_parent,
-	.current_page_ancestor,
-	.current-page-item,
-	.current-page-parent,
-	.current-page-ancestor {
+	.current-page-item {
 		font-weight: 700;
 	}
 
@@ -621,20 +646,62 @@ $sidebarLargest: 480px;
 	}
 }
 
-.searchResult {
-	border-top: 1px solid $gray;
-	padding: 20px 0;
-
-	a {
-		&:hover {
-			color: $green;
+.pageHeading {
+	.tabContent__tabs {
+		ul {
+			margin-bottom: 0;
 		}
 	}
 }
 
-.searchHeader {
-	span {
 
+// Seating Chart Styles
+.seatingChart {
+	svg {
+    width: 100%;
+    display: block;
+    height: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+	}
+}
+.seat-sections {
+	&:hover {
+		.seat-section {
+			opacity: .6;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+}
+.seat-section {
+	transition: $transition;
+	cursor: pointer;
+	position: relative;
+
+	.dot {
+		transition: $transition;
+	}
+	&:hover {
+		.dot {
+			stroke: $white;
+			stroke-width: 4;
+		}
 	}
 }
 
+.seatingChart__overlay {
+	.image {
+		img {
+	    width: 100%;
+	    display: block;
+	  }
+  }
+
+  .description {
+    background-color: $white;
+    padding: 20px;
+  }
+}

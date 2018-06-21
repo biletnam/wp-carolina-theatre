@@ -1,13 +1,17 @@
 <div class="carousel">
-  <?php $featured = get_field('featured_events'); ?>
-  <?php foreach($featured as $feature_obj) { $featured_ID = $feature_obj->ID; ?>
-    <?php 
-    /////// DATES in YYYYMMDD format
-		$start_date = get_field('start_date', $featured_ID); 	
-		$end_date = get_field('end_date', $featured_ID); 			
-	  date_default_timezone_set('America/New_York');
-		$today = date("Ymd", strtotime('today'));
-		
+<?php $featured = get_field('featured_events'); ?>
+<?php foreach($featured as $feature_obj) { $featured_ID = $feature_obj->ID; ?>
+  <?php 
+  /////// DATES in YYYYMMDD format
+	$past_event = get_field('past_event', $featured_ID);
+	$start_date = get_field('start_date', $featured_ID); 	
+	$end_date = get_field('end_date', $featured_ID); 			
+  date_default_timezone_set('America/New_York');
+	$today = date("Ymd", strtotime('today'));
+	
+	// Before doing anything, see if the event is upcoming
+	if(!$past_event){
+
 		$dateString = '';
 		if($start_date && $end_date){
 			$dateString = date('F j', strtotime($start_date));
@@ -29,10 +33,11 @@
 
 
 		// Get soonest date
+		$start_date = get_field('start_date', $featured_ID); 	
 		$showtime_soonestDate = $start_date; 	
 		$showtime_soonestTime = ''; 
 		$upcoming_showtimes = array();
-		$showtimes = get_field('showtimes');
+		$showtimes = get_field('showtimes', $featured_ID);
 
 		if(is_array($showtimes) || is_object($showtimes)){
 			$i = 0;
@@ -45,15 +50,15 @@
 			  	if(is_array($times) || is_object($times)){
 				  	foreach($times as $time) {	
 							$upcoming_showtimes[$i]['times'][$j] = $time;	
-						  $j++;	
+						  $j++;
 				  	}	
 				  }
 				  $i++;	
 			  }	
 			}
 			$showtime_soonestDate = $upcoming_showtimes[0]['date']; 	
-			
-			if($showtime_soonestTime != NULL){
+
+			if($showtime_soonestDate != NULL && isset($upcoming_showtimes[0]['times'])){
 				$showtime_soonestTime = $upcoming_showtimes[0]['times'][0]['time']; 	
 			}
 		}
@@ -87,42 +92,27 @@
         </div>
         <div class="featuredEvent__info">
           <div class="container">
+            
             <p class="event__categories">
-						<?php 
-						// SHOW YOAST PRIMARY CATEGORY, OR FIRST CATEGORY
-						$category = get_the_category($featured_ID);
-						$useCatLink = false;
-						
-						if ($category){
-
-							$category_display = '';
-							// Show the post's 'Primary' category, if this Yoast feature is available, & one is set
-							if ( class_exists('WPSEO_Primary_Term') ) {
-								$wpseo_primary_term = new WPSEO_Primary_Term( 'category', $featured_ID );
-								$wpseo_primary_term = $wpseo_primary_term->get_primary_term();
-								$term = get_term( $wpseo_primary_term );
-								if (is_wp_error($term)) {  // Default to first category (not Yoast) if an error is returned
-									$category_display = $category[0]->name;
-								} else {  // Yoast Primary category
-									$category_display = $term->name;
+							<?php // show the event's categories
+								$custom_taxonomy = 'event_categories';
+								if(get_post_type($featured_ID) == 'film'){
+									$custom_taxonomy = 'film_categories';
 								}
-							} 
-							else { // Default, display the first category in WP's list of assigned categories
-								$category_display = $category[0]->name;
-							}
-
-							if ( !empty($category_display) ){
-								echo htmlspecialchars($category_display);
-							}
-						} else {
-						 	if (get_post_type($featured_ID) == 'film') {
-					  		echo 'Film';
-					  	} else if (get_post_type($featured_ID) == 'event') {
-								echo 'Live Event';
-							} 
-						}
-					?>
-					</p>
+								$terms = get_the_terms( $featured_ID , $custom_taxonomy );
+								if($terms){
+								
+									$categories_string = '';
+									$i = 1;
+									foreach ( $terms as $term ) {
+										$categories_string .= $term->name;
+										$categories_string .= ($i < count($terms))? ", " : "";
+										$i++;
+									}
+						  		echo '<h5>' . $categories_string . '</h5>';
+								}
+				  		?>
+						</p>
 
             <h3><?php echo $feature_obj->post_title; ?></h3>
             <p><i class="far fa-calendar-alt"></i><?php echo $dateString; ?></p>
@@ -152,7 +142,7 @@
 							  if(is_array($pricesOrdered) || is_object($pricesOrdered)){
 									$ticket_string = '$';
 									$ticket_string .= $pricesOrdered[0]; // use the lowest price 				
-									if($pricesOrdered[1]){  // and if there are more prices, add a plus sign
+									if(isset($pricesOrdered[1])){  // and if there are more prices, add a plus sign
 										$ticket_string .= '+'; 
 									} 
 								}
@@ -181,6 +171,7 @@
         </div>
       </div> 
     </div> 
-  <?php } // end foreach ?>
-  <?php wp_reset_postdata(); ?>
-</div> <!-- .carousel -->
+	<?php } // if end date <= today ?>
+<?php } // end foreach ?>
+<?php wp_reset_postdata(); ?>
+</div>

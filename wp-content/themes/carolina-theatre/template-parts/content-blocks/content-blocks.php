@@ -25,13 +25,16 @@ if (have_rows('content_block_type')) {
       case 'section_divide':
         get_template_part( 'template-parts/content-blocks/block', 'section_divide' );
         break;
+     	case 'section_padding':
+        get_template_part( 'template-parts/content-blocks/block', 'section_padding' );
+        break;
       default:
         echo "No Content Found";
         break;
     }  
   }
 } else {
-  echo "No Content Found";  
+  // echo "No Content Found";  
 }
 
 wp_reset_postdata();

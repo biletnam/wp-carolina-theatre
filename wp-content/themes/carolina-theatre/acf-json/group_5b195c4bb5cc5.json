@@ -174,7 +174,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "40",
-                "class": "hidden",
+                "class": "",
                 "id": ""
             },
             "default_value": "",
@@ -193,7 +193,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "40",
-                "class": "hidden",
+                "class": "",
                 "id": ""
             },
             "default_value": "",
@@ -212,7 +212,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "40",
-                "class": "hidden",
+                "class": "",
                 "id": ""
             },
             "default_value": "",
@@ -231,7 +231,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "40",
-                "class": "hidden",
+                "class": "",
                 "id": ""
             },
             "message": "",
@@ -382,13 +382,40 @@
             "endpoint": 0
         },
         {
+            "key": "field_5b27cb536b257",
+            "label": "Are there tickets for this event?",
+            "name": "event_areticketsbeingsold",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5b195c4bbdcb1",
             "label": "Main Ticket Link",
             "name": "ticket_link",
             "type": "url",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b27cb536b257",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -404,13 +431,21 @@
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b27cb536b257",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "collapsed": "field_5b18407f59f77",
+            "collapsed": "field_5b195c4bf38f6",
             "min": 0,
             "max": 0,
             "layout": "block",
@@ -463,7 +498,15 @@
             "type": "date_time_picker",
             "instructions": "If left blank, link to purchase tickets will be live.",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b27cb536b257",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "100",
                 "class": "",
@@ -480,7 +523,15 @@
             "type": "date_time_picker",
             "instructions": "If there's a date when the presale goes live, this will activate the ticket button.",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b27cb536b257",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "100",
                 "class": "",
@@ -497,7 +548,15 @@
             "type": "true_false",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b27cb536b257",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "100",
                 "class": "",
@@ -522,6 +581,11 @@
                         "field": "field_5b195c4bbdd26",
                         "operator": "==",
                         "value": "1"
+                    },
+                    {
+                        "field": "field_5b27cb536b257",
+                        "operator": "==",
+                        "value": "1"
                     }
                 ]
             ],
@@ -540,7 +604,15 @@
             "type": "true_false",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b27cb536b257",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "100",
                 "class": "",
@@ -565,6 +637,11 @@
                         "field": "field_5b195c4bbdd4d",
                         "operator": "==",
                         "value": "1"
+                    },
+                    {
+                        "field": "field_5b27cb536b257",
+                        "operator": "==",
+                        "value": "1"
                     }
                 ]
             ],
@@ -583,7 +660,15 @@
             "type": "true_false",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b27cb536b257",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -867,6 +952,25 @@
                     "maxlength": ""
                 }
             ]
+        },
+        {
+            "key": "field_5b23f28123e0b",
+            "label": "Event Filter String (hidden)",
+            "name": "event_filter_string",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "hidden",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -895,5 +999,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1529002223
+    "modified": 1529334781
 }

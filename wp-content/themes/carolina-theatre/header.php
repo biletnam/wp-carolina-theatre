@@ -18,10 +18,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<?php $favicon_code = get_field('favicon_code', 'option'); ?>
-	<?php if ($favicon_code){ ?>
-		<?php echo $favicon_code; ?>
-	<?php } // endif ?>
+	<?php get_template_part('template-parts/part', 'favicon');?>
 
 	<?php wp_head(); ?>
 
@@ -66,12 +63,28 @@ $GLOBALS["location_address"] = get_field('address', 'option');
 $GLOBALS["location_directionlink"] = get_field('google_map_link', 'option');
 ?>
 
+<div class="headerSearch">
+	<div class="contain container">
+		<a id="close_search" class="close_search"><i class="fas fa-times" ><span class="screen-reader-text">Close Search</span></i></a>
+		<div class="headerSearch__wrapper">
+			<div class="search--sitewide">
+				<h3 class="h1">Search Sitewide</h3>
+				<?php get_template_part('/searchform'); ?>
+			</div>
+			<div class="search--events">
+				<h3 class="h3">Search Events</h3>
+				<?php get_template_part('/searchform', 'events'); ?>
+			</div>	
+		</div>
+	</div>
+</div>
+
 <div class="header header__mobileNav">
 	<div class="header__mobileNavTop"> 
 		<?php // top left secondary navigation (member tickets)
 		if(has_nav_menu('header-topleft')){ ?>
 		<nav role="navigation">
-	  	<a href="#" id="header__searchBtn" class="header__searchBtn"><i class="fas fa-search"></i></a>
+	  	<a class="header__searchBtn"><i class="fas fa-search"></i><span class="screen-reader-text">Open Sitewide Search</span></a>
 			<?php wp_nav_menu( array( 
 	    	'theme_location' 	=> 'header-topleft', 
 	    	'container'				=> false,
@@ -176,7 +189,7 @@ $GLOBALS["location_directionlink"] = get_field('google_map_link', 'option');
 			    	'menu_id'					=> '',
 			    	) 
 			  	); ?>
-			  	<a href="#" id="header__searchBtn" class="header__searchBtn"><i class="fas fa-search"></i></a>
+			  	<a class="header__searchBtn"><i class="fas fa-search"></i><span class="screen-reader-text">Open Sitewide Search</span></a>
 		  	</nav>
 		  	<?php } ?>
 			</div>

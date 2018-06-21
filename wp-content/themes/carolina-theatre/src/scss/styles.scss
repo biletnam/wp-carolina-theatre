@@ -6,7 +6,7 @@ $menuBreakpoint: 1080px;
 $sizeDesktop: 1200px;
 $sizeLarge: 1400px;
 
-$maxWidth: 1680px;
+$maxWidth: 1440px;
 $mobileMenuWidth: 280px;
 
 $transition: all .5s ease;
@@ -29,3 +29,4 @@ $transition: all .5s ease;
 @import "styles/hero-slider";
 @import "styles/accordion";
 @import "styles/blog";
+@import "styles/search";

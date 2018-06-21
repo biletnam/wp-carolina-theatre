@@ -1,23 +1,6 @@
 {
     "key": "group_59ede949996db",
     "title": "Theme - Contact Information",
-    "location": [
-        [
-            {
-                "param": "options_page",
-                "operator": "==",
-                "value": "acf-options-theme-settings"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": 1,
-    "description": "",
     "fields": [
         {
             "key": "field_59ede94fea8e4",
@@ -28,7 +11,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "100",
                 "class": "",
                 "id": ""
             },
@@ -47,7 +30,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "100",
                 "class": "",
                 "id": ""
             },
@@ -66,7 +49,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "100",
                 "class": "",
                 "id": ""
             },
@@ -74,5 +57,22 @@
             "placeholder": ""
         }
     ],
-    "modified": 1526911070
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-theme-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1529593441
 }

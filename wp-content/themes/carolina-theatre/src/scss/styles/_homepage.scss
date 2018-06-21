@@ -20,6 +20,7 @@
 	}
 
 	.statistics {
+		background-color: $off-black;
 		display: inline-block;
 		width: 100%;
 		@include clearfix;
@@ -165,4 +166,7 @@
   width: 100%;
 }
 
+.hp-ctaCards > .contain {
+  padding-top: 20px;
+} 
 

@@ -30,19 +30,9 @@
 	$social_shortcode = get_field('social_feed_shortcode', 'option', false);
 ?>
 
-<?php if($show_social_feed && $social_shortcode){ ?>
-<section class="socialmedia__feed">
-	<div class="socialmedia__feed--title">
-		<?php if($social_title){ ?><h3><?php echo $social_title; ?></h3><?php } ?>
-	</div>
-	<div class="socialmedia__feed--posts contain container">
-		<?php echo do_shortcode($social_shortcode); ?>
-	</div>
-</section>
-<?php } //end if $show_social_feed ?>
-
 <?php if(have_rows('social_media_accounts', 'option')){ ?>
 <section class="socialmedia__bar">
+	<?php if($social_title){ ?><h3 class="socialmedia__bar--title"><?php echo $social_title; ?></h3><?php } ?>
 	<?php while(have_rows('social_media_accounts', 'option')){ the_row(); ?>
 	<div class="socialmedia__bar--icon">
 		<?php 
@@ -59,6 +49,19 @@
 </section>
 <?php } // endif footer sitemap ?>
 
+<?php if($show_social_feed && $social_shortcode){ ?>
+<section class="socialmedia__feed bg-white">
+	<!-- <div class="socialmedia__feed--title">
+		<?php if($social_title){ ?><h3><?php echo $social_title; ?></h3><?php } ?>
+	</div> -->
+	<div class="socialmedia__feed--posts contain container">
+		<?php echo do_shortcode($social_shortcode); ?>
+	</div>
+</section>
+<?php } //end if $show_social_feed ?>
+
+
+
 <footer class="footer--main"<?php if($footer_bg){ echo ' style="background-image:url('.$footer_bg.');"'; } ?>>
 	<?php if($slogan){ ?>
 		<div class="footer__slogan">
@@ -69,7 +72,7 @@
 	<?php if($show_email_signup){ ?>
 		<div class="footer__newsletter">
 			<p class="small"><?php echo $email_signup_headline; ?></p>
-	    <?php //echo do_shortcode($email_signup_shortcode); ?>
+	    <?php echo do_shortcode($email_signup_shortcode); ?>
 			<?php 
 			// <div class="newsletter__form">
 			//   <input type="email" id="bronto-newsletter_%formID%" class="bronto_signup_input newsletter__input" name="email" placeholder="email address">

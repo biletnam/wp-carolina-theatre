@@ -95,18 +95,31 @@
 	.filmFilters {
 		display: none;
 	}
+
+	.mainContent__content > .container {
+		padding-right: 20px;
+	}
 }
-.filmFilters {
-	.default {
+
+.tabbedContent__tab {
+	&.default {
 		position: relative;
-    margin-right: 26px;
+    margin-right: 50px;
+
+    @include breakpoint($sizeMobile){
+    	margin-right: 25px;
+    }
 
 		&::after {
 			position: absolute;
 			content: "|";
 			font-weight: 400;
-			right: -16px;
+			right: -25px;
 			color: $gray;
+
+			@include breakpoint($sizeMobile){
+	    	right: -12.5px;
+	    }
 		}
 	}
 }
@@ -199,6 +212,7 @@
 	text-align: center;
 	color: $white;
 	line-height: 1;
+	-webkit-backface-visibility: hidden;
 
 	span {
 		display: block;
@@ -414,24 +428,26 @@
 	align-content: top;
 	flex-wrap: wrap;
 	margin-top: 30px;
+
+	.card {
+    flex: 0 1 auto;
+	}
 }
 .card {
 	position: relative;
 	background-color: $white;
 	vertical-align: top;
 	max-width: 250px;
-	width: 100%;
+	width: 250px;
   margin-right: 20px;
   margin-bottom: 20px;
-
-  @include breakpoint-min($sizeLarge){
-		margin-right: 30px;
-		margin-bottom: 30px;
-  }
-
 	border: 1px solid $gray;
 	overflow: hidden;
 	transition: $transition;
+
+	&.past-event {
+		opacity: .4;
+	}
 
 	&__button {
 		position: absolute;
@@ -540,3 +556,8 @@
 	}
 }
 
+.loader {
+	display: none;
+	text-align: center;
+	margin: 2em;
+}

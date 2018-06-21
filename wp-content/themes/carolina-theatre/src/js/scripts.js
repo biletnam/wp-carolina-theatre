@@ -1,22 +1,4 @@
-// Pulling in all javascript files and being minified with Codekit
-
-// smooth scroll to just above anchor points
-// (function($){
-// 	$(function(){
-// 		$('a[href*="#"]:not([href="#"]):not([href*="popup"])').click(function() {
-// 			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-// 				var target = $(this.hash);
-// 				target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-// 				if (target.length) {
-// 					$('html, body').animate({
-// 						scrollTop: target.offset().top
-// 					}, 1000);
-// 					return false;
-// 				}
-// 			}
-// 		});
-// 	});
-// })(jQuery);
+// Pulling in all javascript files and being minified with Codekit, along with the scripts below.
 
 (function($){
 	var $ww = $(window).width();
@@ -27,10 +9,15 @@
 	var stickyMenuCtrl = new ScrollMagic.Controller(); 
 
 	$(document).ready(function() {
+		// close mobile menu using the X button
+		$mobileMenuClose.on('click touch', function(){
+			closeMobileMenu();
+		});
+
 		// make .header-menu sticky on scroll
 		var stickyHeaderMenuScene = new ScrollMagic.Scene({
 				triggerElement: '#header__main',
-				offset: 0,
+				offset: 1,
 				triggerHook: 'onLeave'
 			})
 			.setPin("#header__main")
@@ -77,28 +64,59 @@
 		//// Desktop Event Calendar Dropdown
 		var $edTrigger = $('.header__mainMenu .header__event__trigger');
 		var $ed = $('#eventsDropdown');
-		
-			// 1 - enter trigger = show dropdown
-			$edTrigger.on('mouseover touch', function(e) {
-			  $ed.addClass('show');	
-			  $edTrigger.addClass('hover');
-			});
-			// 2 - leave trigger, enter dropdown = show dropdown
-			$edTrigger.on('mouseleave touch', function(e) {
+		var timer;
+
+		// 1 - enter trigger = show dropdown
+		$edTrigger.on('mouseenter touch', function(e) {
+		  timer = setTimeout(function(){
+        $ed.slideDown(600);
+		  	$edTrigger.addClass('hover');
+		  	$ed.addClass('showing');
+	    }, 600);
+		});
+		// 2 - leave trigger, enter dropdown = showing dropdown
+		$edTrigger.on('mouseleave touch', function(e) {
+			clearTimeout(timer);
+			if($ed.hasClass('showing')) {
 				// e.relatedTarget – is the new under-the-pointer element (that mouse left for).
 				if (!$ed.is(e.relatedTarget) && $ed.has(e.relatedTarget).length === 0) {
-				  $ed.removeClass('show');
+				  $ed.slideUp(300);
 				  $edTrigger.removeClass('hover');
+				  $ed.removeClass('showing');
 				}
-			});
-			// 3 - leave dropdown = hide dropdown
-			$ed.on('mouseleave', function(e) {
-			  $ed.removeClass('show');
+			}
+		});
+		// 3 - leave dropdown = hide dropdown
+		$ed.on('mouseleave', function(e) {
+		  clearTimeout(timer);
+		  if($ed.hasClass('showing')) {
+			  $ed.slideUp(300);
+			  $ed.removeClass('showing');
 			  $edTrigger.removeClass('hover');	
+			}
+		});
+			
+			//// Header Search Box
+			$('.header__searchBtn').on('click touch', function(){
+				// $('.headerSearch').addClass('show');
+				$('.headerSearch').slideDown(600);
+
+			});
+			$('#close_search').on('click touch', function(){
+				// $('.headerSearch').removeClass('show');
+				$('.headerSearch').slideUp(600);
 			});
 
 			// gallery featherlight init
 			$('.block__gallery .gallery').featherlightGallery({
+				previousIcon: '<i class="fas fa-chevron-left"></i>',
+				nextIcon: '<i class="fas fa-chevron-right"></i>',
+				galleryFadeIn: 300,
+				openSpeed: 300
+			});
+
+			// seating chart featherlight init
+			$('.seat-sections .seat-section').featherlightGallery({
 				previousIcon: '<i class="fas fa-chevron-left"></i>',
 				nextIcon: '<i class="fas fa-chevron-right"></i>',
 				galleryFadeIn: 300,

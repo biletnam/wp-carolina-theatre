@@ -1,0 +1,100 @@
+{
+    "key": "group_5970f6ee902f0",
+    "title": "Theme - Scripts & Styles",
+    "fields": [
+        {
+            "key": "field_5970f701016f8",
+            "label": "Custom Styles",
+            "name": "custom_styles",
+            "type": "textarea",
+            "instructions": "Add any custom CSS here.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ".your-class-here {\r\n  display: none;\r\n}",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 5,
+            "new_lines": ""
+        },
+        {
+            "key": "field_5970f72e016f9",
+            "label": "Custom Scripts",
+            "name": "custom_scripts",
+            "type": "textarea",
+            "instructions": "Add any custom Javascript here.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "<script type=\"text\/javascript\">\r\n \/* Your Javascript Here *\/\r\n<\/script>",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 5,
+            "new_lines": ""
+        },
+        {
+            "key": "field_5970f79fe44b8",
+            "label": "Google Analytics",
+            "name": "google_analytics",
+            "type": "textarea",
+            "instructions": "Paste your Google Analytics code here. This will be included just after the opening <code>body<\/code> tag.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
+            "key": "field_59babc2eab07e",
+            "label": "Font Scripts",
+            "name": "font_scripts",
+            "type": "textarea",
+            "instructions": "Paste your Adobe Typekit or Google Font code here. This will be included in the <head> tag.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-advanced"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1529593387
+}

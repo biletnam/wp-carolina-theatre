@@ -57,7 +57,7 @@
 	.left { 
 		float: left;
 
-		a {
+		a:hover {
 			text-decoration: underline; 
 		}
 	}
@@ -107,7 +107,7 @@
 
     	svg {
     		height: 100%;
-	    	width: auto;
+	    	// width: 100%;
     	}
     }
 
@@ -137,14 +137,16 @@
 }
 
 .header__logo {
+	flex: 0 1 auto;
   padding-top: 20px;
   padding-bottom: 20px;
   transition: $transition;
 
 	a {
 		img, svg {
-			height: 75px;
-			width: auto;
+			max-height: 75px;
+			max-width: 160px;
+	    display: block;
 		}
 
 		&:hover {
@@ -159,6 +161,7 @@
 
 // Desktop Menu Styling
 .header__nav {
+	flex: 0 1 auto;
 	width: 100%;
   text-align: right; // justifies menu to the right
   align-self: flex-end; // positions menu at bottom of header
@@ -317,9 +320,6 @@
 		li {
 			display: inline-block;
 			padding-right: 10px;
-		}
-		a {
-			text-decoration: underline;
 		}
 	}
 	.btn__close {
@@ -504,6 +504,7 @@
 // hamburger button styling for opening the mobile menu
 // that is way more complicated than it should be haha
 .mobileNavTrigger { // link "a" element
+	flex: 0 1 auto;
 	display: none;
   position: relative;
   transition: .5s ease-in-out;
@@ -589,7 +590,8 @@
 	&__closeBtn {
 		position: absolute;
 		top: 50%;
-		right: 20px;
+		right: 0;
+		padding: 20px;
 		color: $gold-dk;
 		cursor: pointer;
 		transform: translateY(-50%);
