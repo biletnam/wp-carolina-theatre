@@ -55,6 +55,11 @@ if ($post_type == 'festival') {
 	      'key'     => 'associated_event',
 	      'value'   => get_the_id(),
 	      'compare' => '=',
+	    ),
+	    array(
+	      'key'     => 'end_date',
+	      'value'   => $start_date,
+	      'compare' => '>=',
 	    )
 		),
 		'meta_key' => 'start_date', // order by the soonest date (may not be most recent, but close enough)
@@ -71,10 +76,16 @@ if ($post_type == 'series' || $post_type == 'festival') {
 		'post_status' => 'publish',
 		'posts_per_page' => -1,
 		'meta_query'	=> array(
+			'relation' => 'AND',
 			array(
 	      'key'     => 'associated_event',
 	      'value'   => get_the_id(),
 	      'compare' => '=',
+	    ),
+	    array(
+	      'key'     => 'end_date',
+	      'value'   => $start_date,
+	      'compare' => '>=',
 	    )
 		),
 		'meta_key' => 'start_date', // order by the soonest date (may not be most recent, but close enough)
@@ -91,10 +102,16 @@ if ($post_type == 'education') {
 		'post_status' => 'publish',
 		'posts_per_page' => -1,
 		'meta_query'	=> array(
+			'relation' => 'AND',
 			array(
 	      'key'     => 'associated_event',
 	      'value'   => get_the_id(),
 	      'compare' => '=',
+	    ),
+	    array(
+	      'key'     => 'end_date',
+	      'value'   => $start_date,
+	      'compare' => '>=',
 	    )
 		),
 		'meta_key' => 'start_date', // order by the soonest date (may not be most recent, but close enough)

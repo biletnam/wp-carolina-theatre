@@ -111,8 +111,32 @@ if( function_exists('acf_add_options_page') ) {
 	));
 
 	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Seating Chart',
+		'menu_title'	=> 'Seating Chart',
+		'parent_slug'	=> 'general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Social Media',
+		'menu_title'	=> 'Social Media',
+		'parent_slug'	=> 'general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Default Link Blocks',
+		'menu_title'	=> 'Link Blocks',
+		'parent_slug'	=> 'general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Page Footer',
+		'menu_title'	=> 'Page Footer',
+		'parent_slug'	=> 'general-settings',
+	));
+
+		acf_add_options_sub_page(array(
 		'page_title' 	=> 'Scripts & Styles',
-		'menu_title'	=> 'Scripts & Styles',
+		'menu_title'	=> 'Advanced',
 		'parent_slug'	=> 'general-settings',
 	));
 }
@@ -588,6 +612,12 @@ require get_template_directory() . '/inc/tinymce.php';
  * Filtering Upcoming Events/Films using AJAX
  */
 require get_template_directory() . '/inc/event-filtering-and-querying.php';
+
+/**
+ * Seating Chart Shortcode
+ */
+require get_template_directory() . '/inc/seating-chart.php';
+
 
 
 

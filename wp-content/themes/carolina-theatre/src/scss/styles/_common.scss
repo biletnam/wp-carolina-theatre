@@ -46,9 +46,11 @@ hr {
 img, figure {
   height: auto;
   max-width: 100%;
-  // &.size-medium {
-  // 	width: 50%;
-  // }
+
+  &[src$=".svg"] {
+    width: auto;
+    height: auto;
+	}
 
 	&.alignright {
 		float:right; 
@@ -650,9 +652,56 @@ $sidebarLargest: 480px;
 			margin-bottom: 0;
 		}
 	}
-// 	>.container {
-//     border-bottom: 1px solid $gray;
-//     padding-bottom: 20px;
-//     margin-bottom: 20px;
-// 	}
+}
+
+
+// Seating Chart Styles
+.seatingChart {
+	svg {
+    width: 100%;
+    display: block;
+    height: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+	}
+}
+.seat-sections {
+	&:hover {
+		.seat-section {
+			opacity: .6;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+}
+.seat-section {
+	transition: $transition;
+	cursor: pointer;
+	position: relative;
+
+	.dot {
+		transition: $transition;
+	}
+	&:hover {
+		.dot {
+			stroke: $white;
+			stroke-width: 4;
+		}
+	}
+}
+
+.seatingChart__overlay {
+	.image {
+		img {
+	    width: 100%;
+	    display: block;
+	  }
+  }
+
+  .description {
+    background-color: $white;
+    padding: 20px;
+  }
 }

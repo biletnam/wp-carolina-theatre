@@ -17,7 +17,7 @@
 		// make .header-menu sticky on scroll
 		var stickyHeaderMenuScene = new ScrollMagic.Scene({
 				triggerElement: '#header__main',
-				offset: 0,
+				offset: 1,
 				triggerHook: 'onLeave'
 			})
 			.setPin("#header__main")
@@ -109,6 +109,14 @@
 
 			// gallery featherlight init
 			$('.block__gallery .gallery').featherlightGallery({
+				previousIcon: '<i class="fas fa-chevron-left"></i>',
+				nextIcon: '<i class="fas fa-chevron-right"></i>',
+				galleryFadeIn: 300,
+				openSpeed: 300
+			});
+
+			// seating chart featherlight init
+			$('.seat-sections .seat-section').featherlightGallery({
 				previousIcon: '<i class="fas fa-chevron-left"></i>',
 				nextIcon: '<i class="fas fa-chevron-right"></i>',
 				galleryFadeIn: 300,

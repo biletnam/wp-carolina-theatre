@@ -593,7 +593,8 @@ blockquote {
   transition: all 0.5s ease; }
   .header__logo a img, .header__logo a svg {
     max-height: 75px;
-    max-width: 160px; }
+    max-width: 160px;
+    display: block; }
   .header__logo a:hover {
     opacity: 1; }
   @media screen and (max-width: 1080px) {
@@ -1145,6 +1146,9 @@ hr {
 img, figure {
   height: auto;
   max-width: 100%; }
+  img[src$=".svg"], figure[src$=".svg"] {
+    width: auto;
+    height: auto; }
   img.alignright, figure.alignright {
     float: right;
     padding: 1rem;
@@ -1595,6 +1599,38 @@ main {
 
 .pageHeading .tabContent__tabs ul {
   margin-bottom: 0; }
+
+.seatingChart svg {
+  width: 100%;
+  display: block;
+  height: 100%;
+  max-width: 550px;
+  margin: 0 auto; }
+
+.seat-sections:hover .seat-section {
+  opacity: .6; }
+  .seat-sections:hover .seat-section:hover {
+    opacity: 1; }
+
+.seat-section {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  position: relative; }
+  .seat-section .dot {
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease; }
+  .seat-section:hover .dot {
+    stroke: #fff;
+    stroke-width: 4; }
+
+.seatingChart__overlay .image img {
+  width: 100%;
+  display: block; }
+
+.seatingChart__overlay .description {
+  background-color: #fff;
+  padding: 20px; }
 
 .button,
 input[type="submit"] {

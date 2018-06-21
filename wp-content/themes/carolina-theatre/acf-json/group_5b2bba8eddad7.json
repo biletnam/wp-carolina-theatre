@@ -1,0 +1,126 @@
+{
+    "key": "group_5b2bba8eddad7",
+    "title": "Seating Chart",
+    "fields": [
+        {
+            "key": "field_5b2bba9677984",
+            "label": "Seating Sections",
+            "name": "seating_sections",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5b2bc18e40e15",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Section",
+            "sub_fields": [
+                {
+                    "key": "field_5b2bc18e40e15",
+                    "label": "Section Name",
+                    "name": "seating_section_name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5b2bbc797798b",
+                    "label": "Section Photo",
+                    "name": "seating_section_photo",
+                    "type": "image",
+                    "instructions": "Insert a photo from this spot in the theatre.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_5b2bbbc27798a",
+                    "label": "Description",
+                    "name": "seating_section_description",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "<h5>Orchestra Level<\/h5>\r\n<h3>Center<\/h3>\r\n<p>Row A - K<\/p>\r\n<p class=\"small\">Seats 116 - 101<\/p>\r\n\r\n<p><strong>Wheelchair accessible seating.<\/strong><\/p>",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0
+                },
+                {
+                    "key": "field_5b2bbab077985",
+                    "label": "Section ID",
+                    "name": "seating_section_id",
+                    "type": "text",
+                    "instructions": "This ID must match the ID for the corresponding section in the svg code.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-seating-chart"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1529594337
+}

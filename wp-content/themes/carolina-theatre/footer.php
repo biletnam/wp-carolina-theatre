@@ -72,7 +72,7 @@
 	<?php if($show_email_signup){ ?>
 		<div class="footer__newsletter">
 			<p class="small"><?php echo $email_signup_headline; ?></p>
-	    <?php //echo do_shortcode($email_signup_shortcode); ?>
+	    <?php echo do_shortcode($email_signup_shortcode); ?>
 			<?php 
 			// <div class="newsletter__form">
 			//   <input type="email" id="bronto-newsletter_%formID%" class="bronto_signup_input newsletter__input" name="email" placeholder="email address">
